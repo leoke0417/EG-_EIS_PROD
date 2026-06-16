@@ -1,0 +1,48 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_ServiceStore_GET_manager_providers_{id}_services_{serviceUuid}_contracts.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=GET_manager_providers_{id}_services_{serviceUuid}_contracts
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/GET_manager_providers_{id}_services_{serviceUuid}_contracts.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+$serviceId$=get							file_operate		list_dict_value						#key#=serviceId,#response_body#=$response_body$
+
+$pkgName$=get							file_operate		list_dict_value						#key#=pkgName,#response_body#=$response_body$
+
+$contractStatus$=get					file_operate		list_dict_value						#key#=contractStatus,#response_body#=$response_body$
+
+$subscribeType$=get						file_operate		list_dict_value						#key#=subscribeType,#response_body#=$response_body$
+
+$price$=get								file_operate		list_dict_value						#key#=price,#response_body#=$response_body$
+
+$serupdatedAtviceId$=get				file_operate		list_dict_value						#key#=updatedAt,#response_body#=$response_body$
+
+verify									api_verification	uuid								#actual_result#=$serviceId$
+
+verify									api_verification	string								#actual_result#=$pkgName$
+
+verify									api_verification	string								#actual_result#=$contractStatus$
+
+verify									api_verification	string								#actual_result#=$subscribeType$
+
+verify									api_verification	float								#actual_result#=$price$
+
+verify									api_verification	time								#actual_result#=$serupdatedAtviceId$
+
+# end

@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "66283887-3c5c-4738-b17f-4e5d6b65566c",
+		"name": "QA_IoE_PUT_hems_posts_{id}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "PUT_hems_posts_{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"teamId\": \"741cac9d-4115-4860-8d5f-5b3feab3806c\",\r\n  \"authorEmail\": \"benny.hsu+99@nextdrive.io\",\r\n  \"status\": \"published\",\r\n  \"format\": 1,\r\n  \"audienceConditions\": \"{\\\"inputEmails\\\":[\\\"dustin.lin+100@nextdrive.io\\\"],\\\"csvEmails\\\":[],\\\"userLabels\\\":[],\\\"gatewayModels\\\":[],\\\"gatewayLocations\\\":[]}\",\r\n  \"post\": [\r\n    {\r\n      \"title\": \"0809 post link Android\",\r\n      \"description\": \"Post Content*\\nPost Content*\\nPost Content*\\nPost Content*\\nPost Content*\\nPost Content*\\nPost Content*\",\r\n      \"urls\": [\r\n        {\r\n          \"label\": \"Google\",\r\n          \"url\": \"https://www.google.com.tw/?hl=zh_TW\"\r\n        },\r\n        {\r\n          \"label\": \"Youtube\",\r\n          \"url\": \"https://www.youtube.com/\"\r\n        }\r\n      ],\r\n      \"images\": [\r\n        {\r\n          \"previewImageUrl\": \"https://ioe-post-qa.nextdrive.io/postImages/518bed84-7e1e-400c-bcc1-4ee3f2e491e1-thumbnail.png\",\r\n          \"originalContentUrl\": \"https://ioe-post-qa.nextdrive.io/postImages/518bed84-7e1e-400c-bcc1-4ee3f2e491e1.png\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"detail\": [\r\n    {\r\n      \"title\": \"Article Title\",\r\n      \"contents\": [\r\n        {\r\n          \"text\": \"Article Title\\nArticle Title\\nArticle Title\\nArticle Title\\nArticle Title\\nArticle Title\\nArticle Title\\nArticle Title\",\r\n          \"type\": \"text\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"publishedAt\": \"2021-08-09T01:45:33.513000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/hems/posts/29023",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"hems",
+						"posts",
+						"29023"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

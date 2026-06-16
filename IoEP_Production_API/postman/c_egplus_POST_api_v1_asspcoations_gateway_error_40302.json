@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "ecdb0e9f-cb5c-4e12-914e-f9d7dd72bf46",
+		"name": "POST /api/v1/associations/gateways/{gatewayUuid}_Error_Check_40302",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /api/v1/associations/gateways_Error_40302",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"profileId\": \"{{profile_Id_40302}}\",\r\n  \"pid\": \"{{gateway_pid_40302}}\",\r\n  \"name\": \"Error_API_test_cube_40302\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ioep_qa_eg+_api_url}}/api/v1/associations/gateways",
+					"host": [
+						"{{ioep_qa_eg+_api_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"associations",
+						"gateways"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

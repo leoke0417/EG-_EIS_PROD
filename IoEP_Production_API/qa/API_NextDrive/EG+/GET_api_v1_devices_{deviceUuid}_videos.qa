@@ -1,0 +1,97 @@
+ini		api_egplus.ini
+start
+##===== Execute postman command line ======
+## Get execution path
+$original_path$=get										api_verification	path
+
+## Exchange cognito token
+$cognito_token$=get										api_verification		id_token											#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+## Set cognito token in environment
+set														api_verification		environment_token									#environment_name#=EG+.postman_environment.json,#new_token#=$cognito_token$,#environment#=$test_environment$
+
+## Set cognito token in collection
+set														api_verification		collection_token									#collection_name#=EG+.postman_collection.json,#new_token#=$cognito_token$,#testcase_name#=Get_token,#environment#=$test_environment$
+
+## Execute cmd of newman
+exec													api_verification		cmd													#original_path#=$original_path$,#environment#=$test_environment$,#command#=newman run EG+.postman_collection.json -e EG+.postman_environment.json -r csv --reporter-csv-export
+
+## Get file location and get the file list of result
+$csv_file_name$=get										api_verification		file_list											#environment#=$test_environment$,#folder_path#=newman
+
+sleep													1
+##===== END =====
+
+
+
+
+##===== Test case: Get video list ======
+## To count amount of api executed
+#$final_result$=get										api_verification			api_count
+
+## Read csv and target file
+$video_list_response$=get								api_verification			read_csv										#environment#=$test_environment$,#csv_filename#=$csv_file_name$,#testcase_name#=Get_video_list_of_usb_camera_device 
+
+## Get status code of result
+$video_list_status_code$=get							api_verification			status_code										#api_response#=$video_list_response$
+
+## Get response body of result
+$video_list_response_body$=get							api_verification			response_body									#api_response#=$video_list_response$	
+
+## Load expected result file
+$video_list_result$=get									api_verification			expected_result									#environment#=$test_environment$,#expected_result#=EG+\EG_plus_get_video_list.json
+
+## Verify status code
+verify													api_verification			status_code										#api_response#=$video_list_status_code$,#expected_status_code#=200
+
+## Verify keys of response body
+verify													api_verification			dict_keys										#expected_result#=$video_list_result$,#actual_result#=$video_list_response_body$
+
+## Get videos > id
+$video_list_video_id$=get								file_operate				dict_list_dict_value								#first_key#=videos,#second_key#=id,#response_body#=$video_list_response_body$
+
+## Get videos > videoUrl
+$video_list_video_video_url$=get						file_operate				dict_list_dict_value								#first_key#=videos,#second_key#=videoUrl,#response_body#=$video_list_response_body$
+
+## Get videos > thumbnailUrl
+$video_list_video_thumbnail_url$=get					file_operate				dict_list_dict_value								#first_key#=videos,#second_key#=thumbnailUrl,#response_body#=$video_list_response_body$
+
+## Get videos > hashId
+$video_list_video_hash_id$=get							file_operate				dict_list_dict_value								#first_key#=videos,#second_key#=hashId,#response_body#=$video_list_response_body$
+
+## Get videos > uploadAt
+$video_list_video_upload_at$=get						file_operate				dict_list_dict_value								#first_key#=videos,#second_key#=uploadAt,#response_body#=$video_list_response_body$
+
+## Get videos > linkedWith > uuid
+#$video_list_video_link_uuid$=get						file_operate				dict_list_dict_dict_value						#first_key#=videos,#second_key#=linkedWith,#third_key#=uuid,#response_body#=$video_list_response_body$
+
+## Get videos > linkedWith > model
+#$video_list_video_link_model$=get						file_operate				dict_list_dict_dict_value						#first_key#=videos,#second_key#=linkedWith,#third_key#=model,#response_body#=$video_list_response_body$
+
+## Get videos > linkedWith > name
+#$video_list_video_link_name$=get						file_operate				dict_list_dict_dict_value						#first_key#=videos,#second_key#=linkedWith,#third_key#=name,#response_body#=$video_list_response_body$
+
+## Verify videos > id
+#verify													api_verification			string											#actual_result#=$video_list_video_id$
+
+## Verify videos > videoUrl
+#verify													api_verification			url												#actual_result#=$video_list_video_video_url$
+
+## Verify videos > thumbnailUrl
+#verify													api_verification			url												#actual_result#=$video_list_video_thumbnail_url$
+
+## Verify videos > hashId
+#verify													api_verification			string											#actual_result#=$video_list_video_hash_id$
+
+## Verify videos > uploadAt
+#verify													api_verification			int												#actual_result#=$video_list_video_upload_at$
+
+## Verify videos > linkedWith > uuid
+#verify													api_verification			uuid											#actual_result#=$video_list_video_link_uuid$
+
+## Verify videos > linkedWith > model
+#verify													api_verification			string											#actual_result#=$video_list_video_link_model$
+
+## Verify videos > linkedWith > name
+#verify													api_verification			string											#actual_result#=$video_list_video_link_name$
+##===== END =====

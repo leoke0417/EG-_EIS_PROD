@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "920c6fee-ae93-482c-8850-f0246ad643f7",
+		"name": "EG+ Prod get_api_v1_gateways_{gatewayUuid}_firmwares_latests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var token = \r",
+							"pm.sendRequest({\r",
+							"    url: 'https://api-eg3.nextdrive.io/api/v1/oauth2/tokens/exchange',\r",
+							"    method:'POST',\r",
+							"    header:{\r",
+							"        'accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(\r",
+							"                            {type: \"cognito\",\r",
+							"                token: \"eyJraWQiOiIrR0Q3TGdLam5cL21ENGZNMFAzYVpyWmNUa2dEXC9HTGxkNnkyOGJ3RjduNnM9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwNDdkYTRiOS03OTBkLTQ5OTctOGVjZS0zYWMyNTI3ODcyNTAiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJvZmlsZSI6Im5leHRkcml2ZSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1ub3J0aGVhc3QtMS5hbWF6b25hd3MuY29tXC9hcC1ub3J0aGVhc3QtMV9kaFRHQ0wxYngiLCJjb2duaXRvOnVzZXJuYW1lIjoiYzZiMDFmMDYtMGM5Zi00YTUxLTkzOTUtZWZhZjI1YzllYmFiIiwibG9jYWxlIjoiemgiLCJhdWQiOiJiNWlyZGduNDJoNTB0MWpnM3RoY2RtMGNpIiwiZXZlbnRfaWQiOiJhMGRlMmJmMC1lYzU5LTQzOTQtYThiMi1jNWVmMjU0ZDQzODIiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTYzMTI1ODgzMCwiZXhwIjoxNjMxMjYyNDMwLCJpYXQiOjE2MzEyNTg4MzAsImVtYWlsIjoibGluMDYzMGR1c3RpbkBnbWFpbC5jb20ifQ.GVyw9vh2O2zthStJOZ0_thWX00YFavI1R_a2pGditvDxgFrKULybevMqoIpNv9bDToj_yJvUdygymdnJh2IG2MmMjgFs3hR8ArIBMutIsndlEV8JZRMZ2beZ-1VjoiwMMxs7xtw_7468bgLcWxtZL_bzjRXSaLg0WHkIr_N284tevOovRf5POfvPdmjv7N-E5ZviQT3u08b0SuE_IARfVD2OjES9sOOV23z5Z5vsDwqJmSejgwFaF7kpDqOr2YOSsHY-Bn1xixRXjFCCP9drQW8OWinKmYeeVa5PlJgSgQpH-Peh6mAvYsPwPhNzBWAheafUtB0E_0EQmtJW-HEM0A\",\r",
+							"                            appUuid: \"9876543212345678ABCDEFGGFEDCBA\"}\r",
+							"                            )\r",
+							"    }\r",
+							"}, function(err, response){\r",
+							"    const jsonParse = response.json();\r",
+							"    pm.environment.set(\"nd_token\", jsonParse.accessToken)\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                    \"type\": \"cognito\",\r\n                    \"token\": \"{{cognito_token}}\",\r\n                    \"appUuid\": \"9876543212345678ABCDEFGGFEDCBA\"\r\n                }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/oauth2/tokens/exchange",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"oauth2",
+						"tokens",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_api_v1_gateways_{{gatewayUuid}}_firmwares_latests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/gateways/{{CubeJ-ce1022_uuid}}/firmwares/latests",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"{{CubeJ-ce1022_uuid}}",
+						"firmwares",
+						"latests"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

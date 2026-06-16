@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?>  <testsuite tests="1" time="20.0 sec" error="0" failures="0" name="Production_GET_api_v1_gateways">  <testcase time="20.0 sec" result="pass" name="Production_GET_api_v1_gateways"/>  </testsuite>

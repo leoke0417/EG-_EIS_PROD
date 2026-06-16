@@ -1,0 +1,109 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get													postman					command											#collection#=c_QA_IoE_GET_hems_post_{id}_audits.json,#environment#=e_IoE.json,#iterations#=1
+											
+exec														postman					command											#command#=$cmd$
+											
+$result_file$=get											postman					result							
+											
+$list_data$=get												postman					read_csv										#filename#=$result_file$
+											
+$target_data$=get											postman					find_result										#file#=$list_data$,#testcase#=GET_hems_post_{id}_audits
+											
+$result$=get												postman					api_result										#api_result#=$target_data$
+											
+verify														postman					status_code										#api_result#=$result$,#expected_result#=200
+											
+$response_body$=get											api_verification		api_response									#api_result#=$result$
+											
+$expected_body$=get											api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_hems_post_{id}_audits.json
+											
+verify														api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+
+
+### ==================================
+### Get data
+### ==================================
+## Get title
+$post_title$=get											file_operate			dict_value										#key#=title,#response_body#=$response_body$		
+
+## Get format
+$post_format$=get											file_operate			dict_value										#key#=format,#response_body#=$response_body$
+
+## Get audienceType
+$post_audienceType$=get										file_operate			dict_value										#key#=audienceType,#response_body#=$response_body$
+
+## Get reachCount
+$post_reachCount$=get										file_operate			dict_value										#key#=reachCount,#response_body#=$response_body$
+
+## Get moreClickedCounts
+$post_moreClickedCounts$=get								file_operate			dict_value										#key#=moreClickedCounts,#response_body#=$response_body$
+
+## Get linkClickedCounts > label
+$post_linkClickedCounts_label$=get							file_operate			dict_list_dict_value							#first_key#=linkClickedCounts,#second_key#=label,#response_body#=$response_body$
+
+## Get linkClickedCounts > url
+$post_linkClickedCounts_url$=get							file_operate			dict_list_dict_value							#first_key#=linkClickedCounts,#second_key#=url,#response_body#=$response_body$
+
+## Get linkClickedCounts > counts
+$post_linkClickedCounts_counts$=get							file_operate			dict_list_dict_value							#first_key#=linkClickedCounts,#second_key#=counts,#response_body#=$response_body$
+
+## Get audits > title
+$post_audits_title$=get										file_operate			dict_list_dict_value							#first_key#=audits,#second_key#=title,#response_body#=$response_body$
+
+## Get audits > linkClickedCounts
+$post_audits_linkClickedCounts$=get							file_operate			dict_list_dict_value							#first_key#=audits,#second_key#=linkClickedCounts,#response_body#=$response_body$
+
+## Get audits > detail > title
+$post_audits_detail_title$=get								file_operate			dict_list_dict_dict_value						#first_key#=audits,#second_key#=detail,#third_key#=title,#response_body#=$response_body$
+
+## Get audits > detail > contnets > text
+$post_audits_detail_contents_text$=get						file_operate			dict_list_dict_dict_list_dict_value				#first_key#=audits,#second_key#=detail,#third_key#=contents,#fourth_key#=text,#response_body#=$response_body$
+
+## Get audits > detail > contnets > type
+$post_audits_detail_contents_type$=get						file_operate			dict_list_dict_dict_list_dict_value				#first_key#=audits,#second_key#=detail,#third_key#=contents,#fourth_key#=text,#response_body#=$response_body$
+
+### ==================================
+### Verify
+### ==================================
+## Verify title
+verify														api_verification		string											#actual_result#=$post_title$
+
+## Verify format
+verify														api_verification		int												#actual_result#=$post_format$
+
+## Verify audienceType
+verify														api_verification		string											#actual_result#=$post_audienceType$
+
+## Verify reachCount
+verify														api_verification		string											#actual_result#=$post_reachCount$
+
+## Verify moreClickedCounts
+verify														api_verification		int												#actual_result#=$post_moreClickedCounts$
+
+## Verify linkClickedCounts > label
+verify														api_verification		string											#actual_result#=$post_linkClickedCounts_label$
+
+## Verify linkClickedCounts > url
+verify														api_verification		url												#actual_result#=$post_linkClickedCounts_url$
+
+## Verify linkClickedCounts > counts
+verify														api_verification		int												#actual_result#=$post_linkClickedCounts_counts$
+
+## Verify audits > title
+verify														api_verification		string											#actual_result#=$post_audits_title$
+
+## Verify audits > linkClickedCounts
+####### verify
+
+##Verify audits > detail > title
+verify														api_verification		string											#actual_result#=$post_audits_detail_title$
+
+## Verify audits > detail > contnets > text
+verify														api_verification		string											#actual_result#=$post_audits_detail_title$
+
+## Verify audits > detail > contnets > type
+verify														api_verification		string											#actual_result#=$post_audits_detail_contents_type$

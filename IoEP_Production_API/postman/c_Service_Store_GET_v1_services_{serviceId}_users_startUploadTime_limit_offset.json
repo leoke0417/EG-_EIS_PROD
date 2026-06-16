@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "6392997a-c46e-480d-8fbe-7f8aae9d69d6",
+		"name": "Service_Store_GET_v1_services_{serviceId}_users_startUploadTime_limit_offset",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "GET_v1_services_{serviceId}_users_startUploadTime_limit_offset",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"var data = moment().subtract('2', 'days').format(\"YYYY-MM-DDTHH:mm:ss\")\r",
+							"console.log(data);\r",
+							"pm.environment.set(\"time\", data);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{services_key}}",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-ND-TOKEN",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{end_point}}/v1/services/{{service_uuid}}/users?startUpdatedTime={{time}}&limit=100&offset=0",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"v1",
+						"services",
+						"{{service_uuid}}",
+						"users"
+					],
+					"query": [
+						{
+							"key": "startUpdatedTime",
+							"value": "{{time}}"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

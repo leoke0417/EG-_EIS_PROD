@@ -1,0 +1,84 @@
+ini								api_ioe_account.ini
+start
+
+$cmd1$=get						postman					command						#collection#=c_ioe_account_POST-v1-users-login.json,#environment#=e_IoE_event_dispatch.json,#iterations#=1
+exec							postman					command						#command#=$cmd1$
+$result_file1$=get				postman					result
+$list_data1$=get				postman					read_csv					#filename#=$result_file1$
+$target_data1$=get				postman					find_result					#file#=$list_data1$,#testcase#=POST /account/v1/users/login
+$result1$=get					postman					api_result					#api_result#=$target_data1$
+$response_body1$=get			api_verification		api_response				#api_result#=$result1$
+
+set								read_access_code		access_token				#response_body_result#=$result1$
+
+$get_code$=get					read_access_code		access_token_from_file
+$environment$=get				postman					postman_json				#json_name#=e_IoE_event_dispatch.json
+set								postman					postman_access_token		#json_name#=e_IoE_event_dispatch.json,#environment#=$environment$,#access_token#=$get_code$,#target_key#=access_code
+
+###POST
+
+$cmd$=get						postman					command						#collection#=c_ioe_event_dispatch_post.json,#environment#=e_IoE_event_dispatch.json,#iterations#=1
+exec							postman					command						#command#=$cmd$
+
+$result_file$=get				postman					result		
+
+$list_data$=get					postman					read_csv					#filename#=$result_file$
+
+$target_data$=get				postman					find_result					#file#=$list_data$,#testcase#=New Request2
+
+$result$=get					postman					api_result					#api_result#=$target_data$
+
+verify							postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get				api_verification		api_response				#api_result#=$result$
+
+$subscriptionId_list$=get			file_operate			dict_dict_value				#response_body#=$response_body$,#first_key#=data,#second_key#=subscriptionId
+
+$subscriptionId$=get			file_operate			list						#response_body#=$subscriptionId_list$
+
+$environment2$=get				postman					postman_json				#json_name#=e_IoE_event_dispatch.json
+set								postman					postman_access_token		#json_name#=e_IoE_event_dispatch.json,#environment#=$environment2$,#access_token#=$subscriptionId$,#target_key#=event_uuid
+
+$expected_result$=get			api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoEP/POST_IoE_event_dispatch.json
+
+verify							api_verification		dict_keys					#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+###GET/PATCH/DELETE
+
+$cmd6$=get						postman					command						#collection#=c_ioe_event_dispatch.json,#environment#=e_IoE_event_dispatch.json,#iterations#=1
+exec							postman					command						#command#=$cmd6$
+
+$result_file6$=get				postman					result
+
+$list_data6$=get				postman					read_csv					#filename#=$result_file6$
+
+$target_data6$=get				postman					find_result					#file#=$list_data6$,#testcase#=New Request1
+
+$result6$=get					postman					api_result					#api_result#=$target_data6$
+
+verify							postman					status_code					#api_result#=$result6$,#expected_result#=200
+
+
+
+$list_data6$=get					postman					read_csv					#filename#=$result_file6$
+
+$target_data6$=get				postman					find_result					#file#=$list_data6$,#testcase#=New Request3
+
+$result6$=get					postman					api_result					#api_result#=$target_data6$
+
+verify							postman					status_code					#api_result#=$result6$,#expected_result#=200
+
+
+$list_data6$=get					postman					read_csv					#filename#=$result_file6$
+
+$target_data6$=get				postman					find_result					#file#=$list_data6$,#testcase#=New Request4
+
+$result6$=get					postman					api_result					#api_result#=$target_data6$
+
+verify							postman					status_code					#api_result#=$result6$,#expected_result#=200
+
+
+
+
+

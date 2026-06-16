@@ -1,0 +1,48 @@
+{
+	"info": {
+		"_postman_id": "078ab6fa-d213-4eac-bf5b-f15a0c0cdc20",
+		"name": "IoE QA manager_team_profile_code_available_{code}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "HEAD_manager_team_profile_code_available_{code}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/manager/team/profile/code/available/test_code",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"manager",
+						"team",
+						"profile",
+						"code",
+						"available",
+						"test_code"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

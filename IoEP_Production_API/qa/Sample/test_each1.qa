@@ -1,0 +1,17 @@
+#include		sub.qa
+ini			test.ini
+
+start
+
+#each		start		300,200,100
+#verify		Tool		dir				#name# = test , #value# = 100 , #key# = , #criteria# = =
+#verify		Tool		dir				#name# = test , #value# = $$ , #key# = , #criteria# = !
+#each		end
+#verify		Tool		dir				#name# = test , #value# = test , #key# = , #criteria# = =
+#each		start		300,200,100
+each		start		!loop!=2
+#init		browser		chrome
+verify		Tool		dir				#name#=$test3$,#value#=ABC$$,#key#=$test2$, #criteria#=!
+#close		browser
+each		end
+end

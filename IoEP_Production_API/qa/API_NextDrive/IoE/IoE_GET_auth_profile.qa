@@ -1,0 +1,45 @@
+ini				api_ioe.ini
+start
+$cmd$=get								postman					command						#collection#=c_QA_IoE_GET_auth_profile.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=GET_auth_profile
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\GET_auth_profile.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+
+$name$=get								file_operate			dict_value					#key#=name,#response_body#=$response_body$
+
+$avatar$=get							file_operate			dict_value					#key#=avatar,#response_body#=$response_body$
+
+$teamLogo$=get							file_operate			dict_value					#key#=teamLogo,#response_body#=$response_body$
+
+$teamAvatar$=get						file_operate			dict_value					#key#=teamAvatar,#response_body#=$response_body$
+
+$teamName$=get							file_operate			dict_value					#key#=teamName,#response_body#=$response_body$
+
+verify									api_verification		email						#actual_result#=$name$
+
+verify									api_verification		url							#actual_result#=$avatar$
+
+verify									api_verification		url							#actual_result#=$teamLogo$
+
+verify									api_verification		url							#actual_result#=$teamAvatar$
+
+verify									api_verification		string						#actual_result#=$teamName$
+
+##===== END =====

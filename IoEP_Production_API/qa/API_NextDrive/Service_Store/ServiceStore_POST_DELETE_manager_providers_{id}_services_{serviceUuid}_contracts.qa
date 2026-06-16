@@ -1,0 +1,75 @@
+ini										service_store.ini
+start
+
+### Service Contract -----------------------------------------------------------
+$post_cmd$=get							postman				command								#collection#=c_ServiceStore_POST_manager_provider_{id}_services_{serviceUuid}_contracts.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman				command								#command#=$post_cmd$
+
+$post_result_file$=get					postman				result
+
+$post_list_data$=get					postman				read_csv							#filename#=$post_result_file$
+
+$post_target_data$=get					postman				find_result							#file#=$post_list_data$,#testcase#=POST_manager_providers_{id}_services_{serviceUuid}_contracts
+
+$post_result$=get						postman				api_result							#api_result#=$post_target_data$
+
+verify									postman				status_code							#api_result#=$post_result$,#expected_result#=200
+
+$post_response_body$=get				api_verification	api_response						#api_result#=$post_result$
+
+$post_expected_result$=get				api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/POST_manager_providers_{id}_services_{serviceUuid}_contracts.json
+
+verify									api_verification	dict_keys							#expected_result#=$post_expected_result$,#actual_result#=$post_response_body$
+
+$post_contractUuid$=get					file_operate		dict_value							#key#=contractUuid,#response_body#=$post_response_body$
+
+$post_serviceUuid$=get					file_operate		dict_value							#key#=serviceUuid,#response_body#=$post_response_body$
+
+$post_subscribeType$=get				file_operate		dict_value							#key#=subscribeType,#response_body#=$post_response_body$
+
+$post_price$=get						file_operate		dict_value							#key#=price,#response_body#=$post_response_body$
+
+$post_contractStatus$=get				file_operate		dict_value							#key#=contractStatus,#response_body#=$post_response_body$
+
+verify									api_verification	uuid								#actual_result#=$post_contractUuid$
+
+verify									api_verification	uuid								#actual_result#=$post_serviceUuid$
+
+verify									api_verification	string								#actual_result#=$post_subscribeType$
+
+verify									api_verification	float								#actual_result#=$post_price$
+
+verify									api_verification	string								#actual_result#=$post_contractStatus$
+
+
+### Delete Service Contract ----------------------------------------------------
+$delete_param$=get						api_service_store	update_contracts_url				#contract_uuid#=$post_contractUuid$
+
+$delete_content$=get					postman				postman_json						#json_name#=c_QA_Service_Store_DELETE_manager_providers_{id}_services_{serviceUuid}_contracts_{contractUuid}.json
+
+$delete_final_collection$=get			api_service_store	update_contracts_new_url			#new_param#=$delete_param$,#collection_content#=$delete_content$
+
+set										postman				postman_json						#json_content#=$delete_final_collection$,#json_name#=c_QA_Service_Store_DELETE_manager_providers_{id}_services_{serviceUuid}_contracts_{contractUuid}.json
+
+$delete_cmd$=get						postman				command								#collection#=c_QA_Service_Store_DELETE_manager_providers_{id}_services_{serviceUuid}_contracts_{contractUuid}.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman				command								#command#=$delete_cmd$
+
+$delete_result_file$=get				postman				result
+
+$delete_list_data$=get					postman				read_csv							#filename#=$delete_result_file$
+
+$delete_target_data$=get				postman				find_result							#file#=$delete_list_data$,#testcase#=DELETE_manager_providers_{id}_services_{serviceUuid}_contracts_{contractUuid}
+
+$delete_result$=get						postman				api_result							#api_result#=$delete_target_data$
+
+verify									postman				status_code							#api_result#=$delete_result$,#expected_result#=200
+
+$delete_response_body$=get				api_verification	api_response						#api_result#=$delete_result$
+
+$delete_expected_result$=get			api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/DELETE_manager_providers_{id}_services_{serviceUuid}_contracts_{contractUuid}.json
+
+verify									api_verification	dict_keys							#expected_result#=$delete_expected_result$,#actual_result#=$delete_response_body$
+
+

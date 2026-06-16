@@ -1,0 +1,20 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+#sleep		3
+
+$count_sm_reverseUsage$=get				fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_smartmeter_uuid$,#data_scope#=$qa_SmartMeter_reverseUsage$,#time_period#=86400
+$count_sm_instanceCurrents$=get			fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_smartmeter_uuid$,#data_scope#=$qa_SmartMeter_instanceCurrents$,#time_period#=86400
+$count_sm_normalUsage$=get				fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_smartmeter_uuid$,#data_scope#=$qa_SmartMeter_normalUsage$,#time_period#=86400
+$count_sm_instanceElectricity$=get		fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_smartmeter_uuid$,#data_scope#=$qa_SmartMeter_instanceElectricity$,#time_period#=86400
+$count_sm_instanceCurrentsT$=get		fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_smartmeter_uuid$,#data_scope#=$qa_SmartMeter_instanceCurrentsT$,#time_period#=86400
+$fw_version$=get						File					shellcmd				#command#=adb -s $atto_name$ shell getprop ro.build.version.release 
+
+$result$=get							fwapi_data_sanity		smartmeter_result		#fw_version#=$fw_version$,#env#=qa,#count_sm_reverseUsage#=$count_sm_reverseUsage$,#count_sm_instanceCurrents#=$count_sm_instanceCurrents$,#count_sm_normalUsage#=$count_sm_normalUsage$,#count_sm_instanceElectricity#=$count_sm_instanceElectricity$,#count_sm_instanceCurrentsT#=$count_sm_instanceCurrentsT$
+send									Fb						automan_production		#message#=$result$
+#send									Fb						automan_datacheck		#message#=$result$
+
+end

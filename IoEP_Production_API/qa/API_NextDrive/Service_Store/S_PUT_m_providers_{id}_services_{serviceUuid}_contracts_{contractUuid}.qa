@@ -1,0 +1,43 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_ServiceStore_PUT_manager_providers_{id}_services_{serviceUuid}_contracts_{contractUuid}.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=PUT_manager_providers_{id}_services_{serviceUuid}_contracts​_{contractUuid}
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/PUT_manager_providers_{id}_services_{serviceUuid}_contracts​_{contractUuid}.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+$contractUuid$=get								file_operate		dict_value						#key#=contractUuid,#response_body#=$response_body$
+
+$serviceUuid$=get								file_operate		dict_value						#key#=serviceUuid,#response_body#=$response_body$
+
+$subscribeType$=get								file_operate		dict_value						#key#=subscribeType,#response_body#=$response_body$
+
+$price$=get								file_operate		dict_value						#key#=price,#response_body#=$response_body$
+
+$contractStatus$=get								file_operate		dict_value						#key#=contractStatus,#response_body#=$response_body$
+
+verify									api_verification	uuid								#actual_result#=$contractUuid$
+
+verify									api_verification	uuid								#actual_result#=$serviceUuid$
+
+verify									api_verification	string								#actual_result#=$subscribeType$
+
+verify									api_verification	float								#actual_result#=$price$
+
+verify									api_verification	string								#actual_result#=$contractStatus$
+

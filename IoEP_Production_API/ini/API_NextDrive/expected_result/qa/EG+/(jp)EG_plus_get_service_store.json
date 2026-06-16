@@ -1,0 +1,48 @@
+{
+    "services": [
+        {
+            "id": "e37c9f72-c6c0-463e-b17b-99afc7fc12d8",
+            "name": "スマートメーターレポート",
+            "icon": "https://email-image-content.s3-ap-southeast-1.amazonaws.com/service_provider/serviceIconSmartMeter%403x.png",
+            "description": "スマートメーターから電力使用量データを取得し、日・週・月の使用量や売電量を確認することができます。ご利用には電力メーター情報発信サービス（Bルートサービス）のお申し込みが必要です。",
+            "status": 1,
+            "isRedirected": true
+        },
+        {
+            "id": "a2f2544d-c38b-416c-b34a-159476467d94",
+            "name": "太陽光発電レポート",
+            "icon": "https://email-image-content.s3-ap-southeast-1.amazonaws.com/service_provider/serviceIconPv%403x.png",
+            "description": "太陽光発電システムの発電量を日・週・月毎に確認することができます。過去の発電量と比較することで、太陽光発電システムを、より使いこなすことができます。ご利用にはECHONET Lite対応の太陽光発電システムが必要です。",
+            "status": 3,
+            "isRedirected": true
+        },
+        {
+            "id": "0ec0eb44-80ee-49ba-8126-ca83322c56de",
+            "name": "わたしの電気代",
+            "icon": "https://nxd-dev-egplus.s3-ap-northeast-1.amazonaws.com/images/Frame+8%403x.png",
+            "description": "わたしの電気代は選択した料金プランに合わせて毎日の電力使用料金をお知らせするサービスです。毎月の予算設定をすれば、予算の進捗状況を毎日確認できます。",
+            "status": 1,
+            "activateDescription": "サービス設定",
+            "activatePageUrl": "https://ioe-post-qa.nextdrive.io/elec-plan/devices?token=eyJhbGciOiJSUzI1NiIsInR5cGUiOiJKV1QifQ.eyJzdWIiOiJjZWYzNmVjMC04MWYzLTQwZGEtYjBjNC1lYzA0ZTVmNzZmMjEiLCJwYWNrYWdlTmFtZSI6ImlvLm5leHRkcml2ZS5lY29nZW5pZS5zdGciLCJpYXQiOjE2MjAxMTI3NDcsImlzcyI6Im1hcmtldHBsYWNlLm5leHRkcml2ZS5pbyIsImF1ZCI6ImU1YjRlZTRlLTUxOTgtNDRmMi04NDI0LWUyOGVlMmU3ZjUwZiIsImp0aSI6ImY0MTAxZjVkLTQ3NjUtNGRkMS04OTcwLTdmMDEyZGQ3YzU1ZiIsImV4cCI6MTYyMDExNjM0OH0.STPi1jx3cv2jEeiIL4cEEKPOsSpDLMcIdsa-4De80h32qslqRSOVsshv1KSXaVXGlTWEe7lTheGXVgHqTO7AbrYf0AUfAduUhD82blVqLrArd4gdGG2llJBugBdhiY-so8Zxw0LPxtGcMU3oGuZiiPHhJOE-MPfx8EG4HBIB4apYEgvTvLbBjGSuAvNUC7aFWeo4PJOV8aetlsiH28qCh0dciKO8Yh6FbDHa-hiM8IIaYH1ANf84yPLOW4KzrtDkVzTbolC2un9AHBLzX91vDvLdVWFaZ3S73QWiuN8305Ees9-w0vcKggWh6ou7qdrQClYGuDfFORkuhE7c7ZuANQ&userid=ap-northeast-1:b7fa8d14-fffa-4ad8-bc17-6c665b21aa5b",
+            "isRedirected": true
+        },
+        {
+            "id": "20e8490e-35e0-46c5-bc09-5ab3c04464f1",
+            "name": "蓄電池レポート",
+            "icon": "https://email-image-content.s3-ap-southeast-1.amazonaws.com/service_provider/serviceIconBattery%403x.png",
+            "description": "蓄電池の日々の稼働状況を確認することができます。ご利用にはECHONET Lite対応（Release H以上）の蓄電池が必要です。",
+            "status": 3,
+            "isRedirected": true
+        },
+        {
+            "id": "d928e876-af34-473e-a4e5-bcfa48d29deb",
+            "name": "そらマネ",
+            "icon": "https://nxd-dev-egplus.s3-ap-northeast-1.amazonaws.com/postImages/elecSellImage/Frame+10%403x.png",
+            "description": "太陽光発電通知サービス「そらマネ」はあなたの設定した条件に合わせて、発電量や売電量が設定値に満たない場合、「ホーム」に通知します。太陽光発電の発電状況を把握して、より賢いエネルギー管理を始めましょう！",
+            "status": 1,
+            "activateDescription": "サービス設定",
+            "activatePageUrl": "https://ioe-post-qa.nextdrive.io/elec-sell/elec-bill-devices?token=eyJhbGciOiJSUzI1NiIsInR5cGUiOiJKV1QifQ.eyJzdWIiOiJjZWYzNmVjMC04MWYzLTQwZGEtYjBjNC1lYzA0ZTVmNzZmMjEiLCJwYWNrYWdlTmFtZSI6ImlvLm5leHRkcml2ZS5lY29nZW5pZS5zdGciLCJpYXQiOjE2MjAxMTI3NDcsImlzcyI6Im1hcmtldHBsYWNlLm5leHRkcml2ZS5pbyIsImF1ZCI6ImU1YjRlZTRlLTUxOTgtNDRmMi04NDI0LWUyOGVlMmU3ZjUwZiIsImp0aSI6ImY0MTAxZjVkLTQ3NjUtNGRkMS04OTcwLTdmMDEyZGQ3YzU1ZiIsImV4cCI6MTYyMDExNjM0OH0.STPi1jx3cv2jEeiIL4cEEKPOsSpDLMcIdsa-4De80h32qslqRSOVsshv1KSXaVXGlTWEe7lTheGXVgHqTO7AbrYf0AUfAduUhD82blVqLrArd4gdGG2llJBugBdhiY-so8Zxw0LPxtGcMU3oGuZiiPHhJOE-MPfx8EG4HBIB4apYEgvTvLbBjGSuAvNUC7aFWeo4PJOV8aetlsiH28qCh0dciKO8Yh6FbDHa-hiM8IIaYH1ANf84yPLOW4KzrtDkVzTbolC2un9AHBLzX91vDvLdVWFaZ3S73QWiuN8305Ees9-w0vcKggWh6ou7qdrQClYGuDfFORkuhE7c7ZuANQ&userid=ap-northeast-1:b7fa8d14-fffa-4ad8-bc17-6c665b21aa5b",
+            "isRedirected": true
+        }
+    ]
+}

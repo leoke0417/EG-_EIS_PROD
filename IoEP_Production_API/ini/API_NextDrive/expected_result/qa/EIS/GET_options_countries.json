@@ -1,0 +1,16 @@
+{
+    "options": [
+        {
+            "label": "Taiwan",
+            "value": "TW"
+        },
+        {
+            "label": "Japan",
+            "value": "JP"
+        },
+        {
+            "label": "Australia",
+            "value": "AU"
+        }
+    ]
+}

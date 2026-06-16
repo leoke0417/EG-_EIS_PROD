@@ -1,0 +1,1407 @@
+{
+	"info": {
+		"_postman_id": "9c721db2-6576-4ad4-92b3-bac9f8983d74",
+		"name": "EIS Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: 'https://eis-api.nextdrive.io/auth/login',\r",
+							"    method:'POST',\r",
+							"    header:{\r",
+							"        'accept': 'application/json',\r",
+							"        'Content-Type': 'application/json',\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(\r",
+							"                            {\r",
+							"                                \"username\": \"dustin.lin@nextdrive.io\",\r",
+							"                                \"password\": \"Link4581\"\r",
+							"                            }\r",
+							"                            )\r",
+							"    }\r",
+							"}, function(err, response){\r",
+							"    const jsonParse = response.json();\r",
+							"    pm.environment.set(\"access_token\", jsonParse.access_token)\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"{{prod_account}}\",\r\n    \"password\": \"{{prod_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/auth/login",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_user_profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{prod_end_point}}/auth/profile",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"auth",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_orgs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/organizations?countries={{get_org_country}}",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"organizations"
+					],
+					"query": [
+						{
+							"key": "countries",
+							"value": "{{get_org_country}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_org_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/organizations/83c668dc-a208-4e13-a173-7c472d303996",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"organizations",
+						"83c668dc-a208-4e13-a173-7c472d303996"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_clients",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{prod_end_point}}/clients?types=Buyer&name=47&locations=Tokyo",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"clients"
+					],
+					"query": [
+						{
+							"key": "types",
+							"value": "Buyer"
+						},
+						{
+							"key": "name",
+							"value": "47"
+						},
+						{
+							"key": "locations",
+							"value": "Tokyo"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_client_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/clients/47",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"clients",
+						"47"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_programs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/programs?page=0&count=5&types=Official%20Service&products=HEMS&status=Active",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"programs"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "5"
+						},
+						{
+							"key": "types",
+							"value": "Official%20Service"
+						},
+						{
+							"key": "products",
+							"value": "HEMS"
+						},
+						{
+							"key": "status",
+							"value": "Active"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_program_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/programs/4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"programs",
+						"4ff91429-1f91-4ecc-a1e9-f16b46064b8b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_programs_activation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/programs/4ff91429-1f91-4ecc-a1e9-f16b46064b8b/activation",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"programs",
+						"4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+						"activation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_programs_gateways",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{prod_end_point}}/programs/4ff91429-1f91-4ecc-a1e9-f16b46064b8b/gateways?page=0&count=20",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"programs",
+						"4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+						"gateways"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_programs_gateways_download",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/programs/4ff91429-1f91-4ecc-a1e9-f16b46064b8b/gateways/download",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"programs",
+						"4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+						"gateways",
+						"download"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_programs_gateways_free_sample",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/programs/4ff91429-1f91-4ecc-a1e9-f16b46064b8b/gateways/free-sample/count",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"programs",
+						"4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+						"gateways",
+						"free-sample",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_gateway_information_gateways_results",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/gateways?page=0&count=10",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"gateways"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_gateway_information_gateway_options_SKU",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/gateway-options",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"gateway-options"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/accounts",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_accounts_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/accounts/25",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"accounts",
+						"25"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_app_Label",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/app-labels",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"app-labels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_org_options",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/organizations",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"organizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_clients_options",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/clients",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"clients"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_programs_options",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/programs",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"programs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_account_options",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/accounts",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_clients_status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/clients-status",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"clients-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_clients_type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/clients-type",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"clients-type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_org_countries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/countries",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_gateway_model",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/gateway-model",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"gateway-model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_programs_history_log",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/histories/4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"histories",
+						"4ff91429-1f91-4ecc-a1e9-f16b46064b8b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_health_check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/health",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_locations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/options/locations",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"options",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

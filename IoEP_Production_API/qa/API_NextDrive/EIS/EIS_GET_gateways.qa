@@ -1,0 +1,64 @@
+ini			api_eis.ini
+start
+
+
+$cmd$=get										postman					command											#collection#=c_QA_EIS_GET_gateways.json,#environment#=e_EIS.json,#iterations#=1
+				
+exec											postman					command											#command#=$cmd$
+				
+$result_file$=get								postman					result			
+				
+$list_data$=get									postman					read_csv										#filename#=$result_file$
+				
+$target_data$=get								postman					find_result										#file#=$list_data$,#testcase#=GET_gateways
+				
+$result$=get									postman					api_result										#api_result#=$target_data$
+				
+verify											postman					status_code										#api_result#=$result$,#expected_result#=200
+				
+$response_body$=get								api_verification		api_response									#api_result#=$result$
+				
+$expected_result$=get							api_verification		expected_result									#environment#=$test_environment$,#expected_result#=EIS\GET_gateways.json
+				
+verify											api_verification		dict_keys										#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+## Get gateways > pid
+$gw_info_gw_results_pid$=get					file_operate			dict_list_dict_value							#first_key#=gateways,#second_key#=pid,#response_body#=$response_body$
+## Get gateways > hwModel
+$gw_info_gw_results_hw_model$=get				file_operate			dict_list_dict_value							#first_key#=gateways,#second_key#=hwModel,#response_body#=$response_body$
+## Get gateways > uuid
+$gw_info_gw_results_uuid$=get					file_operate			dict_list_dict_value							#first_key#=gateways,#second_key#=uuid,#response_body#=$response_body$
+## Get gateways > fwSku
+$gw_info_gw_results_fw_sku$=get					file_operate			dict_list_dict_value							#first_key#=gateways,#second_key#=firmwareSku,#response_body#=$response_body$
+## Get gateways > fwVersion
+$gw_info_gw_results_fw_version$=get				file_operate			dict_list_dict_value							#first_key#=gateways,#second_key#=firmwareVersion,#response_body#=$response_body$
+## Get gateways > iccid
+$gw_info_gw_results_iccid$=get					file_operate			dict_list_dict_value							#first_key#=gateways,#second_key#=iccid,#response_body#=$response_body$
+## Get gateways > modifiedDt
+$gw_info_gw_results_modified_time$=get			file_operate			dict_list_dict_value							#first_key#=gateways,#second_key#=modifiedDt,#response_body#=$response_body$
+## Get gateways > phoneNumber
+$gw_info_gw_results_phone_number$=get			file_operate			dict_list_dict_value							#first_key#=gateways,#second_key#=phoneNumber,#response_body#=$response_body$
+## Get total
+$gw_info_gw_results_total$=get					file_operate			dict_value										#key#=total,#response_body#=$response_body$
+
+
+## Verify gateways > pid
+verify											api_verification		pid												#actual_result#=$gw_info_gw_results_pid$
+## Verify gateways > hwModel
+verify											api_verification		string											#actual_result#=$gw_info_gw_results_hw_model$
+## Verify gateways > uuid
+verify											api_verification		uuid											#actual_result#=$gw_info_gw_results_uuid$
+## Verify gateways > fwSku
+verify											api_verification		string											#actual_result#=$gw_info_gw_results_fw_sku$
+## Verify gateways > fwVersion
+#verify											api_verification		fw_vers											#actual_result#=$gw_info_gw_results_fw_version$
+## Verify gateways > iccid
+#verify											api_verification		null											#actual_result#=$gw_info_gw_results_iccid$
+## Verify gateways > modifiedDt
+verify											api_verification		time											#actual_result#=$gw_info_gw_results_modified_time$
+## Verify gateways > phoneNumber
+#verify											api_verification		null											#actual_result#=$gw_info_gw_results_phone_number$
+## Verify total
+verify											api_verification		int												#actual_result#=$gw_info_gw_results_total$
+##===== END =====
+

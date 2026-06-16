@@ -1,0 +1,529 @@
+{
+    "app": {
+        "ios": {
+            "versions": [
+                {
+                    "name": "1.1.10",
+                    "count": 25
+                },
+                {
+                    "name": "1.1.3",
+                    "count": 9
+                },
+                {
+                    "name": "1.1.4",
+                    "count": 8
+                },
+                {
+                    "name": "1.1.5",
+                    "count": 1
+                },
+                {
+                    "name": "1.1.7",
+                    "count": 1
+                },
+                {
+                    "name": "1.1.8",
+                    "count": 2
+                },
+                {
+                    "name": "1.1.9",
+                    "count": 22
+                },
+                {
+                    "name": "1.2.0200",
+                    "count": 13
+                },
+                {
+                    "name": "1.2.0300",
+                    "count": 2
+                },
+                {
+                    "name": "1.2.0302",
+                    "count": 19
+                },
+                {
+                    "name": "1.2.0303",
+                    "count": 17
+                },
+                {
+                    "name": "1.2.0400",
+                    "count": 5
+                },
+                {
+                    "name": "1.2.0401",
+                    "count": 7
+                },
+                {
+                    "name": "1.2.0402",
+                    "count": 3
+                },
+                {
+                    "name": "1.2.0403",
+                    "count": 2
+                },
+                {
+                    "name": "1.2.0404",
+                    "count": 15
+                },
+                {
+                    "name": "1.2.0501",
+                    "count": 1
+                },
+                {
+                    "name": "1.2.0502",
+                    "count": 18
+                },
+                {
+                    "name": "1.2.0600",
+                    "count": 1
+                },
+                {
+                    "name": "1.2.0601",
+                    "count": 34
+                },
+                {
+                    "name": "1.2.0604",
+                    "count": 2
+                },
+                {
+                    "name": "1.2.0700",
+                    "count": 19
+                },
+                {
+                    "name": "1.2.0800",
+                    "count": 3
+                },
+                {
+                    "name": "1.2.0803",
+                    "count": 14
+                },
+                {
+                    "name": "1.2.0900",
+                    "count": 2
+                },
+                {
+                    "name": "1.2.0901",
+                    "count": 5
+                },
+                {
+                    "name": "1.2.1",
+                    "count": 3
+                },
+                {
+                    "name": "1.2.1002",
+                    "count": 7
+                },
+                {
+                    "name": "1.2.1003",
+                    "count": 12
+                },
+                {
+                    "name": "1.2.1004",
+                    "count": 12
+                },
+                {
+                    "name": "1.2.103",
+                    "count": 23
+                },
+                {
+                    "name": "1.3.0000",
+                    "count": 1
+                },
+                {
+                    "name": "1.3.0003",
+                    "count": 1
+                },
+                {
+                    "name": "1.3.0005",
+                    "count": 5
+                },
+                {
+                    "name": "1.3.0006",
+                    "count": 4
+                },
+                {
+                    "name": "1.3.0007",
+                    "count": 18
+                },
+                {
+                    "name": "1.3.0101",
+                    "count": 30
+                },
+                {
+                    "name": "1.3.0203",
+                    "count": 8
+                },
+                {
+                    "name": "1.3.0204",
+                    "count": 25
+                },
+                {
+                    "name": "1.3.0300",
+                    "count": 23
+                },
+                {
+                    "name": "1.3.0301",
+                    "count": 14
+                }
+            ],
+            "total": 436
+        },
+        "android": {
+            "versions": [
+                {
+                    "name": "1.1.1",
+                    "count": 18
+                },
+                {
+                    "name": "1.1.2",
+                    "count": 7
+                },
+                {
+                    "name": "1.1.5",
+                    "count": 9
+                },
+                {
+                    "name": "1.1.6",
+                    "count": 21
+                },
+                {
+                    "name": "1.2.0103",
+                    "count": 9
+                },
+                {
+                    "name": "1.2.0200",
+                    "count": 15
+                },
+                {
+                    "name": "1.2.0300",
+                    "count": 4
+                },
+                {
+                    "name": "1.2.0301",
+                    "count": 11
+                },
+                {
+                    "name": "1.2.0302",
+                    "count": 10
+                },
+                {
+                    "name": "1.2.0400",
+                    "count": 3
+                },
+                {
+                    "name": "1.2.0402",
+                    "count": 5
+                },
+                {
+                    "name": "1.2.0403",
+                    "count": 12
+                },
+                {
+                    "name": "1.2.0404",
+                    "count": 1
+                },
+                {
+                    "name": "1.2.0500",
+                    "count": 9
+                },
+                {
+                    "name": "1.2.0601",
+                    "count": 8
+                },
+                {
+                    "name": "1.2.0603",
+                    "count": 11
+                },
+                {
+                    "name": "1.2.0700",
+                    "count": 7
+                },
+                {
+                    "name": "1.2.0800",
+                    "count": 1
+                },
+                {
+                    "name": "1.2.0803",
+                    "count": 6
+                },
+                {
+                    "name": "1.2.0900",
+                    "count": 2
+                },
+                {
+                    "name": "1.2.0901",
+                    "count": 11
+                },
+                {
+                    "name": "1.2.1000",
+                    "count": 27
+                },
+                {
+                    "name": "1.3.0005",
+                    "count": 13
+                },
+                {
+                    "name": "1.3.0101",
+                    "count": 24
+                },
+                {
+                    "name": "1.3.0203",
+                    "count": 14
+                },
+                {
+                    "name": "1.3.0204",
+                    "count": 11
+                },
+                {
+                    "name": "1.3.0300",
+                    "count": 30
+                }
+            ],
+            "total": 299
+        }
+    },
+    "account": {
+        "periods": [
+            {
+                "days": 28,
+                "count": 48
+            },
+            {
+                "days": 7,
+                "count": 6
+            },
+            {
+                "days": 1,
+                "count": 1
+            }
+        ],
+        "total": 349
+    },
+    "cube": {
+        "versions": [
+            {
+                "version": "4.0.16012",
+                "count": 3
+            },
+            {
+                "version": "4.0.16015",
+                "count": 3
+            },
+            {
+                "version": "4.0.16019",
+                "count": 1
+            },
+            {
+                "version": "4.0.16019.2101181201",
+                "count": 1
+            },
+            {
+                "version": "4.0.16022",
+                "count": 1
+            },
+            {
+                "version": "4.0.16023",
+                "count": 2
+            },
+            {
+                "version": "4.0.16027",
+                "count": 3
+            },
+            {
+                "version": "4.0.16030",
+                "count": 3
+            },
+            {
+                "version": "4.0.16031",
+                "count": 86
+            },
+            {
+                "version": "4.0.16031.2106021031",
+                "count": 2
+            }
+        ],
+        "current": {
+            "online": 76,
+            "offline": 29,
+            "total": 105,
+            "disconnect": 28,
+            "unfinished": 1,
+            "noOwner": 0
+        }
+    },
+    "atto": {
+        "versions": [
+            {
+                "version": "4.0.18020",
+                "count": 8
+            },
+            {
+                "version": "4.0.18020.2106021334",
+                "count": 1
+            }
+        ],
+        "current": {
+            "online": 9,
+            "offline": 0,
+            "total": 9,
+            "disconnect": 0,
+            "unfinished": 0,
+            "noOwner": 0
+        }
+    },
+    "device": {
+        "devices": [
+            {
+                "model": "AirCon",
+                "count": 9
+            },
+            {
+                "model": "Beep",
+                "count": 24
+            },
+            {
+                "model": "Camera",
+                "count": 48
+            },
+            {
+                "model": "ElecWaterHeater",
+                "count": 2
+            },
+            {
+                "model": "EVCharger",
+                "count": 3
+            },
+            {
+                "model": "FuelCell",
+                "count": 2
+            },
+            {
+                "model": "Pixi-G",
+                "count": 58
+            },
+            {
+                "model": "Pixi-HT",
+                "count": 70
+            },
+            {
+                "model": "PWDBoard",
+                "count": 14
+            },
+            {
+                "model": "SmartMeter",
+                "count": 53
+            },
+            {
+                "model": "SolarPW",
+                "count": 23
+            },
+            {
+                "model": "StgBattery",
+                "count": 18
+            }
+        ],
+        "total": 324
+    },
+    "deviceStatus": {
+        "Pixi-G": {
+            "current": {
+                "online": 46,
+                "offline": 12,
+                "total": 58,
+                "disconnect": 12,
+                "unfinished": 0
+            }
+        },
+        "Pixi-HT": {
+            "current": {
+                "online": 53,
+                "offline": 17,
+                "total": 70,
+                "disconnect": 17,
+                "unfinished": 0
+            }
+        },
+        "SmartMeter": {
+            "current": {
+                "online": 43,
+                "offline": 10,
+                "total": 53,
+                "disconnect": 10,
+                "unfinished": 0
+            }
+        },
+        "SolarPW": {
+            "current": {
+                "online": 15,
+                "offline": 8,
+                "total": 23,
+                "disconnect": 8,
+                "unfinished": 0
+            }
+        },
+        "StgBattery": {
+            "current": {
+                "online": 14,
+                "offline": 4,
+                "total": 18,
+                "disconnect": 4,
+                "unfinished": 0
+            }
+        },
+        "AirCon": {
+            "current": {
+                "online": 5,
+                "offline": 4,
+                "total": 9,
+                "disconnect": 4,
+                "unfinished": 0
+            }
+        },
+        "ElecWaterHeater": {
+            "current": {
+                "online": 1,
+                "offline": 1,
+                "total": 2,
+                "disconnect": 1,
+                "unfinished": 0
+            }
+        },
+        "EVCharger": {
+            "current": {
+                "online": 2,
+                "offline": 1,
+                "total": 3,
+                "disconnect": 1,
+                "unfinished": 0
+            }
+        },
+        "FuelCell": {
+            "current": {
+                "online": 1,
+                "offline": 1,
+                "total": 2,
+                "disconnect": 1,
+                "unfinished": 0
+            }
+        },
+        "PWDBoard": {
+            "current": {
+                "online": 9,
+                "offline": 5,
+                "total": 14,
+                "disconnect": 5,
+                "unfinished": 0
+            }
+        },
+        "Beep": {
+            "current": {
+                "online": 19,
+                "offline": 5,
+                "total": 24,
+                "disconnect": 5,
+                "unfinished": 0
+            }
+        }
+    }
+}

@@ -1,0 +1,4 @@
+{
+    "code": 403,
+    "message": "forbidden: user or gateway not exist or unassociated"
+}

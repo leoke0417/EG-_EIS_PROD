@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "11d4d69f-6cc0-4c79-ab0a-121e94b76a72",
+		"name": "ServiceStore_PUT_manager_providers_{id}_services_{serviceUuid}_scopes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "PUT_manager_providers_{id}_services_{serviceUuid}_scopes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"scopes\": [\r\n    {\r\n            \"scope\": \"DATA\",\r\n            \"dataUUID\": \"628857d6-f5e9-4af1-83ad-2562260faadd\",\r\n            \"config\": \"{\\\"pollingInterval\\\":60}\",\r\n            \"dataPollingInterval\": 3\r\n}\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{end_point}}/manager/providers/{{Service_provider_id}}/services/8302fe51-a558-43ab-8a21-18a6040453a9/scopes",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"manager",
+						"providers",
+						"{{Service_provider_id}}",
+						"services",
+						"8302fe51-a558-43ab-8a21-18a6040453a9",
+						"scopes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

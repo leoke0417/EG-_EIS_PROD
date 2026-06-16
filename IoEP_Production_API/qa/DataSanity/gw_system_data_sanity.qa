@@ -1,0 +1,52 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+
+#exec	File	shellcmd	#command#=adb -s $cube_name$ shell "ps | grep configd"
+#exec		File	shellcmd	#command#=adb -s $cube_name$ shell "mv /data/cfg_mgmt/config.json /data/cfg_mgmt/config.bak"
+#exec		File	shellcmd	#command#=adb -s $cube_name$ shell "killall configd"
+#sleep		5
+#exec		File	shellcmd	#command#=adb -s $cube_name$ shell "killall fms"
+sleep	5
+verify		fwapi_data_sanity		gw_config	#gw_name#=$cube_name$,#key#=$cube_gw_id$,#criteria#==
+
+
+
+sleep		3
+
+##get		fwapi_data_sanity		db_connection		#strDB#=eg3,#strHost#=pgbouncer-qa.nextdrive.io,#strPort#=15432,#strUser#=qa_user,#strPW#=kGm:A.=#=])6P^6j
+
+$count_fuel$=get		fwapi_data_sanity		device_data_count		#dev_uuid#=$fuelcell_uuid$,#data_uuid#=$fuelcell_data_id$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_fuel$,#criteria#=!
+
+$count_pv$=get		fwapi_data_sanity		device_data_count		#dev_uuid#=$pv_uuid$,#data_uuid#=$pv_data_id$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_pv$,#criteria#=!
+
+$count_heater$=get		fwapi_data_sanity		device_data_count		#dev_uuid#=$waterheater_uuid$,#data_uuid#=$waterheater_data_id$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_heater$,#criteria#=!
+
+$count_pwdb$=get		fwapi_data_sanity		device_data_count		#dev_uuid#=$pwdb_uuid$,#data_uuid#=$pwdb_data_id$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_pwdb$,#criteria#=!
+
+$count_battery$=get		fwapi_data_sanity		device_data_count		#dev_uuid#=$stgbattery_uuid$,#data_uuid#=$stg_data_id$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_battery$,#criteria#=!
+
+##$network$=get	File	shellcmd	#command#=adb -s $strGWM_Name_GwAs$ shell getprop led.network.state 
+##verify		Tool		dir		#key#=connected,#value#=$network$,#criteria#==
+
+##OTA 
+exec		File	shellcmd	#command#=adb -s $cube_name$ shell "setprop test.ota.init_delay 1"
+exec		File	shellcmd	#command#=adb -s $cube_name$ shell "stop ota"
+exec		File	shellcmd	#command#=adb -s $cube_name$ shell "start ota"
+
+sleep		120
+
+exec		File	shellcmd	#command#=adb -s $cube_name$ shell "reboot"
+
+sleep		60
+exec		File	shellcmd	#command#=adb -s $cube_name$ shell "stop ota"
+
+end

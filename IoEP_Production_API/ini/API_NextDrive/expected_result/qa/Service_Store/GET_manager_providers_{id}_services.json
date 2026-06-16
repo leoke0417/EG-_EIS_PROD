@@ -1,0 +1,18 @@
+[
+    {
+        "id": "8196f14f-6cf6-4f4a-8081-1dad82d814b7",
+        "name": "TestService_R9A",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 10,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://ioe-suite-qa.nextdrive.io/login#/developer/create-service",
+        "updatedTime": "2021-09-17T10:14:35.616191",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    }
+]

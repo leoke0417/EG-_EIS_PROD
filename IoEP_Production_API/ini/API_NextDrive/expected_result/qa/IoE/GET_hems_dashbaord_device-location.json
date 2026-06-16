@@ -1,0 +1,13 @@
+{
+    "total": 4,
+    "locations": [
+        {
+            "name": "Fukuoka",
+            "total": 1
+        },
+        {
+            "name": "Tokyo",
+            "total": 3
+        }
+    ]
+}

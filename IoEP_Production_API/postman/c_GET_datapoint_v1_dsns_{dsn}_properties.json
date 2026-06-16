@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "c92f9257-1925-45ef-956a-2e9324e3c08e",
+		"name": "GET_datapoint_v1_dsns_{dsn}_properties",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "GET_datapoint_v1_dsns_{dsn}_properties",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"var data1 = (moment().subtract('5', 'days').valueOf())\r",
+							"var data2 = (moment().subtract('7', 'days').valueOf())\r",
+							"console.log(data);\r",
+							"pm.environment.set(\"to time\", data1);\r",
+							"pm.environment.set(\"from time\", data2);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_manager_token}}",
+							"type": "string"}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{end_point}}/data-point/v1/dsns/{{ecn_uuid}}/properties?properties={{data_uuid}}&from={{from time}}&to={{to time}}&extraFields=gatewayPid",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"data-point",
+						"v1",
+						"dsns",
+						"{{ecn_uuid}}",
+						"properties"
+					],
+					"query": [
+						{
+							"key": "properties",
+							"value": "{{data_uuid}}"
+						},
+						{
+							"key": "from",
+							"value": "{{from time}}"
+						},
+						{
+							"key": "to",
+							"value": "{{to time}}"
+						},
+						{
+							"key": "extraFields",
+							"value": "gatewayPid"
+						},
+						{
+							"key": "ecn uuid",
+							"value": "{{ecn_uuid}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "37957b9c-531a-4903-a504-4c5c581a4319",
+		"name": "ServiceStore_POST_tester_tokens_verify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "Get_token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n  \"email\": \"automan+api@nextdrive.io\",\r\n  \"password\": \"link4581\",\r\n  \"clientId\": \"4lmvkrpfbpurass53hv0vglr0r\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-eg3-qa.nextdrive.io/api/account/v1/users/login",
+					"protocol": "https",
+					"host": [
+						"api-eg3-qa",
+						"nextdrive",
+						"io"
+					],
+					"path": [
+						"api",
+						"account",
+						"v1",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_tester_tokens_verify",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\":\"{{nd_token}}\"}"
+				},
+				"url": {
+					"raw": "{{end_point}}/tester/tokens/verify",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"tester",
+						"tokens",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "eb86387f-7ebb-494b-a74d-1ea82f1b1139",
+		"name": "QA_3rdPartyService_PUT_v2_gateways_{gatewayUuid}_configs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PUT_v2_gateways_{gatewayUuid}_configs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-ND-TOKEN",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"uploadInterval\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/v2/gateways/{{gateway_cd6842_uuid}}/configs",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"v2",
+						"gateways",
+						"{{gateway_cd6842_uuid}}",
+						"configs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "fb61d265-b087-49e7-8af1-394284ebd77b",
+		"name": "QA_IoE_GET_hems_dashbaord_device-location",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "GET_hems_dashbaord_device-location",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/hems/dashboard/device-location?model=Cube&country=Japan",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"hems",
+						"dashboard",
+						"device-location"
+					],
+					"query": [
+						{
+							"key": "model",
+							"value": "Cube"
+						},
+						{
+							"key": "country",
+							"value": "Japan"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

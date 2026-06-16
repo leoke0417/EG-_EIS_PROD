@@ -1,0 +1,24 @@
+{
+    "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJpb2Utc3VpdGUubmV4dGRyaXZlLmlvIiwianRpIjoiMjQ2Iiwic3ViIjoiYmVubnkuaHN1Kzk5QG5leHRkcml2ZS5pbyIsImFsaWFzQ29kZSI6IkMtMjAwOTE3MDAxIiwicHJvZ3JhbUlkIjoiN2JkYTFhYjYtNmQ5MS00MjgxLTllYWEtN2NlMTM2ZTM4ZmM1IiwidGVhbUlkIjoiNzQxY2FjOWQtNDExNS00ODYwLThkNWYtNWIzZmVhYjM4MDZjIiwicm9sZSI6IkFkbWluIiwiZXhwIjoxNjIwMzg2MTczLCJpYXQiOjE2MjAzNTczNzN9.PjkUKfCDGlKFXcFQhlY1dcLPSho6lNHKHlFmD5_RXQQ",
+    "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJpb2Utc3VpdGUubmV4dGRyaXZlLmlvIiwidG9rZW5fdHlwZSI6InJlZnJlc2giLCJleHAiOjE2MjA5NjIxNzMsImlhdCI6MTYyMDM1NzM3M30.SPykBTxmP-t16U6rfJbNHgPFq4__Q3EIQur_usQuVtw",
+    "tokenType": "Bearer",
+    "name": "benny.hsu+99 ",
+    "firstLogin": false,
+    "isAdminSetup": false,
+    "expiredIn": 28800,
+    "deviceTrusted": false,
+    "otpRequired": false,
+    "otpMethods": [],
+    "modules": [
+        {
+            "label": "Developer",
+            "value": "Developer",
+            "enable": false
+        },
+        {
+            "label": "Ecogenie+",
+            "value": "HEMS",
+            "enable": true
+        }
+    ]
+}

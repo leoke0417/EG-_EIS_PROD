@@ -1,0 +1,17 @@
+##check process of system 
+##including file path and process id
+start
+
+###	Step 1.
+$qa_list$=get						eg_plus_result_upload		qa_list					#path#=qa\qas\qa_service_check.qas
+
+###	Step 2.
+$xml_list$=get						eg_plus_result_upload		xml_list				#list#=$qa_list$,#path_prefix#=qa_service_check
+
+###	Step 3.
+$overall_result$=get				eg_plus_result_upload		service_result			#text#=$xml_list$,#testing_environment#=qa
+
+###	Step 4.
+send								Fb							automan_production		#message#=$overall_result$
+
+end

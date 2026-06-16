@@ -1,0 +1,50 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_QA_IoE_GET_hems_gateway-options.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=GET_hems_gateway-options
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\GET_hems_gateway-options.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+
+
+### =====
+### GET data
+### =====
+## Get models
+$models$=get							file_operate			dict_list_value				#key#=models,#response_body#=$response_body$
+
+## Get fwVersions
+$fwVersions$=get						file_operate			dict_list_value				#key#=fwVersions,#response_body#=$response_body$
+
+## Get firmwareSkus
+$firmwareSkus$=get						file_operate			dict_list_value				#key#=firmwareSkus,#response_body#=$response_body$
+
+
+### =====
+### Verify
+### =====
+## Verify models
+verify									api_verification		string						#actual_result#=$models$
+
+## Verify fwVersions
+verify									api_verification		string						#actual_result#=$fwVersions$
+
+## Verify firmwareSkus
+verify									api_verification		string						#actual_result#=$firmwareSkus$

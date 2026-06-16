@@ -1,0 +1,14 @@
+3rdPartyService_GET_health.qa
+3rdPartyService_GET_info.qa
+3rdPartyService_GET_v1_gateways_{productId}_configs.qa
+3rdPartyService_GET_v1_gateways_{productId}_devices.qa
+3rdPartyService_GET_v1_gateways_{productId}_status.qa
+3rdPartyService_GET_v2_gateways_{gatewayUuid}_configs.qa
+3rdPartyService_GET_v2_gateways_{gatewayUuid}_status.qa
+3rdPartyService_GET_v2_gateways_{gatewayUuid}_devices.qa
+3rdPartyService_POST_v1_device-data_query_Motion_Battery.qa
+3rdPartyService_POST_v1_devices_{deviceUuid}_acquire_motion_pixi.qa
+3rdPartyService_PUT_v1_devices_{deviceUuid}_control_{{device_aircon}}.qa
+3rdPartyService_PUT_v1_gateways_{productId}_configs.qa
+3rdPartyService_PUT_v2_gateways_{gatewayUuid}_configs.qa
+3rdPartyService_api_report.qa

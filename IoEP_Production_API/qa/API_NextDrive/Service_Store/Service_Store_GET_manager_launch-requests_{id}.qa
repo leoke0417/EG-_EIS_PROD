@@ -1,0 +1,61 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_ServiceStore_PGPD_manager_launch-requests.json,#environment#=e_Service_Store_servicemanager.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=GET_manager_launch-requests_{id}
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/GET_manager_launch-requests_{id}.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+$expected_result2$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/GET_manager_launch-requests_{Id}___pendingRequest.json
+
+
+$id$=get							file_operate		dict_value							#key#=id,#response_body#=$response_body$
+
+$serviceId$=get						file_operate		dict_value							#key#=serviceId,#response_body#=$response_body$
+
+$serviceName$=get					file_operate		dict_value							#key#=serviceName,#response_body#=$response_body$
+
+$status$=get						file_operate		dict_value							#key#=status,#response_body#=$response_body$
+
+$customerAccountId$=get				file_operate		dict_value							#key#=customerAccountId,#response_body#=$response_body$
+
+$replyAccountId$=get				file_operate		dict_value							#key#=replyAccountId,#response_body#=$response_body$
+
+
+
+$pendingRequest$=get				file_operate		dict_value							#key#=pendingRequest,#response_body#=$response_body$
+
+verify								api_verification	dict_keys								#expected_result#=$expected_result2$,#actual_result#=$pendingRequest$
+
+
+
+verify									api_verification	int									#actual_result#=$id$,#response_body#=$response_body$
+
+verify									api_verification	uuid								#actual_result#=$serviceId$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$serviceName$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$status$,#response_body#=$response_body$
+
+verify									api_verification	int									#actual_result#=$customerAccountId$,#response_body#=$response_body$
+
+verify									api_verification	int								#actual_result#=$replyAccountId$,#response_body#=$response_body$
+
+
+
+# end

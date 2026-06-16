@@ -1,0 +1,6 @@
+## 關聯 device
+$gateways_gatewayUuid_url$=get					egplus_api				v1_gateways_gatewayUuid_url				#environment#=url,#gw_uuid#=gw_uuid
+$gateways_gatewayUuid_header$=get				egplus_api				v1_gateways_gatewayUuid_header			#token#=accesstoken
+$gateways_gatewayUuid_response$=get				egplus_api				get										#url#=$gateways_gatewayUuid_url$,#header#=$gateways_gatewayUuid_header$
+$gateways_gatewayUuid_status_code$=get			egplus_api				status_code								#response#=$gateways_gatewayUuid_response$
+verify											api_verification		status_code								#api_response#=$gateways_gatewayUuid_status_code$,#expected_status_code#=200

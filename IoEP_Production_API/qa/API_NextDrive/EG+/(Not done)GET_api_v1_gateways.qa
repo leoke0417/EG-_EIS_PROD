@@ -1,0 +1,115 @@
+##	NOT DONE
+## 0618 Not finish device's attributes verification
+## 0618 Not done
+## To count amount of api executed
+
+
+
+
+ini		api_egplus.ini
+start
+##===== Execute postman command line ======
+## Get execution path
+$original_path$=get													api_verification		path
+
+## Exchange cognito token
+$cognito_token$=get													api_verification		id_token										#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+## Set cognito token in environment
+set																	api_verification		environment_token								#environment_name#=EG+.postman_environment.json,#new_token#=$cognito_token$,#environment#=$test_environment$
+
+## Set cognito token in collection
+set																	api_verification		collection_token								#collection_name#=EG+.postman_collection.json,#new_token#=$cognito_token$,#testcase_name#=Get_token,#environment#=$test_environment$
+
+## Execute cmd of newman
+exec																api_verification		cmd												#original_path#=$original_path$,#environment#=$test_environment$,#command#=newman run EG+.postman_collection.json -e EG+.postman_environment.json -r csv --reporter-csv-export
+
+## Get file location and get the file list of result
+$csv_file_name$=get													api_verification		file_list										#environment#=$test_environment$,#folder_path#=newman
+
+sleep																1
+##===== END =====
+
+
+
+##===== Test case: Get gateways and devices list ======
+#$final_result$=get													api_verification		api_count
+
+## Read csv and target file
+#$gateways_and_devices_list_response$=get							api_verification		read_csv										#environment#=$test_environment$,#csv_filename#=$csv_file_name$,#testcase_name#=Get_gateways_and_devices_list 
+
+## Get status code of result
+#$gateways_and_devices_list_status_code$=get						api_verification		status_code										#api_response#=$gateways_and_devices_list_response$
+
+## Get response body of result
+#$gateways_and_devices_list_response_body$=get						api_verification		response_body									#api_response#=$gateways_and_devices_list_response$	
+
+## Load expected result file
+#$gateways_and_devices_list_result$=get								api_verification		expected_result									#environment#=$test_environment$,#expected_result#=EG+\EG_plus_get_gateways_and_devices_list.json
+
+## Verify status code
+#verify																api_verification		status_code										#api_response#=$gateways_and_devices_list_status_code$,#expected_status_code#=200
+
+## Verify keys of response body
+#verify																api_verification		dict_keys										#expected_result#=$gateways_and_devices_list_result$,#actual_result#=$gateways_and_devices_list_response_body$
+
+## Get gateways > uuid
+#$gateways_and_devices_list_gw_uuid$=get							api_egplus_app			sec_layer_values								#first_key#=gateways,#second_key#=uuid,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways > name
+#$gateways_and_devices_list_gw_name$=get							api_egplus_app			sec_layer_values								#first_key#=gateways,#second_key#=name,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways > model
+#$gateways_and_devices_list_gw_model$=get							api_egplus_app			sec_layer_values								#first_key#=gateways,#second_key#=model,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways > onlineStatus
+#$gateways_and_devices_list_gw_online_status$=get					api_egplus_app			sec_layer_values								#first_key#=gateways,#second_key#=onlineStatus,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways >  profileId
+#$gateways_and_devices_list_gw_profile_id$=get						api_egplus_app			sec_layer_values								#first_key#=gateways,#second_key#=profileId,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways > devices > uuid
+#$gateways_and_devices_list_gw_devices_uuid$=get					api_egplus_app			gw_device_list_devices							#first_key#=gateways,#second_key#=devices,#third_key#=uuid,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways > devices > name
+#$gateways_and_devices_list_gw_devices_name$=get					api_egplus_app			gw_device_list_devices							#first_key#=gateways,#second_key#=devices,#third_key#=name,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways > devices > model
+#$gateways_and_devices_list_gw_devices_model$=get					api_egplus_app			gw_device_list_devices							#first_key#=gateways,#second_key#=devices,#third_key#=model,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways > devices > onlineStatus
+#$gateways_and_devices_list_gw_devices_online_status$=get			api_egplus_app			gw_device_list_devices							#first_key#=gateways,#second_key#=devices,#third_key#=onlineStatus,#response_body#=$gateways_and_devices_list_response_body$
+
+## Get gateways > wifiSsid
+#$gateways_and_devices_list_gw_wifi_ssid$=get						api_egplus_app			sec_layer_values								#first_key#=gateways,#second_key#=wifiSsid,#response_body#=$gateways_and_devices_list_response_body$
+
+## Verify gateways > uuid
+#verify																api_verification		uuid											#actual_result#=$gateways_and_devices_list_gw_uuid$
+
+## Verify gateways > name
+#verify																api_verification		string											#actual_result#=$gateways_and_devices_list_gw_name$
+
+## Verify gateways > model
+#verify																api_verification		string											#actual_result#=$gateways_and_devices_list_gw_model$	
+
+## Verify gateways > onlineStatus
+#verify																api_verification		int												#actual_result#=$gateways_and_devices_list_gw_online_status$
+
+## Verify gateways > profileId
+#verify																api_verification		uuid											#actual_result#=$gateways_and_devices_list_gw_profile_id$
+
+## Verify gateways > devices > uuid
+#verify																api_verification		uuid											#actual_result#=$gateways_and_devices_list_gw_devices_uuid$
+
+## Verify gateways > devices > name
+#verify																api_verification		string											#actual_result#=$gateways_and_devices_list_gw_devices_name$
+
+## Verify gateways > devices > model
+#verify																api_verification		string											#actual_result#=$gateways_and_devices_list_gw_devices_model$
+
+## Verify gateways > devices > onlineStatus
+#verify																api_verification		int												#actual_result#=$gateways_and_devices_list_gw_devices_online_status$
+
+## Verify gateways > wifiSsid
+#verify																api_verification		string											#actual_result#=$gateways_and_devices_list_gw_wifi_ssid$
+##===== END =====

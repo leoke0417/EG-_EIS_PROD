@@ -1,0 +1,7 @@
+## 關聯 device
+$deregister_url$=get					egplus_api				v1_deregister_url						#environment#=url,#gw_uuid#=gw_uuid
+$deregister_header$=get					egplus_api				v1_deregister_header					#token#=accesstoken
+$deregister_body$=get					egplus_api				v1_deregister_body
+$deregister_response$=get				egplus_api				delete									#url#=$deregister_url$,#header#=$deregister_header$,#body#=$deregister_body$
+$deregister_status_code$=get			egplus_api				status_code								#response#=$deregister_response$
+verify									api_verification		status_code								#api_response#=$deregister_status_code$,#expected_status_code#=200

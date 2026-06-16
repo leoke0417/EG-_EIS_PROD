@@ -1,0 +1,66 @@
+ini			api_eis.ini
+start
+
+
+$cmd$=get											postman							command									#collection#=c_QA_EIS_GET_gateway-options.json,#environment#=e_EIS.json,#iterations#=1
+					
+exec												postman							command									#command#=$cmd$
+					
+$result_file$=get									postman							result	
+					
+$list_data$=get										postman							read_csv								#filename#=$result_file$
+					
+$target_data$=get									postman							find_result								#file#=$list_data$,#testcase#=GET_gateway-options
+					
+$result$=get										postman							api_result								#api_result#=$target_data$
+					
+verify												postman							status_code								#api_result#=$result$,#expected_result#=200
+					
+$response_body$=get									api_verification				api_response							#api_result#=$result$
+					
+$expected_result$=get								api_verification				expected_result							#environment#=$test_environment$,#expected_result#=EIS\GET_gateway-options.json
+					
+verify												api_verification				dict_keys								#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+## Get id of fwsku
+$gw_info_gw_options_sku_fwsku_id$=get				file_operate					dict_dict_list_dict_value				#first_key#=fwSku,#second_key#=options,#third_key#=id,#response_body#=$response_body$
+
+## Get option of fwsku
+$gw_info_gw_options_sku_fwsku_option$=get			file_operate					dict_dict_list_dict_value				#first_key#=fwSku,#second_key#=options,#third_key#=option,#response_body#=$response_body$
+
+## Get total number of fwsku
+$gw_info_gw_options_sku_fwsku_total$=get			file_operate					dict_dict_value							#first_key#=fwSku,#second_key#=total,#response_body#=$response_body$
+
+## Get options of fwVersion
+$gw_info_gw_options_sku_fwvers_options$=get			file_operate					dict_dict_list_value					#first_key#=fwVersion,#second_key#=options,#response_body#=$response_body$
+
+## Get total number fo fwVersion
+$gw_info_gw_options_sku_fwvers_total$=get			file_operate					dict_dict_value							#first_key#=fwVersion,#second_key#=total,#response_body#=$response_body$
+
+## Get options of product
+$gw_info_gw_options_sku_product_options$=get		file_operate					dict_dict_list_value					#first_key#=product,#second_key#=options,#response_body#=$response_body$
+
+## Get total number of product
+$gw_info_gw_options_sku_product_total$=get			file_operate					dict_dict_value							#first_key#=fwVersion,#second_key#=total,#response_body#=$response_body$
+
+## Verify id of fwsku
+verify												api_verification				null									#actual_result#=$gw_info_gw_options_sku_fwsku_id$
+		
+## Verify option of fwsku		
+verify												api_verification				fw_sku									#actual_result#=$gw_info_gw_options_sku_fwsku_option$
+		
+## Verify total number of fwsku		
+verify												api_verification 				int										#actual_result#=$gw_info_gw_options_sku_fwsku_total$
+		
+## Verify option of fwVersion		
+verify												api_verification				empty									#actual_result#=$gw_info_gw_options_sku_fwvers_options$
+		
+## Verify total of fwVersion		
+verify												api_verification				int										#actual_result#=$gw_info_gw_options_sku_fwvers_total$
+		
+## Verify options of product		
+verify												api_verification				empty									#actual_result#=$gw_info_gw_options_sku_product_options$
+		
+## Verify total of product		
+verify												api_verification				int										#actual_result#=$gw_info_gw_options_sku_product_total$
+##===== END =====

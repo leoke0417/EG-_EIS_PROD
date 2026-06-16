@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "dbd74058-5f86-48c3-80fd-7ebdfddb5991",
+		"name": "POST /account/v1/users Sign up",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /account/v1/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{email_password}}\",\r\n  \"clientId\": \"{{clientId}}\",\r\n  \"locale\": \"{{locale}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{qa_ioe_account_url}}/account/v1/users",
+					"host": [
+						"{{qa_ioe_account_url}}"
+					],
+					"path": [
+						"account",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

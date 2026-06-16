@@ -1,0 +1,47 @@
+ini			api_eis.ini
+start
+
+$cmd$=get									postman					command								#collection#=c_QA_EIS_GET_histories_{id}.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman					command								#command#=$cmd$
+
+$result_file$=get							postman					result
+
+$list_data$=get								postman					read_csv							#filename#=$result_file$
+
+$target_data$=get							postman					find_result							#file#=$list_data$,#testcase#=GET_histories_{id}
+
+$result$=get								postman					api_result							#api_result#=$target_data$
+
+verify										postman					status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get							api_verification		api_response						#api_result#=$result$
+
+$expected_result$=get						api_verification		expected_result						#environment#=$test_environment$,#expected_result#=EIS\GET_histories_{id}.json
+
+verify										api_verification		dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+## Get user
+$program_history_log_user$=get				file_operate			dict_list_dict_value				#first_key#=histories,#second_key#=user,#response_body#=$response_body$
+			
+## Get memo			
+$program_history_log_memo$=get				file_operate			dict_list_dict_value				#first_key#=histories,#second_key#=memo,#response_body#=$response_body$
+			
+## Get at			
+$program_history_log_at$=get				file_operate			dict_list_dict_value				#first_key#=histories,#second_key#=at,#response_body#=$response_body$
+			
+## Get total			
+$program_history_log_total$=get				file_operate			dict_value							#key#=total,#response_body#=$response_body$
+
+## Verify user
+verify										api_verification		string								#actual_result#=$program_history_log_user$
+				
+## Verify memo 				
+verify										api_verification		string								#actual_result#=$program_history_log_memo$
+				
+## Verify at				
+verify										api_verification		time								#actual_result#=$program_history_log_at$
+				
+## Verify int				
+verify										api_verification		int									#actual_result#=$program_history_log_total$
+##===== END =====

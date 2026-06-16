@@ -1,0 +1,14 @@
+{
+    "organizations": [
+        {
+            "id": "83c668dc-a208-4e13-a173-7c472d303996",
+            "displayId": "O-201027001",
+            "name": "NextDrive",
+            "country": "TW",
+            "industry": "Others",
+            "modifiedDt": "2020-10-27T00:10:49.000Z",
+            "manager": "Andy Liu"
+        }
+    ],
+    "total": 1
+}

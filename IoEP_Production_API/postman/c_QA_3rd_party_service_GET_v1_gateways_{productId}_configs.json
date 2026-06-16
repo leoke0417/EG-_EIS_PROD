@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "fcbd7f04-f6ba-4b46-8fe1-4504d050c3fd",
+		"name": "c_3rd_party_service_get_v1_gateways_{productId}_configs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_v1_gateways_{productId}_configs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-ND-TOKEN",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/v1/gateways/{{gateway_5e470e_pid}}/configs",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"v1",
+						"gateways",
+						"{{gateway_5e470e_pid}}",
+						"configs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

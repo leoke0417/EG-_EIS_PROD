@@ -1,0 +1,201 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_QA_IoE_GET_developer_services_{id}.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=GET_developer_services_{id}
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\GET_developer_services_{id}.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+
+
+### =====
+### GET data
+### =====
+## Get id
+$id$=get								file_operate			dict_value					#key#=id,#response_body#=$response_body$
+
+## Get name
+$name$=get								file_operate			dict_value					#key#=name,#response_body#=$response_body$
+
+## Get icon
+$icon$=get								file_operate			dict_value					#key#=icon,#response_body#=$response_body$
+
+## Get status
+$status$=get							file_operate			dict_value					#key#=status,#response_body#=$response_body$
+
+## Get totalUserCount
+$totalUserCount$=get					file_operate			dict_value					#key#=totalUserCount,#response_body#=$response_body$
+
+## Get activeUserCount
+$activeUserCount$=get					file_operate			dict_value					#key#=activeUserCount,#response_body#=$response_body$
+
+## Get summary
+$summary$=get							file_operate			dict_value					#key#=summary,#response_body#=$response_body$
+
+## Get description
+$description$=get						file_operate			dict_value					#key#=description,#response_body#=$response_body$
+
+## Get publicPolicy
+$publicPolicy$=get						file_operate			dict_value					#key#=publicPolicy,#response_body#=$response_body$
+
+## Get testUsersEmail
+$testUsersEmail$=get					file_operate			dict_list_value				#key#=testUsersEmail,#response_body#=$response_body$
+
+## Get images
+$images$=get							file_operate			dict_list_value				#key#=images,#response_body#=$response_body$
+
+## Get lang
+$lang$=get								file_operate			dict_value					#key#=lang,#response_body#=$response_body$
+
+## Get country
+$country$=get							file_operate			dict_value					#key#=country,#response_body#=$response_body$
+
+## Get contact
+$contact$=get							file_operate			dict_value					#key#=contact,#response_body#=$response_body$
+
+## Get faqUrl
+$faqUrl$=get							file_operate			dict_value					#key#=faqUrl,#response_body#=$response_body$
+
+## Get formUrl
+$formUrl$=get							file_operate			dict_value					#key#=formUrl,#response_body#=$response_body$
+
+## Get isDefaultEnabled
+$isDefaultEnabled$=get					file_operate			dict_value					#key#=isDefaultEnabled,#response_body#=$response_body$
+
+## Get isDefaultSubscribed
+$isDefaultSubscribed$=get				file_operate			dict_value					#key#=isDefaultSubscribed,#response_body#=$response_body$
+
+## Get apiKeys
+$apiKeys$=get							file_operate			dict_list_value				#key#=apiKeys,#response_body#=$response_body$
+
+## Get scopes > scope
+$scopes_scope$=get						file_operate			dict_list_dict_value		#first_key#=scopes,#second_key#=scope,#response_body#=$response_body$
+
+## Get scopes > dataUUID
+$scopes_dataUUID$=get					file_operate			dict_list_dict_value		#first_key#=scopes,#second_key#=dataUUID,#response_body#=$response_body$
+
+## Get scopes > config
+$scopes_config$=get						file_operate			dict_list_dict_value		#first_key#=scopes,#second_key#=config,#response_body#=$response_body$
+
+## Get webhooks > scope
+$webhooks_scope$=get					file_operate			dict_list_dict_value		#first_key#=webhooks,#second_key#=scope,#response_body#=$response_body$
+
+## Get webhooks > url
+$webhooks_url$=get						file_operate			dict_list_dict_value		#first_key#=webhooks,#second_key#=url,#response_body#=$response_body$
+
+## Get privacyAndTermsUrl
+$privacyAndTermsUrl$=get				file_operate			dict_value					#key#=privacyAndTermsUrl,#response_body#=$response_body$
+
+## GetserviceCategory
+$serviceCategory$=get					file_operate			dict_list_value				#key#=serviceCategory,#response_body#=$response_body$
+
+## GetfunctionCategory
+$functionCategory$=get					file_operate			dict_list_value				#key#=functionCategory,#response_body#=$response_body$
+
+## Get updateTime
+$updateTime$=get						file_operate			dict_value					#key#=updateTime,#response_body#=$response_body$
+
+
+### =====
+### Verify
+### =====
+## Verify id
+verify									api_verification		uuid						#actual_result#=$id$
+
+## Verify name
+verify									api_verification		string						#actual_result#=$name$
+
+## Verify icon
+verify									api_verification		string						#actual_result#=$icon$
+
+## Verify status
+verify									api_verification		string						#actual_result#=$status$
+
+## Verify totalUserCount
+verify									api_verification		int							#actual_result#=$totalUserCount$
+
+## Verify activeUserCount
+verify									api_verification		int							#actual_result#=$activeUserCount$
+
+## Verify summary
+verify									api_verification		string						#actual_result#=$summary$
+
+## Verify description
+verify									api_verification		string						#actual_result#=$description$
+
+## Verify publicPolicy
+verify									api_verification		string						#actual_result#=$publicPolicy$
+
+## Verify testUsersEmail
+verify									api_verification		string						#actual_result#=$testUsersEmail$
+
+## Verify images
+verify									api_verification		url							#actual_result#=$images$
+
+## Verify lang
+verify									api_verification		string						#actual_result#=$lang$
+
+## Verify country
+verify									api_verification		string						#actual_result#=$country$
+
+## Verify contact
+verify									api_verification		string						#actual_result#=$contact$
+
+## Verify faqUrl
+## verify									api_verification		url							#actual_result#=$faqUrl$
+
+## Verify formUrl
+## verify									api_verification		url							#actual_result#=$formUrl$
+
+## Verify isDefaultEnabled
+verify									api_verification		boolean						#actual_result#=$isDefaultEnabled$
+
+## Verify isDefaultSubscribed
+verify									api_verification		boolean						#actual_result#=$isDefaultSubscribed$
+
+## Verify apiKeys
+verify									api_verification		string						#actual_result#=$apiKeys$
+
+## Verify scopes_scope
+verify									api_verification		string						#actual_result#=$scopes_scope$
+
+## Verify scopes_dataUUID
+verify									api_verification		uuid						#actual_result#=$scopes_dataUUID$
+
+## Verify scopes_config
+verify									api_verification		string						#actual_result#=$scopes_config$
+
+## Verify webhooks_scope
+verify									api_verification		string						#actual_result#=$webhooks_scope$
+
+## Verify webhooks_url
+verify									api_verification		url							#actual_result#=$webhooks_url$
+
+## Verify privacyAndTermsUrl
+verify									api_verification		url							#actual_result#=$privacyAndTermsUrl$
+
+## Verify serviceCategory
+verify									api_verification		string						#actual_result#=$serviceCategory$
+
+## Verify functionCategory
+verify									api_verification		string						#actual_result#=$functionCategory$
+
+## Verify updateTime
+verify									api_verification		time						#actual_result#=$updateTime$
+

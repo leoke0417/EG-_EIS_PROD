@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "579d17af-7362-4cd0-b4c7-d51b3f6999b7",
+		"name": "GET_api_v1_gateways_{gatewayUuid}_error40404",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_api_v1_gateways_{gatewayUuid}_error40404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_code}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-eg3-qa.nextdrive.io/api/v1/gateways/a7f4c9fd-b61c-4c26-a8ec-dade8fff3d7e",
+					"protocol": "https",
+					"host": [
+						"api-eg3-qa",
+						"nextdrive",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"a7f4c9fd-b61c-4c26-a8ec-dade8fff3d7e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

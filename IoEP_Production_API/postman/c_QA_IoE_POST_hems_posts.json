@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "2058f11a-1c2d-4410-97ad-05883fad35fa",
+		"name": "QA_IoE_POST_hems_posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "POST_hems_posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"published\",\r\n  \"format\": 1,\r\n  \"audienceConditions\": \"androidVersion=???&iosVersion=???&cubeLocation=???&attoLocation=???\",\r\n  \"grandTitle\": \"string\",\r\n  \"post\": [\r\n    {\r\n      \"title\": \"title\",\r\n      \"description\": \"description\",\r\n      \"urls\": [\r\n        {\r\n          \"label\": \"label\",\r\n          \"url\": \"https://xxx\"\r\n        }\r\n      ],\r\n      \"images\": [\r\n        {\r\n          \"previewImageUrl\": \"https://xxx-thumbnail.png\",\r\n          \"originalContentUrl\": \"https://xxx.png\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"detail\": [\r\n    {\r\n      \"title\": \"title\",\r\n      \"contents\": [\r\n        {\r\n          \"text\": \"content text\",\r\n          \"previewImageUrl\": \"https://xxx-thumbnail.png\",\r\n          \"originalContentUrl\": \"https://xxx.png\",\r\n          \"label\": \"label\",\r\n          \"url\": \"https://xxx\",\r\n          \"type\": \"text\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"publishedAt\": \"2021-01-22T00:07:15.356Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/hems/posts",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"hems",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

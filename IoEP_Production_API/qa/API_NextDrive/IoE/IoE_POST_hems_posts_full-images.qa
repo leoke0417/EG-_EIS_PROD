@@ -1,0 +1,36 @@
+ini				api_ioe.ini
+start
+
+$new_json_data$=get			postman					postman_json		#json_name#=c_QA_IoE_POST_hems_posts_full-images.json
+
+$json_file$=get				api_ioe					update_images_path	#path#=$new_json_data$
+
+set							postman					postman_json		#json_content#=$json_file$,#json_name#=c_QA_IoE_POST_hems_posts_full-images.json
+
+$cmd$=get					postman					command				#collection#=c_QA_IoE_POST_hems_posts_full-images.json,#environment#=e_IoE.json,#iterations#=1
+
+exec						postman					command				#command#=$cmd$
+
+$result_file$=get			postman					result		
+
+$list_data$=get				postman					read_csv			#filename#=$result_file$
+
+$target_data$=get			postman					find_result			#file#=$list_data$,#testcase#=POST_hems_posts_full-images
+
+$result$=get				postman					api_result			#api_result#=$target_data$
+
+verify						postman					status_code			#api_result#=$result$,#expected_result#=200
+
+$response_body$=get			api_verification		api_response		#api_result#=$result$
+
+$expected_body$=get			api_verification		expected_result		#environment#=$test_environment$,#expected_result#=IoE\POST_hems_posts_full-images.json
+
+verify						api_verification		dict_keys			#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$originalContentUrl$=get	file_operate			dict_value			#key#=originalContentUrl,#response_body#=$response_body$
+
+$previewImageUrl$=get		file_operate			dict_value			#key#=previewImageUrl,#response_body#=$response_body$
+
+verify						api_verification		url					#actual_result#=$originalContentUrl$
+
+verify						api_verification		url					#actual_result#=$previewImageUrl$

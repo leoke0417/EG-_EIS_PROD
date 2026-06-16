@@ -1,0 +1,18 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_ServiceStore_PGPD_manager_launch-requests.json,#environment#=e_Service_Store_servicemanager.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=POST_manager_launch-requests
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+# end

@@ -1,0 +1,2 @@
+iteration,collectionName,requestName,method,url,status,code,responseTime,responseSize,executed,failed,skipped,totalAssertions,executedCount,failedCount,skippedCount
+"1","IOEP_UMS_usermanagement","Confirm-forgot-password","POST","https://ioe-api.nextdrive.io/user-management/v1/accounts/confirm-password","OK","200","1439","55","Response Body{""code"":20000,""message"":""Successful Request"",""data"":{}}",,,"1","1","0","0"

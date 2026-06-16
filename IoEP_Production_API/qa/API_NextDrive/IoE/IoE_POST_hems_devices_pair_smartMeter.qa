@@ -1,0 +1,58 @@
+ini										api_ioe.ini
+
+start
+
+$cmdd$=get								postman					command								#collection#="c_QA_IoE_POST_hems_devices_pair_smartMeter.json",#environment#=e_IoE.json
+
+exec									postman					command								#command#=$cmdd$
+
+$result_file$=get						postman					result
+
+$list_data$=get							postman					read_csv							#filename#=$result_file$
+
+$target_data$=get						postman					find_result							#file#=$list_data$,#testcase#=POST_hems_devices_pair_smartMeter
+
+$result$=get							postman					api_result							#api_result#=$target_data$
+
+verify									postman					status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response						#api_result#=$result$
+
+$uuid$=get								file_operate			dict_value							#key#=uuid,#response_body#=$response_body$
+
+
+$put_param$=get							api_ioe					update_devices_uuid					#devices_uuid#=$uuid$
+
+$put_content$=get						postman					postman_json						#json_name#=c_qa_egplus_delete_api_v1_associations_devices_{deviceUuid}_for_smartmeter_delete.json
+
+$put_final_collection$=get				api_ioe					update_post_new_id					#collections#=$put_content$,#new_id#=$put_param$
+
+set										postman					postman_json						#json_content#=$put_final_collection$,#json_name#=c_qa_egplus_delete_api_v1_associations_devices_{deviceUuid}_for_smartmeter_delete.json
+
+
+
+ini										api_egplus.ini
+
+
+
+$cognito_token$=get			api_verification		id_token			#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+set							api_verification		environment			#environment_name#=e_EGPlus.json,#new_token#=$cognito_token$
+
+set							api_verification		collection			#collection_name#=c_qa_egplus_delete_api_v1_associations_devices_{deviceUuid}_for_smartmeter_delete.json,#new_token#=$cognito_token$,#testcase_name#=Get_token
+
+$cmd$=get								postman					command								#collection#="c_qa_egplus_delete_api_v1_associations_devices_{deviceUuid}_for_smartmeter_delete.json",#environment#=e_EGPlus.json
+
+exec									postman					command								#command#=$cmd$
+
+$result_file1$=get						postman					result
+
+$list_data1$=get						postman					read_csv							#filename#=$result_file1$
+
+$target_data1$=get						postman					find_result							#file#=$list_data1$,#testcase#=DELETE_api_v1_associations_devices_{deviceUuid}
+
+$result1$=get							postman					api_result							#api_result#=$target_data1$
+
+verify									postman					status_code							#api_result#=$result1$,#expected_result#=200
+
+# end

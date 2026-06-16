@@ -1,0 +1,32 @@
+### Purpose: Send result to Google chat room & Fill in the testrun with the test result
+###	1. Get running test case from autokiwi.qas.
+###	2. Get testing result from {workspace}\log\{test case}\{test case}.xml
+###	3. Merge all result and make them human readable.
+### 4. Get testcase information(execution_id) from testrun
+### 5. Generate a result list. * Format: [(execution_id, result),...]. e.g., [(51933, 'pass'), (51934, 'fail')]
+### 6. Update testrun
+### 7. Send result
+
+
+start
+
+### Step 1.
+$qa_list$=get						autokiwi					qa_title_list		#path#=qa\autokiwi.qas
+
+### Step 2.
+$xml_list$=get						autokiwi					qa_result_list		#qa_title_list#=$qa_list$,#path_prefix#=autokiwi
+
+### Step 3.
+$overall_result$=get				autokiwi					overall_result		#qa_test_result#=$xml_list$,#environment#=QA Staging,#project_name#=Autokiwi,#unit#=APIs
+
+### Step 4. 
+$testrun_case_info$=get				autokiwi					testrun_case
+
+### Step 5.
+$final_result$=get					autokiwi					testrun_status		#testrun_case_info#=$testrun_case_info$,#xml_list#=$xml_list$
+
+### Step 6.
+update								autokiwi					testrun_status		#execution_result#=$final_result$
+
+### Step 7.
+#send								Fb							googlemessage		#message#=$overall_result$

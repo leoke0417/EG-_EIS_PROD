@@ -1,0 +1,116 @@
+{
+    "options": [
+        {
+            "label": "NextDrive WL",
+            "value": "1d8249f4-1d3f-4193-8cca-f47713e32bd5"
+        },
+        {
+            "label": "エフエネECOホーム",
+            "value": "49170afe-1dea-444e-8069-9a7b6f34e417"
+        },
+        {
+            "label": "ene-arch_New",
+            "value": "4d9abe25-f95e-4f0c-9e96-8bdb336c25ac"
+        },
+        {
+            "label": "Ecogenie",
+            "value": "4ff91429-1f91-4ecc-a1e9-f16b46064b8b"
+        },
+        {
+            "label": "Igw Development",
+            "value": "7a825cf4-afac-475b-9b8b-b395ca67fcde"
+        },
+        {
+            "label": "EG+ test_FT",
+            "value": "86bf39b6-c19c-4962-a020-f565c254672b"
+        },
+        {
+            "label": "EG test_SMB",
+            "value": "a68e8a7d-51b1-4af4-940c-44b036105cc4"
+        },
+        {
+            "label": "EG+ test",
+            "value": "b49e3069-2149-4dee-9302-7fb9867565c9"
+        },
+        {
+            "label": "eHome2",
+            "value": "c42479e5-ce42-4028-ad45-f3777b74e8e4"
+        },
+        {
+            "label": "つながるくん",
+            "value": "cb4aaf0e-420f-44f4-af8a-e3debe5e14d5"
+        },
+        {
+            "label": "EG test_Global Cast",
+            "value": "cffeadf2-8424-4d9b-83f4-e20cd9a64d22"
+        },
+        {
+            "label": "ene-arch",
+            "value": "d2fab690-47da-4a4e-8881-55607ed1c496"
+        },
+        {
+            "label": "EG test_東北電力事業創出部門",
+            "value": "e1037aa0-5c9d-4a00-9447-c65f04f81459"
+        },
+        {
+            "label": "Life Plus Developer",
+            "value": "645f1df6-c9ba-4b6d-b97b-aff8cbc405a6"
+        },
+        {
+            "label": "P-201202001",
+            "value": "1d8249f4-1d3f-4193-8cca-f47713e32bd5"
+        },
+        {
+            "label": "P-210323001",
+            "value": "49170afe-1dea-444e-8069-9a7b6f34e417"
+        },
+        {
+            "label": "P-210315001",
+            "value": "4d9abe25-f95e-4f0c-9e96-8bdb336c25ac"
+        },
+        {
+            "label": "P-201027001",
+            "value": "4ff91429-1f91-4ecc-a1e9-f16b46064b8b"
+        },
+        {
+            "label": "P-210208001",
+            "value": "7a825cf4-afac-475b-9b8b-b395ca67fcde"
+        },
+        {
+            "label": "P-201216002",
+            "value": "86bf39b6-c19c-4962-a020-f565c254672b"
+        },
+        {
+            "label": "P-201216003",
+            "value": "a68e8a7d-51b1-4af4-940c-44b036105cc4"
+        },
+        {
+            "label": "P-201216001",
+            "value": "b49e3069-2149-4dee-9302-7fb9867565c9"
+        },
+        {
+            "label": "P-210322001",
+            "value": "c42479e5-ce42-4028-ad45-f3777b74e8e4"
+        },
+        {
+            "label": "P-210225001",
+            "value": "cb4aaf0e-420f-44f4-af8a-e3debe5e14d5"
+        },
+        {
+            "label": "P-201216004",
+            "value": "cffeadf2-8424-4d9b-83f4-e20cd9a64d22"
+        },
+        {
+            "label": "P-210217001",
+            "value": "d2fab690-47da-4a4e-8881-55607ed1c496"
+        },
+        {
+            "label": "P-201217001",
+            "value": "e1037aa0-5c9d-4a00-9447-c65f04f81459"
+        },
+        {
+            "label": "P-210406001",
+            "value": "645f1df6-c9ba-4b6d-b97b-aff8cbc405a6"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": 442,
+  "displayId": "C-211014001",
+  "name": "test_client",
+  "location": "Taipei",
+  "type": "PoC",
+  "modifiedDt": "2021-10-14T05:47:55.209Z",
+  "accountManager": {
+    "name": "dustin.lin",
+    "email": "dustin.lin@nextdrive.io"
+  },
+  "organization": {
+    "id": "77218269-f3d1-4118-9cd3-0762d00acb2d",
+    "displayId": "O-211014001",
+    "name": "test_organization",
+    "country": "TW",
+    "industry": "IT",
+    "manager": {
+      "name": "",
+      "email": ""
+    }
+  },
+  "programs": []
+}

@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "ca599199-83f1-4468-a1ff-731f571ad004",
+		"name": "EIS_QA_POST_gateway-binding_batch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: 'https://eis-api-qa.nextdrive.io/auth/login',\r",
+							"    method:'POST',\r",
+							"    header:{\r",
+							"        'accept': 'application/json',\r",
+							"        'Content-Type': 'application/json',\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(\r",
+							"                            {\r",
+							"                                \"username\": \"dustin.lin@nextdrive.io\",\r",
+							"                                \"password\": \"link4581\"\r",
+							"                            }\r",
+							"                            )\r",
+							"    }\r",
+							"}, function(err, response){\r",
+							"    const jsonParse = response.json();\r",
+							"    pm.environment.set(\"access_token\", jsonParse.access_token)\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"{{account}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/auth/login",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_gateway-binding_batch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"programId\": \"7bda1ab6-6d91-4281-9eaa-7ce136e38fc5\",\r\n  \"model\": \"Cube-PLUS\",\r\n  \"sku\": \"4.0.16048\",\r\n  \"free\": false,\r\n  \"pids\": [\r\n    \"CFAKE01232001123\"\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/gateway-binding/batch",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"gateway-binding",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

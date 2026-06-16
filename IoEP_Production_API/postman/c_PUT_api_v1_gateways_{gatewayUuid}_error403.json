@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "48b0e6c9-6044-4afa-bd97-89e6ac9c4980",
+		"name": "PUT_api_v1_gateways_{gatewayUuid}_error403",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PUT_api_v1_gateways_{gatewayUuid}_error403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_code}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Kitchen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-eg3-qa.nextdrive.io/api/v1/gateways/a7f4c9fd-b61c-4c26-a8ec-dade8fff3d7e",
+					"protocol": "https",
+					"host": [
+						"api-eg3-qa",
+						"nextdrive",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"a7f4c9fd-b61c-4c26-a8ec-dade8fff3d7e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

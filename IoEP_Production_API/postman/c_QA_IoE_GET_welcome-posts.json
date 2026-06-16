@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "64679038-2c94-4d93-8c1b-5ca8aeff999d",
+		"name": "IoE_QA_GET_welcome-posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "GET_welcome-post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/welcome-posts",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"welcome-posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

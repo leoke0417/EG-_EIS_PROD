@@ -1,0 +1,450 @@
+{
+    "histories": [
+        {
+            "user": "Infra",
+            "memo": "CREATED",
+            "at": "2020-09-17T03:38:20.000Z"
+        },
+        {
+            "user": "Infra",
+            "memo": "Binding\r\n981ECD1760900208",
+            "at": "2020-09-17T03:42:09.000Z"
+        },
+        {
+            "user": "Infra",
+            "memo": "Binding\r\nac83f398d1f15923",
+            "at": "2020-09-17T03:49:12.000Z"
+        },
+        {
+            "user": "dustin.lin+1@nextdrive.io",
+            "memo": "Activation-{\"email\":\"dutin.lin+15@nextdrive.io\",\"role\":\"Admin\",\"products\":[\"HEMS\"]}",
+            "at": "2020-09-17T05:35:10.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\n981ECD1760900208",
+            "at": "2020-09-17T07:24:54.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\n981ECD1760900208",
+            "at": "2020-09-17T07:25:22.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\n981ECD1760900208",
+            "at": "2020-09-17T08:30:07.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\nac83f398d1f15923",
+            "at": "2020-09-19T07:37:15.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\nac83f398d1f15923",
+            "at": "2020-09-21T01:24:35.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\n984D631962505822",
+            "at": "2020-09-21T01:24:54.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\n985D971760900042",
+            "at": "2020-09-21T01:25:09.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\n981ECD1760900208",
+            "at": "2020-09-21T01:25:20.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\nJAQA0AC83F3983C8F",
+            "at": "2020-09-21T08:09:43.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\nac83f398d1f15923",
+            "at": "2020-09-21T10:27:05.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\nac83f398d1f15923",
+            "at": "2020-09-21T10:27:56.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\n984D631962505822",
+            "at": "2020-09-21T10:31:33.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\n984D631962505822",
+            "at": "2020-09-25T04:25:18.000Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Activation-{\"email\":\"helmut.liu@nextdrive.io\",\"role\":\"Admin\",\"products\":[\"HEMS\"]}",
+            "at": "2020-10-07T07:10:13.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\nJAB3410D07A5BFC04\r\nJAB3410D07A5E45EC\r\nJAB3410D07A5E4560\r\nJAB3410D07A5BE6AA\r\nJAB3410D07A5BE694\r\nJAB3410D07A5DD346\r\nJAB3410D07A5E46C0\r\nJAB3410D07A5E470E\r\nJAB3410D07A5E4588\r\nJAB3410D07A5E4554\r\nC9A4781810300152\r\nJAB3410D07A5E4632\r\nJAB3410D07A5E45D0\r\nJAB3410D07A5E4644\r\nJ0B20CCB8A8CE7964\r\nC8FEA417C2900212\r\nCDA1501830900365\r\nCDE9141831000307\r\nJ0B20CCB8A8CE7990",
+            "at": "2020-10-08T11:05:22.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\nJAB3410D07A5E4562",
+            "at": "2020-10-08T11:07:57.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\nJAB3410D07A5BFC04\r\nJAB3410D07A5E45EC\r\nJAB3410D07A5E4560\r\nJAB3410D07A5BE6AA\r\nJAB3410D07A5BE694\r\nJAB3410D07A5DD346\r\nJAB3410D07A5E46C0\r\nJAB3410D07A5E470E\r\nJAB3410D07A5E4588\r\nJAB3410D07A5E4554\r\nC9A4781810300152\r\nJAB3410D07A5E4632\r\nJAB3410D07A5E45D0\r\nJAB3410D07A5E4644\r\nJ0B20CCB8A8CE7964\r\nC8FEA417C2900212\r\nCDA1501830900365\r\nCDE9141831000307\r\nJ0B20CCB8A8CE7990\r\nJAB3410D07A5E4562",
+            "at": "2020-10-12T02:52:41.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\nJAB3410D07A5BFC04\r\nJAB3410D07A5E45EC\r\nJAB3410D07A5E4560\r\nJAB3410D07A5BE6AA\r\nJAB3410D07A5BE694\r\nJAB3410D07A5DD346\r\nJAB3410D07A5E46C0\r\nJAB3410D07A5E470E\r\nJAB3410D07A5E4588\r\nJAB3410D07A5E4554\r\nC9A4781810300152\r\nJAB3410D07A5E4632\r\nJAB3410D07A5E45D0\r\nJAB3410D07A5E4644\r\nJ0B20CCB8A8CE7964\r\nC8FEA417C2900212\r\nCDA1501830900365\r\nCDE9141831000307\r\nJ0B20CCB8A8CE7990\r\nJAB3410D07A5E4562",
+            "at": "2020-10-12T02:53:15.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\nJ0B20CCB8A8CE7990\r\nJAB3410D07A5E4562",
+            "at": "2020-10-12T05:30:46.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\nCDA1501830900365\r\nCDE9141831000307",
+            "at": "2020-10-12T05:47:55.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\nCDE9141831000307",
+            "at": "2020-10-12T07:09:49.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\nJ0B20CCB8A8CE7990\r\nJAB3410D07A5E4562",
+            "at": "2020-10-13T02:03:30.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\r\nCDA1501830900365",
+            "at": "2020-10-13T03:18:35.000Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\r\nCDA1501830900365\r\nJ0B20CCB8A8CE7990\r\nJAB3410D07A5E4562",
+            "at": "2020-10-13T05:25:55.000Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Activation-{\"email\":\"benny.hsu+99@nextdrive.io\",\"role\":\"Admin\",\"products\":[\"HEMS\"]}",
+            "at": "2020-11-11T03:43:12.000Z"
+        },
+        {
+            "user": "Infra",
+            "memo": "Binding\r\nCD4A301830900139\r\nC8AE1C17C2800362",
+            "at": "2020-11-16T06:54:57.000Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Binding\r\nJBB52CC4B7339828E\r\nJBB52CC4B733A4330",
+            "at": "2020-11-17T08:53:53.000Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Unbinding\r\nJBB52CC4B733A4330",
+            "at": "2020-11-18T03:27:31.000Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Unbinding\r\nJBB52CC4B7339828E",
+            "at": "2020-11-18T04:59:20.000Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Binding\r\nJBB52CC4B7339828E\r\nJBB52CC4B733A4330",
+            "at": "2020-11-18T05:00:19.000Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Activation-{\"email\":\"ada.cheng+99@nextdrive.io\",\"role\":\"User\",\"products\":[\"HEMS\"]}",
+            "at": "2020-11-18T07:22:17.000Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nJAB3410D07A5E45D0",
+            "at": "2020-12-04T09:37:17.272Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nJAB3410D07A5E4562",
+            "at": "2020-12-04T09:39:21.312Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nJAB3410D07A5E4644",
+            "at": "2020-12-04T09:40:33.038Z"
+        },
+        {
+            "user": "Infra",
+            "memo": "Binding\n983DC91760900195",
+            "at": "2020-12-14T05:34:35.965Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Activation-{\"email\":\"dustin.lin+100@nextdrive.io\",\"role\":\"User\",\"products\":[\"HEMS\"]}",
+            "at": "2020-12-17T05:23:05.565Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\nJAB3410D07A5BE694",
+            "at": "2020-12-28T03:36:37.172Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\nJAB3410D07A5BE694",
+            "at": "2020-12-28T06:03:09.664Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\nJAB3410D07A5E45EC",
+            "at": "2020-12-29T08:57:29.770Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Binding\nA0C50CC4B73A9D8FC,Atto-PostF,false",
+            "at": "2021-01-18T07:00:15.850Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Unbinding\nA0C50CC4B73A9D8FC,Atto-PostF,false",
+            "at": "2021-01-18T10:10:10.649Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9B38C,Atto-PostF,Y",
+            "at": "2021-03-12T03:06:52.375Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Binding\nJAB3410D07A5BBAC8,Cube-J,false\nJAB3410D07A5BBAD0,Cube-J,false\nJAB3410D07A5BBADE,Cube-J,false\nJAB3410D07A5BBAE6,Cube-J,false\nJAB3410D07A5BBAF4,Cube-J,false",
+            "at": "2021-01-20T01:43:08.063Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Binding\nA053EA1792500316,Cube-J,false",
+            "at": "2021-01-20T02:46:42.677Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Unbinding\nA053EA1792500316,Cube-J,false",
+            "at": "2021-01-20T02:49:47.125Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Binding\nA0C50C0847DA6D952,Atto-PostF,false",
+            "at": "2021-01-20T07:34:56.640Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9B38C,Atto-PostF,false",
+            "at": "2021-03-12T03:04:26.007Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9B38C,Atto-PostF,Y",
+            "at": "2021-03-12T03:04:34.195Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Activation-{\"email\":\"jenny.chen@jp.nextdrive.io\",\"role\":\"User\",\"products\":[\"HEMS\"]}",
+            "at": "2021-01-25T04:57:13.866Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Binding\nJAQA0442C055E6C4E,Cube-PLUS,false",
+            "at": "2021-01-25T11:15:34.863Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\nA0C50CC4B73A9BF1E,Atto-PLUS,false",
+            "at": "2021-01-28T02:05:49.275Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Activation-{\"email\":\"jay.yeh@nextdrive.io\",\"role\":\"User\",\"products\":[\"HEMS\"]}",
+            "at": "2021-01-28T05:28:49.564Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\nA0C50CC4B73A9BF1E,Atto-PLUS,false",
+            "at": "2021-02-04T10:35:57.764Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9B38C,Atto-PostF,true",
+            "at": "2021-03-12T03:06:05.364Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9B38C,Atto-PostF,true",
+            "at": "2021-03-12T03:07:38.972Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9B38C,Atto-PostF,N",
+            "at": "2021-03-12T03:11:46.864Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Binding\nA0C50C0847DA7B846,Atto-PostF,false",
+            "at": "2021-02-05T09:28:04.050Z"
+        },
+        {
+            "user": "dustin.lin+2@nextdrive.io",
+            "memo": "Unbinding\nA0C50C0847DA7B846,Atto-PostF,false",
+            "at": "2021-02-05T09:28:13.276Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9B38C,Atto-PostF,N",
+            "at": "2021-03-12T03:02:02.491Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9B38C,Atto-PostF,false",
+            "at": "2021-03-12T03:11:55.064Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9B38C,Atto-PostF,N",
+            "at": "2021-03-12T03:12:42.265Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9B38C,Atto-PostF,false",
+            "at": "2021-03-12T03:12:47.367Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Binding\nJ1B18CCB8A8C9691E,Cube-J1,Y\nJ1B18CCB8A8C96920,Cube-J1,Y\nJ1B18CCB8A8C96928,Cube-J1,Y\nJ1B18CCB8A8C9692C,Cube-J1,Y\nJ1B18CCB8A8C96934,Cube-J1,Y\nJ1B18CCB8A8C96936,Cube-J1,Y",
+            "at": "2021-03-15T07:14:23.772Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Unbinding\nJ1B18CCB8A8C9691E,Cube-J1,true\nJ1B18CCB8A8C96920,Cube-J1,true\nJ1B18CCB8A8C96928,Cube-J1,true\nJ1B18CCB8A8C9692C,Cube-J1,true\nJ1B18CCB8A8C96934,Cube-J1,true\nJ1B18CCB8A8C96936,Cube-J1,true",
+            "at": "2021-03-15T07:14:38.303Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Binding\nJ1B18CCB8A8C9691E,Cube-J1,N\nJ1B18CCB8A8C96920,Cube-J1,N\nJ1B18CCB8A8C96928,Cube-J1,N\nJ1B18CCB8A8C9692C,Cube-J1,N\nJ1B18CCB8A8C96934,Cube-J1,N\nJ1B18CCB8A8C96936,Cube-J1,N\nJ1B18CCB8A8C9693E,Cube-J1,N\nJ1B18CCB8A8C96944,Cube-J1,N\nJ1B18CCB8A8C96948,Cube-J1,N",
+            "at": "2021-03-15T07:20:05.003Z"
+        },
+        {
+            "user": "ada.cheng",
+            "memo": "Unbinding\nJ1B18CCB8A8C9691E,Cube-J1,false\nJ1B18CCB8A8C96920,Cube-J1,false\nJ1B18CCB8A8C96928,Cube-J1,false\nJ1B18CCB8A8C9692C,Cube-J1,false\nJ1B18CCB8A8C96934,Cube-J1,false\nJ1B18CCB8A8C96936,Cube-J1,false\nJ1B18CCB8A8C9693E,Cube-J1,false\nJ1B18CCB8A8C96944,Cube-J1,false\nJ1B18CCB8A8C96948,Cube-J1,false",
+            "at": "2021-03-15T07:22:44.370Z"
+        },
+        {
+            "user": "helmut.liu@nextdrive.io",
+            "memo": "Binding\nCDDB161830900082,Cube-J,N\nCDA1081831000338,Cube-J,N\n985EDD1791900446,Cube-J,N\nCCFE041810200147,Cube-J,N",
+            "at": "2021-03-17T02:44:33.959Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9BF1E,Atto-A9BF1E,false",
+            "at": "2021-03-29T09:34:21.958Z"
+        },
+        {
+            "user": "rogerwei",
+            "memo": "Binding\nC92C281810200958,Cube-J,N",
+            "at": "2021-04-12T09:59:12.256Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50C0847DA7B812,Atto-PLUS,N",
+            "at": "2021-04-15T03:00:42.551Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9CB02,Atto,false",
+            "at": "2021-04-29T02:03:18.256Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nJ0B20CCB8A8CD6842,Cube-PLUS,N",
+            "at": "2021-04-29T06:53:43.157Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9B38C,Atto-PLUS,N",
+            "at": "2021-05-11T08:59:24.092Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9CB02,Atto-PLUS,N",
+            "at": "2021-05-12T08:56:50.987Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9B38C,Atto-A9B38C,false",
+            "at": "2021-05-20T10:57:04.986Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9BF62,Atto-PLUS,N",
+            "at": "2021-05-20T10:58:53.825Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nC882B417C2600130,Cube-J,Y",
+            "at": "2021-05-26T11:00:01.517Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nC882B417C2600130,Cube-J,true",
+            "at": "2021-05-26T11:06:00.915Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nC882B417C2600130,Cube-PLUS,Y",
+            "at": "2021-05-26T11:06:20.814Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Unbinding\nA0C50CC4B73A9BF62,Atto-PostF,false",
+            "at": "2021-05-26T11:11:16.744Z"
+        },
+        {
+            "user": "rogerwei",
+            "memo": "Unbinding\nC92C281810200958,CubeJ-c92c28,false",
+            "at": "2021-05-28T03:31:42.515Z"
+        },
+        {
+            "user": "rogerwei",
+            "memo": "Binding\nC92C281810200958,Cube-PLUS,N",
+            "at": "2021-05-28T05:53:25.542Z"
+        },
+        {
+            "user": "rogerwei",
+            "memo": "Unbinding\nC92C281810200958,CubeJ-c92c28,false",
+            "at": "2021-05-28T05:57:18.049Z"
+        },
+        {
+            "user": "rogerwei",
+            "memo": "Binding\nC92C281810200958,Cube-PLUS,Y",
+            "at": "2021-05-28T15:32:18.572Z"
+        },
+        {
+            "user": "ann.fu",
+            "memo": "Binding\nA0C50CC4B73A9BF62,Atto-PLUS,N",
+            "at": "2021-05-31T06:06:06.717Z"
+        }
+    ],
+    "total": 89
+}

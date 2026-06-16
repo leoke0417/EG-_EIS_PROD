@@ -1,0 +1,7 @@
+## 關聯 device
+$dissociate_devices_url$=get					egplus_api				v1_dissociate_devices_url				#environment#=url,#ble_uuid#=ble_uuid
+$dissociate_devices_header$=get					egplus_api				v1_dissociate_devices_header			#token#=accesstoken
+$dissociate_devices_body$=get					egplus_api				v1_dissociate_devices_body
+$dissociate_devices_response$=get				egplus_api				delete									#url#=$dissociate_devices_url$,#header#=$dissociate_devices_header$,#body#=$dissociate_devices_body$
+$dissociate_devices_status_code$=get			egplus_api				status_code								#response#=$dissociate_devices_response$
+verify											api_verification		status_code								#api_response#=$dissociate_devices_status_code$,#expected_status_code#=200

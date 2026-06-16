@@ -1,0 +1,68 @@
+{
+    "appLabels": [
+        {
+            "id": "0406f2ee-f1ce-4030-b514-db383aa062ff",
+            "appName": "eHome2",
+            "pkgName": "io.nextdrive.ecogenie.ehometwo",
+            "program": "eHome2",
+            "createdDt": "2021-03-22T06:32:24.721Z"
+        },
+        {
+            "id": "b428d1da-4c7a-4faf-91a4-587f15a39870",
+            "appName": "enearch",
+            "pkgName": "io.nextdrive.ecogenie.enearch",
+            "program": "ene-arch_New",
+            "createdDt": "2021-03-15T09:52:30.315Z"
+        },
+        {
+            "id": "cd4a59ea-70a8-46c2-9c49-5cb13a0f2370",
+            "appName": "NextDrive WL",
+            "pkgName": "io.nextdrive.ecogenie.ndwl",
+            "program": "NextDrive WL",
+            "createdDt": "2021-01-12T05:07:13.150Z"
+        },
+        {
+            "id": "cd5bda3f-457a-43ab-ab3f-6009dd865456",
+            "appName": "Iwatani",
+            "pkgName": "io.nextdrive.ecogenie.iwatani",
+            "program": "Igw Development",
+            "createdDt": "2021-02-08T05:02:07.318Z"
+        },
+        {
+            "id": "cfd707cb-0fa2-4b64-851d-64b18882f69b",
+            "appName": "ene-arch",
+            "pkgName": "io.nextdrive.ecogenie.globalcast",
+            "program": "ene-arch",
+            "createdDt": "2021-02-17T06:59:31.461Z"
+        },
+        {
+            "id": "ee2ad181-178f-44d2-9ee2-f039683aabe3",
+            "appName": "FENE-ECO-Home",
+            "pkgName": "io.nextdrive.ecogenie.feneecohome",
+            "program": "エフエネECOホーム",
+            "createdDt": "2021-03-23T10:42:37.329Z"
+        },
+        {
+            "id": "fba41a77-298f-4f78-90db-01e9f81b20e4",
+            "appName": "Ecogenie+",
+            "pkgName": "io.nextdrive.ecogenie",
+            "program": "Ecogenie",
+            "createdDt": "2020-10-27T03:22:15.000Z"
+        },
+        {
+            "id": "34140da2-14c3-4060-a37d-33a4da3cfb78",
+            "appName": "Life+ Developer",
+            "pkgName": "io.nextdrive.ecogenie.lifeplusdeveloper",
+            "program": "Life Plus Developer",
+            "createdDt": "2021-04-06T01:49:23.118Z"
+        },
+        {
+            "id": "1ba4f769-6130-42c3-a9e7-d7b43e99b49a",
+            "appName": "tsunagarukun",
+            "pkgName": "io.nextdrive.ecogenie.grandata",
+            "program": "つながるくん",
+            "createdDt": "2021-02-25T06:22:01.401Z"
+        }
+    ],
+    "total": 9
+}

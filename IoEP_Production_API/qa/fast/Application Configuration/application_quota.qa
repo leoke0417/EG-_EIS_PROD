@@ -1,0 +1,81 @@
+ini				rat_sv_us_admin.ini
+ini				application_configuration.ini
+init			ie							Chrome	
+
+start
+set				ie.rat_sv_us				textbox_username							#key#=$signin_username$
+set				ie.rat_sv_us				textbox_passwd								#key#=$signin_passwd$
+click			ie.rat_sv_us				button_submit
+sleep			1
+click			ie.cluster_view_control		link_clusterview
+sleep			1
+click			ie.cluster_view_control		link_user_cluster							#key#=$cluster_name$
+sleep			1
+click			ie.cluster_view_control		link_component_applications
+
+#========Create Application============
+sleep			1
+click			ie.cluster_applications		icon_create_application
+sleep			1
+set				ie.cluster_applications		textbox_create_application_name				#key#=$app_name$
+select			ie.cluster_applications		list_create_application_type				#key#=$type_user$
+click			ie.cluster_applications		button_create_application_submit
+sleep			10
+$status$=get	ie.cluster_applications		status_create_application_submit			#key#=$app_name$,#key1#=Active,#key2#=Connected,#key3#=$type_user$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+
+#=======Edit Application Quota=========
+sleep			1	
+click			ie.cluster_view_control		table_app_name								#key#=$app_name$
+sleep			1	
+click			ie.cluster_applications		icon_application_quotas
+sleep			1
+click			ie.cluster_applications		link_modify_quotas_advanced_settings
+set				ie.cluster_applications		textbox_modify_instances					#key#=$Number of Instances$
+set				ie.cluster_applications		textbox_modify_vcpus						#key#=$Number of vCPUs$
+set				ie.cluster_applications		textbox_modify_ram							#key#=$RAM (MB)$
+set				ie.cluster_applications		textbox_modify_floatingip					#key#=$Number of Floating IPs$
+set				ie.cluster_applications		textbox_modify_volumes						#key#=$Number of Volumes$
+set				ie.cluster_applications		textbox_modify_snapshots					#key#=$Number of Snapshots$
+set				ie.cluster_applications		textbox_modify_gigabytes					#key#=$Volumes and Snapshots Capacity (GB)$
+set				ie.cluster_applications		textbox_modify_network						#key#=$Number of Networks$
+set				ie.cluster_applications		textbox_modify_subnet						#key#=$Number of Subnets$
+set				ie.cluster_applications		textbox_modify_router						#key#=$Number of Routers$
+set				ie.cluster_applications		textbox_modify_security_groups				#key#=$Number of Security Groups$
+set				ie.cluster_applications		textbox_modify_security_group_rules			#key#=$Number of Security Group Rules$
+click			ie.cluster_applications		button_modify_quotas_submit
+
+#========verify modify app quotas is correct===========================
+sleep			5
+click			ie.cluster_view_control		link_user_application						#key#=$app_name$
+sleep			1
+$status$=get	ie.cluster_applications		status_volume_storage						#key#=$Volumes and Snapshots Capacity (GB)$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+$status$=get	ie.cluster_applications		status_volumes								#key#=$Number of Volumes$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+$status$=get	ie.cluster_applications		status_snapshots							#key#=$Number of Snapshots$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+$status$=get	ie.cluster_applications		status_instances							#key#=$Number of Instances$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+$status$=get	ie.cluster_applications		status_vcpus								#key#=$Number of vCPUs$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+$status$=get	ie.cluster_applications		status_ram									#key#=$RAM (MB)$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+$status$=get	ie.cluster_applications		status_floatingip							#key#=$Number of Floating IPs$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+
+#========Delete Application===========
+sleep			1
+click			ie.cluster_view_control		link_user_cluster							#key#=$cluster_name$
+sleep			1
+click			ie.cluster_view_control		link_component_applications
+sleep			1
+click			ie.cluster_view_control		table_app_name								#key#=$app_name$
+sleep			1
+click			ie.cluster_applications		icon_delete_application
+sleep			1
+click			ie.cluster_applications		button_delete_submit
+sleep			5
+$status$=get	ie.cluster_applications		status_delete_submit						#key#=$app_name$
+verify			Tool						dir											#value#=True,#key#=$status$,#criteria#==
+end

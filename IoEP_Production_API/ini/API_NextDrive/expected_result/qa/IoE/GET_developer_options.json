@@ -1,0 +1,483 @@
+{
+    "serviceCategories": [
+        {
+            "label": "Life",
+            "value": "361669b1-efb9-4120-a292-7fd2e19a0666"
+        },
+        {
+            "label": "Environment",
+            "value": "53099c18-5caf-47cd-9a62-ab61dba648dd"
+        },
+        {
+            "label": "Health",
+            "value": "6696c2dc-2c91-40e6-9cb1-7a0da7f6294b"
+        },
+        {
+            "label": "Safety",
+            "value": "0d53682a-0de4-4409-b538-44ab51b7b5ac"
+        },
+        {
+            "label": "Entertainment",
+            "value": "42cdad9a-62ae-4f4e-aca0-fb1c2177dd18"
+        },
+        {
+            "label": "Information",
+            "value": "d8d09882-7a9e-4cf7-abb1-1515025ce0c2"
+        },
+        {
+            "label": "Others",
+            "value": "c905741d-b49a-4f6a-8845-e401f3fe0d44"
+        }
+    ],
+    "functionCategories": [
+        {
+            "label": "Visualization",
+            "value": "d9cafa7b-19a7-447e-84f3-c712a566c4a1"
+        },
+        {
+            "label": "Smart Control",
+            "value": "adb27707-7c7a-40f0-a6a7-8f2c0c8ccafc"
+        },
+        {
+            "label": "Notification",
+            "value": "a2b5bd04-5b3a-4838-87ee-f0fdea90e7bc"
+        },
+        {
+            "label": "Suggestion",
+            "value": "2ca0f11c-d466-4ce1-8d69-7601046ec31a"
+        },
+        {
+            "label": "Others",
+            "value": "d79823c9-6f7c-4bcc-b3bc-940474426b6e"
+        }
+    ],
+    "servicePolices": [
+        {
+            "label": "policy_public",
+            "value": "PUBLIC"
+        },
+        {
+            "label": "policy_private",
+            "value": "PRIVATE"
+        },
+        {
+            "label": "policy_specific",
+            "value": "SPECIFIC"
+        }
+    ],
+    "deviceScopeOptions": [
+        {
+            "model": "Pixi-HT",
+            "scopes": [
+                {
+                    "label": "modelName",
+                    "value": "69221294-3232-43e8-8f60-e184047d0848"
+                },
+                {
+                    "label": "click",
+                    "value": "989853f1-91bb-479f-8589-68dbf8874e0f"
+                },
+                {
+                    "label": "humidity",
+                    "value": "28c323be-5a19-481e-821a-cf8fb861f573"
+                },
+                {
+                    "label": "temperature",
+                    "value": "58ea96c3-0fa4-42fd-8b78-a3808e06352e"
+                },
+                {
+                    "label": "battery",
+                    "value": "bde6f51a-8fe8-4983-9d64-fad933795dd2"
+                }
+            ]
+        },
+        {
+            "model": "Pixi-G",
+            "scopes": [
+                {
+                    "label": "modelName",
+                    "value": "330ae65d-efeb-4720-a687-2efe971e3555"
+                },
+                {
+                    "label": "battery",
+                    "value": "a2568c8a-f428-4b49-8019-d4b6a456efc6"
+                },
+                {
+                    "label": "click",
+                    "value": "9cda4f57-094a-4436-86f4-6c0bc6de731e"
+                },
+                {
+                    "label": "motion",
+                    "value": "06a8bd5b-a869-4fe7-b073-7c2f818cace1"
+                },
+                {
+                    "label": "motionDetected",
+                    "value": "6150d963-db8f-4f0b-b308-963019746848"
+                }
+            ]
+        },
+        {
+            "model": "Beep",
+            "scopes": [
+                {
+                    "label": "modelName",
+                    "value": "94ef36d8-34e9-4c5d-b34f-5410a4cd20a5"
+                },
+                {
+                    "label": "humidity",
+                    "value": "5264be89-2d97-4bbd-b264-fe36e17d78a5"
+                },
+                {
+                    "label": "temperature",
+                    "value": "7c85c49f-0e73-4a89-a437-afd305cae3ea"
+                },
+                {
+                    "label": "battery",
+                    "value": "230dd476-01fd-4c97-a0cd-a2e45f9f4806"
+                }
+            ]
+        },
+        {
+            "model": "TaipowerMeter",
+            "scopes": [
+                {
+                    "label": "normalUsage",
+                    "value": "ca022e41-c229-4232-8a5c-82feb3a85885"
+                },
+                {
+                    "label": "reverseUsage",
+                    "value": "599807c0-cf2a-4e69-8ea0-a710fdc971ba"
+                },
+                {
+                    "label": "totalSoldElectricity",
+                    "value": "c35e79b8-71c5-4dfd-b587-3f841eef021b"
+                },
+                {
+                    "label": "districtId",
+                    "value": "dad3beee-7a66-49ed-b3a5-83c04bccc66c"
+                },
+                {
+                    "label": "meterId",
+                    "value": "15afaace-4fc8-446b-bd5a-3796424b64b5"
+                },
+                {
+                    "label": "customerNumber",
+                    "value": "14a2fcd3-ca6c-4122-8876-cd8259128965"
+                },
+                {
+                    "label": "meterCurrentDt",
+                    "value": "686eae88-d2c4-4fc3-8554-ceb82324e851"
+                },
+                {
+                    "label": "meterCapability",
+                    "value": "8e6e16eb-becf-4724-8a27-10d8dad00d33"
+                }
+            ]
+        },
+        {
+            "model": "EVCharger",
+            "scopes": [
+                {
+                    "label": "operationMode",
+                    "value": "dff35632-228c-449e-b8cc-28244682a816"
+                },
+                {
+                    "label": "vehicleStatus",
+                    "value": "f24ffb20-d5bf-4654-81a2-6bae4c868b53"
+                },
+                {
+                    "label": "vehicleId",
+                    "value": "acdca279-4364-48ea-9a2d-8af94b81db97"
+                },
+                {
+                    "label": "vehicleStoredElectricity",
+                    "value": "c2c23aa2-d687-4d71-89b5-74620f34ee21"
+                },
+                {
+                    "label": "vehicleStoredElectricityPercent",
+                    "value": "b0f4d73a-c2f3-4bfe-b6d8-80655c861ab3"
+                }
+            ]
+        },
+        {
+            "model": "SolarPW",
+            "scopes": [
+                {
+                    "label": "operationStatus",
+                    "value": "e7deab0d-5307-47f2-8eea-4e16689e3268"
+                },
+                {
+                    "label": "instanceElectricity",
+                    "value": "09fb77b3-72a8-4c3d-b444-12c141c086fc"
+                },
+                {
+                    "label": "generatedElectricity",
+                    "value": "68ed2680-30bd-437f-8ac2-2cf099fe6e27"
+                }
+            ]
+        },
+        {
+            "model": "PWDBoard",
+            "scopes": [
+                {
+                    "label": "normalUsage",
+                    "value": "09e74688-356c-45b6-8ff4-64b685c97994"
+                },
+                {
+                    "label": "reverseUsage",
+                    "value": "ac748f94-95e9-4b04-8a60-d7c9f1afc2e1"
+                },
+                {
+                    "label": "unit",
+                    "value": "e89ed5e4-d01c-40af-b32d-2ed0f99fbc58"
+                }
+            ]
+        },
+        {
+            "model": "FuelCell",
+            "scopes": [
+                {
+                    "label": "instanceElectricity",
+                    "value": "6bacaa1c-e43f-49f0-9183-f44cec3fc849"
+                },
+                {
+                    "label": "generatedElectricity",
+                    "value": "f96b3c0c-5733-47f4-bae2-a513ff7e1d69"
+                },
+                {
+                    "label": "powerGenerationStatus",
+                    "value": "1832671c-6721-47ad-badf-f92acf682888"
+                }
+            ]
+        },
+        {
+            "model": "ElecWaterHeater",
+            "scopes": [
+                {
+                    "label": "operationStatus",
+                    "value": "9cf3de10-7bd0-468b-835f-5318378750ed"
+                },
+                {
+                    "label": "autoWaterHeatingMode",
+                    "value": "c9893812-b6f2-4517-b012-9eee8c7353b4"
+                },
+                {
+                    "label": "waterHeaterStatus",
+                    "value": "68ac5ad4-8801-423b-94fd-e1f3b759455a"
+                },
+                {
+                    "label": "waterTemperature",
+                    "value": "32c6e71f-e9bc-4855-815d-c3d563ba9058"
+                }
+            ]
+        },
+        {
+            "model": "StgBattery",
+            "scopes": [
+                {
+                    "label": "operationStatus",
+                    "value": "9906357c-8483-4724-b56c-32eaf6c9ae12"
+                },
+                {
+                    "label": "acEffectiveCapacityCharging",
+                    "value": "bc8e1803-c922-402a-a454-fbd5af5d6b1d"
+                },
+                {
+                    "label": "acChargeableElectricEnergy",
+                    "value": "4d0b9d4e-c22a-4f63-9fbe-f6bc8b419cbc"
+                },
+                {
+                    "label": "acDischargeableElectricEnergy",
+                    "value": "17b6628f-ac32-4d1b-b84a-d21b4ef8a3f7"
+                },
+                {
+                    "label": "acChargeUpperLimitSetting",
+                    "value": "90425f8e-97eb-47ff-b3fe-9fdc87c5064f"
+                },
+                {
+                    "label": "acDischargeLowerLimitSetting",
+                    "value": "0eec9833-00c4-4f6d-9623-88eac6cc058f"
+                },
+                {
+                    "label": "acChargingEnergy",
+                    "value": "9c04adb1-9080-4631-9453-f86fb6f355d4"
+                },
+                {
+                    "label": "acDischargingEnergy",
+                    "value": "0e2df84b-520d-4618-b0e5-cffefd47736a"
+                },
+                {
+                    "label": "acChargeAmountSetting",
+                    "value": "6e51ee9b-2b22-43fa-8ce3-9a1dcd80564b"
+                },
+                {
+                    "label": "acDischargeAmountSetting",
+                    "value": "0efd9cee-986f-497f-8b6e-801836baa447"
+                },
+                {
+                    "label": "minChargingElectricEnergy",
+                    "value": "261c744c-ec25-4128-b19d-13fda68aaef4"
+                },
+                {
+                    "label": "maxChargingElectricEnergy",
+                    "value": "28d83902-0bb3-4db0-9f1b-f8f2ee27bba4"
+                },
+                {
+                    "label": "minDischargingElectricEnergy",
+                    "value": "8c1518f8-091c-477f-bb70-1d4611c9080b"
+                },
+                {
+                    "label": "maxDischargingElectricEnergy",
+                    "value": "e2d63da7-284a-480a-8575-bc8ba84d0330"
+                },
+                {
+                    "label": "workingOperationStatus",
+                    "value": "682d55ac-e9e1-44d3-a6f8-92e3c35ccab1"
+                },
+                {
+                    "label": "ratedElectricEnergy",
+                    "value": "ff02017e-e17e-414a-967d-b115c693fd30"
+                },
+                {
+                    "label": "dischargeableElectricity",
+                    "value": "48469a9f-36ec-462c-8457-bf601f08cd40"
+                },
+                {
+                    "label": "chargeableElectricity",
+                    "value": "70c89b64-eac7-4360-9e74-b3f2d5426aeb"
+                },
+                {
+                    "label": "operationMode",
+                    "value": "87bdd659-bab4-491d-90d3-2b8019c11229"
+                },
+                {
+                    "label": "chargingOrDischargingAmountSetting1",
+                    "value": "ae6e6645-93e4-45fd-8f10-a1d1dfb84c4e"
+                },
+                {
+                    "label": "chargingOrDischargingAmountSetting2",
+                    "value": "d8ed45b5-d4f2-4104-bf2f-f9040531b215"
+                },
+                {
+                    "label": "storedElectricity",
+                    "value": "974b9cc8-1de1-45e8-8d4d-f3c8f36e6cb1"
+                },
+                {
+                    "label": "storedElectricityAmpereHour",
+                    "value": "50091298-9faa-4c30-ac6e-91cb7c6e4a8b"
+                },
+                {
+                    "label": "storedElectricityPercent",
+                    "value": "d9e70c87-7975-4c99-9008-cc3c935df041"
+                },
+                {
+                    "label": "chargingAmountSetting1",
+                    "value": "11ae91e6-675b-46b8-bd2e-0f02176f4064"
+                },
+                {
+                    "label": "dischargingAmountSetting1",
+                    "value": "95f9aca8-8629-4e58-bb26-0bacbb575729"
+                },
+                {
+                    "label": "chargingElectricEnergySetting",
+                    "value": "a814d103-9c6e-44c1-ab70-84247fb73817"
+                },
+                {
+                    "label": "dischargingElectricEnergySetting",
+                    "value": "8b4de8db-2b4b-43bf-b3ba-756e416ebae2"
+                }
+            ]
+        },
+        {
+            "model": "SmartMeter",
+            "scopes": [
+                {
+                    "label": "operationStatus",
+                    "value": "c9869d2f-cf90-475e-8107-1a58cc4ec00b"
+                },
+                {
+                    "label": "smartMeterCoefficient",
+                    "value": "eeb0fa57-bd1a-46bd-ac12-e06cb809e2ae"
+                },
+                {
+                    "label": "smartMeterNumber",
+                    "value": "3888188e-2364-4c94-b06e-53d7520d1caa"
+                },
+                {
+                    "label": "currentNormalUsage",
+                    "value": "2e4101db-f872-4b7f-93bf-6bde6ddb0473"
+                },
+                {
+                    "label": "currentReverseUsage",
+                    "value": "348d718b-a979-498c-993d-affd3ef8abdf"
+                },
+                {
+                    "label": "normalUsage",
+                    "value": "c4093618-627a-4c99-b190-4845a98c9b1f"
+                },
+                {
+                    "label": "reverseUsage",
+                    "value": "8fc5c2aa-ecf7-4464-a046-7bf96b590f0b"
+                },
+                {
+                    "label": "smartMeterUnit",
+                    "value": "c2d83611-1f8c-4840-ba1e-d13701419370"
+                },
+                {
+                    "label": "instanceElectricity",
+                    "value": "cd405329-4bab-49a6-a4ee-3da4b0dbed1b"
+                },
+                {
+                    "label": "instanceCurrents",
+                    "value": "8b58d1a3-6124-4f2d-9e18-65c069cbcd12"
+                },
+                {
+                    "label": "instanceCurrentsT",
+                    "value": "1eb9193b-e83e-47e9-a58b-c3bb449f748e"
+                }
+            ]
+        },
+        {
+            "model": "AirCon",
+            "scopes": [
+                {
+                    "label": "operationStatus",
+                    "value": "87d91253-1d7b-4bd8-910b-b0d774b35c3f"
+                },
+                {
+                    "label": "powerSavingOperation",
+                    "value": "04afb717-137a-4f52-ae09-02327430f20f"
+                },
+                {
+                    "label": "operationMode",
+                    "value": "af15b91d-11d4-4bf3-b331-e67e2eeedd75"
+                },
+                {
+                    "label": "temperatureSetting",
+                    "value": "bb2d10e8-55b5-4019-a3c3-e2a1cb6f0bcd"
+                },
+                {
+                    "label": "airFlow",
+                    "value": "c5a3fed8-f363-41d2-be6e-3cf82a348052"
+                }
+            ]
+        },
+        {
+            "model": "SmaMe-TypeM",
+            "scopes": [
+                {
+                    "label": "meterUnit",
+                    "value": "97a8fca7-3788-4ff4-8cdd-012be6a663e5"
+                },
+                {
+                    "label": "normalUsage",
+                    "value": "96a90412-d117-425e-9a50-c24b109eea2f"
+                },
+                {
+                    "label": "reverseUsage",
+                    "value": "78a3dafa-c6c8-42e0-a67f-a3c77f93f285"
+                }
+            ]
+        }
+    ]
+}

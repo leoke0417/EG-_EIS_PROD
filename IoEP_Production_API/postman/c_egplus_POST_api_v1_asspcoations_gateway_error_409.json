@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "67348d13-710b-4c99-afe9-b8c53d2ede87",
+		"name": "POST /api/v1/associations/gateways/{gatewayUuid}_Error_Check_409",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /api/v1/associations/gateways_Error_409",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"profileId\": \"{{profile_Id}}\",\r\n  \"pid\": \"{{gateway_pid}}\",\r\n  \"name\": \"Error_API_test_cube_409\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ioep_qa_eg+_api_url}}/api/v1/associations/gateways",
+					"host": [
+						"{{ioep_qa_eg+_api_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"associations",
+						"gateways"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

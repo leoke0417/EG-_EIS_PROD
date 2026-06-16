@@ -1,0 +1,25 @@
+###
+### Send result to Google chat room.
+###	1. Get running test case from IoE_Account.qas.
+###	2. Get testing result from {workspace}\log\{test case}\{test case}.xml
+###	3. Merge all result and make them human readable.
+### 4. Send result.
+###
+
+ini									api_ioe_account.ini
+
+start
+
+###	Step 1.
+$qa_list$=get						qas_result					qa_list				#path#=qa\API_NextDrive\IoE_Account\IoEP_Account.qas,#report_file#=IoE_Account
+
+###	Step 2.
+$xml_list$=get						qas_result					xml_list			#list#=$qa_list$,#path_prefix#=IoEP_Account\
+
+###	Step 3.
+$overall_result$=get				qas_result					overall_result		#qa_test_result#=$xml_list$,#environment#=$environment$,#project_name#=IoEP-API IoE-Account,#unit#=APIs,#only_shows_false#=True
+
+$final_result$=get					qas_result					final_result		#text#=$xml_list$
+
+###	Step 4.
+send								Fb							googlemessage		#message#=$overall_result$

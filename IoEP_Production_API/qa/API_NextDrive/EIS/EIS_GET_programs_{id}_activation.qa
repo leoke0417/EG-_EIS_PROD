@@ -1,0 +1,62 @@
+ini			api_eis.ini
+start
+
+$cmd$=get											postman							command										#collection#=c_QA_EIS_GET_programs_{id}_activation.json,#environment#=e_EIS.json,#iterations#=1
+
+exec												postman							command										#command#=$cmd$
+
+$result_file$=get									postman							result
+
+$list_data$=get										postman							read_csv									#filename#=$result_file$
+
+$target_data$=get									postman							find_result									#file#=$list_data$,#testcase#=GET_programs_{id}_activation
+
+$result$=get										postman							api_result									#api_result#=$target_data$
+
+verify												postman							status_code									#api_result#=$result$,#expected_result#=200
+
+$response_body$=get									api_verification				api_response								#api_result#=$result$
+
+$expected_result$=get								api_verification				expected_result								#environment#=$test_environment$,#expected_result#=EIS\GET_programs_{id}_activation.json
+
+verify												api_verification				dict_keys									#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+
+
+
+
+## Get id
+$program_activation_id$=get							file_operate					dict_value									#key#=id,#response_body#=$response_body$
+## Get admin > current
+$program_activation_admin_currnet$=get				file_operate					dict_dict_value								#first_key#=admin,#second_key#=current,#response_body#=$response_body$
+## Get admin > max
+$program_activation_admin_max$=get					file_operate					dict_dict_value								#first_key#=admin,#second_key#=max,#response_body#=$response_body$
+## Get normal > current
+$program_activation_normal_current$=get				file_operate					dict_dict_value								#first_key#=normal,#second_key#=current,#response_body#=$response_body$
+## Get current
+$program_activation_current$=get					file_operate					dict_value									#key#=current,#response_body#=$response_body$
+## Get max
+$program_activation_max$=get						file_operate					dict_value									#key#=max,#response_body#=$response_body$
+## Get products
+$products$=get										file_operate					dict_list_value								#key#=products,#response_body#=$response_body$
+
+
+
+## Verify id
+verify												api_verification				uuid										#actual_result#=$program_activation_id$
+## Verify admin > current
+verify												api_verification				int											#actual_result#=$program_activation_admin_currnet$
+## Verify admin > max
+verify												api_verification				int											#actual_result#=$program_activation_admin_max$
+## Verify normal > current
+verify												api_verification				int											#actual_result#=$program_activation_normal_current$
+## Verify current
+verify												api_verification				int											#actual_result#=$program_activation_current$
+## Verify max
+verify												api_verification				int											#actual_result#=$program_activation_max$
+## Verify products
+verify												api_verification				string										#actual_result#=$products$
+
+
+##===== END =====

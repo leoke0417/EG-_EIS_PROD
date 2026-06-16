@@ -1,0 +1,11 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+
+$count_pv$=get		fwapi_data_sanity		ioeapi_device_data		#env#=production,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$prod_pv_uuid$,#data_scope#=$prod_pv_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_pv$,#criteria#=!
+
+end

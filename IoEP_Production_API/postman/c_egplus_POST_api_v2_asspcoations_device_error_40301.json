@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "51e9e845-6212-47fb-8adf-52fdd0aefa40",
+		"name": "POST /api/v2/associations/devices_Error_40301",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /api/v2/associations/devices_Error_40301",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"devices\": [\r\n    {\r\n      \"sn\": \"c3c3f58b-b3a4-44a9-86e8-f07bf45f7b04\",\r\n      \"name\": \"Name of device\",\r\n      \"model\": \"Pixi-TH\",\r\n      \"gatewayUuid\": \"c10e84ea-2e2a-48a7-bfa4-e72c6d760a46\",\r\n      \"service\": \"ble\",\r\n      \"attributes\": {\r\n        \"macAddress\": \"98:07:2D:AE:25:D4\"\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ioep_qa_eg+_api_url}}/api/v2/associations/devices",
+					"host": [
+						"{{ioep_qa_eg+_api_url}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"associations",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

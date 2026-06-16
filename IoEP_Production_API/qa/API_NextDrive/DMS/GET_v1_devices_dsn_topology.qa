@@ -1,0 +1,5 @@
+$devices_dsn_topology_url$=get					dms_api				v1_devices_dsn_topology_url					#environment#=url,#device_dsn#=online_gw_dsn
+$devices_dsn_topology_header$=get				dms_api				v1_devices_dsn_topology_header				#token#=accesstoken
+$devices_dsn_topology_response$=get				dms_api				get											#url#=$devices_dsn_topology_url$,#header#=$devices_dsn_topology_header$
+$devices_dsn_topology_status_code$=get			dms_api				status_code									#response#=$devices_dsn_topology_response$
+verify											api_verification	status_code									#api_response#=$devices_dsn_topology_status_code$,#expected_status_code#=200

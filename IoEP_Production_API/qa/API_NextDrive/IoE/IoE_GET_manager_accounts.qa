@@ -1,0 +1,49 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get														postman					command											#collection#=c_QA_IoE_GET_manager_accounts.json,#environment#=e_IoE.json,#iterations#=1
+											
+exec															postman					command											#command#=$cmd$
+											
+$result_file$=get												postman					result							
+											
+$list_data$=get													postman					read_csv										#filename#=$result_file$
+											
+$target_data$=get												postman					find_result										#file#=$list_data$,#testcase#=GET_manager_accounts
+											
+$result$=get													postman					api_result										#api_result#=$target_data$
+											
+verify															postman					status_code										#api_result#=$result$,#expected_result#=200
+											
+$response_body$=get												api_verification		api_response									#api_result#=$result$
+											
+$expected_body$=get												api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_manager_accounts.json
+											
+verify															api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+
+
+## Get id
+$all_account_id$=get											file_operate			dict_list_dict_value							#first_key#=accounts,#second_key#=id,#response_body#=$response_body$
+## Get name
+$all_account_name$=get											file_operate			dict_list_dict_value							#first_key#=accounts,#second_key#=name,#response_body#=$response_body$
+## Get email
+$all_account_email$=get											file_operate			dict_list_dict_value							#first_key#=accounts,#second_key#=email,#response_body#=$response_body$
+## Get role
+$all_account_role$=get											file_operate			dict_list_dict_value							#first_key#=accounts,#second_key#=role,#response_body#=$response_body$
+## Get total
+$all_account_total$=get											file_operate			dict_value										#key#=total,#response_body#=$response_body$
+
+## Verify id
+verify															api_verification		int												#actual_result#=$all_account_id$
+## Verify name
+verify															api_verification		string											#actual_result#=$all_account_name$
+## Verify email
+verify															api_verification		email											#actual_result#=$all_account_email$
+## Verify role
+verify															api_verification		string											#actual_result#=$all_account_role$
+## Verify total
+verify															api_verification		int												#actual_result#=$all_account_total$
+
+##===== END =====

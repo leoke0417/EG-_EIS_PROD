@@ -1,0 +1,68 @@
+ini							api_3rd_party_service.ini
+start
+
+$body$=get					api_3rd_party			data_acquirement_body		#device_uuid#=$motion_uuid$,#scope#=battery
+
+$content$=get				postman					postman_json				#json_name#=c_QA_3rd_party_service_POST_v1_device-data_query_sample.json
+
+$collection_final$=get		api_3rd_party			data_acquirement_new_body	#new_body#=$body$,#collection_content#=$content$
+
+set							postman					postman_json				#json_content#=$collection_final$,#json_name#=c_QA_3rd_party_service_post_v1_device-data_query_sample.json
+
+$cmd$=get					postman					command						#collection#=c_3rdPartyService_POST_v1_device-data_query.json,#environment#=e_3rd_party_service.json,#iterations#=1
+
+exec						postman					command						#command#=$cmd$
+
+$result_file$=get			postman					result		
+
+$list_data$=get				postman					read_csv					#filename#=$result_file$
+
+$target_data$=get			postman					find_result					#file#=$list_data$,#testcase#=POST_v1_device-data_query
+
+$result$=get				postman					api_result					#api_result#=$target_data$
+
+verify						postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get			api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get			api_verification		expected_result				#environment#=$test_environment$,#expected_result#=3rd_party_service\POST_v1_device-data_query_motion_battery.json
+
+verify						api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$results_pid$=get			file_operate			dict_list_dict_value		#first_key#=results,#second_key#=pid,#response_body#=$response_body$
+
+$results_deviceUuid$=get	file_operate			dict_list_dict_value		#first_key#=results,#second_key#=deviceUuid,#response_body#=$response_body$
+
+$results_model$=get			file_operate			dict_list_dict_value		#first_key#=results,#second_key#=model,#response_body#=$response_body$
+
+$results_scope$=get			file_operate			dict_list_dict_value		#first_key#=results,#second_key#=scope,#response_body#=$response_body$
+
+$results_generatedTime$=get	file_operate			dict_list_dict_value		#first_key#=results,#second_key#=generatedTime,#response_body#=$response_body$
+
+$results_uploadedTime$=get	file_operate			dict_list_dict_value		#first_key#=results,#second_key#=uploadedTime,#response_body#=$response_body$
+
+$results_value$=get			file_operate			dict_list_dict_value		#first_key#=results,#second_key#=value,#response_body#=$response_body$
+
+$offset$=get				file_operate			dict_value					#key#=offset,#response_body#=$response_body$
+
+$totalCount$=get			file_operate			dict_value					#key#=totalCount,#response_body#=$response_body$
+
+verify						api_verification		pid							#actual_result#=$results_pid$
+
+verify						api_verification		uuid						#actual_result#=$results_deviceUuid$
+
+verify						api_verification		string						#actual_result#=$results_model$
+
+verify						api_verification		string						#actual_result#=$results_scope$
+
+verify						api_verification		unix_timestamp				#actual_result#=$results_generatedTime$
+
+verify						api_verification		unix_timestamp				#actual_result#=$results_uploadedTime$
+
+verify						api_verification		string						#actual_result#=$results_value$
+
+verify						api_verification		int							#actual_result#=$offset$
+
+verify						api_verification		int							#actual_result#=$totalCount$
+
+end

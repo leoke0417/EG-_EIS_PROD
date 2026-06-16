@@ -1,0 +1,31 @@
+ini			api_eis.ini
+start
+
+$cmd$=get									postman					command								#collection#=c_QA_EIS_GET_options-clients-status.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman					command								#command#=$cmd$
+
+$result_file$=get							postman					result
+
+$list_data$=get								postman					read_csv							#filename#=$result_file$
+
+$target_data$=get							postman					find_result							#file#=$list_data$,#testcase#=GET_options_clients-status
+
+$result$=get								postman					api_result							#api_result#=$target_data$
+
+verify										postman					status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get							api_verification		api_response						#api_result#=$result$
+
+$expected_result$=get						api_verification		expected_result						#environment#=$test_environment$,#expected_result#=EIS\GET_options_clients-status.json
+
+verify										api_verification		dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+$options_label$=get							file_operate			dict_list_dict_value				#first_key#=options,#second_key#=label,#response_body#=$response_body$
+
+$options_value$=get							file_operate			dict_list_dict_value				#first_key#=options,#second_key#=value,#response_body#=$response_body$
+
+verify										api_verification		string								#actual_result#=$options_label$
+
+verify										api_verification		string								#actual_result#=$options_value$
+##===== END =====

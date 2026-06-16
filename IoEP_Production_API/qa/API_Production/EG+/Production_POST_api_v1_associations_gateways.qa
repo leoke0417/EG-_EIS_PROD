@@ -1,0 +1,22 @@
+## 取得 token
+$request_url$=get				egplus_api			ums_login_url				#environment#=ums_url
+$request_header$=get			egplus_api			ums_login_header
+$request_body$=get				egplus_api			ums_login_body				#email#=email,#password#=password,#clientId#=clientId,#appUuid#=appUuid
+
+
+$response$=get					egplus_api			post						#url#=$request_url$,#header#=$request_header$,#body#=$request_body$
+$status_code$=get				egplus_api			status_code					#response#=$response$
+verify							api_verification	status_code					#api_response#=$status_code$,#expected_status_code#=200
+
+$response_body$=get				egplus_api			response_body				#response#=$response$
+$accessToken$=get				egplus_api			dict_dict_value				#response_body#=$response_body$,#first_key#=data,#second_key#=accessToken
+
+set								egplus_api			config						#section#=params,#scope#=accessToken,#value#=$accessToken$
+
+## 關聯 gateway 並取得 gateway_uuid
+$registrations_url$=get					egplus_api				v1_associations_gateways_url				#environment#=url
+$registrations_header$=get				egplus_api				v1_associations_gateways_header				#token#=accesstoken
+$registrations_body$=get				egplus_api				v1_associations_gateways_body				#gw_pid#=gw_pid,#gw_hardwareId#=gw_hardwareId,#gw_name#=gw_name
+$registrations_response$=get			egplus_api				post								#url#=$registrations_url$,#header#=$registrations_header$,#body#=$registrations_body$
+$registrations_status_code$=get			egplus_api				status_code							#response#=$registrations_response$
+verify									api_verification		status_code							#api_response#=$registrations_status_code$,#expected_status_code#=200

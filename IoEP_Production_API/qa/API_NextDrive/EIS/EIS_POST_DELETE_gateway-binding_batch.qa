@@ -1,0 +1,88 @@
+ini									api_eis.ini
+start
+
+
+### POST gateway-binding_batch
+
+$post_cmd$=get						postman				command								#collection#=c_qa_EIS_POST_gateway-binding_batch.json,#environment#=e_EIS.json,#iterations#=1
+
+exec								postman				command								#command#=$post_cmd$
+
+$post_result_file$=get				postman				result
+
+$post_list_data$=get				postman				read_csv							#filename#=$post_result_file$
+
+$post_target_data$=get				postman				find_result							#file#=$post_list_data$,#testcase#=POST_gateway-binding_batch
+
+$post_result$=get					postman				api_result							#api_result#=$post_target_data$
+
+verify								postman				status_code							#api_result#=$post_result$,#expected_result#=201
+
+$post_response_body$=get			api_verification	api_response						#api_result#=$post_result$
+
+$post_expected_result$=get			api_verification	expected_result						#environment#=$test_environment$,#expected_result#=EIS/POST_gateway-binding_batch.json
+
+verify								api_verification	dict_keys							#expected_result#=$post_expected_result$,#actual_result#=$post_response_body$
+
+$post_programId$=get				file_operate		dict_value							#key#=programId,#response_body#=$post_response_body$
+
+$post_pids$=get						file_operate		dict_list_value						#key#=pids,#response_body#=$post_response_body$
+
+$post_historyLog$=get				file_operate		dict_value							#key#=historyLog,#response_body#=$post_response_body$
+
+$post_count$=get					file_operate		dict_value							#key#=count,#response_body#=$post_response_body$
+
+verify								api_verification	uuid								#actual_result#=$post_programId$
+
+verify								api_verification	pid									#actual_result#=$post_pids$
+
+verify								api_verification	string								#actual_result#=$post_historyLog$
+
+verify								api_verification	int									#actual_result#=$post_count$
+
+
+
+
+
+
+
+
+
+### DELETE gateway-binding_batch
+
+$delete_cmd$=get					postman				command								#collection#=c_QA_EIS_DELETE_gateway-binding_batch.json,#environment#=e_EIS.json,#iterations#=1
+
+exec								postman				command								#command#=$delete_cmd$
+
+$delete_result_file$=get			postman				result
+
+$delete_list_data$=get				postman				read_csv							#filename#=$delete_result_file$
+
+$delete_target_data$=get			postman				find_result							#file#=$delete_list_data$,#testcase#=DELETE_gateway-binding_batch
+
+$delete_result$=get					postman				api_result							#api_result#=$delete_target_data$
+
+verify								postman				status_code							#api_result#=$delete_result$,#expected_result#=200
+
+$delete_response_body$=get			api_verification	api_response						#api_result#=$delete_result$
+
+$delete_expected_result$=get		api_verification	expected_result						#environment#=$test_environment$,#expected_result#=EIS/DELETE_gateway-binding_batch.json
+
+verify								api_verification	dict_keys							#expected_result#=$delete_expected_result$,#actual_result#=$delete_response_body$
+
+$delete_programId$=get				file_operate		dict_value							#key#=programId,#response_body#=$delete_response_body$
+
+$delete_pids$=get					file_operate		dict_list_value						#key#=pids,#response_body#=$delete_response_body$
+
+$delete_historyLog$=get				file_operate		dict_value							#key#=historyLog,#response_body#=$delete_response_body$
+
+$delete_count$=get					file_operate		dict_value							#key#=count,#response_body#=$delete_response_body$
+
+verify								api_verification	uuid								#actual_result#=$delete_programId$
+
+verify								api_verification	pid									#actual_result#=$delete_pids$
+
+verify								api_verification	string								#actual_result#=$delete_historyLog$
+
+verify								api_verification	int									#actual_result#=$delete_count$
+

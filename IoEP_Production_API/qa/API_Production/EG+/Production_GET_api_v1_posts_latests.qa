@@ -1,0 +1,6 @@
+## 關聯 device
+$posts_latests_url$=get					egplus_api				v1_posts_latests_url								#environment#=url,#postnextStartTime#=postnextStartTime
+$posts_latests_header$=get				egplus_api				v1_posts_latests_header								#token#=accesstoken
+$posts_latests_response$=get			egplus_api				get													#url#=$posts_latests_url$,#header#=$posts_latests_header$
+$posts_latests_status_code$=get			egplus_api				status_code											#response#=$posts_latests_response$
+verify									api_verification		status_code											#api_response#=$posts_latests_status_code$,#expected_status_code#=200

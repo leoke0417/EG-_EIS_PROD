@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "93cf4c98-ef93-4188-ad97-63f8c31474c4",
+		"name": "PUT_api_v1_gateways_{gatewayUuid}_error40303",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PUT_api_v1_gateways_{gatewayUuid}_error40303",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_code}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"lovecat5\",\r\n  \"isApModeEnabled\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-eg3-qa.nextdrive.io/api/v1/gateways/357a3c4c-fd19-470a-8afe-cd1b4174d772",
+					"protocol": "https",
+					"host": [
+						"api-eg3-qa",
+						"nextdrive",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"357a3c4c-fd19-470a-8afe-cd1b4174d772"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+    "clients": [
+        {
+            "id": "431",
+            "displayId": "C-201123001",
+            "name": "test_client_dustin",
+            "organizationName": "test_dustin",
+            "organizationDisplayId": "O-201123001",
+            "location": "Osaka",
+            "type": "Buyer",
+            "modifiedDt": "2020-11-23T03:57:55.000Z",
+            "manager": "dustin.lin+2@nextdrive.io"
+        }
+    ],
+    "total": 1
+}

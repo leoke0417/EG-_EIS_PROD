@@ -1,0 +1,73 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_ServiceStore_operator_v2_programs_{programId}_release-service_{country}.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=GET_operator_v2_programs_{programId}_release-service_{country}
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/GET_operator_v2_programs_{programId}_release-service_{country}.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+
+$name$=get								file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=name,#response_body#=$response_body$
+
+$uuid$=get								file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=uuid,#response_body#=$response_body$
+
+$summary$=get							file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=summary,#response_body#=$response_body$
+
+$icon$=get								file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=icon,#response_body#=$response_body$
+
+$serviceProviderId$=get					file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=serviceProviderId,#response_body#=$response_body$
+
+$serviceProviderName$=get				file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=serviceProviderName,#response_body#=$response_body$
+
+$category$=get							file_operate		dict_list_dict_list_value		#first_key#=publicServices,#second_key#=category,#response_body#=$response_body$
+
+$image$=get								file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=image,#response_body#=$response_body$
+
+$releasedTime$=get						file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=releasedTime,#response_body#=$response_body$
+
+$updatedTime$=get						file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=updatedTime,#response_body#=$response_body$
+
+$contactEmail$=get						file_operate		dict_list_dict_value			#first_key#=publicServices,#second_key#=contactEmail,#response_body#=$response_body$
+
+
+
+
+verify									api_verification	string								#actual_result#=$name$,#response_body#=$response_body$
+
+verify									api_verification	uuid								#actual_result#=$uuid$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$summary$,#response_body#=$response_body$
+
+verify									api_verification	url									#actual_result#=$icon$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$serviceProviderName$,#response_body#=$response_body$
+
+verify									api_verification	url									#actual_result#=$image$,#response_body#=$response_body$
+
+verify									api_verification	time								#actual_result#=$releasedTime$,#response_body#=$response_body$
+
+verify									api_verification	time								#actual_result#=$updatedTime$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$category$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$contactEmail$,#response_body#=$response_body$
+
+verify									api_verification	int									#actual_result#=$serviceProviderId$,#response_body#=$response_body$
+
+#end

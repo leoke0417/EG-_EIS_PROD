@@ -1,0 +1,18 @@
+{
+    "id": "9d796155-4fdc-4494-bb3f-5e3a0ddca4a8",
+    "displayId": "O-211020007",
+    "name": "API_TEST_Organization",
+    "country": "TW",
+    "industry": "Electric Company",
+    "manager": {
+        "name": "dustin.lin",
+        "email": "dustin.lin@nextdrive.io"
+    },
+    "clients": [
+        {
+            "id": "465",
+            "displayId": "C-211020006",
+            "name": "API_TEST_Client"
+        }
+    ]
+}

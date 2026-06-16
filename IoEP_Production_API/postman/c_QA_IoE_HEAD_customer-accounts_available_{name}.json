@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "6fac91b5-cbba-4153-8988-c3de08c09a13",
+		"name": "IoE QA customer-accounts_available_{name}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "HEAD_customer-accounts_available_{name}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/customer-accounts/available/test_name",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"customer-accounts",
+						"available",
+						"test_name"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

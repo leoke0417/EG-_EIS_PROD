@@ -1,0 +1,36 @@
+ini										api_egplus_error.ini
+start
+
+## Exchange cognito token
+$cognito_token$=get						api_verification		idtoken						#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+$get_ndTokene$=get						api_verification		ndtoken						#strIDToken#=$cognito_token$
+
+### Write cognito token into e_EGPlus_Error_Check.json --------------------------------
+$environment$=get						postman					postman_json				#json_name#=e_EGPlus_Error_Check.json
+set										postman					postman_access_token		#json_name#=e_EGPlus_Error_Check.json,#environment#=$environment$,#access_token#=$get_ndTokene$,#target_key#=nd_token
+
+
+### Execute c_ioe_account-v1-users-confirm-signup.json file ------------------
+$cmd$=get								postman					command						#collection#=c_egplus_POST_api_v2_asspcoations_device_error_409.json,#environment#=e_EGPlus_Error_Check.json,#iterations#=1
+exec									postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=POST /api/v2/associations/devices_Error_409
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=409
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_result$=get					api_verification		expected_result				#environment#=$test_environment$,#expected_result#=EG+_Error\POST_api_v2_associations_devices_Error_409.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+check									api_verification		text						#api_result#=$response_body$,#api_code#=409,#api_body#=device has been associated
+

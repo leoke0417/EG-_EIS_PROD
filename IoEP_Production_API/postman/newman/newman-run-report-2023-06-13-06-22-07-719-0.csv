@@ -1,0 +1,2 @@
+iteration,collectionName,requestName,method,url,status,code,responseTime,responseSize,executed,failed,skipped,totalAssertions,executedCount,failedCount,skippedCount
+"1","IOEP_UMS_usermanagement","SignUp","POST","https://ioe-api.nextdrive.io/user-management/v1/accounts","Forbidden","403","441","153","Response Body{""code"":40303,""message"":""Forbidden: incorrect client id or business code, 4lmvkrpfbpurass53hv0vglr0r"",""requestId"":""f07c3f96-6fe6-40c6-baa2-8a8e4809ea08""}",,,"1","1","0","0"

@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "62d68ce6-8933-48ae-bdad-9bb415db7712",
+		"name": "POST /api/v2/associations/devices_Error_40404",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /api/v2/associations/devices_Error_40404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Thermo Pixi\",\r\n  \"model\": \"Pixi-HT\",\r\n  \"gatewayUuid\": \"{{gateway_uuid_40302}}\",\r\n  \"service\": \"ble\",\r\n  \"attributes\": {\r\n    \"macAddress\": \"{{thermo_mac}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ioep_qa_eg+_api_url}}/api/v2/associations/devices",
+					"host": [
+						"{{ioep_qa_eg+_api_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"associations",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

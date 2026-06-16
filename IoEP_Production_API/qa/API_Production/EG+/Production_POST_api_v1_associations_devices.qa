@@ -1,0 +1,7 @@
+## 關聯 device
+$association_url$=get					egplus_api				v1_associations_devices_url			#environment#=url
+$association_header$=get				egplus_api				v1_associations_devices_header		#token#=accesstoken
+$association_body$=get					egplus_api				v1_associations_devices_body		#gw_uuid#=gw_uuid,#ble_name#=ble_name,#ble_model#=ble_model,#ble_service=ble_service,##ble_macAddress#=ble_macAddress
+$association_response$=get				egplus_api				post								#url#=$association_url$,#header#=$association_header$,#body#=$association_body$
+$association_status_code$=get			egplus_api				status_code							#response#=$association_response$
+verify									api_verification		status_code							#api_response#=$association_status_code$,#expected_status_code#=200

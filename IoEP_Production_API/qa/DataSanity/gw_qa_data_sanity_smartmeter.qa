@@ -1,0 +1,12 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+sleep		3
+
+$count_sm$=get		fwapi_data_sanity		ioeapi_device_data		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_smartmeter_uuid$,#data_scope#=$qa_smartmeter_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_sm$,#criteria#=!
+
+end

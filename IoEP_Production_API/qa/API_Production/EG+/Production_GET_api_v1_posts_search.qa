@@ -1,0 +1,6 @@
+## 關聯 device
+$posts_search_url$=get				egplus_api				v1_posts_search_url				#environment#=url,#postkeyword#=postkeyword
+$posts_search_header$=get			egplus_api				v1_posts_search_header			#token#=accesstoken
+$posts_search_response$=get			egplus_api				get								#url#=$posts_search_url$,#header#=$posts_search_header$
+$posts_search_status_code$=get		egplus_api				status_code						#response#=$posts_search_response$
+verify								api_verification		status_code						#api_response#=$posts_search_status_code$,#expected_status_code#=200

@@ -1,0 +1,28 @@
+{
+    "events": [
+        {
+            "deviceUuid": "383566ea-e72b-44a0-941d-eb5112c85328",
+            "gatewayUuid": "2500dd51-d07f-4dda-bba7-5275db686ec9",
+            "scope": "click",
+            "model": "Pixi-HT",
+            "params": {
+                "template": "button_clicked"
+            },
+            "triggeredAt": 1618898292823,
+            "value": "true"
+        },
+        {
+            "deviceUuid": "71695f78-e543-4d85-8e9e-83b7e2255b05",
+            "gatewayUuid": "2500dd51-d07f-4dda-bba7-5275db686ec9",
+            "scope": "camera",
+            "model": "Camera",
+            "params": {
+                "template": "motion_detected_link_with_camera",
+                "cameraUuid": "71695f78-e543-4d85-8e9e-83b7e2255b05",
+                "cameraName": "Camera"
+            },
+            "triggeredAt": 1622976165857,
+            "value": "true"
+        }
+    ]
+}

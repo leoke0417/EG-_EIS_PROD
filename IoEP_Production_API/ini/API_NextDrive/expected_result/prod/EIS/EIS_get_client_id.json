@@ -1,0 +1,35 @@
+{
+    "id": 47,
+    "displayId": "C-201027001",
+    "name": "NextDrive KK",
+    "location": "Tokyo",
+    "type": "Buyer",
+    "modifiedDt": "2020-10-27T00:19:01.000Z",
+    "accountManager": {
+        "name": "Andy Liu",
+        "email": "andy.liu@nextdrive.io"
+    },
+    "organization": {
+        "id": "83c668dc-a208-4e13-a173-7c472d303996",
+        "displayId": "O-201027001",
+        "name": "NextDrive",
+        "country": "TW",
+        "industry": "Others",
+        "manager": {
+            "name": "Andy Liu",
+            "email": "andy.liu@nextdrive.io"
+        }
+    },
+    "programs": [
+        {
+            "id": "4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+            "displayId": "P-201027001",
+            "title": "Ecogenie"
+        },
+        {
+            "id": "645f1df6-c9ba-4b6d-b97b-aff8cbc405a6",
+            "displayId": "P-210406001",
+            "title": "Life Plus Developer"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+
+##get		fwapi_data_sanity		db_connection		#strDB#=eg3,#strHost#=pgbouncer-qa.nextdrive.io,#strPort#=15432,#strUser#=qa_user,#strPW#=kGm:A.=#=])6P^6j
+
+$count_t2ms$=get		fwapi_data_sanity		ioeapi_device_data		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_t2ms_uuid$,#data_scope#=$qa_t2ms_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_t2ms$,#criteria#=!
+
+
+end

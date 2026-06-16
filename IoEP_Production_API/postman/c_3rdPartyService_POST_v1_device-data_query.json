@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "25e92250-7218-44fa-a734-7770e2966674",
+		"name": "3rdPartyService_POST_v1_device-data_query",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST_v1_device-data_query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-ND-TOKEN",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"queries\": [{\"deviceUuid\": \"{{motion_9a16ce_uuid}}\",\"scopes\": [\"battery\"]}],\"time\": {\"startTime\": 1632844800000,\"endTime\": 1632931200000},\"maxCount\": 1,\"offset\": 0}"
+				},
+				"url": {
+					"raw": "{{end_point}}/v1/device-data/query",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"v1",
+						"device-data",
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

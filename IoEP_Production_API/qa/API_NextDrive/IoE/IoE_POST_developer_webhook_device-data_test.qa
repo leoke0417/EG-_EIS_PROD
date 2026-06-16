@@ -1,0 +1,39 @@
+ini										api_ioe.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_QA_IoE_POST_developer_webhook_device-data-test.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=POST_developer_webhook_user_test
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\POST_developer_webhook_user_test.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$url$=get								file_operate			dict_value					#key#=url,#response_body#=$response_body$
+
+$scope$=get								file_operate			dict_value					#key#=scope,#response_body#=$response_body$
+
+$isSuccess$=get							file_operate			dict_value					#key#=isSuccess,#response_body#=$response_body$
+
+$statusCode$=get						file_operate			dict_value					#key#=statusCode,#response_body#=$response_body$
+
+verify									api_verification		string						#actual_result#=$url$
+
+verify									api_verification		string						#actual_result#=$scope$
+
+verify									api_verification		boolean						#actual_result#=$isSuccess$
+
+verify									api_verification		int							#actual_result#=$statusCode$
+# end

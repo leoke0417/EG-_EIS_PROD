@@ -1,0 +1,7 @@
+## 關聯 device
+$association_url$=get					dms_api				v1_associations_url					#environment#=url,#device_protocol#=ble_protocol
+$association_header$=get				dms_api				v1_associations_header				#token#=accesstoken
+$association_body$=get					dms_api				v1_associations_ble_body			#gw_dsn#=gw_dsn,#ble_name#=ble_name,#ble_model#=ble_model,#ble_macAddress#=ble_macAddress
+$association_response$=get				dms_api				post								#url#=$association_url$,#header#=$association_header$,#body#=$association_body$
+$association_status_code$=get			dms_api				status_code							#response#=$association_response$
+verify									api_verification	status_code							#api_response#=$association_status_code$,#expected_status_code#=200

@@ -1,0 +1,70 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get												postman					command											#collection#=c_QA_IoE_GET_manager_accounts_{id}.json,#environment#=e_IoE.json,#iterations#=1
+									
+exec													postman					command											#command#=$cmd$
+									
+$result_file$=get										postman					result							
+									
+$list_data$=get											postman					read_csv										#filename#=$result_file$
+									
+$target_data$=get										postman					find_result										#file#=$list_data$,#testcase#=GET_manager_accounts_{id}
+									
+$result$=get											postman					api_result										#api_result#=$target_data$
+									
+verify													postman					status_code										#api_result#=$result$,#expected_result#=200
+									
+$response_body$=get										api_verification		api_response									#api_result#=$result$
+									
+$expected_body$=get										api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_manager_accounts_{id}.json
+									
+verify													api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+
+
+
+
+## Get name
+$account_name$=get										file_operate			dict_value										#key#=name,#response_body#=$response_body$
+## Get email
+$account_email$=get										file_operate			dict_value										#key#=email,#response_body#=$response_body$
+## Get role
+$account_role$=get										file_operate			dict_value										#key#=role,#response_body#=$response_body$
+## Get avatar
+$account_avatar$=get									file_operate			dict_value										#key#=avatar,#response_body#=$response_body$
+## Get lastActivatedOn
+$account_lastActivatedOn$=get							file_operate			dict_value										#key#=lastActivatedOn,#response_body#=$response_body$
+## Get type
+$account_type$=get										file_operate			dict_list_dict_value							#first_key#=accessModules,#second_key#=type,#response_body#=$response_body$
+## Get label
+$account_label$=get										file_operate			dict_list_dict_value							#first_key#=accessModules,#second_key#=label,#response_body#=$response_body$
+## Get activated
+$account_activated$=get									file_operate			dict_list_dict_value							#first_key#=accessModules,#second_key#=activated,#response_body#=$response_body$
+## Get lastActivatedOn
+$account_access_modules_lastActivatedOn$=get			file_operate			dict_list_dict_value							#first_key#=accessModules,#second_key#=lastActivatedOn,#response_body#=$response_body$
+## Get ioeSuiteActivated
+$account_ioeSuiteActivated$=get							file_operate			dict_value										#key#=ioeSuiteActivated,#response_body#=$response_body$
+
+## Verify name
+verify													api_verification		string											#actual_result#=$account_name$
+## Verify email								
+verify													api_verification		email											#actual_result#=$account_email$
+## Verify role								
+verify													api_verification		string											#actual_result#=$account_role$
+## Verify avatar								
+verify													api_verification		string											#actual_result#=$account_avatar$
+## Verify lastActivatedOn								
+verify													api_verification		time											#actual_result#=$account_lastActivatedOn$
+## Verify type								
+verify													api_verification		string											#actual_result#=$account_type$
+## Verify label								
+verify													api_verification		string											#actual_result#=$account_label$
+## Verify activated								
+verify													api_verification		boolean											#actual_result#=$account_activated$
+## Verify lastActivatedOn								
+verify													api_verification		time											#actual_result#=$account_access_modules_lastActivatedOn$
+## Verify ioeSuiteActivated								
+verify													api_verification		boolean											#actual_result#=$account_ioeSuiteActivated$
+##===== END =====

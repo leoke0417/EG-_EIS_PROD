@@ -1,0 +1,45 @@
+### Purpose: Based on testplan create a Testrun and qas file
+### 1. Login kiwi  
+### 2. Get testplan information
+### 3. Get testcase ID in the testplan
+### 4. Get each testcase  information
+### 5. Based on category & is_automated choose testcase 
+#### 5-1. category param: RAT, FAST, TOFT, FET, UI, ALL *combine with ";" (e.g., RAT;UI) 2. is_automated param: True, False, ALL
+### 6. Based on priority parameter sort testcase
+### 7. Create a testrun and get testrun information into conf/autokiwi.conf 
+### 8. Add testcase into testrun
+### 9. Create a qas file named autokiwi.qas
+### 10. Logout kiwi
+
+
+start
+
+### Step 1.
+set								autokiwi		login
+
+### Step 2.
+$testplan_info$=get				autokiwi		testplan						#testplan_id#=481
+
+### Step 3.
+$testcase_list$=get				autokiwi		testplan_case_id				#testplan_info#=$testplan_info$
+
+### Step 4.
+$testcase_info$=get				autokiwi		testcase_info					#testcase_id_list#=$testcase_list$
+
+### Step 5.
+$remained_testcase$=get			autokiwi		testcase_filter					#testcase_info#=$testcase_info$,#category#=IoE_suite,#is_automated#=True
+
+### Step 6.
+$sorted_testcase$=get			autokiwi		testcase_sort					#remained_testcase_info#=$remained_testcase$
+
+### Step 7.
+create							autokiwi		testrun							#testplan_info#=$testplan_info$
+
+### Step 8.
+add								autokiwi		testrun_case					#remained_testcase#=$sorted_testcase$
+
+### Step 9.
+create							autokiwi		qas								#testplan_info#=$testplan_info$,#remained_testcase#=$sorted_testcase$
+
+### Step 10.
+set								autokiwi		logout

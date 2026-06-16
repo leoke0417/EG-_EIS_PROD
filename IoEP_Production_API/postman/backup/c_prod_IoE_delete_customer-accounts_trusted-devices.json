@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "aeb0a3dd-dcd0-4370-9a5a-8c66c4fd3dfb",
+		"name": "IoE Prod_delete_customer-accounts_trusted-devices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: 'https://ioe-suite-api.nextdrive.io/auth/login',\r",
+							"    method:'POST',\r",
+							"    header:{\r",
+							"        'accept': '*/*',\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'user-agent': 'test-agent'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(\r",
+							"                            {\r",
+							"                                \"username\": \"automan@nextdrive.io\",\r",
+							"                                \"password\": \"link4581\"\r",
+							"                            }\r",
+							"                            )\r",
+							"    }\r",
+							"}, function(err, response){\r",
+							"    const jsonParse = response.json();\r",
+							"    pm.environment.set(\"access_token\", jsonParse.accessToken)\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user-agent",
+						"value": "test-agent",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"{{prod_account}}\",\r\n  \"password\": \"{{prod_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/auth/login",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_customer-accounts_trueted-devices",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/customer-accounts/trusted-devices",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"customer-accounts",
+						"trusted-devices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

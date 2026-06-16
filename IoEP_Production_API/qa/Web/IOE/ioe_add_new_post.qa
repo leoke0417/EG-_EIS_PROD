@@ -1,0 +1,44 @@
+##5063	[iOE HEMS 3.0]Post-New Article -1.進入Edit Post 操作流程
+##5069	[iOE HEMS 3.0]Post-編輯貼文- Style 1 -Post -1.Post Title
+##5070	[iOE HEMS 3.0]Post-編輯貼文 -Style 1-Post - 2.Post Content
+##5073	[iOE HEMS 3.0]Post-編輯貼文 -Style 1-Post - 4.新增連結
+
+ini		ioe_data.ini
+
+start
+init	browser					chrome
+
+set		browser.web_main		url						#url#=$ioe_url$
+sleep	3
+
+set		browser.web_main		textbox					#key#=$username_correct$,#xpath#=username_xpath_value
+set		browser.web_main		textbox					#key#=$password_correct$,#xpath#=password_xpath_value
+click	browser.web_main		button					#xpath#=submit_xpath_value
+sleep	3
+verify	browser.web_main		element					#xpath#=select_module
+
+click	browser.web_main		button					#xpath#=ioe_module_eg
+verify	browser.web_main		element					#xpath#=ioe_dashboard_title
+
+##5063進入Edit Post 操作流程
+click	browser.web_main		button					#xpath#=ioe_post_icon
+verify	browser.web_main		element					#xpath#=ioe_post_list_title
+
+click	browser.web_main		button					#xpath#=ioe_post_new_post_btn
+verify	browser.web_main		element					#xpath#=ioe_post_edit_post_string
+
+##5069_Post Title 5070_Post Content
+click	browser.web_main		button					#xpath#=ioe_post_template_next_btn
+verify	browser.web_main		element					#xpath#=ioe_post_name_string
+set		browser.web_main		textbox					#key#=$ioe_post_title$,#xpath#=ioe_post_name_textbox
+set		browser.web_main		textbox					#key#=$ioe_post_conect$,#xpath#=ioe_post_content_textbox
+
+##5073_新增連結
+click	browser.web_main		button					#xpath#=ioe_post_link_icon
+set		browser.web_main		textbox					#key#=$ioe_post_text_to_display$,#xpath#=ioe_post_link_text_to_display_textbox
+set		browser.web_main		textbox					#key#=$ioe_post_url$,#xpath#=ioe_post_link_url_textox
+click	browser.web_main		button					#xpath#=ioe_post_link_ok_btn
+
+end
+##5072_新增圖片
+#click	browser.web_main		button					#xpath#=ioe_post_image_icon

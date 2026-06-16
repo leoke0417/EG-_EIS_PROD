@@ -1,0 +1,104 @@
+ini		api_egplus.ini
+start
+##===== Execute postman command line ======
+## Get execution path
+$original_path$=get											api_verification		path
+
+## Exchange cognito token
+$cognito_token$=get											api_verification		id_token				#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+## Set cognito token in environment
+set															api_verification		environment_token		#environment_name#=EG+.postman_environment.json,#new_token#=$cognito_token$,#environment#=$test_environment$
+
+## Set cognito token in collection
+set															api_verification		collection_token		#collection_name#=EG+.postman_collection.json,#new_token#=$cognito_token$,#testcase_name#=Get_token,#environment#=$test_environment$
+
+## Execute cmd of newman
+exec														api_verification		cmd						#original_path#=$original_path$,#environment#=$test_environment$,#command#=newman run EG+.postman_collection.json -e EG+.postman_environment.json -r csv --reporter-csv-export
+
+## Get file location and get the file list of result
+$csv_file_name$=get											api_verification		file_list				#environment#=$test_environment$,#folder_path#=newman
+
+sleep														1
+##===== END =====
+
+
+
+
+##===== Test case: Get latest device notification list =====
+## Read csv and target file
+$latest_noti_list_response$=get								api_verification		read_csv										#environment#=$test_environment$,#csv_filename#=$csv_file_name$,#testcase_name#=Get_latest_device_notification_list
+
+## Get status code of result
+$latest_noti_list_status_code$=get							api_verification		status_code										#api_response#=$latest_noti_list_response$
+
+## Get response body of result
+$latest_noti_list_response_body$=get						api_verification		response_body									#api_response#=$latest_noti_list_response$	
+
+## Load expected result file
+$latest_noti_list_result$=get								api_verification		expected_result									#environment#=$test_environment$,#expected_result#=EG+\EG_plus_get_latest_device_notification_list.json
+
+## Verify status code
+verify														api_verification		status_code										#api_response#=$latest_noti_list_status_code$,#expected_status_code#=200
+
+## Verify keys of response body
+verify														api_verification		dict_keys										#expected_result#=$latest_noti_list_result$,#actual_result#=$latest_noti_list_response_body$
+
+## Get events > deviceUuid
+$latest_noti_list_deviceUuid$=get							file_operate			dict_list_dict_value							#first_key#=events,#second_key#=deviceUuid,#response_body#=$latest_noti_list_response_body$
+
+## Get events > gatewayUuid
+$latest_noti_list_gatewayUuid$=get							file_operate			dict_list_dict_value							#first_key#=events,#second_key#=gatewayUuid,#response_body#=$latest_noti_list_response_body$
+
+## Get events > scope
+$latest_noti_list_scope$=get								file_operate			dict_list_dict_value							#first_key#=events,#second_key#=scope,#response_body#=$latest_noti_list_response_body$
+
+## Get events > model
+$latest_noti_list_model$=get								file_operate			dict_list_dict_value							#first_key#=events,#second_key#=model,#response_body#=$latest_noti_list_response_body$
+
+## Get events > params > template
+$latest_noti_list_params_template$=get						file_operate			dict_list_dict_dict_value						#first_key#=events,#second_key#=params,#third_key#=template,#response_body#=$latest_noti_list_response_body$
+
+## Get events > triggeredAt
+$latest_noti_list_triggeredAt$=get							file_operate			dict_list_dict_value							#first_key#=events,#second_key#=triggeredAt,#response_body#=$latest_noti_list_response_body$
+
+## Get events > value
+$latest_noti_list_value$=get								file_operate			dict_list_dict_value							#first_key#=events,#second_key#=value,#response_body#=$latest_noti_list_response_body$
+
+## Verify events > deviceUuid
+verify														api_verification		uuid											#actual_result#=$latest_noti_list_deviceUuid$
+
+## Verify events > gatewayUuid
+verify														api_verification		uuid											#actual_result#=$latest_noti_list_gatewayUuid$
+
+## Verify  events > scope
+verify														api_verification		string											#actual_result#=$latest_noti_list_scope$
+
+## Verify events > model
+verify														api_verification		string											#actual_result#=$latest_noti_list_model$
+
+## Verify events > params > template
+verify														api_verification		string											#actual_result#=$latest_noti_list_params_template$
+
+## Verify events > triggeredAt
+verify														api_verification		unix_timestamp									#actual_result#=$latest_noti_list_triggeredAt$
+
+## Verify events > value
+verify														api_verification		string											#actual_result#=$latest_noti_list_value$
+
+## Check if camera notification exists
+$camera_notification_result$=get							api_egplus_app 			check_latests_noti_camera_noti_exist			#first_key#=events,#second_key#=model,#model#=Camera,#response_body#=$latest_noti_list_response_body$
+
+## Get event > camera noti > cameraUuid
+$latest_noti_list_cameraUuid$=get							api_egplus_app			latest_noti_camera_value						#first_key#=events,#second_key#=params,#third_key#=cameraUuid,#response_body#=$latest_noti_list_response_body$,#cam_result#=$camera_notification_result$
+
+## Get event > camera noti > cameraName
+$latest_noti_camera_cameraName$=get							api_egplus_app			latest_noti_camera_value						#first_key#=events,#second_key#=params,#third_key#=cameraName,#response_body#=$latest_noti_list_response_body$,#cam_result#=$camera_notification_result$
+
+## Verify event > camera noti > cameraUuid
+verify														api_verification		egplus_latest_noti_uuid							#cam_result#=$camera_notification_result$,#actual_result#=$latest_noti_list_cameraUuid$
+
+## Verify events > camera noti > cameraName
+verify														api_verification		egplus_latest_noti_string						#cam_result#=$camera_notification_result$,#actual_result#=$latest_noti_camera_cameraName$
+
+##===== END =====

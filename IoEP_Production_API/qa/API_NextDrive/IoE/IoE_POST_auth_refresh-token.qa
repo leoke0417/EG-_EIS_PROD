@@ -1,0 +1,66 @@
+ini				api_ioe.ini
+start
+$cmd$=get												postman					command											#collection#=c_QA_IoE_POST_auth_login.json,#environment#=e_IoE.json,#iterations#=1
+						
+exec													postman					command											#command#=$cmd$
+						
+$get_token_result_file$=get								postman					result							
+						
+$get_token_list_data$=get								postman					read_csv										#filename#=$get_token_result_file$
+						
+$get_token_target_data$=get								postman					find_result										#file#=$get_token_list_data$,#testcase#=Login
+						
+$get_token_result$=get									postman					api_result										#api_result#=$get_token_target_data$
+							
+verify													postman					status_code										#api_result#=$get_token_result$,#expected_result#=200
+						
+$get_token_response_body$=get							api_verification		api_response									#api_result#=$get_token_result$
+						
+$get_token_expected_body$=get							api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\POST_auth_login.json
+						
+
+
+
+$accessToken$=get										file_operate			dict_value										#key#=accessToken,#response_body#=$get_token_response_body$
+
+$refreshToken$=get										file_operate			dict_value										#key#=refreshToken,#response_body#=$get_token_response_body$
+
+$body$=get												api_ioe					refresh_token_body								#access_token#=$accessToken$,#refresh_token#=$refreshToken$
+
+$content$=get											postman					postman_json									#json_name#=c_qa_IoE_post_auth_refresh-token.json
+
+$collection_final$=get									api_ioe					refresh_token_new_body							#new_body#=$body$,#collection_content#=$content$
+
+set														postman					postman_json									#json_content#=$collection_final$,#json_name#=c_qa_IoE_post_auth_refresh-token.json
+
+$cmd$=get												postman					command											#collection#=c_QA_IoE_POST_auth_refresh-token.json,#environment#=e_IoE.json,#iterations#=1
+
+exec													postman					command											#command#=$cmd$
+
+$result_file$=get										postman					result		
+
+$list_data$=get											postman					read_csv										#filename#=$result_file$
+
+$target_data$=get										postman					find_result										#file#=$list_data$,#testcase#=POST_auth_refresh-token
+
+$result$=get											postman					api_result										#api_result#=$target_data$
+
+verify													postman					status_code										#api_result#=$result$,#expected_result#=200
+
+$response_body$=get										api_verification		api_response									#api_result#=$result$
+
+$expected_body$=get										api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\POST_auth_refresh-token.json
+
+verify													api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$accessToken$=get										file_operate			dict_value										#key#=accessToken,#response_body#=$response_body$
+
+$refreshToken$=get										file_operate			dict_value										#key#=refreshToken,#response_body#=$response_body$
+
+verify													api_verification		string											#actual_result#=$accessToken$
+
+verify													api_verification		string											#actual_result#=$refreshToken$
+
+
+
+

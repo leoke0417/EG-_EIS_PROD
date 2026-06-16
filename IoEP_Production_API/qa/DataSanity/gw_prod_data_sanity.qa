@@ -1,0 +1,55 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+
+##$proc$=get	File	shellcmd	#command#=adb -s $cube_name$ shell "ps | grep configd"
+##exec		File	shellcmd	#command#=adb -s $cube_name$ shell "mv /data/cfg_mgmt/config.json /data/cfg_mgmt/config.bak"
+##exec		File	shellcmd	#command#=adb -s $cube_name$ shell "killall configd"
+##sleep		5
+##exec		File	shellcmd	#command#=adb -s $cube_name$ shell "killall fms"
+##sleep	5
+##verify		fwapi_data_sanity		gw_config	#gw_name#=$cube_name$,#key#=$cube_gw_id$,#criteria#==
+
+
+
+sleep		3
+'
+##get		fwapi_data_sanity		db_connection		#strDB#=eg3,#strHost#=pgbouncer-qa.nextdrive.io,#strPort#=15432,#strUser#=qa_user,#strPW#=kGm:A.=#=])6P^6j
+
+$count_fuel$=get		fwapi_data_sanity		ioeapi_device_data		#env#=production,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$prod_fuelcell_uuid$,#data_scope#=$prod_fuelcell_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_fuel$,#criteria#=!
+
+$count_pv$=get		fwapi_data_sanity		ioeapi_device_data		#env#=production,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$prod_pv_uuid$,#data_scope#=$prod_pv_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_pv$,#criteria#=!
+
+$count_heater$=get		fwapi_data_sanity		ioeapi_device_data		#env#=production,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$prod_waterheater_uuid$,#data_scope#=$prod_waterheater_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_heater$,#criteria#=!
+
+$count_pwdb$=get		fwapi_data_sanity		ioeapi_device_data		#env#=production,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$prod_pwdb_uuid$,#data_scope#=$prod_pwdb_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_pwdb$,#criteria#=!
+
+$count_battery$=get		fwapi_data_sanity		ioeapi_device_data		#env#=production,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$prod_stgbattery_uuid$,#data_scope#=$prod_stgbattery_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_battery$,#criteria#=!
+
+$count_motion$=get		fwapi_data_sanity		ioeapi_device_data		#env#=production,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$prod_motion_uuid$,#data_scope#=$prod_motion_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_motion$,#criteria#=!
+
+$count_thermo$=get		fwapi_data_sanity		ioeapi_device_data		#env#=production,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$prod_thermo_uuid$,#data_scope#=$prod_thermo_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_thermo$,#criteria#=!
+
+##OTA 
+##exec		File	shellcmd	#command#=adb -s $cube_name$ shell "setprop test.ota.init_delay 1"
+##exec		File	shellcmd	#command#=adb -s $cube_name$ shell "stop ota"
+##exec		File	shellcmd	#command#=adb -s $cube_name$ shell "start ota"
+##
+##sleep		120
+##
+##exec		File	shellcmd	#command#=adb -s $cube_name$ shell "reboot"
+##
+##sleep		60
+##exec		File	shellcmd	#command#=adb -s $cube_name$ shell "stop ota"
+
+end

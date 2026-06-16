@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "aaf223a4-9972-455b-b392-8c5840ac4bf8",
+		"name": "ServiceStore_PUT_manager_providers_{id}_services_{serviceUuid}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "PUT_manager_providers_{id}_services_{serviceUuid}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"8302fe51-a558-43ab-8a21-18a6040453a9\",\r\n  \"name\": \"apidontouch\",\r\n  \"icon\": \"https://ioe-suite-qa.nextdrive.io/images/df6765d8-322e-4b22-8a6c-f43afbc01bce-thumbnail.jpg\",\r\n  \"status\": \"LAUNCH\",\r\n  \"pkgNames\": [],\r\n  \"summary\": \"apidontouch\",\r\n  \"description\": \"apidontouch\",\r\n  \"publicPolicy\": \"PRIVATE\",\r\n  \"testUsersEmail\": [],\r\n  \"images\": [\r\n    \"https://ioe-suite-qa.nextdrive.io/images/acfaff69-6296-416f-99f7-723182609ead.jpg\"\r\n  ],\r\n  \"lang\": \"Traditional Chinese\",\r\n  \"country\": \"Taiwan\",\r\n  \"contact\": \"apidontouch@nextdrive.io\",\r\n  \"activateDescription\": null,\r\n  \"faqUrl\": \"\",\r\n  \"formUrl\": \"\",\r\n  \"isRedirected\": null,\r\n  \"isDefaultEnabled\": false,\r\n  \"isDefaultSubscribed\": false,\r\n  \"gatewayUploadInterval\": 10,\r\n  \"apiKeys\": [\r\n    \"9L0l0GlFFoGa4DTzEtkfWRbGtAInCyHEvxYpxL9\"\r\n  ],\r\n  \"scopes\": [],\r\n  \"webhooks\": [],\r\n  \"privacyAndTermsUrl\": \"https://apidontouch.com\",\r\n  \"serviceCategory\": [\r\n    \"Life\",\r\n    \"Health\"\r\n  ],\r\n  \"functionCategory\": [\r\n    \"Visualization\",\r\n    \"Smart Control\"\r\n  ],\r\n  \"updateTime\": \"2022-08-19T08:14:50.358838\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{end_point}}/manager/providers/{{Service_provider_id}}/services/8302fe51-a558-43ab-8a21-18a6040453a9",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"manager",
+						"providers",
+						"{{Service_provider_id}}",
+						"services",
+						"8302fe51-a558-43ab-8a21-18a6040453a9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

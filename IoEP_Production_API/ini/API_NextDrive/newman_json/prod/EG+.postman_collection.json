@@ -1,0 +1,991 @@
+{
+	"info": {
+		"_postman_id": "f599e4bf-07a5-4888-95f9-dfc9a49897f8",
+		"name": "EG+ Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var token = \r",
+							"pm.sendRequest({\r",
+							"    url: 'https://api-eg3.nextdrive.io/api/v1/oauth2/tokens/exchange',\r",
+							"    method:'POST',\r",
+							"    header:{\r",
+							"        'accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(\r",
+							"                            {type: \"cognito\",\r",
+							"                             token: \"eyJraWQiOiIrR0Q3TGdLam5cL21ENGZNMFAzYVpyWmNUa2dEXC9HTGxkNnkyOGJ3RjduNnM9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwNDdkYTRiOS03OTBkLTQ5OTctOGVjZS0zYWMyNTI3ODcyNTAiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJvZmlsZSI6Im5leHRkcml2ZSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1ub3J0aGVhc3QtMS5hbWF6b25hd3MuY29tXC9hcC1ub3J0aGVhc3QtMV9kaFRHQ0wxYngiLCJjb2duaXRvOnVzZXJuYW1lIjoiYzZiMDFmMDYtMGM5Zi00YTUxLTkzOTUtZWZhZjI1YzllYmFiIiwibG9jYWxlIjoiemgiLCJhdWQiOiJiNWlyZGduNDJoNTB0MWpnM3RoY2RtMGNpIiwiZXZlbnRfaWQiOiJlNzNhOWRmNi05NjAwLTQzZmItOTg3MC04M2E1YTc1MGEwYzIiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTYyNzYyNDg0NCwiZXhwIjoxNjI3NjI4NDQ0LCJpYXQiOjE2Mjc2MjQ4NDQsImVtYWlsIjoibGluMDYzMGR1c3RpbkBnbWFpbC5jb20ifQ.KURDK5JUVVjTP01Yfv8w9ecXr-QB4UMbpVyQOuA8MrNWndvZ-Q6RaVnhWaORfrXBC0fva03LtFNJrc9pVUYUx0lJ8Mfk8KKOTy4d4jJP7qZGADhy5cXSMwIXpofxNoUil8PsAfA_tbQqGCp1pyEvXq4T4FAls4rZw9iLHFrxzvw050Ncm-v5BBAkvBadocR0KxOp_acNrKKfpKwcXa5bFYHf5BvgY7iif-xOBVqg-hj7oMzHrRIfIWBKidDgk_f3tHx7osUetwAAeBMuzBhonDVgBRPreCdH2AAN2cD1G3dhxnYUMWKarf6Sk_5bFivtT6WIcMlo6g_b35G6ivyDCA\",\r",
+							"                            appUuid: \"09876543211234567890DDDBBBCCCFFFEEAA\"}\r",
+							"                            )\r",
+							"    }\r",
+							"}, function(err, response){\r",
+							"    const jsonParse = response.json();\r",
+							"    pm.environment.set(\"nd_token\", jsonParse.accessToken)\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                    \"type\": \"cognito\",\r\n                    \"token\": \"{{cognito_token}}\",\r\n                    \"appUuid\": \"9876543212345678ABCDEFGGFEDCBA\"\r\n                }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/oauth2/tokens/exchange",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"oauth2",
+						"tokens",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_single_gateway_info_by_UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{nd_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/gateways/{{CubeJ-ce1022_uuid}}",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"{{CubeJ-ce1022_uuid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_beep_brand_list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/aircon/brands",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"aircon",
+						"brands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_beep_brand_model_list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/aircon/brands/7",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"aircon",
+						"brands",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get _device_info_by_UUID_for_dashboard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/devices/{{Motion-c628ae_uuid}}/dashboards",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"devices",
+						"{{Motion-c628ae_uuid}}",
+						"dashboards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_latest_device_notification_list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/notifications/events/latests",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"notifications",
+						"events",
+						"latests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_device _info_by_UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/devices/{{Motion-c628ae_uuid}}",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"devices",
+						"{{Motion-c628ae_uuid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_search_news_feed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/posts/search?keyword=11",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"search"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_service_store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/services",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_user_name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/users",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_gateways_and_devices_list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/gateways",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_notification_threshold",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/devices/{{Motion-c628ae_uuid}}/notifications",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"devices",
+						"{{Motion-c628ae_uuid}}",
+						"notifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_location",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Bearer {{nd_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/gateways/{{CubeJ-ce1022_uuid}}/locations?postalCode=0740001",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"{{CubeJ-ce1022_uuid}}",
+						"locations"
+					],
+					"query": [
+						{
+							"key": "postalCode",
+							"value": "0740001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_video_list_of_usb_camera_device",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/devices/{{PROD_CAM_uuid}}/videos",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"devices",
+						"{{PROD_CAM_uuid}}",
+						"videos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_device_data_motion_battery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/devices/{{Motion-c628ae_uuid}}/data?scope=battery&startTime=1620921600000&periodType=day&periodLength=1",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"devices",
+						"{{Motion-c628ae_uuid}}",
+						"data"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "battery"
+						},
+						{
+							"key": "startTime",
+							"value": "1620921600000"
+						},
+						{
+							"key": "periodType",
+							"value": "day"
+						},
+						{
+							"key": "periodLength",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_weather Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Bearer {{nd_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/gateways/{{CubeJ-ce1022_uuid}}/weathers",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"{{CubeJ-ce1022_uuid}}",
+						"weathers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_api_v1_device_{deviceUuid}_Change_motion_name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Motion Pixi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/devices/{{Motion-c628ae_uuid}}",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"devices",
+						"{{Motion-c628ae_uuid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_api_v1_gateways_{gatewayUuid}_Change_cube_name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"CubeJ-ce1022\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/gateways/{{CubeJ-ce1022_uuid}}",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"{{CubeJ-ce1022_uuid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,25 @@
+ini				rat_sv_us_admin.ini
+ini				cluster_deployment.ini
+init			ie								Chrome	
+
+start
+set				ie.rat_sv_us					textbox_username						#key#=$signin_username$
+set				ie.rat_sv_us					textbox_passwd							#key#=$signin_passwd$
+click			ie.rat_sv_us					button_submit
+sleep			1
+click			ie.cluster_view_control			link_switch_view
+sleep			1
+click			ie.cluster_view_control			link_clusterview
+sleep			1
+click			ie.cluster_view_control			link_managed_domain
+sleep			1
+click			ie.cluster_view_control			link_cluster_management
+
+#===========Verify===============
+click			ie.cluster_view_control			table_cluster_name						#key#=$cluster_name$
+sleep			1
+click			ie.cluster_view_control			table_node_name							#key#=$hosts_name$
+sleep			1
+$status$=get	ie.managed_domain				status_add_node_submit					#key#=$hosts_name$
+verify			Tool							dir										#value#=True,#key#=$status$,#criteria#==
+end

@@ -1,0 +1,18 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get					postman					command				#collection#=c_QA_IoE_HEAD_manager_team_profile_code_available_{code}.json,#environment#=e_IoE.json,#iterations#=1
+
+exec						postman					command				#command#=$cmd$
+
+$result_file$=get			postman					result		
+
+$list_data$=get				postman					read_csv			#filename#=$result_file$
+
+$target_data$=get			postman					find_result			#file#=$list_data$,#testcase#=HEAD_manager_team_profile_code_available_{code}
+
+$result$=get				postman					api_result			#api_result#=$target_data$
+
+verify						postman					status_code			#api_result#=$result$,#expected_result#=200
+
+# end

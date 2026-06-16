@@ -1,0 +1,54 @@
+ini										api_ioe.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_QA_IoE_PUT_manager_team_profile.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=PUT_manager_team_profile
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\PUT_manager_team_profile.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$id$=get								file_operate			dict_value					#key#=id,#response_body#=$response_body$
+
+$code$=get								file_operate			dict_value					#key#=code,#response_body#=$response_body$
+
+$name$=get								file_operate			dict_value					#key#=name,#response_body#=$response_body$
+
+$avatar$=get							file_operate			dict_value					#key#=avatar,#response_body#=$response_body$
+
+$logo$=get								file_operate			dict_value					#key#=logo,#response_body#=$response_body$
+
+$contactUrl_type$$=get					file_operate			dict_dict_value				#first_key#=contactUrl,#second_key#=type,#response_body#=$response_body$
+
+$contactUrl_link$=get					file_operate			dict_dict_value				#first_key#=contactUrl,#second_key#=link,#response_body#=$response_body$
+
+
+verify									api_verification		string						#actual_result#=$id$
+
+verify									api_verification		string						#actual_result#=$code$
+
+verify									api_verification		string						#actual_result#=$name$
+
+verify									api_verification		url							#actual_result#=$avatar$
+
+verify									api_verification		url							#actual_result#=$logo$
+
+verify									api_verification		string						#actual_result#=$contactUrl_type$
+
+verify									api_verification		string						#actual_result#=$contactUrl_link$
+
+
+# end

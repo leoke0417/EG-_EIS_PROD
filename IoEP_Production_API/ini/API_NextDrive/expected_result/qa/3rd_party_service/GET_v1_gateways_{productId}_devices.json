@@ -1,0 +1,64 @@
+{
+    "devices": [
+        {
+            "deviceUuid": "6b09737a-b488-4ce9-9ab9-75c821f6f22e",
+            "model": "ElecWaterHeater",
+            "name": "Electric Water Heater",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "bf4eb1f2-a31d-46dc-8cba-d3b608b6aed8",
+            "model": "Pixi-HT",
+            "name": "Thermo Pixi",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "7795a75b-8812-4890-9765-63632208a834",
+            "model": "StgBattery",
+            "name": "Storage Battery",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "781ec8e0-8865-4d1f-8f9b-794ad6012528",
+            "model": "AirCon",
+            "name": "Air Conditioner",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "0b6bb64b-a3cd-44d5-8d3e-c7c6b055df08",
+            "model": "SolarPW",
+            "name": "PV System",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "650da858-16d0-492f-9988-a8bd125685b8",
+            "model": "FuelCell",
+            "name": "Fuel Cell",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "977e157f-6c9a-46df-85eb-9395979a2c4b",
+            "model": "EVCharger",
+            "name": "EV Charger/Discharger",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "3bafd63b-508a-4a9a-a420-945a5e3e0e67",
+            "model": "PWDBoard",
+            "name": "Power Distribution Board",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "81b656e8-42bb-430f-a430-6504289901bb",
+            "model": "Pixi-G",
+            "name": "Motion Pixi",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "31b92857-ed59-47b0-b64e-4a6d9616f22b",
+            "model": "Camera",
+            "name": "Camera",
+            "onlineStatus": "online"
+        }
+    ]
+}

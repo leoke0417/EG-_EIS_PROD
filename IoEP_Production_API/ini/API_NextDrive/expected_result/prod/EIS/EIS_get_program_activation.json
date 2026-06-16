@@ -1,0 +1,24 @@
+{
+    "id": "4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+    "admin": {
+        "current": 3,
+        "max": 3
+    },
+    "normal": {
+        "current": 11
+    },
+    "current": 14,
+    "max": 10,
+    "products": [
+        {
+            "type": "Developer",
+            "plan": "Standard",
+            "licenseLimit": 10
+        },
+        {
+            "type": "HEMS",
+            "plan": "Standard",
+            "licenseLimit": 10
+        }
+    ]
+}

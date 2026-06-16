@@ -1,0 +1,14 @@
+ini		rat_sv_us_admin.ini
+init	ie		firefox
+
+start
+
+#signin
+set		ie.rat_sv_us		textbox_username	#key#=$signin_username$
+set		ie.rat_sv_us		textbox_passwd		#key#=$signin_passwd$
+click	ie.rat_sv_us		button_submit
+$account_button$=get	ie.rat_sv_us		button_account
+verify	ie.rat_sv_us		button_exist	  #name#=account_button,#value#=True,#key#=$account_button$,#criteria#==
+
+
+end

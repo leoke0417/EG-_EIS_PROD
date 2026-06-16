@@ -1,0 +1,5 @@
+ini					cfg_mgmt_authentication.ini
+start
+$IDToken$=get		api_cfg_mgmt					idtoken				#strUserPoolID#=$strUserPoolID$,#strClientID#=$strClientID$,#strUserName#=$strUserName$,#strPassword#=$strPassword$
+$NDToken$=get		api_cfg_mgmt					ndtoken				#method#=post,#returnCode#=401,#except#=false,#strIDToken#=$IDToken$,#NDAPIServerState#=$NDAPIServerState$,#strNDAPIServerHead#=$strNDAPIServerHead$,#strNDAPIServerTail#=$strNDAPIServerTail$,#strNDAPIServerExchangePath#=$strNDAPIServerExchangePath$,#strHeaderAuthoKey#=$strHeaderAuthoKey$,#strHeaderAuthoValue#=$strHeaderAuthoValue$,#strHeaderContentTypeKey#=$strHeaderContentTypeKey$,#strHeaderContentTypeValue#=$strHeaderContentTypeValue$,#strAWSTypeKey#=$strEmpty_AWSTypeKey$,#strAWSTypeValue#=$strAWSTypeValue$,#strTokenKey#=$strTokenKey$,#strRemoveHeaderValue#=$strRemoveHeaderValue$,#strRemoveBodyValue#=$strRemoveBodyValue$
+end

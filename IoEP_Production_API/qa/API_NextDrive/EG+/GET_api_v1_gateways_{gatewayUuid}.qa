@@ -1,0 +1,95 @@
+ini		api_egplus.ini
+start
+##===== Execute postman command line ======
+## Get execution path
+$original_path$=get										api_verification		path
+
+## Exchange cognito token
+$cognito_token$=get										api_verification		id_token				#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+## Set cognito token in environment
+set														api_verification		environment_token		#environment_name#=EG+.postman_environment.json,#new_token#=$cognito_token$,#environment#=$test_environment$
+
+## Set cognito token in collection
+set														api_verification		collection_token		#collection_name#=EG+.postman_collection.json,#new_token#=$cognito_token$,#testcase_name#=Get_token,#environment#=$test_environment$
+
+## Execute cmd of newman
+exec													api_verification		cmd						#original_path#=$original_path$,#environment#=$test_environment$,#command#=newman run EG+.postman_collection.json -e EG+.postman_environment.json -r csv --reporter-csv-export
+
+## Get file location and get the file list of result
+$csv_file_name$=get										api_verification		file_list				#environment#=$test_environment$,#folder_path#=newman
+
+sleep													1
+##===== END =====
+
+
+
+
+
+##===== Test case: Get single gw info by uuid =====
+## Read csv and target file
+$get_gw_info_response$=get								api_verification		read_csv				#environment#=$test_environment$,#csv_filename#=$csv_file_name$,#testcase_name#=Get_single_gateway_info_by_UUID
+
+## Get status code of result
+$get_gw_info_status_code$=get							api_verification		status_code				#api_response#=$get_gw_info_response$
+
+## Get response body of result
+$get_gw_info_response_body$=get							api_verification		response_body			#api_response#=$get_gw_info_response$	
+
+## Load expected result file
+$eg_plus_gw_info_result$=get							api_verification		expected_result			#environment#=$test_environment$,#expected_result#=EG+\EG_plus_get_single_gw_info_by_uuid.json
+
+## Verify status code
+verify													api_verification		status_code				#api_response#=$get_gw_info_status_code$,#expected_status_code#=200
+
+## Verify keys of response body
+verify													api_verification		dict_keys				#expected_result#=$eg_plus_gw_info_result$,#actual_result#=$get_gw_info_response_body$
+
+## Get uuid
+$eg_plus_gw_info_uuid$=get								file_operate			dict_value				#key#=uuid,#response_body#=$get_gw_info_response_body$
+
+## Get name
+$eg_plus_gw_info_name$=get								file_operate			dict_value				#key#=name,#response_body#=$get_gw_info_response_body$
+
+## Get model
+$eg_plus_gw_info_model$=get								file_operate			dict_value				#key#=model,#response_body#=$get_gw_info_response_body$
+
+## Get onlineStatus
+$eg_plus_gw_info_online_status$=get						file_operate			dict_value				#key#=onlineStatus,#response_body#=$get_gw_info_response_body$
+
+## Get pid
+$eg_plus_gw_info_pid$=get								file_operate			dict_value				#key#=pid,#response_body#=$get_gw_info_response_body$
+
+## Get profileId
+$eg_plus_gw_info_profile_id$=get						file_operate			dict_value				#key#=profileId,#response_body#=$get_gw_info_response_body$
+
+## Get firmwareVersion
+$eg_plus_gw_info_firmware_version$=get					file_operate			dict_value				#key#=firmwareVersion,#response_body#=$get_gw_info_response_body$
+
+## Get wifiSsid
+$eg_plus_gw_info_wifi_ssid$=get							file_operate			dict_value				#key#=wifiSsid,#response_body#=$get_gw_info_response_body$
+
+## Verify uuid
+verify													api_verification		uuid					#actual_result#=$eg_plus_gw_info_uuid$
+
+## Verify name
+verify													api_verification		string					#actual_result#=$eg_plus_gw_info_name$
+
+## Verify model
+verify													api_verification		string					#actual_result#=$eg_plus_gw_info_model$
+
+## Verify onlineStatus
+verify													api_verification		int						#actual_result#=$eg_plus_gw_info_online_status$
+
+## Verify pid
+verify													api_verification		pid						#actual_result#=$eg_plus_gw_info_pid$
+
+## Verfify profileId
+verify													api_verification		uuid					#actual_result#=$eg_plus_gw_info_profile_id$
+
+## Verify firmwareVersion
+verify													api_verification		string					#actual_result#=$eg_plus_gw_info_firmware_version$
+
+## Verify wifiSsid
+verify													api_verification		string					#actual_result#=$eg_plus_gw_info_wifi_ssid$
+

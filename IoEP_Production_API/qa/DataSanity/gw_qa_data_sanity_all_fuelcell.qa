@@ -1,0 +1,17 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+
+$count_powerGenerationStatus$=get			fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_fuelcell_uuid$,#data_scope#=$qa_FuelCell_powerGenerationStatus$,#time_period#=86400
+$count_generatedElectricity$=get			fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_fuelcell_uuid$,#data_scope#=$qa_FuelCell_generatedElectricity$,#time_period#=86400
+$count_instanceElectricity$=get				fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_fuelcell_uuid$,#data_scope#=$qa_FuelCell_instanceElectricity$,#time_period#=86400
+$fw_version$=get						File					shellcmd				#command#=adb -s $atto_name$ shell getprop ro.build.version.release 
+
+$result$=get							fwapi_data_sanity		fuelcell_result		#fw_version#=$fw_version$,#env#=qa,#count_powerGenerationStatus#=$count_powerGenerationStatus$,#count_generatedElectricity#=$count_generatedElectricity$,#count_instanceElectricity#=$count_instanceElectricity$
+send									Fb						automan_production		#message#=$result$
+
+
+end

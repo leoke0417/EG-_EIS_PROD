@@ -1,0 +1,44 @@
+{
+    "options": [
+        {
+            "label": "user@nextdrive.io",
+            "value": "user@nextdrive.io"
+        },
+        {
+            "label": "Rachel Po",
+            "value": "rachel.po@nextdrive.io"
+        },
+        {
+            "label": "Andy Liu",
+            "value": "andy.liu@nextdrive.io"
+        },
+        {
+            "label": "Michihiro Konagai",
+            "value": "m.konagai@nextdrive.io"
+        },
+        {
+            "label": "Ann Fu",
+            "value": "ann.fu@nextdrive.io"
+        },
+        {
+            "label": "Ann Fu_1",
+            "value": "ann.fu+1@nextdrive.io"
+        },
+        {
+            "label": "Dustin Lin",
+            "value": "dustin.lin@nextdrive.io"
+        },
+        {
+            "label": "Dustin Lin_1",
+            "value": "dustin.lin+1@nextdrive.io"
+        },
+        {
+            "label": "Amber Lee",
+            "value": "amber.lee@jp.nextdrive.io"
+        },
+        {
+            "label": "Katsuji Kato",
+            "value": "k.kato@jp.nextdrive.io"
+        }
+    ]
+}

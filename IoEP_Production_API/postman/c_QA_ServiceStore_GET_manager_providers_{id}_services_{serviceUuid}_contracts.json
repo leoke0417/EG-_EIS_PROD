@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "d491ff0f-6a19-4adf-ac8e-633cf78e0812",
+		"name": "c_QA_ServiceStore_GET_manager_providers_{id}_services_{serviceUuid}_contracts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_manager_providers_{id}_services_{serviceUuid}_contracts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{qa_end_point}}/manager/providers/{{Service_provider_id}}/services/{{TestService_API_uuid}}/contracts",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"manager",
+						"providers",
+						"{{Service_provider_id}}",
+						"services",
+						"{{TestService_API_uuid}}",
+						"contracts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

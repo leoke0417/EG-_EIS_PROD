@@ -1,0 +1,63 @@
+## 第一次關聯 gateway 並取得 gateway_uuid
+$registrations_url$=get					dms_api				v1_registrations_url				#environment#=url
+$registrations_header$=get				dms_api				v1_registrations_header				#token#=accesstoken
+$registrations_body$=get				dms_api				v1_registrations_body				#gw_pid#=gw_pid,#gw_hardwareId#=gw_hardwareId,#gw_name#=gw_name
+$registrations_response$=get			dms_api				post								#url#=$registrations_url$,#header#=$registrations_header$,#body#=$registrations_body$
+$registrations_status_code$=get			dms_api				status_code							#response#=$registrations_response$
+verify									api_verification	status_code							#api_response#=$registrations_status_code$,#expected_status_code#=200
+
+$registrations_response_body$=get		dms_api				response_body						#response#=$registrations_response$
+$gw_uuid$=get							dms_api				dict_dict_value						#response_body#=$registrations_response_body$,#first_key#=data,#second_key#=registrationUuid
+
+## 第一次關聯 device 並取得 device_uuid
+$association_url$=get					dms_api				v1_associations_url					#environment#=url,#device_protocol#=ble_protocol
+$association_header$=get				dms_api				v1_associations_header				#token#=accesstoken
+$association_body$=get					dms_api				v1_associations_ble_body			#gw_dsn#=gw_dsn,#ble_name#=ble_name,#ble_model#=ble_model,#ble_macAddress#=ble_macAddress
+$association_response$=get				dms_api				post								#url#=$association_url$,#header#=$association_header$,#body#=$association_body$
+$association_status_code$=get			dms_api				status_code							#response#=$association_response$
+verify									api_verification	status_code							#api_response#=$association_status_code$,#expected_status_code#=200
+
+$association_response_body$=get			dms_api				response_body						#response#=$association_response$
+$device_uuid$=get						dms_api				dict_dict_value						#response_body#=$association_response_body$,#first_key#=data,#second_key#=associationUuid
+
+## 解關聯 gateway
+$deregister_url$=get					dms_api				v1_deregister_url					#environment#=url,#gw_dsn#=gw_dsn
+$deregister_header$=get					dms_api				v1_deregister_header				#token#=accesstoken
+$deregister_body$=get					dms_api				v1_deregister_body					#gw_dsn#=gw_dsn
+$deregister_response$=get				dms_api				delete								#url#=$deregister_url$,#header#=$deregister_header$,#body#=$deregister_body$
+$deregister_status_code$=get			dms_api				status_code							#response#=$deregister_response$
+verify									api_verification	status_code							#api_response#=$deregister_status_code$,#expected_status_code#=200
+
+## 再次關聯同顆 gateway 並取得 gateway_uuid
+$2nd_registrations_url$=get					dms_api				v1_registrations_url				#environment#=url
+$2nd_registrations_header$=get				dms_api				v1_registrations_header				#token#=accesstoken
+$2nd_registrations_body$=get				dms_api				v1_registrations_body				#gw_pid#=gw_pid,#gw_hardwareId#=gw_hardwareId,#gw_name#=gw_name
+$2nd_registrations_response$=get			dms_api				post								#url#=$2nd_registrations_url$,#header#=$2nd_registrations_header$,#body#=$2nd_registrations_body$
+$2nd_registrations_status_code$=get			dms_api				status_code							#response#=$2nd_registrations_response$
+verify										api_verification	status_code							#api_response#=$2nd_registrations_status_code$,#expected_status_code#=200
+
+$2nd_registrations_response_body$=get		dms_api				response_body						#response#=$2nd_registrations_response$
+$2nd_gw_uuid$=get							dms_api				dict_dict_value						#response_body#=$2nd_registrations_response_body$,#first_key#=data,#second_key#=registrationUuid
+
+## 再次關聯同個 device 並取得 device_uuid
+$2nd_association_url$=get					dms_api				v1_associations_url					#environment#=url,#device_protocol#=ble_protocol
+$2nd_association_header$=get				dms_api				v1_associations_header				#token#=accesstoken
+$2nd_association_body$=get					dms_api				v1_associations_ble_body			#gw_dsn#=gw_dsn,#ble_name#=ble_name,#ble_model#=ble_model,#ble_macAddress#=ble_macAddress
+$2nd_association_response$=get				dms_api				post								#url#=$2nd_association_url$,#header#=$2nd_association_header$,#body#=$2nd_association_body$
+$2nd_association_status_code$=get			dms_api				status_code							#response#=$2nd_association_response$
+verify										api_verification	status_code							#api_response#=$2nd_association_status_code$,#expected_status_code#=200
+
+$2nd_association_response_body$=get			dms_api				response_body						#response#=$2nd_association_response$
+$2nd_device_uuid$=get						dms_api				dict_dict_value						#response_body#=$2nd_association_response_body$,#first_key#=data,#second_key#=associationUuid
+
+## 驗證 uuid 是否一致
+verify										api_verification	device_uuid							#first_uuid#=$gw_uuid$,#second_uuid#=$2nd_gw_uuid$
+verify										api_verification	device_uuid							#first_uuid#=$device_uuid$,#second_uuid#=$2nd_device_uuid$
+
+## 解關聯 gateway
+$2nd_deregister_url$=get					dms_api				v1_deregister_url					#environment#=url,#gw_dsn#=gw_dsn
+$2nd_deregister_header$=get					dms_api				v1_deregister_header				#token#=accesstoken
+$2nd_deregister_body$=get					dms_api				v1_deregister_body					#gw_dsn#=gw_dsn
+$2nd_deregister_response$=get				dms_api				delete								#url#=$2nd_deregister_url$,#header#=$2nd_deregister_header$,#body#=$2nd_deregister_body$
+$2nd_deregister_status_code$=get			dms_api				status_code							#response#=$2nd_deregister_response$
+verify										api_verification	status_code							#api_response#=$2nd_deregister_status_code$,#expected_status_code#=200

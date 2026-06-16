@@ -1,0 +1,50 @@
+ini										api_ioe.ini
+
+start
+
+$cmdd$=get								postman					command								#collection#="c_QA_IoE_GET_hems_post_{id}_audiencesCondition.json",#environment#=e_IoE.json
+
+exec									postman					command								#command#=$cmdd$
+
+$result_file$=get						postman					result
+
+$list_data$=get							postman					read_csv							#filename#=$result_file$
+
+$target_data$=get						postman					find_result							#file#=$list_data$,#testcase#=GET_hems_post_{id}_audiencesCondition
+
+$result$=get							postman					api_result							#api_result#=$target_data$
+
+verify									postman					status_code							#api_result#=$result$,#expected_result#=200
+
+
+$response_body$=get						api_verification		api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification		expected_result						#environment#=$test_environment$,#expected_result#=IoE/GET_hems_post_{id}_audiencesCondition.json
+
+verify									api_verification		dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+
+$inputEmails$=get						file_operate			dict_list_value						#key#=inputEmails,#response_body#=$response_body$
+
+$csvEmails$=get							file_operate			dict_list_value						#key#=csvEmails,#response_body#=$response_body$
+
+$gatewayLocations$=get					file_operate			dict_list_value						#key#=gatewayLocations,#response_body#=$response_body$
+
+$gatewayModels$=get						file_operate			dict_list_value						#key#=gatewayModels,#response_body#=$response_body$
+
+$userLabels$=get						file_operate			dict_list_value						#key#=userLabels,#response_body#=$response_body$
+
+
+verify									api_verification		string								#actual_result#=$inputEmails$
+
+verify									api_verification		string								#actual_result#=$csvEmails$
+
+verify									api_verification		string								#actual_result#=$gatewayLocations$
+
+verify									api_verification		string								#actual_result#=$gatewayModels$
+
+verify									api_verification		string								#actual_result#=$userLabels$
+
+# end
+

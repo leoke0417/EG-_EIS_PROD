@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?>  <testsuite tests="3" time="156.0 sec" error="0" failures="0" name="devices_uuid_check">  <testcase time="23.0 sec" result="pass" name="ums_login"/>  <testcase time="119.0 sec" result="pass" name="devices_uuid_check"/>  <testcase time="14.0 sec" result="pass" name="devices_uuid_check_report"/>  </testsuite>

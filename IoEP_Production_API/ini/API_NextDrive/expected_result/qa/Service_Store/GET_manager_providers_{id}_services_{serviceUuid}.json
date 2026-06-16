@@ -1,0 +1,119 @@
+{
+    "id": "81d72775-0664-424f-b61c-478ec6111528",
+    "name": "TestService_API",
+    "icon": "https://ioe-suite-qa.nextdrive.io/images/bb224bc0-7faf-4eff-99d0-a9caacc5e88d-thumbnail.png",
+    "status": "LAUNCH",
+    "totalUserCount": 7,
+    "activeUserCount": 2,
+    "pkgNames": [],
+    "summary": "The service for API automation",
+    "description": "The service for API automation",
+    "publicPolicy": "PUBLIC",
+    "testUsersEmail": [
+        "automan+99@nextdrive.io"
+    ],
+    "images": [
+        "https://ioe-suite-qa.nextdrive.io/images/d55a6c57-db6d-4361-a210-fce544bde6f4.png"
+    ],
+    "lang": "Japanese",
+    "country": "Japan",
+    "contact": "dustin.lin@nextdrive.io",
+    "activateDescription": null,
+    "faqUrl": "https://translate.google.com.tw/?hl=zh-TW",
+    "formUrl": "https://translate.google.com.tw/?hl=zh-TW",
+    "isRedirected": null,
+    "isDefaultEnabled": false,
+    "isDefaultSubscribed": false,
+    "gatewayUploadInterval": null,
+    "apiKeys": [
+        "YKhYh/QgkR7fQvQtZsWb7zkqSj7ZhYDP1DFN/5F"
+    ],
+    "scopes": [
+        {
+            "scope": "DATA",
+            "dataUUID": "9cda4f57-094a-4436-86f4-6c0bc6de731e",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "09fb77b3-72a8-4c3d-b444-12c141c086fc",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "CONTROL",
+            "dataUUID": "87d91253-1d7b-4bd8-910b-b0d774b35c3f",
+            "config": "",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "06a8bd5b-a869-4fe7-b073-7c2f818cace1",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "a2568c8a-f428-4b49-8019-d4b6a456efc6",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "6150d963-db8f-4f0b-b308-963019746848",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "68ed2680-30bd-437f-8ac2-2cf099fe6e27",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "e7deab0d-5307-47f2-8eea-4e16689e3268",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "330ae65d-efeb-4720-a687-2efe971e3555",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "CONTROL",
+            "dataUUID": "af15b91d-11d4-4bf3-b331-e67e2eeedd75",
+            "config": "",
+            "dataPollingInterval": null
+        }
+    ],
+    "webhooks": [
+        {
+            "scope": "USER_STATUS",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:7777"
+        },
+        {
+            "scope": "DEVICE_STATUS",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:7777"
+        },
+        {
+            "scope": "DATA_CALLBACK",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:7777"
+        }
+    ],
+    "privacyAndTermsUrl": "https://translate.google.com.tw/?hl=zh-TW",
+    "serviceCategory": [
+        "Life",
+        "Environment",
+        "Health"
+    ],
+    "functionCategory": [
+        "Visualization",
+        "Smart Control",
+        "Notification"
+    ],
+    "updateTime": "2021-09-24T06:49:12.949873"
+}

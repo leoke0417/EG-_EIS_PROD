@@ -1,0 +1,13 @@
+POST_v1_registrations.qa
+POST_v1_associations_protocols.qa
+DELETE_v1_associations_dsn.qa
+POST_v1_associations_protocols.qa
+DELETE_v1_registrations.qa
+GET_v1_devices_dsn.qa
+GET_v1_devices_dsn_blelist.qa
+GET_v1_devices_dsn_echonetlist.qa
+GET_v1_devices_{page}_{User_uuid}.qa
+GET_v1_devices_dsn_topology.qa
+GET_v1_devices_dsn_wifilist.qa
+GET_css_v1_connection-status_dsn.qa
+DMS_report.qa

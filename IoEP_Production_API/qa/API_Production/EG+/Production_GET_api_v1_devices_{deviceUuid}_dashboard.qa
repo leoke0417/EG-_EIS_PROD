@@ -1,0 +1,6 @@
+## 關聯 device
+$devices_deviceUuid_url$=get					egplus_api				v1_devices_deviceUuid_url			#environment#=url,#ble_uuid#=ble_uuid
+$devices_deviceUuid_header$=get					egplus_api				v1_devices_deviceUuid_header		#token#=accesstoken
+$devices_deviceUuid_response$=get				egplus_api				get									#url#=$devices_deviceUuid_url$,#header#=$devices_deviceUuid_header$
+$devices_deviceUuid_status_code$=get			egplus_api				status_code							#response#=$devices_deviceUuid_response$
+verify											api_verification		status_code							#api_response#=$devices_deviceUuid_status_code$,#expected_status_code#=200

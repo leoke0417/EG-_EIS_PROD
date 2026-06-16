@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "09417075-259e-4cbc-b94c-934df48a9077",
+		"name": "IoE Prod_post_developer_provider",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: 'https://ioe-suite-api.nextdrive.io/auth/login',\r",
+							"    method:'POST',\r",
+							"    header:{\r",
+							"        'accept': '*/*',\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'user-agent': 'test-agent'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(\r",
+							"                            {\r",
+							"                                \"username\": \"automan@nextdrive.io\",\r",
+							"                                \"password\": \"link4581\"\r",
+							"                            }\r",
+							"                            )\r",
+							"    }\r",
+							"}, function(err, response){\r",
+							"    const jsonParse = response.json();\r",
+							"    pm.environment.set(\"access_token\", jsonParse.accessToken)\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user-agent",
+						"value": "test-agent",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"{{prod_account}}\",\r\n  \"password\": \"{{prod_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/auth/login",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_developer_provider",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"nextdrive\",\r\n  \"description\": \"manager\"\r\n}"
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/manager/team/profile",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"manager",
+						"team",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

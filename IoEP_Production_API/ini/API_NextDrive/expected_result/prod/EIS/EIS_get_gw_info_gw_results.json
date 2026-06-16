@@ -1,0 +1,105 @@
+{
+    "gateways": [
+        {
+            "pid": "J2C49CC4B738B40C0",
+            "productName": "Cube",
+            "uuid": "cc4b738b-40c0-011a-2b38-000111419123",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": "4.0.16031",
+            "iccid": null,
+            "modifiedDt": "2021-05-26T08:43:16.661Z",
+            "phoneNumber": null
+        },
+        {
+            "pid": "J2D12C0847DBB1662",
+            "productName": "Cube",
+            "uuid": "c0847dbb-1662-011a-2950-620461095922",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": null,
+            "iccid": null,
+            "modifiedDt": "2021-03-25T11:13:42.950Z",
+            "phoneNumber": null
+        },
+        {
+            "pid": "J2D12C0847DBB1676",
+            "productName": "Cube",
+            "uuid": "c0847dbb-1676-011a-2950-620462404522",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": null,
+            "iccid": null,
+            "modifiedDt": "2021-03-25T11:13:42.950Z",
+            "phoneNumber": null
+        },
+        {
+            "pid": "J2D12C0847DBB55FC",
+            "productName": "Cube",
+            "uuid": "c0847dbb-55fc-011a-2950-62046208dd23",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": null,
+            "iccid": null,
+            "modifiedDt": "2021-03-25T11:13:42.950Z",
+            "phoneNumber": null
+        },
+        {
+            "pid": "J2D12C0847DBB5600",
+            "productName": "Cube",
+            "uuid": "c0847dbb-5600-011a-2950-620461c81d23",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": null,
+            "iccid": null,
+            "modifiedDt": "2021-03-25T11:13:42.950Z",
+            "phoneNumber": null
+        },
+        {
+            "pid": "J2C45CC4B738B325D",
+            "productName": "Cube",
+            "uuid": "cc4b738b-325d-011a-2c98-448590f9d522",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": "4.0.16015",
+            "iccid": "",
+            "modifiedDt": "2021-05-20T02:15:58.916Z",
+            "phoneNumber": ""
+        },
+        {
+            "pid": "J2C49CC4B738B4287",
+            "productName": "Cube",
+            "uuid": "cc4b738b-4287-011a-2b38-000110e1f923",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": "4.0.16031",
+            "iccid": null,
+            "modifiedDt": "2021-05-26T08:09:05.454Z",
+            "phoneNumber": null
+        },
+        {
+            "pid": "CD91621831000012",
+            "productName": "Cube",
+            "uuid": "ccb8a8cd-9162-011a-2b38-000110b05123",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": "4.0.16031",
+            "iccid": "",
+            "modifiedDt": "2021-05-26T07:40:56.594Z",
+            "phoneNumber": ""
+        },
+        {
+            "pid": "T2E05B0024772306D",
+            "productName": "IGW",
+            "uuid": "b0024772-306d-011a-2b38-000121304122",
+            "firmwareSku": "Igw-PLUS",
+            "firmwareVersion": "4.0.19012",
+            "iccid": null,
+            "modifiedDt": "2021-04-29T10:58:40.511Z",
+            "phoneNumber": null
+        },
+        {
+            "pid": "J2C49CC4B738B4191",
+            "productName": "Cube",
+            "uuid": "cc4b738b-4191-011a-2b38-00012238d123",
+            "firmwareSku": "Cube-PLUS",
+            "firmwareVersion": "4.0.16031",
+            "iccid": null,
+            "modifiedDt": "2021-05-26T07:40:13.308Z",
+            "phoneNumber": null
+        }
+    ],
+    "total": 2316
+}

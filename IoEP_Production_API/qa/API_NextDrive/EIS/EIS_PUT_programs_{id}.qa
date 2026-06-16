@@ -1,0 +1,132 @@
+ini			api_eis.ini
+start
+
+$cmd$=get													postman					command												#collection#=c_QA_EIS_PUT_programs_{id}.json,#environment#=e_EIS.json,#iterations#=1
+
+exec														postman					command												#command#=$cmd$
+
+$result_file$=get											postman					result
+
+$list_data$=get												postman					read_csv											#filename#=$result_file$
+
+$target_data$=get											postman					find_result											#file#=$list_data$,#testcase#=PUT_programs_{id}
+
+$result$=get												postman					api_result											#api_result#=$target_data$
+
+verify														postman					status_code											#api_result#=$result$,#expected_result#=200
+
+$response_body$=get											api_verification		api_response										#api_result#=$result$
+
+$expected_result$=get										api_verification		expected_result										#environment#=$test_environment$,#expected_result#=EIS\PUT_programs_{id}.json
+
+verify														api_verification		dict_keys											#expected_result#=$expected_result$,##actual_result##=$response_body$
+
+
+
+
+$id$=get													file_operate			dict_value											#key#=id,#response_body#=$response_body$
+
+$title$=get													file_operate			dict_value											#key#=title,#response_body#=$response_body$
+
+$type$=get													file_operate			dict_value											#key#=type,#response_body#=$response_body$
+
+$status$=get												file_operate			dict_value											#key#=status,#response_body#=$response_body$
+
+$displayId$=get												file_operate			dict_value											#key#=displayId,#response_body#=$response_body$
+
+$countingDate$=get											file_operate			dict_value											#key#=countingDate,#response_body#=$response_body$
+
+$manager_name$=get											file_operate			dict_dict_value										#first_key#=manager,#second_key#=name,#response_body#=$response_body$
+
+$manager_email$=get											file_operate			dict_dict_value										#first_key#=manager,#second_key#=email,#response_body#=$response_body$
+
+$programPeriods_startDate$=get								file_operate			dict_list_dict_value								#first_key#=programPeriods,#second_key#=startDate,#response_body#=$response_body$
+
+$programPeriods_endDate$=get								file_operate			dict_list_dict_value								#first_key#=programPeriods,#second_key#=endDate,#response_body#=$response_body$
+
+$programPeriods_period$=get									file_operate			dict_list_dict_value								#first_key#=programPeriods,#second_key#=period,#response_body#=$response_body$
+
+$programPeriod_programPeriod$=get							file_operate			dict_list_dict_value								#first_key#=programPeriods,#second_key#=programPeriod,#response_body#=$response_body$
+
+$productTypes_type$=get										file_operate			dict_list_dict_value								#first_key#=productTypes,#second_key#=type,#response_body#=$response_body$
+
+$productTypes_plan$=get										file_operate			dict_list_dict_value								#first_key#=productTypes,#second_key#=plan,#response_body#=$response_body$
+
+$productTypes_licenseLimit$=get								file_operate			dict_list_dict_value								#first_key#=productTypes,#second_key#=licenseLimit,#response_body#=$response_body$
+
+$productTypes_gatewayCount$=get								file_operate			dict_list_dict_value								#first_key#=productTypes,#second_key#=gatewayCount,#response_body#=$response_body$
+
+$productTypes_accountCount$=get								file_operate			dict_list_dict_value								#first_key#=productTypes,#second_key#=accountCount,#response_body#=$response_body$
+
+$productTypes_fwFeature$=get								file_operate			dict_list_dict_value								#first_key#=productTypes,#second_key#=fwFeature,#response_body#=$response_body$
+
+$productTypes_availableDevices$=get							file_operate			dict_list_dict_list_value							#first_key#=productTypes,#second_key#=availableDevices,#response_body#=$response_body$
+
+$organization_name$=get										file_operate			dict_dict_value										#first_key#=organization,#second_key#=name,#response_body#=$response_body$
+
+$organization_displayId$=get								file_operate			dict_dict_value										#first_key#=organization,#second_key#=displayId,#response_body#=$response_body$
+
+$client_name$=get											file_operate			dict_dict_value										#first_key#=client,#second_key#=name,#response_body#=$response_body$
+
+$client_displayId$=get										file_operate			dict_dict_value										#first_key#=client,#second_key#=displayId,#response_body#=$response_body$
+
+$appLabel$=get												file_operate			dict_value											#key#=appLabel,#response_body#=$response_body$
+
+
+
+
+verify														api_verification		uuid												#actual_result#=$id$
+																							
+verify														api_verification		string												#actual_result#=$title$
+																							
+verify														api_verification		string												#actual_result#=$type$
+																							
+verify														api_verification		string												#actual_result#=$status$
+																							
+verify														api_verification		string												#actual_result#=$displayId$
+																							
+verify														api_verification		string												#actual_result#=$countingDate$
+																							
+verify														api_verification		string												#actual_result#=$manager_name$
+																							
+verify														api_verification		email												#actual_result#=$manager_email$
+																							
+verify														api_verification		string												#actual_result#=$programPeriods_startDate$
+																							
+verify														api_verification		string												#actual_result#=$programPeriods_endDate$
+																							
+verify														api_verification		int													#actual_result#=$programPeriods_period$
+																							
+verify														api_verification		string												#actual_result#=$programPeriod_programPeriod$
+																							
+verify														api_verification		string												#actual_result#=$productTypes_type$
+																							
+verify														api_verification		string												#actual_result#=$productTypes_plan$
+																							
+verify														api_verification		int													#actual_result#=$productTypes_licenseLimit$
+																							
+verify														api_verification		int													#actual_result#=$productTypes_gatewayCount$
+																							
+verify														api_verification		int													#actual_result#=$productTypes_accountCount$
+																							
+verify														api_verification		string												#actual_result#=$productTypes_fwFeature$
+																							
+verify														api_verification		string												#actual_result#=$productTypes_availableDevices$
+																						
+verify														api_verification		string												#actual_result#=$organization_name$
+																							
+verify														api_verification		string												#actual_result#=$organization_displayId$
+																							
+verify														api_verification		string												#actual_result#=$client_name$
+																							
+verify														api_verification		string												#actual_result#=$client_displayId$
+																							
+verify														api_verification		null												#actual_result#=$appLabel$
+
+
+
+
+
+
+
+##===== END =====

@@ -1,0 +1,112 @@
+ini										api_eis.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_QA_EIS_PUT_client_{id}.json,#environment#=e_EIS.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=PUT_clients_{id}
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=EIS/PUT_clients_{id}.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+
+
+
+$id$=get								file_operate		dict_value							#key#=id,#response_body#=$response_body$	
+
+$displayId$=get							file_operate		dict_value							#key#=displayId,#response_body#=$response_body$	
+
+$name$=get								file_operate		dict_value							#key#=name,#response_body#=$response_body$	
+
+$location$=get							file_operate		dict_value							#key#=location,#response_body#=$response_body$	
+
+$type$=get								file_operate		dict_value							#key#=type,#response_body#=$response_body$	
+
+$modifiedDt$=get						file_operate		dict_value							#key#=modifiedDt,#response_body#=$response_body$	
+
+$accountManager_name$=get				file_operate		dict_dict_value						#first_key#=accountManager,#second_key#=name,#response_body#=$response_body$	
+
+$accountManager_email$=get				file_operate		dict_dict_value						#first_key#=accountManager,#second_key#=email,#response_body#=$response_body$	
+
+$organization_id$=get					file_operate		dict_dict_value						#first_key#=organization,#second_key#=id,#response_body#=$response_body$	
+
+$organization_displayId$=get			file_operate		dict_dict_value						#first_key#=organization,#second_key#=displayId,#response_body#=$response_body$	
+
+$organization_name$=get					file_operate		dict_dict_value						#first_key#=organization,#second_key#=name,#response_body#=$response_body$	
+
+$organization_country$=get				file_operate		dict_dict_value						#first_key#=organization,#second_key#=country,#response_body#=$response_body$	
+
+$organization_industry$=get				file_operate		dict_dict_value						#first_key#=organization,#second_key#=industry,#response_body#=$response_body$	
+
+$organization_manager_name$=get			file_operate		dict_dict_dict_value				#first_key#=organization,#second_key#=manager,#third_key#=name,#response_body#=$response_body$	
+
+$organization_manager_email$=get		file_operate		dict_dict_dict_value				#first_key#=organization,#second_key#=manager,#third_key#=email,#response_body#=$response_body$	
+
+$programs_id$=get						file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=id,#response_body#=$response_body$
+
+$programs_displayId$=get				file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=displayId,#response_body#=$response_body$
+
+$programs_title$=get					file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=title,#response_body#=$response_body$
+
+
+
+
+
+
+verify									api_verification	int									#actual_result#=$id$
+
+verify									api_verification	string								#actual_result#=$displayId$
+
+verify									api_verification	string								#actual_result#=$name$
+
+verify									api_verification	string								#actual_result#=$location$
+
+verify									api_verification	string								#actual_result#=$type$
+
+verify									api_verification	time								#actual_result#=$modifiedDt$
+
+verify									api_verification	string								#actual_result#=$accountManager_name$
+
+verify									api_verification	email								#actual_result#=$accountManager_email$
+
+verify									api_verification	uuid								#actual_result#=$organization_id$
+
+verify									api_verification	string								#actual_result#=$organization_displayId$
+
+verify									api_verification	string								#actual_result#=$organization_name$
+
+verify									api_verification	string								#actual_result#=$organization_country$
+
+verify									api_verification	string								#actual_result#=$organization_industry$
+
+verify									api_verification	string								#actual_result#=$organization_manager_name$
+
+verify									api_verification	string								#actual_result#=$organization_manager_email$
+
+verify									api_verification	uuid								#actual_result#=$programs_id$
+
+verify									api_verification	string								#actual_result#=$programs_displayId$
+
+verify									api_verification	string								#actual_result#=$programs_title$
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+ini			api_eis.ini
+start
+$cmd$=get											postman					command								#collection#=c_QA_EIS_GET_programs_{id}_gateways.json,#environment#=e_EIS.json,#iterations#=1
+		
+exec												postman					command								#command#=$cmd$
+		
+$result_file$=get									postman					result
+		
+$list_data$=get										postman					read_csv							#filename#=$result_file$
+		
+$target_data$=get									postman					find_result							#file#=$list_data$,#testcase#=GET_programs_{id}_gateways
+		
+$result$=get										postman					api_result							#api_result#=$target_data$
+		
+verify												postman					status_code							#api_result#=$result$,#expected_result#=200
+		
+$response_body$=get									api_verification		api_response						#api_result#=$result$
+		
+$expected_result$=get								api_verification		expected_result						#environment#=$test_environment$,#expected_result#=EIS\GET_programs_{id}_gateways.json
+		
+verify												api_verification		dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+
+## Get total
+$program_gateways_total$=get						file_operate			dict_value							#key#=total,#response_body#=$response_body$
+			
+## Get gateway > [i] > pid			
+$program_gateways_pid$=get							file_operate			dict_list_dict_value				#first_key#=gateways,#second_key#=pid,#response_body#=$response_body$
+			
+## Get gateway > [i] > uuid			
+$program_gateways_uuid$=get							file_operate			dict_list_dict_value				#first_key#=gateways,#second_key#=uuid,#response_body#=$response_body$
+			
+## Get gateway > [i] > firmwareSku			
+$program_gateways_firmware_sku$=get					file_operate			dict_list_dict_value				#first_key#=gateways,#second_key#=firmwareSku,#response_body#=$response_body$
+			
+## Get gateway > [i] > free			
+$program_gateways_free$=get							file_operate			dict_list_dict_value				#first_key#=gateways,#second_key#=free,#response_body#=$response_body$
+			
+## Get gateway > [i] > createDt			
+$program_gateways_create_time$=get					file_operate			dict_list_dict_value				#first_key#=gateways,#second_key#=createDt,#response_body#=$response_body$
+			
+## Get gateway > [i] > syncDt			
+$program_gateways_sync_time$=get					file_operate			dict_list_dict_value				#first_key#=gateways,#second_key#=syncDt,#response_body#=$response_body$
+
+## Verify total
+verify												api_verification		int									#actual_result#=$program_gateways_total$
+				
+## Verify gateway > [i] > pid				
+verify												api_verification		pid									#actual_result#=$program_gateways_pid$
+				
+## Verify gateway > [i] > uuid				
+verify												api_verification		uuid								#actual_result#=$program_gateways_uuid$
+				
+## Verify gateway > [i] > firmwareSku				
+verify												api_verification		fw_sku								#actual_result#=$program_gateways_firmware_sku$
+				
+## Verify gateway > [i] > free				
+verify												api_verification		free_sample							#actual_result#=$program_gateways_free$
+				
+## Verify gateway > [i] > createDt				
+verify												api_verification		time								#actual_result#=$program_gateways_create_time$
+				
+## Verify gateway > [i] > syncDt				
+verify												api_verification		time								#actual_result#=$program_gateways_sync_time$
+##===== END =====
+

@@ -1,0 +1,24 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+
+$count_battery_storedElectricityPercent$=get					fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_storedElectricityPercent$,#time_period#=86400
+$count_battery_chargeableElectricity$=get						fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_chargeableElectricity$,#time_period#=86400
+$count_battery_instantChargingOrDischargingElectricity$=get		fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_instantChargingOrDischargingElectricity$,#time_period#=86400
+$count_battery_acChargingEnergy$=get							fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_acChargingEnergy$,#time_period#=86400
+$count_battery_acChargeableElectricEnergy$=get					fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_acChargeableElectricEnergy$,#time_period#=86400
+$count_battery_workingOperationStatus$=get						fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_workingOperationStatus$,#time_period#=86400
+$count_battery_acDischargeableElectricEnergy$=get				fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_acDischargeableElectricEnergy$,#time_period#=86400
+$count_battery_acDischargingEnergy$=get							fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_acDischargingEnergy$,#time_period#=86400
+$count_battery_dischargeableElectricity$=get					fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_dischargeableElectricity$,#time_period#=86400
+$count_battery_storedElectricityAmpereHour$=get					fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_StgBattery_storedElectricityAmpereHour$,#time_period#=86400
+
+$fw_version$=get						File					shellcmd				#command#=adb -s $atto_name$ shell getprop ro.build.version.release 
+
+$result$=get							fwapi_data_sanity		battery_result		#fw_version#=$fw_version$,#env#=qa,#count_battery_storedElectricityPercent#=$count_battery_storedElectricityPercent$,#count_battery_chargeableElectricity#=$count_battery_chargeableElectricity$,#count_battery_instantChargingOrDischargingElectricity#=$count_battery_instantChargingOrDischargingElectricity$,#count_battery_acChargingEnergy#=$count_battery_acChargingEnergy$,#count_battery_acChargeableElectricEnergy#=$count_battery_acChargeableElectricEnergy$,#count_battery_workingOperationStatus#=$count_battery_workingOperationStatus$,#count_battery_acDischargeableElectricEnergy#=$count_battery_acDischargeableElectricEnergy$,#count_battery_acDischargingEnergy#=$count_battery_acDischargingEnergy$,#count_battery_dischargeableElectricity#=$count_battery_dischargeableElectricity$,#count_battery_storedElectricityAmpereHour#=$count_battery_storedElectricityAmpereHour$
+
+send									Fb						automan_production		#message#=$result$
+end

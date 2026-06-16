@@ -1,0 +1,79 @@
+ini				api_ioe.ini
+start
+$cmd$=get								postman					command						#collection#=c_QA_IoE_POST_auth_login.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=Login
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\POST_auth_login.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+		
+$accessToken$=get						file_operate			dict_value					#key#=accessToken,#response_body#=$response_body$
+		
+$refreshToken$=get						file_operate			dict_value					#key#=refreshToken,#response_body#=$response_body$
+								
+$tokenType$=get							file_operate			dict_value					#key#=tokenType,#response_body#=$response_body$
+								
+$name$=get								file_operate			dict_value					#key#=name,#response_body#=$response_body$
+								
+$firstLogin$=get						file_operate			dict_value					#key#=firstLogin,#response_body#=$response_body$
+								
+$isAdminSetup$=get						file_operate			dict_value					#key#=isAdminSetup,#response_body#=$response_body$
+								
+$expiredIn$=get							file_operate			dict_value					#key#=expiredIn,#response_body#=$response_body$
+								
+$deviceTrusted$=get						file_operate			dict_value					#key#=deviceTrusted,#response_body#=$response_body$
+								
+$otpRequired$=get						file_operate			dict_value					#key#=otpRequired,#response_body#=$response_body$
+								
+$otpMethods$=get						file_operate			dict_value					#key#=otpMethods,#response_body#=$response_body$
+		
+$modules_label$=get						file_operate			dict_list_dict_value		#first_key#=modules,#second_key#=label,#response_body#=$response_body$
+					
+$modules_value$=get						file_operate			dict_list_dict_value		#first_key#=modules,#second_key#=value,#response_body#=$response_body$
+					
+$modules_enable$=get					file_operate			dict_list_dict_value		#first_key#=modules,#second_key#=enable,#response_body#=$response_body$
+
+
+verify									api_verification		string						#actual_result#=$accessToken$
+
+verify									api_verification		string						#actual_result#=$refreshToken$
+
+verify									api_verification		string						#actual_result#=$tokenType$
+
+verify									api_verification		email						#actual_result#=$name$
+
+verify									api_verification		boolean						#actual_result#=$firstLogin$
+
+verify									api_verification		boolean						#actual_result#=$isAdminSetup$
+
+verify									api_verification		int							#actual_result#=$expiredIn$
+
+verify									api_verification		boolean						#actual_result#=$deviceTrusted$
+
+verify									api_verification		boolean						#actual_result#=$otpRequired$
+
+verify									api_verification		empty						#actual_result#=$otpMethods$
+
+verify									api_verification		string						#actual_result#=$modules_label$
+
+verify									api_verification		string						#actual_result#=$modules_value$
+
+verify									api_verification		boolean						#actual_result#=$modules_enable$
+
+$environment$=get				postman				postman_json						#json_name#=e_IoE.json
+
+set								postman				postman_environment					#json_name#=e_IoE.json,#environment#=$environment$,#access_token#=$accessToken$,#target_key#=access_token

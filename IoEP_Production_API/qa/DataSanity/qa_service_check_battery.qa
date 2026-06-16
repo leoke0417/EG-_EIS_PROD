@@ -1,0 +1,8 @@
+
+ini								service_check.ini
+start
+
+$post_title_battery$=get		fwapi_data_sanity		db_post					#audience_conditions#=$user_id$,#name#=$service_name_battery$
+verify							fwapi_data_sanity		post_yesterday_title	#value#=$post_title_battery$
+
+end

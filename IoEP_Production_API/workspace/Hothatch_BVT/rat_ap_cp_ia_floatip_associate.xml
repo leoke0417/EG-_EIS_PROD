@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?>  <testsuite error="0" failures="0" name="rat_ap_cp_ia_floatip_associate" tests="1" time="69.0 sec">  <testcase name="rat_ap_cp_ia_floatip_associate" result="fail" time="69.0 sec">  <failure message="This case is FAIL!!"/>  </testcase>  </testsuite>

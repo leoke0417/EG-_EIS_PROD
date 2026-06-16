@@ -1,0 +1,16 @@
+{
+    "id": "7bda1ab6-6d91-4281-9eaa-7ce136e38fc5",
+    "admin": {
+        "current": 3,
+        "max": 3
+    },
+    "normal": {
+        "current": 7
+    },
+    "current": 10,
+    "max": 10,
+    "products": [
+        "Developer",
+        "HEMS"
+    ]
+}

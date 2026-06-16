@@ -1,0 +1,162 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_ServiceStore_GET_manager_providers_{id}_services_{serviceUuid}.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=GET_manager_providers_{id}_services_{serviceUuid}
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/GET_manager_providers_{id}_services_{serviceUuid}.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+$id$=get								file_operate		dict_value							#key#=id,#response_body#=$response_body$
+
+$name$=get								file_operate		dict_value							#key#=name,#response_body#=$response_body$
+
+$icon$=get								file_operate		dict_value							#key#=icon,#response_body#=$response_body$
+
+$status$=get							file_operate		dict_value							#key#=status,#response_body#=$response_body$
+
+$totalUserCount$=get					file_operate		dict_value							#key#=totalUserCount,#response_body#=$response_body$
+
+$activeUserCount$=get					file_operate		dict_value							#key#=activeUserCount,#response_body#=$response_body$
+
+$pkgNames$=get							file_operate		dict_value							#key#=pkgNames,#response_body#=$response_body$
+
+$summary$=get							file_operate		dict_value							#key#=summary,#response_body#=$response_body$
+
+$description$=get						file_operate		dict_value							#key#=description,#response_body#=$response_body$
+
+$publicPolicy$=get						file_operate		dict_value							#key#=publicPolicy,#response_body#=$response_body$
+
+$testUsersEmail$=get					file_operate		dict_list_value						#key#=testUsersEmail,#response_body#=$response_body$
+
+$images$=get							file_operate		dict_list_value						#key#=images,#response_body#=$response_body$
+
+$lang$=get								file_operate		dict_value							#key#=lang,#response_body#=$response_body$
+
+$country$=get							file_operate		dict_value							#key#=country,#response_body#=$response_body$
+
+$contact$=get							file_operate		dict_value							#key#=contact,#response_body#=$response_body$
+
+$activateDescription$=get				file_operate		dict_value							#key#=activateDescription,#response_body#=$response_body$
+
+$faqUrl$=get							file_operate		dict_value							#key#=faqUrl,#response_body#=$response_body$
+
+$formUrl$=get							file_operate		dict_value							#key#=formUrl,#response_body#=$response_body$
+
+$isRedirected$=get						file_operate		dict_value							#key#=isRedirected,#response_body#=$response_body$
+
+$isDefaultEnabled$=get					file_operate		dict_value							#key#=isDefaultEnabled,#response_body#=$response_body$
+
+$isDefaultSubscribed$=get				file_operate		dict_value							#key#=isDefaultSubscribed,#response_body#=$response_body$
+
+$gatewayUploadInterval$=get				file_operate		dict_value							#key#=gatewayUploadInterval,#response_body#=$response_body$
+
+$apiKeys$=get							file_operate		dict_list_value						#key#=apiKeys,#response_body#=$response_body$
+
+$scopes_scope$=get						file_operate		dict_list_dict_value				#first_key#=scopes,#second_key#=scope,#response_body#=$response_body$
+
+$scopes_dataUUID$=get					file_operate		dict_list_dict_value				#first_key#=scopes,#second_key#=dataUUID,#response_body#=$response_body$
+
+$scopes_config$=get						file_operate		dict_list_dict_value				#first_key#=scopes,#second_key#=config,#response_body#=$response_body$
+
+$scopes_dataPollingInterval$=get		file_operate		dict_list_dict_value				#first_key#=scopes,#second_key#=dataPollingInterval,#response_body#=$response_body$
+
+$webhooks_scope$=get					file_operate		dict_list_dict_value				#first_key#=webhooks,#second_key#=scope,#response_body#=$response_body$
+
+$webhooks_url$=get						file_operate		dict_list_dict_value				#first_key#=webhooks,#second_key#=url,#response_body#=$response_body$
+
+$privacyAndTermsUrl$=get				file_operate		dict_value							#key#=privacyAndTermsUrl,#response_body#=$response_body$
+
+$serviceCategory$=get					file_operate		dict_list_value						#key#=serviceCategory,#response_body#=$response_body$
+
+$functionCategory$=get					file_operate		dict_list_value						#key#=functionCategory,#response_body#=$response_body$
+
+$updateTime$=get						file_operate		dict_value							#key#=updateTime,#response_body#=$response_body$
+
+
+
+
+
+
+
+verify									api_verification	uuid								#actual_result#=$id$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$name$,#response_body#=$response_body$
+
+verify									api_verification	url									#actual_result#=$icon$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$status$,#response_body#=$response_body$
+
+verify									api_verification	int									#actual_result#=$totalUserCount$,#response_body#=$response_body$
+
+verify									api_verification	int									#actual_result#=$activeUserCount$,#response_body#=$response_body$
+
+verify									api_verification	empty								#actual_result#=$pkgNames$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$summary$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$description$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$publicPolicy$,#response_body#=$response_body$
+
+verify									api_verification	email								#actual_result#=$testUsersEmail$,#response_body#=$response_body$
+
+verify									api_verification	url									#actual_result#=$images$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$lang$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$country$,#response_body#=$response_body$
+
+verify									api_verification	email								#actual_result#=$contact$,#response_body#=$response_body$
+
+verify									api_verification	null								#actual_result#=$activateDescription$,#response_body#=$response_body$
+
+verify									api_verification	url									#actual_result#=$faqUrl$,#response_body#=$response_body$
+
+verify									api_verification	url									#actual_result#=$formUrl$,#response_body#=$response_body$
+
+verify									api_verification	null								#actual_result#=$isRedirected$,#response_body#=$response_body$
+
+verify									api_verification	boolean								#actual_result#=$isDefaultEnabled$,#response_body#=$response_body$
+
+verify									api_verification	boolean								#actual_result#=$isDefaultSubscribed$,#response_body#=$response_body$
+
+verify									api_verification	int									#actual_result#=$gatewayUploadInterval$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$apiKeys$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$scopes_scope$,#response_body#=$response_body$
+
+verify									api_verification	uuid								#actual_result#=$scopes_dataUUID$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$scopes_config$,#response_body#=$response_body$
+
+verify									api_verification	null								#actual_result#=$scopes_dataPollingInterval$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$webhooks_scope$,#response_body#=$response_body$
+
+verify									api_verification	url									#actual_result#=$webhooks_url$,#response_body#=$response_body$
+
+verify									api_verification	url									#actual_result#=$privacyAndTermsUrl$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$serviceCategory$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$functionCategory$,#response_body#=$response_body$
+
+verify									api_verification	time								#actual_result#=$updateTime$,#response_body#=$response_body$
+
+# end

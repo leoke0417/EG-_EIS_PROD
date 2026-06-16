@@ -1,0 +1,49 @@
+ini		api_egplus_error.ini
+start
+
+## Exchange cognito token
+#$cognito_token$=get					api_verification		id_token					#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+## Exchange nd token
+#$nd_token$=get							api_egplus_app			ndtoken						#id_token#=$cognito_token$
+
+#$url$=get								api_egplus_app			gateway_associate_url		#api_endpoint#=https://api-eg3-qa.nextdrive.io
+
+#$header$=get							api_egplus_app			gateway_associate_header	#nd_token#=$nd_token$
+
+#$body$=get								api_egplus_app			gateway_associate_body		#profile_id#=ccb8a805-87a2-011a-2830-0006f2d15923,#pid#=0587A21791900355,#name#=IoEP_API_Test,#model#=Cube
+
+#$api_response$=get						http_request			HTTP_POST_response			#url#=$url$,#header#=$header$,#body#=$body$
+
+#$status_code$=get						api_egplus_app			status_code					#api_response#=$api_response$
+
+#$response_body$=get					api_egplus_app			response_body				#api_response#=$api_response$
+
+#=========================================
+
+$cognito_token$=get			api_verification		id_token			#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+set							api_verification		environment			#environment_name#=e_IoE_Account_error_test.json,#new_token#=$cognito_token$
+
+set							api_verification		collection			#collection_name#=c_qa_egplus_post_api_v1_association_gateways.json,#new_token#=$cognito_token$,#testcase_name#=Get_token
+
+$cmd$=get					postman					command				#collection#=c_qa_egplus_post_api_v1_association_gateways.json,#environment#=e_IoE_Account_error_test.json,#iterations#=1
+
+exec						postman					command				#command#=$cmd$
+
+$result_file$=get			postman					result		
+
+$list_data$=get				postman					read_csv			#filename#=$result_file$
+
+$target_data$=get			postman					find_result			#file#=$list_data$,#testcase#=POST_api_v1_associations_gateways_{gatewayUuid}
+
+$result$=get				postman					api_result			#api_result#=$target_data$
+
+verify						postman					status_code			#api_result#=$result$,#expected_result#=200
+
+$response_body$=get			api_verification		api_response		#api_result#=$result$
+
+$expected_body$=get			api_verification		expected_result		#environment#=$test_environment$,#expected_result#=EG+\EG_plus_POST_api_v1_associations_gateways.json
+
+verify						api_verification		dict_keys			#expected_result#=$expected_body$,#actual_result#=$response_body$
+

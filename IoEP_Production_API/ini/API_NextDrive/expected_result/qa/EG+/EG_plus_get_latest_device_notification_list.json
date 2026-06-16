@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "deviceUuid": "8ce3482c-f53d-4749-8cb8-e1cacb60f70a",
+      "gatewayUuid": "2500dd51-d07f-4dda-bba7-5275db686ec9",
+      "scope": "click",
+      "model": "Pixi-HT",
+      "params": {
+        "template": "button_clicked"
+      },
+      "triggeredAt": 1627379274772,
+      "value": "true"
+    },
+    {
+      "deviceUuid": "fa9e3bf6-dcda-4bc9-9e01-967f16fc7343",
+      "gatewayUuid": "2500dd51-d07f-4dda-bba7-5275db686ec9",
+      "scope": "motion",
+      "model": "Pixi-G",
+      "params": {
+        "template": "motion_detected"
+      },
+      "triggeredAt": 1627379286179,
+      "value": "true"
+    }
+  ]
+}

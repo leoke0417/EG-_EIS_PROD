@@ -1,0 +1,67 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get													postman					command											#collection#=c_QA_IoE_GET_hems_user-labels.json,#environment#=e_IoE.json,#iterations#=1
+										
+exec														postman					command											#command#=$cmd$
+										
+$result_file$=get											postman					result							
+										
+$list_data$=get												postman					read_csv										#filename#=$result_file$
+										
+$target_data$=get											postman					find_result										#file#=$list_data$,#testcase#=GET_hems_user-labels
+										
+$result$=get												postman					api_result										#api_result#=$target_data$
+										
+verify														postman					status_code										#api_result#=$result$,#expected_result#=200
+										
+$response_body$=get											api_verification		api_response									#api_result#=$result$
+										
+$expected_body$=get											api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_hems_user-labels.json
+										
+verify														api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+##=====Execute postman command line =====
+## Get execution path
+$original_path$=get											api_verification		path
+
+## Execute cmd of newman
+exec														api_verification		cmd												#original_path#=$original_path$,#environment#=$test_environment$,#command#=newman run IoE.postman_collection.json -e IoE.postman_environment.json -r csv --reporter-csv-export		
+
+## Get file location and get the file list of result
+$csv_file_name$=get											api_verification		file_list										#environment#=$test_environment$,#folder_path#=newman
+
+sleep	1	
+##===== END =====
+
+##===== GET_hems_user-labels =====
+## Load expected result file
+$api_result$=get											api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_hems_user-labels.json
+
+## Read csv and target file
+$api_response$=get											api_verification		read_csv										#environment#=$test_environment$,#csv_filename#=$csv_file_name$,#testcase_name#=GET_hems_user-labels
+
+## Get status code of result
+$api_status_code$=get										api_verification		status_code										#api_response#=$api_response$
+
+## Get response body of result
+$api_response_body$=get										api_verification		response_body									#api_response#=$api_response$
+
+## Verify status code
+verify														api_verification		status_code										#api_response#=$api_status_code$,#expected_status_code#=200
+
+## Verify keys of response body
+verify														api_verification		dict_keys										#expected_result#=$api_result$,#actual_result#=$api_response_body$
+
+### =====
+### Get data
+### ===
+## Get userLabels
+$userLabels$=get											file_operate			dict_list_value									#key#=userLabels,#response_body#=$api_response_body$
+
+### =====
+Verify
+### =====
+## Verify userLabels
+verify														api_verification		string											#actual_result#=$userLabels$

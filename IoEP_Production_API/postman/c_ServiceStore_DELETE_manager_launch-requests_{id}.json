@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "945e811f-5fba-4124-b51f-cb8f1038451f",
+		"name": "ServiceStore_DELETE_manager_launch-requests_{id}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DELETE_manager_launch-requests_{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{end_point}}/manager/launch-requests/378",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"manager",
+						"launch-requests",
+						"378"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

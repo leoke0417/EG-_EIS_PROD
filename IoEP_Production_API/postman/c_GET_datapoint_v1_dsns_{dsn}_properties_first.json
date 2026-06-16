@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "42f0132c-4aaa-4d85-aaec-fd2ffffa2dbb",
+		"name": "GET_datapoint_v1_dsns_{dsn}_properties_first",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "GET_datapoint_v1_dsns_{dsn}_properties__first",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"var data1 = (moment().subtract('6', 'days').valueOf())\r",
+							"var data2 = (moment().subtract('9', 'days').valueOf())\r",
+							"console.log(data);\r",
+							"pm.environment.set(\"to time\", data1);\r",
+							"pm.environment.set(\"from time\", data2);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_manager_token}}",
+							"type": "string"}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{end_point}}/data-point/v1/dsns/{{ecn_uuid}}/properties/first?properties={{data_uuid}}&from={{from time}}&to={{to time}}",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"data-point",
+						"v1",
+						"dsns",
+						"{{ecn_uuid}}",
+						"properties",
+						"first"
+					],
+					"query": [
+						{
+							"key": "properties",
+							"value": "{{data_uuid}}"
+						},
+						{
+							"key": "from",
+							"value": "{{from time}}"
+						},
+						{
+							"key": "to",
+							"value": "{{to time}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

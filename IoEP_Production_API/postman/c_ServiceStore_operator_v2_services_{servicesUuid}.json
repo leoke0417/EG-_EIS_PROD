@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "45103be4-7010-48a5-ac0d-bdd9f9b4e23d",
+		"name": "ServiceStore_operator_v2_services_{servicesUuid}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "GET_operator_v2_services_{servicesUuid}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{end_point}}/operator/v2/services/{{TesttServicee_R9B_uuid}}",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"operator",
+						"v2",
+						"services",
+						"{{TesttServicee_R9B_uuid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

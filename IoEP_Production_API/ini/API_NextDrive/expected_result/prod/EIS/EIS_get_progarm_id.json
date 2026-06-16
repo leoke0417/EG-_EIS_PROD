@@ -1,0 +1,48 @@
+{
+    "id": "4ff91429-1f91-4ecc-a1e9-f16b46064b8b",
+    "title": "Ecogenie",
+    "type": "Official Service",
+    "status": "Active",
+    "displayId": "P-201027001",
+    "countingDate": "1",
+    "manager": {
+        "name": "Andy Liu",
+        "email": "andy.liu@nextdrive.io"
+    },
+    "period": "2020/10/28-2023/10/28",
+    "productTypes": [
+        {
+            "type": "Gateway",
+            "plan": "0-10000",
+            "licenseLimit": 0,
+            "gatewayCount": 176
+        },
+        {
+            "type": "HEMS",
+            "plan": "Standard",
+            "licenseLimit": 10,
+            "gatewayCount": 176
+        },
+        {
+            "type": "APP",
+            "plan": "Ecogenie",
+            "licenseLimit": 0,
+            "gatewayCount": 176
+        }
+    ],
+    "organization": {
+        "name": "NextDrive",
+        "displayId": "O-201027001"
+    },
+    "client": {
+        "name": "NextDrive KK",
+        "displayId": "C-201027001"
+    },
+    "appLabel": {
+        "id": "fba41a77-298f-4f78-90db-01e9f81b20e4",
+        "appName": "Ecogenie+",
+        "pkgName": "io.nextdrive.ecogenie",
+        "program": "Ecogenie",
+        "createdDt": "2020-10-27T03:22:15.000Z"
+    }
+}

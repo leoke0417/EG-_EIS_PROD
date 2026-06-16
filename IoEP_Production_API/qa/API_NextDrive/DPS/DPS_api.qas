@@ -1,0 +1,4 @@
+GET_datapoint_v1_dsns_{dsn}_properties_latest.qa
+GET_datapoint_v1_dsns_{dsn}_properties_first.qa
+GET_datapoint_v1_dsns_{dsn}_properties.qa
+DPS_api_report.qa

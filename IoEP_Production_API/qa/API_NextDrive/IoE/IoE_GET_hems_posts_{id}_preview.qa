@@ -1,0 +1,85 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get													postman					command											#collection#=c_QA_IoE_GET_hems_posts_{id}_preview.json,#environment#=e_IoE.json,#iterations#=1
+										
+exec														postman					command											#command#=$cmd$
+										
+$result_file$=get											postman					result							
+										
+$list_data$=get												postman					read_csv										#filename#=$result_file$
+										
+$target_data$=get											postman					find_result										#file#=$list_data$,#testcase#=GET_hems_posts_{id}_preview
+										
+$result$=get												postman					api_result										#api_result#=$target_data$
+										
+verify														postman					status_code										#api_result#=$result$,#expected_result#=200
+										
+$response_body$=get											api_verification		api_response									#api_result#=$result$
+										
+$expected_body$=get											api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_hems_posts_{id}_preview.json
+										
+verify														api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+### =====
+### GET data
+### =====
+## Get post > title
+$post_preview_post_title$=get								file_operate			dict_list_dict_value							#first_key#=post,#second_key#=title,#response_body#=$response_body$		
+
+## Get post > description
+$post_preview_post_description$=get							file_operate			dict_list_dict_value							#first_key#=post,#second_key#=description,#response_body#=$response_body$
+
+## Get post > urls > label
+$post_preview_post_urls_label$=get							file_operate			dict_list_dict_list_dict_value					#first_key#=post,#second_key#=urls,#third_key#=label,#response_body#=$response_body$
+	
+## Get post > urls > url
+$post_preview_post_urls_url$=get							file_operate			dict_list_dict_list_dict_value					#first_key#=post,#second_key#=urls,#third_key#=url,#response_body#=$response_body$	
+
+## Get post > images > previewImageUrl
+$post_preview_post_urls_previewImageUrl$=get				file_operate			dict_list_dict_list_dict_value					#first_key#=post,#second_key#=images,#third_key#=previewImageUrl,#response_body#=$response_body$
+	
+## Get post > images > originalContentUrl
+$post_preview_post_urls_originalContentUrl$=get				file_operate			dict_list_dict_list_dict_value					#first_key#=post,#second_key#=images,#third_key#=originalContentUrl,#response_body#=$response_body$	
+
+## Get detail > title
+$post_preview_detail_title$=get								file_operate			dict_list_dict_value							#first_key#=detail,#second_key#=title,#response_body#=$response_body$		
+
+## Get detail > contents > text
+$post_preview_detail_contents_text$=get						file_operate			dict_list_dict_list_dict_value					#first_key#=detail,#second_key#=contents,#third_key#=text,#response_body#=$response_body$
+	
+## Get detail > contents > type
+$post_preview_detail_contents_type$=get						file_operate			dict_list_dict_list_dict_value					#first_key#=detail,#second_key#=contents,#third_key#=type,#response_body#=$response_body$	
+
+
+
+### =====
+### Verify
+### =====
+## Verify post > title
+verify														api_verification		string											#actual_result#=$post_preview_post_title$
+
+## Verify post > description
+verify														api_verification		string											#actual_result#=$post_preview_post_description$
+
+## Verify post > urls > label
+verify														api_verification		string											#actual_result#=$post_preview_post_urls_label$
+
+## Verify post > urls > url
+verify														api_verification		url												#actual_result#=$post_preview_post_urls_url$
+
+## Verify post > images > previewImageUrl
+verify														api_verification		url												#actual_result#=$post_preview_post_urls_previewImageUrl$
+
+## Verify post > images > originalContentUrl
+verify														api_verification		url												#actual_result#=$post_preview_post_urls_originalContentUrl$
+
+## Verify detail > title
+verify														api_verification		string											#actual_result#=$post_preview_detail_title$
+
+## Verify detail > contents > text
+verify														api_verification		string											#actual_result#=$post_preview_detail_contents_text$
+
+## Verify detail > contents > type
+verify														api_verification		string											#actual_result#=$post_preview_detail_contents_type$

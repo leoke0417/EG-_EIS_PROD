@@ -1,0 +1,61 @@
+ini										api_IoEP.ini
+start				
+
+$cmd1$=get						postman					command						#collection#=c_ioe_account_POST-v1-users-login.json,#environment#=e_DATA_Point_daily.json,#iterations#=1
+exec							postman					command						#command#=$cmd1$
+$result_file1$=get				postman					result
+$list_data1$=get				postman					read_csv					#filename#=$result_file1$
+$target_data1$=get				postman					find_result					#file#=$list_data1$,#testcase#=POST /account/v1/users/login
+$result1$=get					postman					api_result					#api_result#=$target_data1$
+$response_body1$=get			api_verification		api_response				#api_result#=$result1$
+
+set								read_access_code		access_token				#response_body_result#=$result1$
+
+$get_code$=get					read_access_code		access_token_from_file
+$environment$=get				postman					postman_json				#json_name#=e_DATA_Point_daily.json
+set								postman					postman_access_token		#json_name#=e_DATA_Point_daily.json,#environment#=$environment$,#access_token#=$get_code$,#target_key#=API_manager_token
+
+
+
+
+#取的data_uuid和device_uuid
+$devices_uuid$=get						postgres        	sql_devices_uuid					#gw_id#=792
+
+$environment$=get						postman				postman_json						#json_name#=e_DATA_Point_daily.json
+
+set										postman				postman_device_uuid					#json_name#=e_DATA_Point_daily.json,#environment#=$environment$,#devices_uuid#=$devices_uuid$,#device_uuid#=ecn_uuid
+
+$data_uuids$=get						postgres        	sql_data_uuid    					#devices_uuid#=$devices_uuid$
+
+$data_scope$=get						postgres        	sql_data_scope    					#data_uuid#=$data_uuids$
+
+$environment$=get						postman				postman_json						#json_name#=e_DATA_Point_daily.json
+
+set										postman				postman_data_uuid					#json_name#=e_DATA_Point_daily.json,#environment#=$environment$,#datas_uuid#=$data_scope$,#data_uuid#=data_uuid
+
+
+
+#開始打API
+$db_value$=get							cassandra        	sql_devices_datas					#devices_uuid#=$devices_uuid$,#datas_uuid#=$data_uuids$
+
+$cmd$=get								postman				command								#collection#=c_GET_datapoint_v1_dsns_{dsn}_properties_first.json,#environment#=e_DATA_Point_daily.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=GET_datapoint_v1_dsns_{dsn}_properties_first
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=DPS/GET_datapoint_v1_dsns_{dsn}_properties_first.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+# end

@@ -1,0 +1,9 @@
+ini					cfg_mgmt_authentication.ini
+
+start
+
+$IDToken$=get		api_egplus_os					ndtoken							#test#=none
+
+verify				api_egplus_os					ndtoken_post					#returnCode#=200,#strIDToken#=$IDToken$233e3r
+
+end

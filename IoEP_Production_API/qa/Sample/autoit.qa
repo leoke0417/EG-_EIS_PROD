@@ -1,0 +1,24 @@
+include		test.sub
+
+start
+
+open		App		app			#key#=$mstsc$
+sleep		2
+activate	App		app			#key#=$mstsc_class$,#key2#=$timeout$
+click		App		button		#key#=$mstsc_class$,#key2#=$adv$,#key3#=1
+sleep		1
+set			App		text		#key#=$mstsc_class$,#key2#=$combobox$,#key3#=$mstsc_ip$
+sleep		1
+send		App		control		#key#=$mstsc_class$,#key2#=$combobox$,#key3#=$key_press$
+sleep		1
+send		App		text		#key#=$txt$
+sleep		1
+click		App		button		#key#=$mstsc_class$,#key2#=$btn$,#key3#=13
+sleep		1
+set			App		text		#key#=$mstsc_class$,#key2#=$edit$,#key3#=$passwd$
+sleep		1
+click		App		button		#key#=$mstsc_class$,#key2#=$btn$,#key3#=2
+sleep		1
+click		App		button		#key#=$mstsc_class$,#key2#=$btn$,#key3#=5
+
+end

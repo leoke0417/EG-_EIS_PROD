@@ -1,0 +1,15 @@
+{
+    "results": [
+        {
+            "pid": "J0B20CCB8A8CD6842",
+            "deviceUuid": "81b656e8-42bb-430f-a430-6504289901bb",
+            "model": "Pixi-G",
+            "scope": "battery",
+            "generatedTime": 1632847374346,
+            "uploadedTime": 1632847787163,
+            "value": "77"
+        }
+    ],
+    "offset": 1,
+    "totalCount": 29
+}

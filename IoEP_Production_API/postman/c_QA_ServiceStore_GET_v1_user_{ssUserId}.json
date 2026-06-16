@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "ecb0a14c-2a6e-48f8-bee0-58a049d8e65a",
+		"name": "c_QA_ServiceStore_GET_v1_user_{ssUserId}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_v1_users_{ssUserId}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{TestService_API_key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{qa_end_point}}/v1/users/{{Automan+99_uuid}}",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"{{Automan+99_uuid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

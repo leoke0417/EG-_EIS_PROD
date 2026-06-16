@@ -1,0 +1,84 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get													postman					command						#collection#=c_QA_IoE_GET_hems_posts_{id}.json,#environment#=e_IoE.json,#iterations#=1
+					
+exec														postman					command						#command#=$cmd$
+					
+$result_file$=get											postman					result		
+					
+$list_data$=get												postman					read_csv					#filename#=$result_file$
+					
+$target_data$=get											postman					find_result					#file#=$list_data$,#testcase#=GET_hems_posts_{id}
+					
+$result$=get												postman					api_result					#api_result#=$target_data$
+					
+verify														postman					status_code					#api_result#=$result$,#expected_result#=200
+					
+$response_body$=get											api_verification		api_response				#api_result#=$result$
+					
+$expected_body$=get											api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\GET_hems_posts_{id}.json
+					
+verify														api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+$teamId$=get												file_operate			dict_value						#key#=teamId,#response_body#=$response_body$
+
+$authorEmail$=get											file_operate			dict_value						#key#=authorEmail,#response_body#=$response_body$
+
+$status$=get												file_operate			dict_value						#key#=status,#response_body#=$response_body$
+
+$format$=get												file_operate			dict_value						#key#=format,#response_body#=$response_body$
+
+$audienceConditions$=get									file_operate			dict_value						#key#=audienceConditions,#response_body#=$response_body$
+
+$post_title$=get											file_operate			dict_list_dict_value			#first_key#=post,#second_key#=title,#response_body#=$response_body$
+
+$post_description$=get										file_operate			dict_list_dict_value			#first_key#=post,#second_key#=description,#response_body#=$response_body$
+
+$post_urls_label$=get										file_operate			dict_list_dict_list_dict_value	#first_key#=post,#second_key#=urls,#third_key#=label,#response_body#=$response_body$
+
+$post_urls_url$=get											file_operate			dict_list_dict_list_dict_value	#first_key#=post,#second_key#=urls,#third_key#=url,#response_body#=$response_body$
+
+$post_images_previewImageUrl$=get							file_operate			dict_list_dict_list_dict_value	#first_key#=post,#second_key#=images,#third_key#=previewImageUrl,#response_body#=$response_body$
+
+$post_images_originalContentUrl$=get						file_operate			dict_list_dict_list_dict_value	#first_key#=post,#second_key#=images,#third_key#=originalContentUrl,#response_body#=$response_body$
+
+$detail_title$=get											file_operate			dict_list_dict_value			#first_key#=detail,#second_key#=title,#response_body#=$response_body$
+
+$detail_contents_text$=get									file_operate			dict_list_dict_list_dict_value	#first_key#=detail,#second_key#=contents,#third_key#=text,#response_body#=$response_body$
+
+$detail_contents_type$=get									file_operate			dict_list_dict_list_dict_value	#first_key#=detail,#second_key#=contents,#third_key#=type,#response_body#=$response_body$
+
+$publishedAt$=get											file_operate			dict_value						#key#=publishedAt,#response_body#=$response_body$
+
+verify														api_verification		uuid							#actual_result#=$teamId$
+
+verify														api_verification		email							#actual_result#=$authorEmail$
+
+verify														api_verification		string							#actual_result#=$status$
+
+verify														api_verification		int								#actual_result#=$format$
+
+verify														api_verification		string							#actual_result#=$audienceConditions$
+
+verify														api_verification		string							#actual_result#=$post_title$
+
+verify														api_verification		string							#actual_result#=$post_description$
+
+verify														api_verification		string							#actual_result#=$post_urls_label$
+
+verify														api_verification		url								#actual_result#=$post_urls_url$
+
+verify														api_verification		url								#actual_result#=$post_images_previewImageUrl$
+
+verify														api_verification		url								#actual_result#=$post_images_originalContentUrl$
+
+verify														api_verification		string							#actual_result#=$detail_title$
+
+verify														api_verification		string							#actual_result#=$detail_contents_text$
+
+verify														api_verification		string							#actual_result#=$detail_contents_type$
+
+verify														api_verification		time							#actual_result#=$publishedAt$
+

@@ -1,0 +1,50 @@
+{
+	"id": "007cff3c-e3ac-4db6-bc25-c840a51c70bb",
+	"name": "3rd_party_service",
+	"values": [
+		{
+			"key": "qa_end_point",
+			"value": "https://ioeapi-qa.nextdrive.io",
+			"enabled": true
+		},
+		{
+			"key": "access_token",
+			"value": "5h6zbqblaUMmUrKJ/SWAT2P5rZrN6b5plVR79HZ",
+			"enabled": true
+		},
+		{
+			"key": "gateway_cd6842_pid",
+			"value": "J0B20CCB8A8CD6842",
+			"enabled": true
+		},
+		{
+			"key": "motion_9a16ce_uuid",
+			"value": "81b656e8-42bb-430f-a430-6504289901bb",
+			"enabled": true
+		},
+		{
+			"key": "aircon_uuid",
+			"value": "7468d80a-2f9a-40be-ab26-d7d5b5824f80",
+			"enabled": true
+		},
+		{
+			"key": "gateway_cd6842_uuid",
+			"value": "23d5de6a-01b4-4529-ada8-16a913031324",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "gateway_5e470e_pid",
+			"value": "JAB3410D07A5E470E",
+			"enabled": true
+		},
+		{
+			"key": "motion_1AFBAD_uuid",
+			"value": "044c6b95-352c-495f-af36-3c26d8d36d97",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-02-10T05:49:35.833Z",
+	"_postman_exported_using": "Postman/9.10.1"
+}

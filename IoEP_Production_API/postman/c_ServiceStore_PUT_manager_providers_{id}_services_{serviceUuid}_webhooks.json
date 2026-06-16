@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "12bdd67c-3b89-4b1d-92fe-9ed4286d1cf3",
+		"name": "ServiceStore_PUT_manager_providers_{id}_services_{serviceUuid}_webhooks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "PUT_manager_providers_{id}_services_{serviceUuid}_webhooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"webhooks\": [\r\n    {\r\n      \"scope\": \"USER_STATUS\",\r\n      \"url\": \"string\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{end_point}}/manager/providers/{{Service_provider_id}}/services/8302fe51-a558-43ab-8a21-18a6040453a9/webhooks",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"manager",
+						"providers",
+						"{{Service_provider_id}}",
+						"services",
+						"8302fe51-a558-43ab-8a21-18a6040453a9",
+						"webhooks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

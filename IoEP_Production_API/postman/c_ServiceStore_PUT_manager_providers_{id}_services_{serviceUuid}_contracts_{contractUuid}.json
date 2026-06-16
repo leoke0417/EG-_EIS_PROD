@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "ca039cb1-88ba-42ca-aea8-465dabff3f31",
+		"name": "ServiceStore_PUT_manager_providers_{id}_services_{serviceUuid}_contracts_{contractUuid}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "PUT_manager_providers_{id}_services_{serviceUuid}_contracts​_{contractUuid}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pkgName\": \"string\",\r\n  \"subscribeType\": \"DEFAULT_SUBSCRIBE\",\r\n  \"price\": 0,\r\n  \"contractStatus\": \"ON_REQUEST\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{end_point}}/manager/providers/{{Service_provider_id}}/services/8302fe51-a558-43ab-8a21-18a6040453a9/contracts/c8cc98b0-f582-44e6-9554-ad79ad2197a0",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"manager",
+						"providers",
+						"{{Service_provider_id}}",
+						"services",
+						"8302fe51-a558-43ab-8a21-18a6040453a9",
+						"contracts",
+						"c8cc98b0-f582-44e6-9554-ad79ad2197a0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

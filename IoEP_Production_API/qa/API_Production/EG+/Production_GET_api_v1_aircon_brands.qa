@@ -1,0 +1,6 @@
+## 關聯 device
+$aircon_brands_url$=get					egplus_api				v1_aircon_brands_url						#environment#=url,#ble_uuid#=ble_uuid
+$aircon_brands_header$=get				egplus_api				v1_aircon_brands_header						#token#=accesstoken
+$aircon_brands_response$=get			egplus_api				get											#url#=$aircon_brands_url$,#header#=$aircon_brands_header$
+$aircon_brands_status_code$=get			egplus_api				status_code									#response#=$aircon_brands_response$
+verify									api_verification		status_code									#api_response#=$aircon_brands_status_code$,#expected_status_code#=200

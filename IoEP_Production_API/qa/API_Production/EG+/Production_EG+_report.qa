@@ -1,0 +1,16 @@
+start
+
+###	Step 1.
+$qa_list$=get						qas_result					qa_list				#path#=qa\API_Production\EG+\Production_EG+.qas,#report_file#=Production_EG+
+
+###	Step 2.
+$xml_list$=get						qas_result					xml_list			#list#=$qa_list$,#path_prefix#=Production_EG+\
+
+###	Step 3.
+$overall_result$=get				qas_result					overall_result		#qa_test_result#=$xml_list$,#environment#=$environment$,#project_name#=Production_EG+,#unit#=APIs,#only_shows_false#=True
+
+$final_result$=get					qas_result					final_result		#text#=$xml_list$
+###	Step 4.
+send								Fb2						googlemessage		#message#=$overall_result$
+
+#end

@@ -1,0 +1,323 @@
+{
+    "name": "IoEP_Webhook_Test",
+    "icon": "https://ioe-suite-qa.nextdrive.io/images/5e65d2df-4ee2-4112-83f9-819770595cd3-thumbnail.jpg",
+    "summary": "IoEP_Webhook_Test",
+    "description": "IoEP_Webhook_Test",
+    "publicPolicy": "PUBLIC",
+    "testUsersEmail": [],
+    "images": [
+        "https://ioe-suite-qa.nextdrive.io/images/9cd3ecac-9106-4429-b5ad-9a809dffa39d.jpg"
+    ],
+    "thumbnails": [
+        "https://ioe-suite-qa.nextdrive.io/images/9cd3ecac-9106-4429-b5ad-9a809dffa39d.jpg"
+    ],
+    "lang": "Japanese",
+    "country": "Japan",
+    "contact": "neo.kang@nextdrive.io",
+    "faqUrl": "",
+    "formUrl": "",
+    "pkgNames": [],
+    "isDefaultEnabled": false,
+    "isDefaultSubscribed": false,
+    "isDefaultEnabledOnRegister": false,
+    "gatewayUploadInterval": 5,
+    "scopes": [
+        {
+            "scope": "DATA",
+            "dataUUID": "11ae91e6-675b-46b8-bd2e-0f02176f4064",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "590a553f-0866-4d8e-9af2-8b11fd47390e",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 2
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "96a90412-d117-425e-9a50-c24b109eea2f",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "989853f1-91bb-479f-8589-68dbf8874e0f",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 5
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "9cda4f57-094a-4436-86f4-6c0bc6de731e",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "eeb0fa57-bd1a-46bd-ac12-e06cb809e2ae",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "97a8fca7-3788-4ff4-8cdd-012be6a663e5",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "c2d83611-1f8c-4840-ba1e-d13701419370",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "9c04adb1-9080-4631-9453-f86fb6f355d4",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "95f9aca8-8629-4e58-bb26-0bacbb575729",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "8b58d1a3-6124-4f2d-9e18-65c069cbcd12",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "af15b91d-11d4-4bf3-b331-e67e2eeedd75",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "8fc5c2aa-ecf7-4464-a046-7bf96b590f0b",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "6150d963-db8f-4f0b-b308-963019746848",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "f15afcd6-845f-4430-826f-5e7665ef5d20",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "3888188e-2364-4c94-b06e-53d7520d1caa",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "0446a20e-3902-417f-b7fa-51d79d35a6db",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "a2568c8a-f428-4b49-8019-d4b6a456efc6",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "06a8bd5b-a869-4fe7-b073-7c2f818cace1",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "e89ed5e4-d01c-40af-b32d-2ed0f99fbc58",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "4d0b9d4e-c22a-4f63-9fbe-f6bc8b419cbc",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "1eb9193b-e83e-47e9-a58b-c3bb449f748e",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "87bdd659-bab4-491d-90d3-2b8019c11229",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "09e74688-356c-45b6-8ff4-64b685c97994",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "330ae65d-efeb-4720-a687-2efe971e3555",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "348d718b-a979-498c-993d-affd3ef8abdf",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "cd405329-4bab-49a6-a4ee-3da4b0dbed1b",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "c9869d2f-cf90-475e-8107-1a58cc4ec00b",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "78a3dafa-c6c8-42e0-a67f-a3c77f93f285",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "9906357c-8483-4724-b56c-32eaf6c9ae12",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "bc8e1803-c922-402a-a454-fbd5af5d6b1d",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "17b6628f-ac32-4d1b-b84a-d21b4ef8a3f7",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "a5d76070-89e1-4f61-afec-ff1831fbbce4",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "c4093618-627a-4c99-b190-4845a98c9b1f",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "f24ffb20-d5bf-4654-81a2-6bae4c868b53",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 2
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "c3e1e187-1b4a-4af0-a992-b7d465710130",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": 1
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "87d91253-1d7b-4bd8-910b-b0d774b35c3f",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "2e4101db-f872-4b7f-93bf-6bde6ddb0473",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "ac748f94-95e9-4b04-8a60-d7c9f1afc2e1",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "61697dba-90c1-47e4-8871-d94c68359169",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "DATA",
+            "dataUUID": "b1f0fbdb-ac2a-4ac3-8d11-4d2f48d4856f",
+            "config": "{\"pollingInterval\":60}",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "CONTROL",
+            "dataUUID": "f15afcd6-845f-4430-826f-5e7665ef5d20",
+            "config": "",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "CONTROL",
+            "dataUUID": "9906357c-8483-4724-b56c-32eaf6c9ae12",
+            "config": "",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "CONTROL",
+            "dataUUID": "67130aae-eb36-4161-a289-7e1b9b9f4f32",
+            "config": "",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "CONTROL",
+            "dataUUID": "87bdd659-bab4-491d-90d3-2b8019c11229",
+            "config": "",
+            "dataPollingInterval": null
+        },
+        {
+            "scope": "CONTROL",
+            "dataUUID": "a73bc745-7ec6-4ce1-9c20-f382c4d072f0",
+            "config": "",
+            "dataPollingInterval": null
+        }
+    ],
+    "webhooks": [
+        {
+            "scope": "USER_STATUS",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:5555/tsfm_device_status"
+        },
+        {
+            "scope": "DEVICE_STATUS",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:5555/tsfm_device_status"
+        },
+        {
+            "scope": "DATA_CALLBACK",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:5555/tsfm_device_status"
+        }
+    ],
+    "privacyAndTermsUrl": "https://store-api-qa.nextdrive.io/webjars/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/",
+    "serviceCategoryUuids": [
+        "361669b1-efb9-4120-a292-7fd2e19a0666"
+    ],
+    "functionCategoryUuids": [
+        "d9cafa7b-19a7-447e-84f3-c712a566c4a1"
+    ]
+}

@@ -1,0 +1,13 @@
+start
+until		start	!loop!=5
+
+get			Tool	testerror
+
+until		end
+
+get			Tool	testerror	
+set			Tool	dir			#key#=aaa
+
+
+
+end

@@ -1,0 +1,10 @@
+IoEP_Account_Post_SignIn.qa
+IoEP_Account_Post_Confirm_Signup.qa
+IoEP_Account_Post_Login.qa
+IoEP_Account_PUT_users_reset_password.qa
+IoEP_Account_Post_users_forgot_password.qa
+IoEP_Account_Post_users_confirm_forgot_password.qa
+IoEP_Account_Post_Login.qa
+IoEP_Account_Get_users_refresh_token.qa
+IoEP_Account_Post_Delete_Account.qa
+IoEP_Account_report.qa

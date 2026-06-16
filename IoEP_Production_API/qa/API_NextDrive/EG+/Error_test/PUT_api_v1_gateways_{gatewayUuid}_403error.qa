@@ -1,0 +1,28 @@
+ini		api_egplus_error.ini
+start
+
+### Read access token from file ------------------------------------------------------
+$get_code$=get							read_access_code		access_token_from_file
+
+### Write access code into e_IoE_Account.json --------------------------------
+$environment$=get						postman					postman_json				#json_name#=e_IoE_Account_error_test.json
+set										postman					postman_access_token		#json_name#=e_IoE_Account_error_test.json,#environment#=$environment$,#access_token#=$get_code$,#target_key#=access_code
+
+### Execute c_ioe_account_PUT_account_v1_users_reset_password.json file ------------------
+$cmd$=get								postman					command						#collection#=c_PUT_api_v1_gateways_{gatewayUuid}_error403.json,#environment#=e_IoE_Account_error_test.json,#iterations#=1
+exec									postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=PUT_api_v1_gateways_{gatewayUuid}_error403
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=403
+
+
+
+

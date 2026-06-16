@@ -1,0 +1,47 @@
+ini										api_ioe.ini
+
+start
+
+$cmdd$=get								postman					command								#collection#="c_QA_IoE_POST_hems_posts.json",#environment#=e_IoE.json
+
+exec									postman					command								#command#=$cmdd$
+
+$result_file$=get						postman					result
+
+$list_data$=get							postman					read_csv							#filename#=$result_file$
+
+$target_data$=get						postman					find_result							#file#=$list_data$,#testcase#=POST_hems_posts
+
+$result$=get							postman					api_result							#api_result#=$target_data$
+
+verify									postman					status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response						#api_result#=$result$
+
+$id$=get								file_operate			dict_value							#key#=id,#response_body#=$response_body$
+
+
+$put_param$=get							api_ioe					update_post_id_url					#id_url#=$id$
+
+$put_content$=get						postman					postman_json						#json_name#=c_QA_IoE_DELETE_hems_posts_{id}.json
+
+$put_final_collection$=get				api_ioe					update_post_new_id					#collections#=$put_content$,#new_id#=$put_param$
+
+set										postman					postman_json						#json_content#=$put_final_collection$,#json_name#=c_QA_IoE_DELETE_hems_posts_{id}.json
+
+
+$cmd$=get								postman					command								#collection#="c_QA_IoE_DELETE_hems_posts_{id}.json",#environment#=e_IoE.json
+
+exec									postman					command								#command#=$cmd$
+
+$result_file1$=get						postman					result
+
+$list_data1$=get						postman					read_csv							#filename#=$result_file1$
+
+$target_data1$=get						postman					find_result							#file#=$list_data1$,#testcase#=DELETE_hems_posts_{id}
+
+$result1$=get							postman					api_result							#api_result#=$target_data1$
+
+verify									postman					status_code							#api_result#=$result1$,#expected_result#=200
+
+# end

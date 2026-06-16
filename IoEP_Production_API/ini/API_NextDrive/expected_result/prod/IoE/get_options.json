@@ -1,0 +1,389 @@
+{
+    "versions": {
+        "ios": [
+            "1.1.10",
+            "1.1.3",
+            "1.1.4",
+            "1.1.5",
+            "1.1.7",
+            "1.1.8",
+            "1.1.9",
+            "1.2.0200",
+            "1.2.0300",
+            "1.2.0302",
+            "1.2.0303",
+            "1.2.0400",
+            "1.2.0401",
+            "1.2.0402",
+            "1.2.0403",
+            "1.2.0404",
+            "1.2.0501",
+            "1.2.0502",
+            "1.2.0600",
+            "1.2.0601",
+            "1.2.0604",
+            "1.2.0700",
+            "1.2.0800",
+            "1.2.0803",
+            "1.2.0900",
+            "1.2.0901",
+            "1.2.1",
+            "1.2.1002",
+            "1.2.1003",
+            "1.2.1004",
+            "1.2.103",
+            "1.3.0000",
+            "1.3.0003",
+            "1.3.0005",
+            "1.3.0006",
+            "1.3.0007",
+            "1.3.0101",
+            "1.3.0203",
+            "1.3.0204",
+            "1.3.0300",
+            "1.3.0301",
+            "1.3.0400"
+        ],
+        "android": [
+            "1.1.1",
+            "1.1.2",
+            "1.1.5",
+            "1.1.6",
+            "1.2.0103",
+            "1.2.0200",
+            "1.2.0300",
+            "1.2.0301",
+            "1.2.0302",
+            "1.2.0400",
+            "1.2.0402",
+            "1.2.0403",
+            "1.2.0404",
+            "1.2.0500",
+            "1.2.0601",
+            "1.2.0603",
+            "1.2.0700",
+            "1.2.0800",
+            "1.2.0803",
+            "1.2.0900",
+            "1.2.0901",
+            "1.2.1000",
+            "1.3.0005",
+            "1.3.0101",
+            "1.3.0203",
+            "1.3.0204",
+            "1.3.0300"
+        ],
+        "atto": [
+            "4.0.18011",
+            "4.0.18014",
+            "4.0.18015",
+            "4.0.18016.2103171100",
+            "4.0.18017",
+            "4.0.18020",
+            "4.0.18020.2106021334"
+        ],
+        "cube": [
+            "3.2.49",
+            "3.4.2014.2005141421",
+            "4.0.16011",
+            "4.0.16012",
+            "4.0.16015",
+            "4.0.16019",
+            "4.0.16019.2101181201",
+            "4.0.16022",
+            "4.0.16023",
+            "4.0.16027",
+            "4.0.16030",
+            "4.0.16031",
+            "4.0.16031.2106021031"
+        ]
+    },
+    "locations": [
+        {
+            "value": "Japan",
+            "items": [
+                {
+                    "value": "Hokkaido",
+                    "items": []
+                },
+                {
+                    "value": "Aomori",
+                    "items": []
+                },
+                {
+                    "value": "Iwate",
+                    "items": []
+                },
+                {
+                    "value": "Miyagi",
+                    "items": []
+                },
+                {
+                    "value": "Akita",
+                    "items": []
+                },
+                {
+                    "value": "Yamagata",
+                    "items": []
+                },
+                {
+                    "value": "Fukushima",
+                    "items": []
+                },
+                {
+                    "value": "Ibaraki",
+                    "items": []
+                },
+                {
+                    "value": "Tochigi",
+                    "items": []
+                },
+                {
+                    "value": "Gumma",
+                    "items": []
+                },
+                {
+                    "value": "Saitama",
+                    "items": []
+                },
+                {
+                    "value": "Chiba",
+                    "items": []
+                },
+                {
+                    "value": "Tokyo",
+                    "items": []
+                },
+                {
+                    "value": "Kanagawa",
+                    "items": []
+                },
+                {
+                    "value": "Niigata",
+                    "items": []
+                },
+                {
+                    "value": "Toyama",
+                    "items": []
+                },
+                {
+                    "value": "Ishikawa",
+                    "items": []
+                },
+                {
+                    "value": "Fukui",
+                    "items": []
+                },
+                {
+                    "value": "Yamanashi",
+                    "items": []
+                },
+                {
+                    "value": "Nagano",
+                    "items": []
+                },
+                {
+                    "value": "Gifu",
+                    "items": []
+                },
+                {
+                    "value": "Shizuoka",
+                    "items": []
+                },
+                {
+                    "value": "Aichi",
+                    "items": []
+                },
+                {
+                    "value": "Mie",
+                    "items": []
+                },
+                {
+                    "value": "Shiga",
+                    "items": []
+                },
+                {
+                    "value": "Kyoto",
+                    "items": []
+                },
+                {
+                    "value": "Osaka",
+                    "items": []
+                },
+                {
+                    "value": "Hyogo",
+                    "items": []
+                },
+                {
+                    "value": "Nara",
+                    "items": []
+                },
+                {
+                    "value": "Wakayama",
+                    "items": []
+                },
+                {
+                    "value": "Tottori",
+                    "items": []
+                },
+                {
+                    "value": "Shimane",
+                    "items": []
+                },
+                {
+                    "value": "Okayama",
+                    "items": []
+                },
+                {
+                    "value": "Hiroshima",
+                    "items": []
+                },
+                {
+                    "value": "Yamaguchi",
+                    "items": []
+                },
+                {
+                    "value": "Tokushima",
+                    "items": []
+                },
+                {
+                    "value": "Kagawa",
+                    "items": []
+                },
+                {
+                    "value": "Ehime",
+                    "items": []
+                },
+                {
+                    "value": "Kochi",
+                    "items": []
+                },
+                {
+                    "value": "Fukuoka",
+                    "items": []
+                },
+                {
+                    "value": "Saga",
+                    "items": []
+                },
+                {
+                    "value": "Nagasaki",
+                    "items": []
+                },
+                {
+                    "value": "Kumamoto",
+                    "items": []
+                },
+                {
+                    "value": "Oita",
+                    "items": []
+                },
+                {
+                    "value": "Miyazaki",
+                    "items": []
+                },
+                {
+                    "value": "Kagoshima",
+                    "items": []
+                },
+                {
+                    "value": "Okinawa",
+                    "items": []
+                }
+            ]
+        },
+        {
+            "value": "Taiwan",
+            "items": [
+                {
+                    "value": "Taipei City",
+                    "items": []
+                },
+                {
+                    "value": "New Taipei City",
+                    "items": []
+                },
+                {
+                    "value": "Taoyuan City",
+                    "items": []
+                },
+                {
+                    "value": "Taichung City",
+                    "items": []
+                },
+                {
+                    "value": "Tainan City",
+                    "items": []
+                },
+                {
+                    "value": "Kaohsiung City",
+                    "items": []
+                },
+                {
+                    "value": "Hsinchu",
+                    "items": []
+                },
+                {
+                    "value": "Hsinchu City",
+                    "items": []
+                },
+                {
+                    "value": "Miaoli",
+                    "items": []
+                },
+                {
+                    "value": "Changhua",
+                    "items": []
+                },
+                {
+                    "value": "Nantou",
+                    "items": []
+                },
+                {
+                    "value": "Yunlin",
+                    "items": []
+                },
+                {
+                    "value": "Chiayi",
+                    "items": []
+                },
+                {
+                    "value": "Chiayi City",
+                    "items": []
+                },
+                {
+                    "value": "Pingtung",
+                    "items": []
+                },
+                {
+                    "value": "Taitung",
+                    "items": []
+                },
+                {
+                    "value": "Hualien",
+                    "items": []
+                },
+                {
+                    "value": "Yilan",
+                    "items": []
+                },
+                {
+                    "value": "Penghu",
+                    "items": []
+                },
+                {
+                    "value": "Lienchiang",
+                    "items": []
+                },
+                {
+                    "value": "Kinmen",
+                    "items": []
+                },
+                {
+                    "value": "Keelung City",
+                    "items": []
+                }
+            ]
+        }
+    ]
+}

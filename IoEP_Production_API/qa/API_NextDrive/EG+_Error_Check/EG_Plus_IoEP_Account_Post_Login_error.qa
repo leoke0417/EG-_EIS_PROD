@@ -1,0 +1,28 @@
+ini								api_egplus_error.ini
+start
+
+### Execute c_ioe_account_POST-v1-users-login.json file ------------------
+$cmd$=get						postman					command						#collection#=c_ioe_account_POST-v1-users-login.json,#environment#=e_IoE_Account_error_test.json,#iterations#=1
+exec							postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get				postman					result		
+
+$list_data$=get					postman					read_csv					#filename#=$result_file$
+
+$target_data$=get				postman					find_result					#file#=$list_data$,#testcase#=POST /account/v1/users/login
+
+$result$=get					postman					api_result					#api_result#=$target_data$
+
+verify							postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get				api_verification		api_response				#api_result#=$result$
+
+$expected_result$=get			api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE_Account\POST_IoE_Account_Login.json
+
+verify							api_verification		dict_keys					#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+### Write access token into file ----------------------------------------------
+set								read_access_code		access_token				#response_body_result#=$result$
+set								read_access_code		refresh_token				#response_body_result#=$result$
+

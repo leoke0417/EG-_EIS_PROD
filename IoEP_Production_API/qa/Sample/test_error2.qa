@@ -1,0 +1,8 @@
+#include		sub.qa
+#ini			test.ini
+init		browser			chrome		
+start
+~set			browser.google		textbox_search				#value#=aaa2,#xpath_id#=google_search
+create		Tool				file							#value#=bbb
+send		browser.google		button_error
+end

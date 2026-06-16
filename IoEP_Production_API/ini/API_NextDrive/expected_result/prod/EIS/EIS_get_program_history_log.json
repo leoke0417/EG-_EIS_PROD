@@ -1,0 +1,290 @@
+{
+    "histories": [
+        {
+            "user": "Andy Liu",
+            "memo": "CREATED",
+            "at": "2020-10-27T00:30:43.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0EF321792100115\nJ2C42CC4B738B403B\n053FB01792500109\nCE33261831000347\n9160D41792500323\nJAB3410D07A5BFBDC\nJ0D278CF7100078D4\nA129E81791900035\n053F661792100244\nA10C8E1792100260\nA143241792000276\nA12C881792200246\n05100E1792100055\nJ0C26CCB8A8C89E9E\nJ0C26CCB8A8C86394\nJ0C26CCB8A8C809C4\nJ0C26CCB8A8C91B96\nJ0C26CCB8A8C90BD8\nJ0C26CCB8A8C8CF42\nJ0C26CCB8A8CE7902\nJ0C26CCB8A8C8F538\nJ0C26CCB8A8C8D130\\r\nJ0C26CCB8A8C93BDA\nJ2C49CC4B738B3EDE",
+            "at": "2020-10-27T00:45:04.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0EE521792100364",
+            "at": "2020-10-29T02:46:34.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C45CC4B738B300C",
+            "at": "2020-10-29T02:47:51.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nac83f398d1f15923\nac83f398d208fd22",
+            "at": "2020-10-29T03:46:22.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Unbinding\nac83f398d1f15923\nac83f398d208fd22",
+            "at": "2020-10-29T03:48:54.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nac83f398d1f15923\nac83f398d208fd22",
+            "at": "2020-10-29T03:49:02.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Unbinding\nJ2C45CC4B738B300C",
+            "at": "2020-10-29T05:44:53.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nC9756C17C2900259\nJ0C26CCB8A8A14300\nJ0C26CCB8A8C9854E\nJ0C26CCB8A89F1C30\nC995C417C2800093\nJ0C26CCB8A8C881D2",
+            "at": "2020-11-02T06:03:55.000Z"
+        },
+        {
+            "user": "user@nextdrive.io",
+            "memo": "Unbinding\nC9756C17C2900259\nJ0C26CCB8A8A14300\nJ0C26CCB8A8C9854E\nJ0C26CCB8A89F1C30\nC995C417C2800093\nJ0C26CCB8A8C881D2",
+            "at": "2020-11-04T02:36:37.000Z"
+        },
+        {
+            "user": "user@nextdrive.io",
+            "memo": "Binding\nC9756C17C2900259\nJ0C26CCB8A8A14300\nJ0C26CCB8A8C9854E\nJ0C26CCB8A89F1C30\nC995C417C2800093\nJ0C26CCB8A8C881D2",
+            "at": "2020-11-04T02:39:11.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nC91B7A17C2500149\nC8E7B61810200337\nCD0DDE1810300155\n986F251780400947\nC96B9A1810300211\nCE785A17C2500003\nCD239A17C2800237\n9F1CEE1810200625\n059B821792500131\nC834B617C2800114\nCE24AC1810200416\nC872FE1810200811\nC8C09817C2600027\n059A941792600247\nC8CF761810900007\nC882421810900309",
+            "at": "2020-11-22T15:24:03.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B43F9\nJ0B20CCB8A8C96A58\nJ0B20CCB8A8CDB0BC\nC91B7817C2800224\nA120FA1810201003\nC995BC1810900278\nC8099017C2800238\nCD1D8017C3000129\nC8443217C2600116\nCE102217C2900195\nC91C0817C2600317\nC91C4C17C2600357\nC985BE1810200707\n058A521792700072\nC817B217C2600321\nC853A817C2600110\nA121A21810200674\nC881C41810300119\nCD4A441810300118\nC817781810200346\nC834AE17C2800054\nC8174A1810200516\nC8F7541810200291\nC8E5DC1810200823\nC93BCA1810200898\n098C141792600065\nC8824E1810300091\nC8F77A1810200913",
+            "at": "2020-11-23T04:44:26.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B416D",
+            "at": "2020-12-17T02:06:38.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B43BB\nJ2C49CC4B738B40A6\nJ2C49CC4B738B48AA\nJ2C49CC4B738B47D0\nJ2C49CC4B738B461D",
+            "at": "2020-12-17T02:55:02.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B4051\nJ2C49CC4B738B3F92\nJ2C49CC4B738B4441\nJ2C49CC4B738B4562\nJ2C49CC4B738B42B7\nJ2C49CC4B738B420D\nJ2C49CC4B738B43BE\nJ2C49CC4B738B40C4\nJ2C49CC4B738B418E\nJ2C49CC4B738B480E\nJ2C49CC4B738B4218\nJ2C49CC4B738B47A1\nJ2C49CC4B738B40FC\nJ2C49CC4B738B3E66\nJ2C49CC4B738B4496\nJ2C49CC4B738B4448\nJ2C49CC4B738B4401",
+            "at": "2020-12-18T02:31:31.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B417A\nJ2C49CC4B738B4071",
+            "at": "2020-12-23T07:57:28.233Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B40E1\nJ2C49CC4B738B41D4",
+            "at": "2020-12-25T01:31:16.841Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0D11C0847DA76572",
+            "at": "2020-12-25T09:26:27.724Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0D30C0847DF810A2",
+            "at": "2021-01-08T06:17:40.217Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0C50CC4B73A9BEB8",
+            "at": "2021-01-18T10:56:16.501Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nC843C017C2800105",
+            "at": "2021-01-18T10:56:31.011Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\njab3410d07a5e4554",
+            "at": "2021-01-22T10:20:31.803Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B4587\nJ2C49CC4B738B3F42",
+            "at": "2021-01-25T06:10:15.399Z"
+        },
+        {
+            "user": "Katsuji Kato",
+            "memo": "Binding\nJ2C49CC4B738B3F58\nJ2C49CC4B738B47DF\nJ2C49CC4B738B4241\nJ2C49CC4B738B421C\nJ2C49CC4B738B4894\nJ2C49CC4B738B4714",
+            "at": "2021-01-26T05:34:55.218Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0D32C0847DF822A0",
+            "at": "2021-01-27T03:25:12.197Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nCD794A1830900183\nCDCF5C1831200094",
+            "at": "2021-01-27T08:52:23.077Z"
+        },
+        {
+            "user": "Katsuji Kato",
+            "memo": "Binding\nJ2C49CC4B738B4250\nJ2C49CC4B738B3E3F\nJ2C49CC4B738B426B\nJ2C49CC4B738B456C\nJ2C49CC4B738B3D10",
+            "at": "2021-01-28T05:05:22.996Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B4224\nJ2C49CC4B738B4331\nJ2C49CC4B738B4763",
+            "at": "2021-01-28T05:25:54.600Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B4246\nJ2C49CC4B738B3FC1\nJ2C49CC4B738B4892",
+            "at": "2021-02-03T05:46:46.077Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B4102\nJ2C49CC4B738B425D\nJ2C49CC4B738B417B",
+            "at": "2021-02-09T03:56:27.694Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B40C0",
+            "at": "2021-02-26T04:29:12.336Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B4758\nJ2C49CC4B738B3DA1\nJ2C49CC4B738B4286\nJ2C49CC4B738B3FA8\nJ2C49CC4B738B4474",
+            "at": "2021-03-05T05:24:26.085Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0D21C0847DBC77C0\nA0D21C0847DBB3AA2",
+            "at": "2021-03-05T14:13:21.591Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0D21CC4B73BAF9A4\nA0D21C0847DA7A658",
+            "at": "2021-03-08T10:46:42.698Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0D30C0847DF82B66\nA0D30C0847DF8193E\nA0D30C0847DF81094",
+            "at": "2021-03-09T05:46:26.195Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0D21C0847DBC5CA8,Atto-PLUS,false\nA0D21C0847DBB28B2,Atto-PLUS,false\nA0D21C0847DBC5CB0,Atto-PLUS,false\nA0D21C0847DBAF73E,Atto-PLUS,false",
+            "at": "2021-03-23T01:10:53.742Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nA0D30C0847DF81054,Atto-PLUS,false\nA0D30C0847DF834D0,Atto-PLUS,false\nA0D30C0847DF82B7C,Atto-PLUS,false\nA0D30C0847DF82B82,Atto-PLUS,false\nA0D30C0847DF82B94,Atto-PLUS,false\nA0D30C0847DF82B6E,Atto-PLUS,false\nA0D30C0847DF82B80,Atto-PLUS,false",
+            "at": "2021-03-23T02:10:12.948Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B3E52\nJ2C49CC4B738B477E",
+            "at": "2021-02-15T05:07:55.584Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B4219,Cube-PLUS,N",
+            "at": "2021-03-29T07:30:53.929Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Unbinding\nCD239A17C2800237,CubeJ-cd239a,false",
+            "at": "2021-04-02T04:06:37.605Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Activation-{\"email\":\"andy.liu@nextdrive.io\",\"role\":\"Admin\",\"products\":[\"HEMS\"]}",
+            "at": "2020-10-27T00:34:13.000Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B43E9,Cube-PLUS,N\nJ2C49CC4B738B42F6,Cube-PLUS,N\nJ2C49CC4B738B4873,Cube-PLUS,N\nJ2C49CC4B738B470D,Cube-PLUS,N",
+            "at": "2021-04-12T03:12:39.623Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nC92BA21810200955,Cube-PLUS,N",
+            "at": "2021-04-12T06:52:34.614Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nC90C7417C2800229,Cube-PLUS,N",
+            "at": "2021-04-16T10:34:53.319Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B47E9,Cube-PLUS,N\nJ2C49CC4B738B4700,Cube-PLUS,N\nJ2C49CC4B738B40B5,Cube-PLUS,N\nJ2C49CC4B738B3DB0,Cube-PLUS,N\nJ2C49CC4B738B419B,Cube-PLUS,N\nJ2C49CC4B738B48D7,Cube-PLUS,N",
+            "at": "2021-04-23T05:54:26.213Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Unbinding\nA0D32C0847DF822A0,JulianAT,false",
+            "at": "2021-04-26T08:45:16.716Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Unbinding\nA0D21C0847DBB28B2,Atto-PLUS,false",
+            "at": "2021-04-27T16:06:29.806Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nCDD8AC17C3000116,Cube-PLUS,N",
+            "at": "2021-04-28T11:01:39.908Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Unbinding\nA0D30C0847DF834D0,Atto-PLUS,false",
+            "at": "2021-05-07T09:58:25.009Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nCD91621831000012,Cube-PLUS,N",
+            "at": "2021-05-12T09:17:22.222Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nCE0FD617C3000010,Cube-PLUS,N",
+            "at": "2021-05-12T09:32:40.934Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Unbinding\nC91C4C17C2600357,CubeJ-c91c4c,false\nCD91621831000012,CubeJ-cd9162,false",
+            "at": "2021-05-20T15:41:19.606Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B41E9,Cube-PLUS,N\nJ2C49CC4B738B3D24,Cube-PLUS,N\nJ2C49CC4B738B3FEE,Cube-PLUS,N",
+            "at": "2021-05-21T03:29:25.832Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nJ2C49CC4B738B46DA,Cube-PLUS,N",
+            "at": "2021-05-25T04:13:59.512Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\nC91B8617C2600333,Cube-PLUS,N\nCDAA7A17C3000145,Cube-PLUS,N",
+            "at": "2021-05-26T02:08:06.874Z"
+        },
+        {
+            "user": "Andy Liu",
+            "memo": "Binding\n984D391760600010,Cube-PLUS,N",
+            "at": "2021-05-31T05:24:41.896Z"
+        }
+    ],
+    "total": 57
+}

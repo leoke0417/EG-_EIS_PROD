@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?>  <testsuite error="0" failures="0" name="rat_cv_cm_cluster_add_node" tests="1" time="1773.0 sec">  <testcase name="rat_cv_cm_cluster_add_node" result="fail" time="1773.0 sec">  <failure message="This case is FAIL!!"/>  </testcase>  </testsuite>

@@ -1,0 +1,35 @@
+ini				rat_sv_us_admin.ini
+ini				application_configuration.ini
+init			ie							Chrome	
+
+start
+set				ie.rat_sv_us				textbox_username					#key#=$signin_username$
+set				ie.rat_sv_us				textbox_passwd						#key#=$signin_passwd$
+click			ie.rat_sv_us				button_submit
+sleep			1
+click			ie.cluster_view_control		link_clusterview
+sleep			1
+click			ie.cluster_view_control		link_user_cluster					#key#=$cluster_name$
+sleep			1
+click			ie.cluster_view_control		link_component_applications
+
+#========Create Application===========
+sleep			1
+click			ie.cluster_applications		icon_create_application
+sleep			1
+set				ie.cluster_applications		textbox_create_application_name		#key#=$app_name$
+select			ie.cluster_applications		list_create_application_type		#key#=$type_user$
+click			ie.cluster_applications		button_create_application_submit
+sleep			5
+$status$=get	ie.cluster_applications		status_create_application_submit	#key#=$app_name$,#key1#=Active,#key2#=Connected,#key3#=$type_user$
+verify			Tool						dir									#value#=True,#key#=$status$,#criteria#==
+
+#========Delete Application===========
+sleep			1
+click			ie.cluster_view_control		table_app_name						#key#=$app_name$
+click			ie.cluster_applications		icon_delete_application
+sleep			1
+click			ie.cluster_applications		button_delete_submit
+sleep			5
+$status$=get	ie.cluster_applications		status_delete_submit				#key#=$app_name$
+verify			Tool						dir									#value#=True,#key#=$status$,#criteria#==

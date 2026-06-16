@@ -1,0 +1,32 @@
+ini										api_ioe.ini
+
+start
+
+$cmdd$=get								postman					command								#collection#="c_QA_IoE_POST_hems_gateway-data_download_all.json",#environment#=e_IoE.json
+
+exec									postman					command								#command#=$cmdd$
+
+$result_file$=get						postman					result
+
+$list_data$=get							postman					read_csv							#filename#=$result_file$
+
+$target_data$=get						postman					find_result							#file#=$list_data$,#testcase#=POST_hems_gateway-data_download_all
+
+$result$=get							postman					api_result							#api_result#=$target_data$
+
+verify									postman					status_code							#api_result#=$result$,#expected_result#=200
+
+
+$response_body$=get						api_verification		api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification		expected_result						#environment#=$test_environment$,#expected_result#=IoE\POST_hems_gateway-data_download_all.json
+
+verify									api_verification		dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+$downloadId$=get						file_operate			dict_value					#key#=downloadId,#response_body#=$response_body$
+
+
+
+verify									api_verification		string								#actual_result#=$downloadId$
+

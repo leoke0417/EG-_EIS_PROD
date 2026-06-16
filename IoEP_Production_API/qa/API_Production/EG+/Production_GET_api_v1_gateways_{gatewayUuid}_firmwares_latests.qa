@@ -1,0 +1,6 @@
+## 關聯 device
+$gateways_gatewayUuid_firmwares_latests_url$=get				egplus_api				v1_gateways_gatewayUuid_firmwares_latests_url				#environment#=url,#online_gw_uuid#=online_gw_uuid
+$gateways_gatewayUuid_firmwares_latests_header$=get				egplus_api				v1_gateways_gatewayUuid_firmwares_latests_header			#token#=accesstoken
+$gateways_gatewayUuid_firmwares_latests_response$=get			egplus_api				get															#url#=$gateways_gatewayUuid_firmwares_latests_url$,#header#=$gateways_gatewayUuid_firmwares_latests_header$
+$gateways_gatewayUuid_firmwares_latests_status_code$=get		egplus_api				status_code													#response#=$gateways_gatewayUuid_firmwares_latests_response$
+verify												api_verification			status_code													#api_response#=$gateways_gatewayUuid_firmwares_latests_status_code$,#expected_status_code#=200

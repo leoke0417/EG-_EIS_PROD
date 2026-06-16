@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?>  <testsuite error="0" failures="1" name="cfg_mgmt_gettoken_success" tests="1" time="6.0 sec">  <testcase name="cfg_mgmt_gettoken_success" result="pass" time="6.0 sec"/>  </testsuite>

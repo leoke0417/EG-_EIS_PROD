@@ -1,0 +1,165 @@
+{
+    "gateways": [
+        {
+            "pid": "C92C281810200958",
+            "uuid": "ccb8a8c9-2c28-011a-2950-620471587523",
+            "firmwareSku": "Cube-PLUS",
+            "free": "Y",
+            "createDt": "2021-06-10T07:53:42.249Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "J0B20CCB8A8C974B4",
+            "uuid": "ccb8a8c9-74b4-011a-2b38-00012088b522",
+            "firmwareSku": "Cube-Plus",
+            "free": "N",
+            "createDt": "2021-06-03T03:10:15.718Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "J0B20CCB8A8CE7A16",
+            "uuid": "ccb8a8ce-7a16-011a-2b38-000111594923",
+            "firmwareSku": "Cube-Plus",
+            "free": "N",
+            "createDt": "2021-06-03T03:10:15.718Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "A0C50CC4B73A9BF62",
+            "uuid": "cc4b73a9-bf62-011a-2b38-000111c11522",
+            "firmwareSku": "Atto-PLUS",
+            "free": "N",
+            "createDt": "2021-05-31T06:06:06.670Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "C882B417C2600130",
+            "uuid": "ccb8a8c8-82b4-011a-2950-620471785523",
+            "firmwareSku": "Cube-PLUS",
+            "free": "Y",
+            "createDt": "2021-05-26T11:06:20.768Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "A0C50CC4B73A9CB02",
+            "uuid": "cc4b73a9-cb02-011a-2b38-000111a9a123",
+            "firmwareSku": "Atto-PLUS",
+            "free": "N",
+            "createDt": "2021-05-12T08:56:50.949Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "J0B20CCB8A8CD6842",
+            "uuid": "ccb8a8cd-6842-011a-2b38-0001114a0d22",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-29T06:53:42.897Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "CDA1081831000338",
+            "uuid": "ccb8a8cd-a108-011a-2b38-000120815523",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "J0B20CCB8A8CE7990",
+            "uuid": "ccb8a8ce-7990-011a-2b38-000112593d23",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "980EE51761400013",
+            "uuid": "ac83f398-0ee5-011a-2830-0006d1f87123",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "CCFE041810200147",
+            "uuid": "ccb8a8cc-fe04-011a-2950-620451491123",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "CDDB161830900082",
+            "uuid": "ccb8a8cd-db16-011a-2b38-000121f16923",
+            "firmwareSku": "Cube-J",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "J0B20CCB8A8CE7964",
+            "uuid": "ccb8a8ce-7964-011a-2b38-000112995922",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "985EDD1791900446",
+            "uuid": "ac83f398-5edd-011a-2830-0006f1b1cd22",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "JAB3410D07A5E45EC",
+            "uuid": "10d07a5e-45ec-011a-2830-0006e1816d23",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "J0B20CCB8A8CD5968",
+            "uuid": "ccb8a8cd-5968-011a-2b38-000110e21d23",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "CD4A301830900139",
+            "uuid": "ccb8a8cd-4a30-011a-2b38-000120398922",
+            "firmwareSku": "Cube-J",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "JAQA0442C055E6C4E",
+            "uuid": "442c055e-6c4e-011a-2830-0006d118dd22",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        },
+        {
+            "pid": "A0D21C0847DA7A5F4",
+            "uuid": "c0847da7-a5f4-011a-2950-620460e12922",
+            "firmwareSku": "Atto-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": null
+        },
+        {
+            "pid": "JAB3410D07A5E4644",
+            "uuid": "10d07a5e-4644-011a-2830-0006e2c0ed22",
+            "firmwareSku": "Cube-PLUS",
+            "free": "N",
+            "createDt": "2021-04-28T10:03:19.939Z",
+            "syncDt": "2020-09-09T02:27:14.000Z"
+        }
+    ],
+    "total": 61
+}

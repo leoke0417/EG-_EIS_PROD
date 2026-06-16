@@ -1,0 +1,48 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_Service_Store_GET_manager_user-subscribe_{userId}.json,#environment#=e_Service_Store_servicemanager.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=GET_manager_user-subscribe_{userId}
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/GET_manager_user-subscribe_{userId}.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+
+
+$serviceName$=get							file_operate		dict_list_dict_value			#first_key#=subscribedHistory,#second_key#=serviceName,#response_body#=$response_body$
+
+$serviceUuid$=get							file_operate		dict_list_dict_value			#first_key#=subscribedHistory,#second_key#=serviceUuid,#response_body#=$response_body$
+
+$subscribedAt$=get							file_operate		dict_list_dict_value			#first_key#=subscribedHistory,#second_key#=subscribedAt,#response_body#=$response_body$
+
+$unsubscribedAt$=get						file_operate		dict_list_dict_value			#first_key#=subscribedHistory,#second_key#=unsubscribedAt,#response_body#=$response_body$
+
+
+
+
+
+verify									api_verification	string								#actual_result#=$serviceName$,#response_body#=$response_body$
+
+
+verify									api_verification	uuid								#actual_result#=$serviceUuid$,#response_body#=$response_body$
+
+verify									api_verification	time								#actual_result#=$subscribedAt$,#response_body#=$response_body$
+
+verify									api_verification	time								#actual_result#=$unsubscribedAt$,#response_body#=$response_body$
+
+# end

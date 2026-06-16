@@ -1,0 +1,10 @@
+ini								api_ioe_account.ini
+start
+
+### Read access token from file ------------------------------------------------------
+$get_code$=get							read_access_code		access_code_from_file
+
+### Write access code into e_IoE_Account.json --------------------------------
+$environment$=get						postman					postman_json				#json_name#=e_IoE_Account.json
+set										postman					postman_access_token		#json_name#=e_IoE_Account.json,#environment#=$environment$,#access_token#=$get_code$,#target_key#=nd_token
+

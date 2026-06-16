@@ -1,0 +1,55 @@
+{
+    "fwSku": {
+        "options": [
+            {
+                "id": null,
+                "option": "Igw-PLUS"
+            },
+            {
+                "id": null,
+                "option": "Cube-X"
+            },
+            {
+                "id": null,
+                "option": "Cube-PLUS"
+            },
+            {
+                "id": null,
+                "option": "Cube-JUME"
+            },
+            {
+                "id": null,
+                "option": "Cube-JIIS"
+            },
+            {
+                "id": null,
+                "option": "Cube-J1"
+            },
+            {
+                "id": null,
+                "option": "Cube-J"
+            },
+            {
+                "id": null,
+                "option": "Cube-ITANGO"
+            },
+            {
+                "id": null,
+                "option": "Atto-PostF"
+            },
+            {
+                "id": null,
+                "option": "Atto-PLUS"
+            }
+        ],
+        "total": 10
+    },
+    "fwVersion": {
+        "options": [],
+        "total": 0
+    },
+    "product": {
+        "options": [],
+        "total": 0
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "uuid": "882922ad-bb9f-440a-97c6-62bdcc783ef6",
+    "name": "Motion",
+    "model": "Pixi-G",
+    "onlineStatus": 1,
+    "info": {
+        "battery": "75",
+        "motion": 1620718855461,
+        "generatedAt": 1620718855461
+    }
+}

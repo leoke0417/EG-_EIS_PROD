@@ -1,0 +1,51 @@
+ini		api_egplus.ini
+start
+
+
+
+$cognito_token$=get			api_verification		id_token			#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+set							api_verification		environment			#environment_name#=e_EGPlus.json,#new_token#=$cognito_token$
+
+set							api_verification		collection			#collection_name#=c_egplus_GET_api_v1_gateways_{gatewayUuid}_weathers_today.json,#new_token#=$cognito_token$,#testcase_name#=Get_token
+
+$cmd$=get					postman					command				#collection#=c_egplus_GET_api_v1_gateways_{gatewayUuid}_weathers_today.json,#environment#=e_EGPlus.json,#iterations#=1
+
+exec						postman					command				#command#=$cmd$
+
+$result_file$=get			postman					result		
+
+$list_data$=get				postman					read_csv			#filename#=$result_file$
+
+$target_data$=get			postman					find_result			#file#=$list_data$,#testcase#=GET_api_v1_gateways_{gatewayUuid}_weathers_today
+
+$result$=get				postman					api_result			#api_result#=$target_data$
+
+verify						postman					status_code			#api_result#=$result$,#expected_result#=200
+
+$response_body$=get			api_verification		api_response		#api_result#=$result$
+
+$expected_body$=get			api_verification		expected_result		#environment#=$test_environment$,#expected_result#=EG+\GET_api_v1_gateways_{gatewayUuid}_weathers_today.json
+
+verify						api_verification		dict_keys			#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$time$=get								file_operate		dict_list_dict_value						#first_key#=weathers,#second_key#=time,#response_body#=$response_body$
+
+$icon$=get								file_operate		dict_list_dict_value						#first_key#=weathers,#second_key#=icon,#response_body#=$response_body$
+
+$text$=get								file_operate		dict_list_dict_value						#first_key#=weathers,#second_key#=text,#response_body#=$response_body$
+
+$temperature$=get								file_operate		dict_list_dict_value						#first_key#=weathers,#second_key#=temperature,#response_body#=$response_body$
+
+$humidity$=get								file_operate		dict_list_dict_value						#first_key#=weathers,#second_key#=humidity,#response_body#=$response_body$
+
+verify									api_verification	unix_timestamp								#actual_result#=$time$
+
+verify									api_verification	int								#actual_result#=$icon$
+
+verify									api_verification	string								#actual_result#=$text$
+
+verify									api_verification	string								#actual_result#=$temperature$
+
+verify									api_verification	string								#actual_result#=$humidity$
+

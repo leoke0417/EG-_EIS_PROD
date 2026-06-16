@@ -1,0 +1,23 @@
+###
+### Send result to Google chat room.
+###	1. Get running test case from quick-scan_eis.qas.
+###	2. Get testing result from {workspace}\log\{test case}\{test case}.xml
+###	3. Merge all result and make them human readable.
+### 4. Send result.
+###
+
+
+start
+
+###	Step 1.
+$qa_list$=get						qas_result			qa_list				#path#=qa\API_NextDrive\EG+\Error_test\eg_plus_api_error.qas,#report_file#=eg_plus_api_error_report
+
+###	Step 2.
+$xml_list$=get						qas_result			xml_list			#list#=$qa_list$,#path_prefix#=eg_plus_api_error\
+
+###	Step 3.
+$overall_result$=get				qas_result			overall_result		#text#=$xml_list$,#environment#=QA Staging,#project#=IoEP-API EG+_Error_Check,#test#=APIs
+
+###	Step 4.
+send								Fb					googlemessage		#message#=$overall_result$
+

@@ -1,0 +1,87 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get													postman					command											#collection#=c_QA_IoE_GET_developer_options.json,#environment#=e_IoE.json,#iterations#=1
+											
+exec														postman					command											#command#=$cmd$
+											
+$result_file$=get											postman					result							
+											
+$list_data$=get												postman					read_csv										#filename#=$result_file$
+											
+$target_data$=get											postman					find_result										#file#=$list_data$,#testcase#=GET_developer_options
+											
+$result$=get												postman					api_result										#api_result#=$target_data$
+											
+verify														postman					status_code										#api_result#=$result$,#expected_result#=200
+											
+$response_body$=get											api_verification		api_response									#api_result#=$result$
+											
+$expected_body$=get											api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_developer_options.json
+											
+verify														api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+						
+
+###=====
+### Get
+###=====
+## Get serviceCategories > label
+$serviceCategories_label$=get								file_operate			dict_list_dict_value							#first_key#=serviceCategories,#second_key#=label,#response_body#=$response_body$
+
+## Get serviceCategories > value
+$serviceCategories_value$=get								file_operate			dict_list_dict_value							#first_key#=serviceCategories,#second_key#=value,#response_body#=$response_body$
+
+## Get functionCategories > label
+$functionCategories_label$=get								file_operate			dict_list_dict_value							#first_key#=functionCategories,#second_key#=label,#response_body#=$response_body$
+
+## Get functionCategories > value
+$functionCategories_value$=get								file_operate			dict_list_dict_value							#first_key#=functionCategories,#second_key#=value,#response_body#=$response_body$
+
+## Get servicePolices > label
+$servicePolices_label$=get									file_operate			dict_list_dict_value							#first_key#=servicePolices,#second_key#=label,#response_body#=$response_body$
+
+## Get servicePolices > value
+$servicePolices_value$=get									file_operate			dict_list_dict_value							#first_key#=servicePolices,#second_key#=value,#response_body#=$response_body$
+
+## Get deviceScopeOptions > model
+$deviceScopeOptions_model$=get								file_operate			dict_list_dict_value							#first_key#=deviceScopeOptions,#second_key#=model,#response_body#=$response_body$
+
+## Get deviceScopeOptions > scopes > label
+$deviceScopeOptions_scopes_label$=get						file_operate			dict_list_dict_list_dict_value					#first_key#=deviceScopeOptions,#second_key#=scopes,#third_key#=label,#response_body#=$response_body$
+
+## Get deviceScopeOptions > scopes > value
+$deviceScopeOptions_scopes_value$=get						file_operate			dict_list_dict_list_dict_value					#first_key#=deviceScopeOptions,#second_key#=scopes,#third_key#=value,#response_body#=$response_body$
+
+
+###=====
+### Verify
+###=====
+## Verify serviceCategories_label
+verify														api_verification		string											#actual_result#=$serviceCategories_label$
+
+## Verify serviceCategories_value
+verify														api_verification		uuid											#actual_result#=$serviceCategories_value$
+
+## Verify functionCategories_label
+verify														api_verification		string											#actual_result#=$functionCategories_label$
+
+## Verify functionCategories_value
+verify														api_verification		uuid											#actual_result#=$functionCategories_value$
+
+## Verify servicePolices_label
+verify														api_verification		string											#actual_result#=$servicePolices_label$
+
+## Verify servicePolices_value
+verify														api_verification		string											#actual_result#=$servicePolices_value$
+
+## Verify deviceScopeOptions_model
+verify														api_verification		string											#actual_result#=$deviceScopeOptions_model$
+
+## Verify deviceScopeOptions_scopes_label
+verify														api_verification		string											#actual_result#=$deviceScopeOptions_scopes_label$
+
+## Verify deviceScopeOptions_scopes_value
+verify														api_verification		uuid											#actual_result#=$deviceScopeOptions_scopes_value$
+
+
+

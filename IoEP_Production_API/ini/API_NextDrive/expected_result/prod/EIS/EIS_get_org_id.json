@@ -1,0 +1,23 @@
+{
+    "id": "83c668dc-a208-4e13-a173-7c472d303996",
+    "displayId": "O-201027001",
+    "name": "NextDrive",
+    "country": "TW",
+    "industry": "Others",
+    "manager": {
+        "name": "Andy Liu",
+        "email": "andy.liu@nextdrive.io"
+    },
+    "clients": [
+        {
+            "id": "47",
+            "displayId": "C-201027001",
+            "name": "NextDrive KK"
+        },
+        {
+            "id": "48",
+            "displayId": "C-201202001",
+            "name": "NextDrive II"
+        }
+    ]
+}

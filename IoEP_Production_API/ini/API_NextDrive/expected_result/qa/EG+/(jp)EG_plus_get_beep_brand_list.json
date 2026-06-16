@@ -1,0 +1,92 @@
+{
+    "brands": [
+        {
+            "id": "24",
+            "name": "アイリスオーヤマ（IRIS OHYAMA）"
+        },
+        {
+            "id": "15",
+            "name": "シャープ（Sharp）"
+        },
+        {
+            "id": "2",
+            "name": "ダイキン（DAIKIN）"
+        },
+        {
+            "id": "1",
+            "name": "パナソニック（Panasonic）"
+        },
+        {
+            "id": "3",
+            "name": "三菱電機（Mitsubishi）"
+        },
+        {
+            "id": "12",
+            "name": "東芝（Toshiba）"
+        },
+        {
+            "id": "4",
+            "name": "日立（Hitachi）"
+        },
+        {
+            "id": "5",
+            "name": "富士通ゼネラル（Fujitsu）"
+        },
+        {
+            "id": "13",
+            "name": "APTON"
+        },
+        {
+            "id": "17",
+            "name": "BEAVER"
+        },
+        {
+            "id": "19",
+            "name": "CHOFU"
+        },
+        {
+            "id": "22",
+            "name": "CORONA"
+        },
+        {
+            "id": "23",
+            "name": "DEI"
+        },
+        {
+            "id": "14",
+            "name": "GREE"
+        },
+        {
+            "id": "7",
+            "name": "HERAN"
+        },
+        {
+            "id": "10",
+            "name": "LG"
+        },
+        {
+            "id": "9",
+            "name": "MITSUBISHI HEAVY"
+        },
+        {
+            "id": "11",
+            "name": "National"
+        },
+        {
+            "id": "21",
+            "name": "NEC Sofeel"
+        },
+        {
+            "id": "20",
+            "name": "SAMPO"
+        },
+        {
+            "id": "6",
+            "name": "SANYO"
+        },
+        {
+            "id": "18",
+            "name": "TECO"
+        }
+    ]
+}

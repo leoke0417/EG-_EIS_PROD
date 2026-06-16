@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "eb3b66be-a89a-4c8e-9675-b8dd39cad4e7",
+		"name": "GET_datapoint_v1_dsns_{dsn}_properties_latest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "GET_datapoint_v1_dsns_{dsn}_properties_latest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_manager_token}}",
+							"type": "string"}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{end_point}}/data-point/v1/dsns/{{ecn_uuid}}/properties/latest?properties={{data_uuid}}",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"data-point",
+						"v1",
+						"dsns",
+						"{{ecn_uuid}}",
+						"properties",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "properties",
+							"value": "{{data_uuid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

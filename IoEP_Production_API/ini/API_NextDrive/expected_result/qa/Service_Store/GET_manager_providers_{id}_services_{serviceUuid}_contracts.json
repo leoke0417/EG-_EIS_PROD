@@ -1,0 +1,18 @@
+[
+    {
+        "serviceId": "81d72775-0664-424f-b61c-478ec6111528",
+        "pkgName": "io.nextdrive.ecogenie.lifeplusdeveloper.stg",
+        "contractStatus": "ON_CONFIRMED",
+        "subscribeType": "USER_SUBSCRIBE",
+        "price": 0.0,
+        "updatedAt": "2021-09-24T06:43:08.081188"
+    },
+    {
+        "serviceId": "81d72775-0664-424f-b61c-478ec6111528",
+        "pkgName": "io.nextdrive.ecogenie.stg",
+        "contractStatus": "ON_CONFIRMED",
+        "subscribeType": "USER_SUBSCRIBE",
+        "price": 0.0,
+        "updatedAt": "2021-09-24T06:51:29.620921"
+    }
+]

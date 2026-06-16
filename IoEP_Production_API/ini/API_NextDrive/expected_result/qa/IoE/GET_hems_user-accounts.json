@@ -1,0 +1,1741 @@
+{
+    "users": [
+        {
+            "id": 189,
+            "email": "ann.fu@nextdrive.io",
+            "devices": [
+                {
+                    "model": "Camera",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Pixi-HT",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "ElecWaterHeater",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "EVMonoCharger",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "EVCharger",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "StgBattery",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "FuelCell",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "StgBattery",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "ElecWaterHeater",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 219,
+            "email": "jenny.chen@jp.nextdrive.io",
+            "devices": [
+                {
+                    "model": "SolarPW",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "StgBattery",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Beep",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 231,
+            "email": "peter.yu@nextdrive.io",
+            "devices": [
+                {
+                    "model": "Camera",
+                    "onlineStatus": 3
+                }
+            ]
+        },
+        {
+            "id": 274,
+            "email": "dustin.lin@nextdrive.io",
+            "devices": [
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Pixi-G",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 2419,
+            "email": "helmut.liu+8@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20574,
+            "email": "a100502@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20575,
+            "email": "a100503@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20576,
+            "email": "a100504@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20577,
+            "email": "a100505@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20578,
+            "email": "a100506@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20579,
+            "email": "a100507@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20580,
+            "email": "a100508@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20581,
+            "email": "a100509@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20582,
+            "email": "a100510@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20583,
+            "email": "a100511@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20584,
+            "email": "a100512@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20585,
+            "email": "a100513@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20586,
+            "email": "a100514@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20587,
+            "email": "a100515@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20588,
+            "email": "a100516@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20589,
+            "email": "a100517@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20590,
+            "email": "a100518@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20591,
+            "email": "a100519@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20592,
+            "email": "a100520@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20593,
+            "email": "a100521@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20594,
+            "email": "a100522@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20595,
+            "email": "a100523@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20596,
+            "email": "a100524@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20597,
+            "email": "a100525@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20598,
+            "email": "a100526@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20599,
+            "email": "a100527@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20600,
+            "email": "a100528@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20601,
+            "email": "a100529@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20602,
+            "email": "a100530@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20603,
+            "email": "a100531@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20604,
+            "email": "a100532@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20605,
+            "email": "a100533@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20606,
+            "email": "a100534@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20607,
+            "email": "a100535@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20608,
+            "email": "a100536@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20609,
+            "email": "a100537@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20610,
+            "email": "a100538@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20611,
+            "email": "a100539@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20612,
+            "email": "a100540@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20613,
+            "email": "a100541@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20614,
+            "email": "a100542@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20615,
+            "email": "a100543@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20616,
+            "email": "a100544@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20617,
+            "email": "a100545@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20618,
+            "email": "a100546@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20619,
+            "email": "a100547@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20620,
+            "email": "a100548@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20621,
+            "email": "a100549@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20622,
+            "email": "a100550@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20623,
+            "email": "a100551@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20624,
+            "email": "a100552@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20625,
+            "email": "a100553@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20626,
+            "email": "a100554@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20627,
+            "email": "a100555@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20628,
+            "email": "a100556@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20629,
+            "email": "a100557@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20630,
+            "email": "a100558@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20631,
+            "email": "a100559@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20632,
+            "email": "a100560@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20633,
+            "email": "a100561@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20634,
+            "email": "a100562@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20635,
+            "email": "a100563@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20636,
+            "email": "a100564@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20637,
+            "email": "a100565@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20638,
+            "email": "a100566@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20639,
+            "email": "a100567@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20640,
+            "email": "a100568@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20641,
+            "email": "a100569@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20642,
+            "email": "a100570@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20643,
+            "email": "a100571@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20644,
+            "email": "a100572@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20645,
+            "email": "a100573@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20646,
+            "email": "a100574@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20647,
+            "email": "a100575@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20648,
+            "email": "a100576@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20649,
+            "email": "a100577@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20650,
+            "email": "a100578@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20651,
+            "email": "a100579@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20652,
+            "email": "a100580@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20653,
+            "email": "a100581@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20654,
+            "email": "a100582@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20655,
+            "email": "a100583@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20656,
+            "email": "a100584@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20657,
+            "email": "a100585@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20658,
+            "email": "a100586@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20659,
+            "email": "a100587@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20660,
+            "email": "a100588@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20661,
+            "email": "a100589@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20662,
+            "email": "a100590@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20663,
+            "email": "a100591@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20664,
+            "email": "a100592@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20665,
+            "email": "a100593@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20666,
+            "email": "a100594@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20667,
+            "email": "a100595@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20668,
+            "email": "a100596@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20669,
+            "email": "a100597@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20670,
+            "email": "a100598@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20671,
+            "email": "a100599@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20672,
+            "email": "a100600@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20673,
+            "email": "a100601@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20674,
+            "email": "a100602@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20675,
+            "email": "a100603@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20676,
+            "email": "a100604@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20677,
+            "email": "a100605@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20678,
+            "email": "a100606@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20679,
+            "email": "a100607@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20680,
+            "email": "a100608@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20681,
+            "email": "a100609@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20682,
+            "email": "a100610@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20683,
+            "email": "a100611@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20684,
+            "email": "a100612@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20685,
+            "email": "a100613@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20686,
+            "email": "a100614@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20687,
+            "email": "a100615@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20688,
+            "email": "a100616@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20689,
+            "email": "a100617@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20690,
+            "email": "a100618@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20691,
+            "email": "a100619@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20692,
+            "email": "a100620@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20693,
+            "email": "a100621@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20694,
+            "email": "a100622@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20695,
+            "email": "a100623@nextdrive.io",
+            "devices": [
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 1
+                }
+            ]
+        },
+        {
+            "id": 20696,
+            "email": "a100624@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20697,
+            "email": "a100625@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20698,
+            "email": "a100626@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20699,
+            "email": "a100627@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20700,
+            "email": "a100628@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20701,
+            "email": "a100629@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20702,
+            "email": "a100630@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20703,
+            "email": "a100631@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20704,
+            "email": "a100632@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20705,
+            "email": "a100633@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20706,
+            "email": "a100634@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20707,
+            "email": "a100635@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20708,
+            "email": "a100636@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20709,
+            "email": "a100637@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20710,
+            "email": "a100638@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20711,
+            "email": "a100639@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20712,
+            "email": "a100640@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20713,
+            "email": "a100641@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20714,
+            "email": "a100642@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20715,
+            "email": "a100643@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20716,
+            "email": "a100644@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20717,
+            "email": "a100645@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20718,
+            "email": "a100646@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20719,
+            "email": "a100647@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20720,
+            "email": "a100648@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20721,
+            "email": "a100649@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20722,
+            "email": "a100650@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20723,
+            "email": "a100651@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20724,
+            "email": "a100652@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20725,
+            "email": "a100653@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20726,
+            "email": "a100654@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20727,
+            "email": "a100655@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20728,
+            "email": "a100656@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20729,
+            "email": "a100657@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20730,
+            "email": "a100658@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20731,
+            "email": "a100659@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 20732,
+            "email": "a100660@nextdrive.io",
+            "devices": []
+        },
+        {
+            "id": 74967,
+            "email": "helmut.liu+101@nextdrive.io",
+            "devices": [
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "EVCharger",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Beep",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "ElecWaterHeater",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "SolarPW",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "StgBattery",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 75109,
+            "email": "automan+99@nextdrive.io",
+            "devices": [
+                {
+                    "model": "PWDBoard",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "EVCharger",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "ElecWaterHeater",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "SolarPW",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "AirCon",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "FuelCell",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "StgBattery",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Pixi-HT",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Pixi-G",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 76578,
+            "email": "neo.kang@nextdrive.io",
+            "devices": [
+                {
+                    "model": "Pixi-HT",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 600643,
+            "email": "automan+10@nextdrive.io",
+            "devices": [
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 602068,
+            "email": "dustin.lin+111@nextdrive.io",
+            "devices": [
+                {
+                    "model": "StgBattery",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 603701,
+            "email": "dustin.lin+12345@nextdrive.io",
+            "devices": [
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Pixi-G",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "StgBattery",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "Pixi-HT",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Beep",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "SolarPW",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "EVMonoCharger",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "EVMonoCharger",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "EVMonoCharger",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 603945,
+            "email": "dustin.lin+123456@nextdrive.io",
+            "devices": [
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 603961,
+            "email": "chi.chen+00@jp.nextdrive.io",
+            "devices": [
+                {
+                    "model": "Camera",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Pixi-HT",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "SmaMe-TypeM",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Pixi-G",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                }
+            ]
+        },
+        {
+            "id": 604514,
+            "email": "chi.chen+111@jp.nextdrive.io",
+            "devices": [
+                {
+                    "model": "EVMonoCharger",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "StgBattery",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "FuelCell",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "SolarPW",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "AirCon",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "Camera",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "SmartMeter",
+                    "onlineStatus": 2
+                },
+                {
+                    "model": "ElecWaterHeater",
+                    "onlineStatus": 1
+                },
+                {
+                    "model": "PWDBoard",
+                    "onlineStatus": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+{
+    "code": 40001,
+    "message": "Invalid parameter: \"clientId\" failed custom validation because Invalid template variable \"\" fails due to: Formula contains invalid trailing operator. \"confirmationCode\" is not allowed to be empty",
+    "requestId": "f45e50ff-0f2f-4e08-adcd-33921e97e815"
+}

@@ -1,0 +1,73 @@
+ini											api_eis.ini
+start
+
+$cmd$=get									postman				command								#collection#=c_QA_EIS_GET_programs.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman				command								#command#=$cmd$
+
+$result_file$=get							postman				result
+
+$list_data$=get								postman				read_csv							#filename#=$result_file$
+
+$target_data$=get							postman				find_result							#file#=$list_data$,#testcase#=GET_programs
+
+$result$=get								postman				api_result							#api_result#=$target_data$
+
+verify										postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get							api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get						api_verification	expected_result						#environment#=$test_environment$,#expected_result#=EIS/GET_programs.json
+
+verify										api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+$programs_id$=get							file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=id,#response_body#=$response_body$
+
+$programs_displayId$=get					file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=displayId,#response_body#=$response_body$
+
+$programs_status$=get						file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=status,#response_body#=$response_body$
+
+$programs_title$=get						file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=title,#response_body#=$response_body$
+
+$programs_type$=get							file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=type,#response_body#=$response_body$
+
+$programs_organization_name$=get			file_operate		dict_list_dict_dict_value			#first_key#=programs,#second_key#=organization,#third_key#=name,#response_body#=$response_body$
+
+$programs_organization_displayId$=get		file_operate		dict_list_dict_dict_value			#first_key#=programs,#second_key#=organization,#third_key#=displayId,#response_body#=$response_body$
+
+$programs_client_name$=get					file_operate		dict_list_dict_dict_value			#first_key#=programs,#second_key#=client,#third_key#=name,#response_body#=$response_body$
+
+$programs_client_displayId$=get				file_operate		dict_list_dict_dict_value			#first_key#=programs,#second_key#=client,#third_key#=displayId,#response_body#=$response_body$
+
+$programs_productTypes$=get					file_operate		dict_list_dict_list_value			#first_key#=programs,#second_key#=productTypes,#response_body#=$response_body$
+
+$programs_manager$=get						file_operate		dict_list_dict_value				#first_key#=programs,#second_key#=manager,#response_body#=$response_body$
+
+verify										api_verification	uuid								#actual_result#=$programs_id$				
+
+verify										api_verification	string								#actual_result#=$programs_displayId$				
+
+verify										api_verification	string								#actual_result#=$programs_status$				
+
+verify										api_verification	string								#actual_result#=$programs_title$				
+
+verify										api_verification	string								#actual_result#=$programs_type$				
+
+verify										api_verification	string								#actual_result#=$programs_organization_name$				
+
+verify										api_verification	string								#actual_result#=$programs_organization_displayId$				
+
+verify										api_verification	string								#actual_result#=$programs_client_name$				
+
+verify										api_verification	string								#actual_result#=$programs_client_displayId$				
+
+verify										api_verification	string								#actual_result#=$programs_productTypes$				
+
+verify										api_verification	string								#actual_result#=$programs_manager$				
+
+
+
+
+
+
+

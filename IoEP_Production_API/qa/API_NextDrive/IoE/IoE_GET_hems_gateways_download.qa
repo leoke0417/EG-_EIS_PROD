@@ -1,0 +1,20 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_IoE_GET_hems_gateways_download.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=GET_hems_gateways_download
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+verifysame								api_verification		real_string						#api_response#=$response_body$,#expected_str#=CSVpass

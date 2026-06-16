@@ -1,0 +1,43 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_ServiceStore_POST_tester_tokens_verify.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=Get_token
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$nd_token$=get							file_operate			dict_dict_value					#first_key#=data,#second_key#=accessToken,#response_body#=$response_body$
+
+$environment$=get						postman				postman_json						#json_name#=e_Service_Store.json
+
+set										postman				postman_environment					#json_name#=e_Service_Store.json,#environment#=$environment$,#access_token#=$nd_token$,#target_key#=nd_token
+
+
+
+
+$cmd$=get								postman					command						#collection#=c_ServiceStore_POST_tester_tokens_verify.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result	
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=POST_tester_tokens_verify
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+# end

@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "55352c35-09f0-44a7-948f-d4127e8dda25",
+		"name": "IoE_GET_hems_gateways_{id}_history",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "GET_hems_gateways_{id}_history",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/hems/gateways/2/history",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"hems",
+						"gateways",
+						"2",
+						"history"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

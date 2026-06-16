@@ -1,0 +1,237 @@
+ini			Scan.ini
+init		ie1
+keepgoon	0
+failinclude		SI_SS_failinclude.sub
+start
+
+# ----- Server Side ----- #
+#set			ie1.Logon							text_password							$LogonPassword
+#click 		ie1.Logon							button_ok
+include		Login.sub
+
+#
+#sync with server
+#
+$currenttime=get	Tools					current_time
+remote		start		$osce_clients		$currenttime
+timeout		0
+set			Tools		current_time		#time#=!!
+timeout		3600
+remote		end
+
+#
+#clean client log
+#
+try			start
+remote		start			$osce_clients
+delete		Tools			log_spyware_grayware
+delete		Tools			log_virus_malware
+remote		end
+try			end
+
+#disable realtime scan allow cfg
+click		ie1.Common								link_networked_computers
+click       ie1.Common								link_client_management
+sleep		5
+select		Tools									client_tree_domain							$default_domain
+#select		Tools									client_tree_computer						Computer = $osce_clients_by_hostname
+click		ie1.Client_Management					button_settings
+click		ie1.Client_Management					button_settings_real_time_scan_settings
+clear		ie1.Real_Time_Scan_Settings				checkbox_enable_virus_malware_scan
+click		ie1.Real_Time_Scan_Settings				button_save
+click		ie1.Real_Time_Scan_Settings				button_close
+
+
+#
+#for scheduled scan setting
+#
+click		ie1.Common								link_networked_computers
+click       ie1.Common								link_client_management
+sleep		5
+select		Tools									client_tree_domain							$default_domain
+#select		Tools									client_tree_computer						Computer = $osce_clients_by_hostname
+click		ie1.Client_Management					button_settings
+click		ie1.Client_Management					button_settings_scheduled_scan_settings
+#click		ie1.Scheduled_Scan_Settings				link_target
+set			ie1.Scheduled_Scan_Settings				checkbox_enable_virus_malware_scan
+set			ie1.Scheduled_Scan_Settings				checkbox_enable_spyware_grayware_scan
+set			ie1.Scheduled_Scan_Settings				target_radio_intelliscan
+set			ie1.Scheduled_Scan_Settings				target_radio_schedule_monthly
+#include		SI_SS_Exclusion.sub
+
+$day=1
+$hour=1
+$minute=1
+
+select		ie1.Scheduled_Scan_Settings				target_select_day_of_month					0$day$
+select		ie1.Scheduled_Scan_Settings				target_select_start_hour					0$hour$
+select		ie1.Scheduled_Scan_Settings				target_select_start_minute					0$minute$
+click		ie1.Scheduled_Scan_Settings				link_action
+set			ie1.Scheduled_Scan_Settings				action_radio_use_activeaction
+set         ie1.Scheduled_Scan_Settings             action_checkbox_display_notification_when_virus_detected
+set         ie1.Scheduled_Scan_Settings             action_checkbox_display_notification_when_spyware_detected
+click		ie1.Scheduled_Scan_Settings				button_save
+click		ie1.Scheduled_Scan_Settings				button_close
+
+click		ie1.Client_Management					button_settings
+click		ie1.Client_Management					button_settings_privileges_and_other_settings
+set			ie1.Privileges_And_Other_Settings		privileges_checkbox_configure_real_time_scan_settings
+set			ie1.Privileges_And_Other_Settings		privileges_checkbox_configure_manual_scan_settings
+set			ie1.Privileges_And_Other_Settings		privileges_checkbox_configure_scheduled_scan_settings
+set			ie1.Privileges_And_Other_Settings		privileges_checkbox_stop_schedule_scan
+click		ie1.Privileges_And_Other_Settings		button_save
+click		ie1.Privileges_And_Other_Settings		button_close
+# Log off OSCE web console
+click		ie1.Common						link_log_off
+
+
+sleep		20
+
+
+remote		start									$osce_clients
+#verify		client setting
+doubleclick	Client									tray_icon
+verify		Tools									window							title=Trend Micro OfficeScan Real-Time Monitor,text=Monthly, every 1st day at 01:01,#criteria#=exist
+send		Tools									window_command					title=Trend Micro OfficeScan Real-Time Monitor,text=Scheduled Scan:,command=!{F4}
+remote		end
+
+
+#
+#verify client scheduled settings
+#
+remote		start									$osce_clients
+#verify client setting
+#verify		Client									tray_icon_status							#value#=Real-time Scan disabled,#criteria#=exist
+verify		Tools									registry									#path# = HKEY_LOCAL_MACHINE\\SOFTWARE\\TrendMicro\\PC-cillinNTCorp\\CurrentVersion\\Real Time Scan Configuration, #key# = Enable, #value# = 0
+verify		Tools									registry									#path# = HKEY_LOCAL_MACHINE\\SOFTWARE\\TrendMicro\\PC-cillinNTCorp\\CurrentVersion\\Prescheduled Scan Configuration, #key# = Enable,	#value# = 1
+verify		Tools									registry									#path# = HKEY_LOCAL_MACHINE\\SOFTWARE\\TrendMicro\\PC-cillinNTCorp\\CurrentVersion\\Prescheduled Scan Configuration, #key# = Frequency,	#value# = 1
+verify		Tools									registry									#path# = HKEY_LOCAL_MACHINE\\SOFTWARE\\TrendMicro\\PC-cillinNTCorp\\CurrentVersion\\Prescheduled Scan Configuration, #key# = DayOfMonth,	#value# = 1
+show		Client									console
+click		Client_Console							settings_menu_scheduled_scan
+verify		Client_Scan_Setting_Scheduled_Scan		radio_am									#criteria#=set
+verify		Client_Scan_Setting_Scheduled_Scan		select_frequency							#value#=Monthly
+verify		Client_Scan_Setting_Scheduled_Scan		select_day_of_the_week						#criteria#=notvisible
+click		Client_Scan_Setting_Scheduled_Scan		button_cancel
+click		Client_Console							button_exit
+#click		Client_Console							button_exit
+remote		end
+
+remote		start									$osce_clients					$day
+#verify client setting
+show		Client									console
+click		Client_Console							settings_menu_scheduled_scan
+verify		Client_Scan_Setting_Scheduled_Scan		text_day_of_the_month				#value#=!!
+click		Client_Scan_Setting_Scheduled_Scan		button_cancel
+click		Client_Console							button_exit
+#click		Client_Console							button_exit
+remote		end
+
+remote		start									$osce_clients					$hour
+#verify client setting
+show		Client									console
+click		Client_Console							settings_menu_scheduled_scan
+verify		Client_Scan_Setting_Scheduled_Scan		text_hour						#value#=!!
+click		Client_Scan_Setting_Scheduled_Scan		button_cancel
+click		Client_Console							button_exit
+#click		Client_Console							button_exit
+remote		end
+
+remote		start									$osce_clients					$minute
+#verify client setting
+show		Client									console
+click		Client_Console							settings_menu_scheduled_scan
+verify		Client_Scan_Setting_Scheduled_Scan		text_minute						#value#=!!
+click		Client_Scan_Setting_Scheduled_Scan		button_cancel
+click		Client_Console							button_exit
+#click		Client_Console							button_exit
+remote		end
+
+
+remote		start									$osce_clients
+#inject virus
+#inject		Tools									virus										#sample#=01_02.rar, #path#=temp\\virus
+#inject		Tools									virus										#sample#=Set_C_Z.rar, #path#=temp\\virus,#criteria#=noclear
+inject		Tools									virus										#sample#=01_02.rar, #path#=$ss_virus_put_folder$
+inject		Tools									virus										#sample#=Set_C_Z.rar, #path#=$ss_virus_put_folder$,#criteria#=noclear
+remote		end
+
+
+#
+#client time settings
+#
+
+$currenttime=get	Tools					current_time
+$day=get		Tools					time_unit			#time#=$currenttime,#unit#=day
+$revisedtime=get	Tools				recal_time			#time#=$currenttime,#unit#=day,#value#=-$day
+$revisedtime=get	Tools				recal_time			#time#=$revisedtime,#unit#=day,#value#=1
+$hour=get		Tools					time_unit			#time#=$revisedtime,#unit#=hour
+$revisedtime=get	Tools				recal_time			#time#=$revisedtime,#unit#=hour,#value#=-$hour
+$revisedtime=get	Tools				recal_time			#time#=$revisedtime,#unit#=hour,#value#=1
+$minute=get		Tools					time_unit			#time#=$revisedtime,#unit#=min
+$revisedtime=get	Tools				recal_time			#time#=$revisedtime,#unit#=min,#value#=-$minute
+$sec=get		Tools					time_unit			#time#=$revisedtime,#unit#=sec
+$revisedtime=get	Tools				recal_time			#time#=$revisedtime,#unit#=sec,#value#=-$sec
+
+#show			Tools_Calculate			variable			$revisedtime
+
+remote		start		$osce_clients		$revisedtime
+timeout		0
+set			Tools		current_time		#time#=!!
+timeout		3600
+remote		end
+
+#
+#verify	client start scanning
+#
+retry		start		30		30
+remote		start				$osce_clients
+verify		Client				tray_icon_status			#value#=Scanning...,#criteria#=exist
+remote		end
+retry		end
+
+timeout		0
+
+remote		start				$osce_clients
+timeout		0
+remote		end
+
+#
+#verify	client stop scan
+#
+retry		start				200					25
+remote		start				$osce_clients
+verify		Client				tray_icon_status			#value#=Scanning...,#criteria#=notexist
+remote		end
+retry		end
+
+remote		start				$osce_clients
+timeout		3600
+remote		end
+
+timeout		3600
+
+# ----- Client Side ----- #
+
+remote		start									$osce_clients
+#verify virus notificaion
+verify		Tools									window										#criteria# = exist, title = OfficeScan Notification Message, text = $virus_notification_window_message
+click		Client_Virus_Notification_Message		button_ok
+
+# ----- Client Side ----- #
+#verify spyware notification
+verify		Tools									window										#criteria# = exist, title = OfficeScan Notification Message, text = $spyware_notification_window_message
+click		Client_Spyware_Notification_Message		button_ok
+
+
+#
+#sync with server
+#
+$currenttime=get	Tools					current_time
+remote		start		$osce_clients		$currenttime
+timeout		0
+set			Tools		current_time		#time#=!!
+timeout		3600
+remove		Tools		folder						.\\$ss_virus_put_folder$
+remote		end
+
+end

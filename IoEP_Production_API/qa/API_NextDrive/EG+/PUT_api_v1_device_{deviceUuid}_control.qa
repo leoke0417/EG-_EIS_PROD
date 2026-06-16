@@ -1,0 +1,24 @@
+ini		api_egplus.ini
+start
+
+$cognito_token$=get			api_verification		id_token			#pool_id#=$cognito_pool_id$,#client_id#=$cognito_client_id$,#username#=$app_username$,#password#=$app_password$
+
+set							api_verification		environment			#environment_name#=e_EGPlus.json,#new_token#=$cognito_token$
+
+set							api_verification		collection			#collection_name#=c_qa_egplus_put_api_v1_device_{deviceUuid}_control.json,#new_token#=$cognito_token$,#testcase_name#=Get_token
+
+$cmd$=get					postman					command				#collection#=c_qa_egplus_put_api_v1_device_{deviceUuid}_control.json,#environment#=e_EGPlus.json,#iterations#=1
+
+exec						postman					command				#command#=$cmd$
+
+$result_file$=get			postman					result		
+
+$list_data$=get				postman					read_csv			#filename#=$result_file$
+
+$target_data$=get			postman					find_result			#file#=$list_data$,#testcase#=PUT_api_v1_device_{deviceUuid}_control
+
+$result$=get				postman					api_result			#api_result#=$target_data$
+
+verify						postman					status_code			#api_result#=$result$,#expected_result#=200
+
+$response_body$=get			api_verification		api_response		#api_result#=$result$

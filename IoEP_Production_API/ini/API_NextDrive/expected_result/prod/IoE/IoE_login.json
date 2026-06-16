@@ -1,0 +1,24 @@
+{
+    "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJpb2Utc3VpdGUubmV4dGRyaXZlLmlvIiwianRpIjoiMzIiLCJzdWIiOiJkdXN0aW4ubGluQG5leHRkcml2ZS5pbyIsImFsaWFzQ29kZSI6IkMtMjAxMDI3MDAxIiwicHJvZ3JhbUlkIjoiNGZmOTE0MjktMWY5MS00ZWNjLWExZTktZjE2YjQ2MDY0YjhiIiwidGVhbUlkIjoiNTA1YjU5NmQtOTRhNC00MGM1LWJhMDctMmI1ZjEwNzQwNjU3Iiwicm9sZSI6IlVzZXIiLCJleHAiOjE2MjA5MjU0NjksImlhdCI6MTYyMDg5NjY2OX0.Wb3UMR9JeLlHwbnt_zEQLHDEDZgpiid4CBz99eA1m64",
+    "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJpb2Utc3VpdGUubmV4dGRyaXZlLmlvIiwidG9rZW5fdHlwZSI6InJlZnJlc2giLCJleHAiOjE2MjE1MDE0NjksImlhdCI6MTYyMDg5NjY2OX0.NKpUoh9Z3DX1rd_P6XhpFjYDVHR446Sk1k0YUe-xmsw",
+    "tokenType": "Bearer",
+    "name": "dustin.lin@nextdrive.io",
+    "firstLogin": false,
+    "isAdminSetup": false,
+    "expiredIn": 28800,
+    "deviceTrusted": false,
+    "otpRequired": false,
+    "otpMethods": [],
+    "modules": [
+        {
+            "label": "Developer",
+            "value": "Developer",
+            "enable": false
+        },
+        {
+            "label": "Ecogenie+",
+            "value": "HEMS",
+            "enable": true
+        }
+    ]
+}

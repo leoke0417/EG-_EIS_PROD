@@ -1,0 +1,9 @@
+gw_qa_data_sanity_all_motion.qa
+gw_qa_data_sanity_all_thermo.qa
+gw_qa_data_sanity_all_smartmeter.qa
+gw_qa_data_sanity_all_t2ms.qa
+gw_qa_data_sanity_all_fuelcell.qa
+gw_qa_data_sanity_all_pv.qa
+gw_qa_data_sanity_all_pwdb.qa
+gw_qa_data_sanity_all_stgbattery.qa
+gw_qa_data_sanity_all_waterheater.qa

@@ -1,0 +1,10 @@
+IoEP_UMS_0_preset.qa
+IoEP_UMS_1_Post_SignUp.qa
+IoEP_UMS_2_Post_Confirm_Signup.qa
+IoEP_UMS_3_Post_Login.qa
+IoEP_UMS_4_Put_users_reset_password.qa
+IoEP_UMS_5_Post_users_forgot_password.qa
+IoEP_UMS_6_Post_users_confirm_forgot_password.qa
+IoEP_UMS_7_Get_users_refresh_token.qa
+IoEP_UMS_8_Post_Delete_Account.qa
+IoEP_UMS_report.qa

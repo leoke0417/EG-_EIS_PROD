@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "92074ce6-900c-4cf9-8566-3eee607f81a8",
+		"name": "IoE_QA_POST_welcome-posts_UpdateWelcomePost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "POST_welcome-posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"authorEmail\": \"string\",\r\n  \"posts\": [\r\n    {\r\n      \"title\": \"string\",\r\n      \"description\": \"string\",\r\n      \"delayMin\": 0,\r\n      \"urls\": [\r\n        {\r\n          \"label\": \"label\",\r\n          \"url\": \"https://xxx\"\r\n        }\r\n      ],\r\n      \"images\": [\r\n        {\r\n          \"previewImageUrl\": \"https://xxx-thumbnail.png\",\r\n          \"originalContentUrl\": \"https://xxx.png\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"type\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/welcome-posts",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"welcome-posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

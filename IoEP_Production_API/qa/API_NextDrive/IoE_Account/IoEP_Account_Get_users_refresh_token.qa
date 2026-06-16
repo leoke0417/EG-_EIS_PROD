@@ -1,0 +1,36 @@
+ini										api_ioe_account.ini
+start
+
+### Read access token from file ------------------------------------------------------
+$get_code$=get							read_access_code		refresh_token_from_file
+
+### Write refresh code into e_IoE_Account.json --------------------------------
+$environment$=get						postman					postman_json				#json_name#=$ee$
+set										postman					postman_access_token		#json_name#=$ee$,#environment#=$environment$,#access_token#=$get_code$,#target_key#=refreshToken
+
+### Execute c_ioe_account_GET_account_v1_users_refresh_token.json file -------
+$cmd$=get								postman					command						#collection#=c_ioe_account_GET_account_v1_users_refresh_token.json,#environment#=$ee$,#iterations#=1
+exec									postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=GET /account/v1/users/refresh-token
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE_Account\GET_account_v1_users_refresh_token.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+### Write access token into file ----------------------------------------------
+set										read_access_code		access_token				#response_body_result#=$result$
+		
+
+								

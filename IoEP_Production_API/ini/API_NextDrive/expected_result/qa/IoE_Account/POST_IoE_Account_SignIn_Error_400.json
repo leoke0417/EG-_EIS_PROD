@@ -1,0 +1,5 @@
+{
+    "code": 40001,
+    "message": "Invalid parameter: \"locale\" length must be 5 characters long. Must be included in ja_JP,en_US,zh_TW.",
+    "requestId": "4df7d58c-b0f4-4a41-a709-6582bc2eb8ab"
+}

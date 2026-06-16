@@ -1,0 +1,6 @@
+{
+    "userCounts": 1,
+    "invalidUserEmails": [
+        "test@wrongmail.fake"
+    ]
+}

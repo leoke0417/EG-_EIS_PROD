@@ -1,0 +1,6 @@
+## 關聯 device
+$app_bleBrands_brandId_model_url$=get				egplus_api				v1_app_bleBrands_brandId_model_url					#environment#=url,#ble_brandId#=ble_brandId
+$app_bleBrands_brandId_model_header$=get			egplus_api				v1_app_bleBrands_brandId_model_header				#token#=accesstoken
+$app_bleBrands_brandId_model_response$=get			egplus_api				get													#url#=$app_bleBrands_brandId_model_url$,#header#=$app_bleBrands_brandId_model_header$
+$app_bleBrands_brandId_model_status_code$=get		egplus_api				status_code											#response#=$app_bleBrands_brandId_model_response$
+verify												api_verification		status_code											#api_response#=$app_bleBrands_brandId_model_status_code$,#expected_status_code#=200

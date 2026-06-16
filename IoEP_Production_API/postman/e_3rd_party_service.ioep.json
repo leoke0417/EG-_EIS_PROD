@@ -1,0 +1,63 @@
+{
+	"id": "3125b63f-f76d-4448-87f3-75c1baf2a57a",
+	"name": "3rd_party_service1",
+	"values": [
+		{
+			"key": "end_point",
+			"value": "https://ioeapi-qa.nextdrive.io",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "access_token",
+			"value": "5h6zbqblaUMmUrKJ/SWAT2P5rZrN6b5plVR79HZ",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "gateway_cd6842_pid",
+			"value": "JAB3410D07A5E470E",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "motion_9a16ce_uuid",
+			"value": "7da4eb16-8975-4ee1-af30-3e7346e09812",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "aircon_uuid",
+			"value": "03425abf-3756-42cd-8ead-b56ca5ab13f6",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "gateway_cd6842_uuid",
+			"value": "c10e84ea-2e2a-48a7-bfa4-e72c6d760a46",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "motion_uuid_ioep",
+			"value": "044c6b95-352c-495f-af36-3c26d8d36d97",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "gateway_5e470e_uuid",
+			"value": "c10e84ea-2e2a-48a7-bfa4-e72c6d760a46",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "aircon_uuid_ioep",
+			"value": "03425abf-3756-42cd-8ead-b56ca5ab13f6",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-04-22T03:46:13.475Z",
+	"_postman_exported_using": "Postman/9.15.11"
+}

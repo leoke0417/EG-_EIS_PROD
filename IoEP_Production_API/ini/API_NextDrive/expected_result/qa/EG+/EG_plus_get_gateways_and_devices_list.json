@@ -1,0 +1,102 @@
+{
+    "gateways": [
+        {
+            "uuid": "23d5de6a-01b4-4529-ada8-16a913031324",
+            "name": "CubeJ-cd6842",
+            "model": "Cube",
+            "onlineStatus": 1,
+            "profileId": "ccb8a8cd-6842-011a-2b38-0001114a0d22",
+            "devices": [
+                {
+                    "uuid": "81b656e8-42bb-430f-a430-6504289901bb",
+                    "name": "Motion Pixi",
+                    "model": "Pixi-G",
+                    "onlineStatus": 1,
+                    "attributes": {
+                        "macAddress": "98:07:2D:9A:16:CE"
+                    }
+                },
+                {
+                    "uuid": "bf4eb1f2-a31d-46dc-8cba-d3b608b6aed8",
+                    "name": "Thermo Pixi",
+                    "model": "Pixi-HT",
+                    "onlineStatus": 1,
+                    "attributes": {
+                        "macAddress": "98:07:2D:99:BF:B6"
+                    }
+                },
+                {
+                    "uuid": "344c3449-9402-4a3e-86f5-12d5fa012c67",
+                    "name": "Power Distribution Board",
+                    "model": "PWDBoard",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "学校法人幾徳学園　神奈川工科大学",
+                        "instanceCode": "03"
+                    }
+                },
+                {
+                    "uuid": "49c18d5a-6c9f-4f16-ae3c-d6130a1f3aa7",
+                    "name": "EV Charger/Discharger",
+                    "model": "EVCharger",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "学校法人幾徳学園　神奈川工科大学",
+                        "instanceCode": "03"
+                    }
+                },
+                {
+                    "uuid": "bcfb4205-3d4f-42e4-ba13-2a77c6946fbb",
+                    "name": "Air Conditioner",
+                    "model": "AirCon",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "学校法人幾徳学園　神奈川工科大学",
+                        "instanceCode": "03"
+                    }
+                },
+                {
+                    "uuid": "5d2b338d-dae3-4d1e-a718-5c9d48309375",
+                    "name": "PV System",
+                    "model": "SolarPW",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "学校法人幾徳学園　神奈川工科大学",
+                        "instanceCode": "03"
+                    }
+                },
+                {
+                    "uuid": "25df7c69-fdcc-4882-a8b8-f1df27f20aff",
+                    "name": "Fuel Cell",
+                    "model": "FuelCell",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "学校法人幾徳学園　神奈川工科大学",
+                        "instanceCode": "03"
+                    }
+                },
+                {
+                    "uuid": "584e017b-a315-4eba-83b8-847f3834e5a0",
+                    "name": "Electric Water Heater",
+                    "model": "ElecWaterHeater",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "学校法人幾徳学園　神奈川工科大学",
+                        "instanceCode": "03"
+                    }
+                },
+                {
+                    "uuid": "01823dc6-15ee-4d3f-87e8-a3461bf0dd2f",
+                    "name": "Storage Battery",
+                    "model": "StgBattery",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "学校法人幾徳学園　神奈川工科大学",
+                        "instanceCode": "03"
+                    }
+                }
+            ],
+            "wifiSsid": "NextDriveQA"
+        }
+    ]
+}

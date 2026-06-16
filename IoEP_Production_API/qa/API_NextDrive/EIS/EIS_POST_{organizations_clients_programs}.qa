@@ -1,0 +1,314 @@
+ini											api_eis.ini
+start
+
+
+## Create organization
+$organization_body$=get						api_eis					create_organizations_body						#country#=JP,#industry#=Others,#account_manager#=dustin.lin@nextdrive.io	
+
+$organization_content$=get					postman					postman_json									#json_name#=c_QA_EIS_POST_organizations.json
+
+$organization_final_collection$=get			api_eis					create_organizations_new_body					#new_body#=$organization_body$,#collection_content#=$organization_content$
+
+set											postman					postman_json									#json_content#=$organization_final_collection$,#json_name#=c_QA_EIS_POST_organizations.json
+
+$organization_cmd$=get						postman					command											#collection#=c_QA_EIS_POST_organizations.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman					command											#command#=$organization_cmd$
+
+$organization_result_file$=get				postman					result		
+
+$organization_list_data$=get				postman					read_csv										#filename#=$organization_result_file$
+
+$organization_target_data$=get				postman					find_result										#file#=$organization_list_data$,#testcase#=POST_organizations
+
+$organization_result$=get					postman					api_result										#api_result#=$organization_target_data$
+
+verify										postman					status_code										#api_result#=$organization_result$,#expected_result#=201
+
+
+
+$organization_response_body$=get			api_verification		api_response									#api_result#=$organization_result$
+
+$organization_expected_body$=get			api_verification		expected_result									#environment#=$test_environment$,#expected_result#=EIS\POST_organizations.json
+
+verify										api_verification		dict_keys										#expected_result#=$organization_expected_body$,#actual_result#=$organization_response_body$
+
+
+
+$organization_id$=get						file_operate			dict_value										#key#=id,#response_body#=$organization_response_body$
+
+$organization_displayId$=get				file_operate			dict_value										#key#=displayId,#response_body#=$organization_response_body$
+
+$organization_name$=get						file_operate			dict_value										#key#=name,#response_body#=$organization_response_body$
+
+$organization_country$=get					file_operate			dict_value										#key#=country,#response_body#=$organization_response_body$
+
+$organization_industry$=get					file_operate			dict_value										#key#=industry,#response_body#=$organization_response_body$
+
+$organization_manager_name$=get				file_operate			dict_dict_value									#first_key#=manager,#second_key#=name,#response_body#=$organization_response_body$
+
+$organization_manager_email$=get			file_operate			dict_dict_value									#first_key#=manager,#second_key#=email,#response_body#=$organization_response_body$
+
+$organization_client$=get					file_operate			dict_value										#key#=clients,#response_body#=$organization_response_body$
+
+
+
+verify										api_verification		uuid											#actual_result#=$organization_id$,#response_body#=$organization_response_body$	
+
+verify										api_verification		string											#actual_result#=$organization_displayId$,#response_body#=$organization_response_body$	
+
+verify										api_verification		string											#actual_result#=$organization_name$,#response_body#=$organization_response_body$	
+
+verify										api_verification		string											#actual_result#=$organization_country$,#response_body#=$organization_response_body$	
+
+verify										api_verification		string											#actual_result#=$organization_industry$,#response_body#=$organization_response_body$	
+
+verify										api_verification		string											#actual_result#=$organization_manager_name$,#response_body#=$organization_response_body$	
+
+verify										api_verification		email											#actual_result#=$organization_manager_email$,#response_body#=$organization_response_body$	
+
+verify										api_verification		empty											#actual_result#=$organization_client$,#response_body#=$organization_response_body$	
+
+
+
+
+
+
+
+
+
+
+## Create Client
+$client_body$=get							api_eis					create_clients_body								#location#=Tokyo,#type#=Buyer,#account_manager#=dustin.lin@nextdrive.io,#organization_id#=$organization_id$
+
+$client_content$=get						postman					postman_json									#json_name#=c_QA_EIS_POST_clients.json
+
+$client_final_collection$=get				api_eis					create_clients_new_body							#new_body#=$client_body$,#collection_content#=$client_content$
+
+set											postman					postman_json									#json_content#=$client_final_collection$,#json_name#=c_QA_EIS_POST_clients.json
+
+$client_cmd$=get							postman					command											#collection#=c_QA_EIS_POST_clients.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman					command											#command#=$client_cmd$
+
+$client_result_file$=get					postman					result		
+
+$client_list_data$=get						postman					read_csv										#filename#=$client_result_file$
+
+$client_target_data$=get					postman					find_result										#file#=$client_list_data$,#testcase#=POST_clients
+
+$client_result$=get							postman					api_result										#api_result#=$client_target_data$
+
+verify										postman					status_code										#api_result#=$client_result$,#expected_result#=201
+
+
+
+$client_response_body$=get					api_verification		api_response									#api_result#=$client_result$
+
+$client_expected_body$=get					api_verification		expected_result									#environment#=$test_environment$,#expected_result#=EIS\POST_clients.json
+
+verify										api_verification		dict_keys										#expected_result#=$client_expected_body$,#actual_result#=$client_response_body$
+
+
+
+$client_id$=get								file_operate			dict_value										#key#=id,#response_body#=$client_response_body$
+
+$client_displayId$=get						file_operate			dict_value										#key#=displayId,#response_body#=$client_response_body$
+
+$client_name$=get							file_operate			dict_value										#key#=name,#response_body#=$client_response_body$
+
+$client_location$=get						file_operate			dict_value										#key#=location,#response_body#=$client_response_body$
+
+$client_type$=get							file_operate			dict_value										#key#=type,#response_body#=$client_response_body$
+
+$client_modifiedDt$=get						file_operate			dict_value										#key#=modifiedDt,#response_body#=$client_response_body$
+
+$client_accountManager_name$=get			file_operate			dict_dict_value									#first_key#=accountManager,#second_key#=name,#response_body#=$client_response_body$
+
+$client_accountManager_email$=get			file_operate			dict_dict_value									#first_key#=accountManager,#second_key#=email,#response_body#=$client_response_body$
+
+$client_organization_id$=get				file_operate			dict_dict_value									#first_key#=organization,#second_key#=id,#response_body#=$client_response_body$
+
+$client_organization_displayId$=get			file_operate			dict_dict_value									#first_key#=organization,#second_key#=displayId,#response_body#=$client_response_body$
+
+$client_organization_name$=get				file_operate			dict_dict_value									#first_key#=organization,#second_key#=name,#response_body#=$client_response_body$
+
+$client_organization_country$=get			file_operate			dict_dict_value									#first_key#=organization,#second_key#=country,#response_body#=$client_response_body$
+
+$client_organization_industry$=get			file_operate			dict_dict_value									#first_key#=organization,#second_key#=industry,#response_body#=$client_response_body$
+
+$client_organization_manager_name$=get		file_operate			dict_dict_dict_value							#first_key#=organization,#second_key#=manager,#third_key#=name,#response_body#=$client_response_body$
+
+$client_organization_manager_email$=get		file_operate			dict_dict_dict_value							#first_key#=organization,#second_key#=manager,#third_key#=email,#response_body#=$client_response_body$
+
+$client_programs$=get						file_operate			dict_value										#key#=programs,#response_body#=$client_response_body$
+
+
+
+verify										api_verification		int												#actual_result#=$client_id$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_displayId$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_name$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_location$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_type$,#response_body#=$client_response_body$
+
+verify										api_verification		time											#actual_result#=$client_modifiedDt$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_accountManager_name$,#response_body#=$client_response_body$
+
+verify										api_verification		email											#actual_result#=$client_accountManager_email$,#response_body#=$client_response_body$
+
+verify										api_verification		uuid											#actual_result#=$client_organization_id$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_organization_displayId$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_organization_name$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_organization_country$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_organization_industry$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_organization_manager_name$,#response_body#=$client_response_body$
+
+verify										api_verification		string											#actual_result#=$client_organization_manager_email$,#response_body#=$client_response_body$
+
+verify										api_verification		empty											#actual_result#=$client_programs$,#response_body#=$client_response_body$
+
+
+
+
+
+
+
+
+
+
+## Create program
+$programs_body$=get							api_eis					create_programs_body							#account_manager#=dustin.lin@nextdrive.io,#client_id#=$client_id$
+
+$programs_content$=get						postman					postman_json									#json_name#=c_QA_EIS_POST_programs.json
+
+$programs_final_collection$=get				api_eis					create_programs_new_body						#new_body#=$programs_body$,#collection_content#=$programs_content$
+
+set											postman					postman_json									#json_content#=$programs_final_collection$,#json_name#=c_QA_EIS_POST_programs.json
+
+$programs_cmd$=get							postman					command											#collection#=c_QA_EIS_POST_programs.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman					command											#command#=$programs_cmd$
+
+$programs_result_file$=get					postman					result		
+
+$programs_list_data$=get					postman					read_csv										#filename#=$programs_result_file$
+
+$programs_target_data$=get					postman					find_result										#file#=$programs_list_data$,#testcase#=POST_programs
+
+$programs_result$=get						postman					api_result										#api_result#=$programs_target_data$
+
+verify										postman					status_code										#api_result#=$programs_result$,#expected_result#=201
+
+
+
+$programs_response_body$=get				api_verification		api_response									#api_result#=$programs_result$
+
+$programs_expected_body$=get				api_verification		expected_result									#environment#=$test_environment$,#expected_result#=EIS\POST_programs.json
+
+verify										api_verification		dict_keys										#expected_result#=$programs_expected_body$,#actual_result#=$programs_response_body$
+
+
+
+$program_id$=get							file_operate			dict_value										#key#=id,#response_body#=$programs_response_body$
+
+$program_title$=get							file_operate			dict_value										#key#=title,#response_body#=$programs_response_body$
+
+$program_type$=get							file_operate			dict_value										#key#=type,#response_body#=$programs_response_body$
+
+$program_status$=get						file_operate			dict_value										#key#=status,#response_body#=$programs_response_body$
+
+$program_displayId$=get						file_operate			dict_value										#key#=displayId,#response_body#=$programs_response_body$
+
+$program_countingDate$=get					file_operate			dict_value										#key#=countingDate,#response_body#=$programs_response_body$
+
+$program_manager_name$=get					file_operate			dict_dict_value									#first_key#=manager,#second_key#=name,#response_body#=$programs_response_body$
+
+$program_manager_email$=get					file_operate			dict_dict_value									#first_key#=manager,#second_key#=email,#response_body#=$programs_response_body$
+
+$program_programPeriods_startDate$=get		file_operate			dict_list_dict_value							#first_key#=programPeriods,#second_key#=startDate,#response_body#=$programs_response_body$
+
+$program_programPeriods_endDate$=get		file_operate			dict_list_dict_value							#first_key#=programPeriods,#second_key#=endDate,#response_body#=$programs_response_body$
+
+$program_programPeriods_period$=get			file_operate			dict_list_dict_value							#first_key#=programPeriods,#second_key#=period,#response_body#=$programs_response_body$
+
+$program_programPeriods_programPeriod$=get	file_operate			dict_list_dict_value							#first_key#=programPeriods,#second_key#=programPeriod,#response_body#=$programs_response_body$
+
+$program_productTypes_type$=get				file_operate			dict_list_dict_value							#first_key#=productTypes,#second_key#=type,#response_body#=$programs_response_body$
+
+$program_productTypes_plan$=get				file_operate			dict_list_dict_value							#first_key#=productTypes,#second_key#=plan,#response_body#=$programs_response_body$
+
+$program_productTypes_gatewayCount$=get		file_operate			dict_list_dict_value							#first_key#=productTypes,#second_key#=gatewayCount,#response_body#=$programs_response_body$
+
+$program_productTypes_accountCount$=get		file_operate			dict_list_dict_value							#first_key#=productTypes,#second_key#=accountCount,#response_body#=$programs_response_body$
+
+$program_productTypes_fwFeature$=get		file_operate			dict_list_dict_value							#first_key#=productTypes,#second_key#=fwFeature,#response_body#=$programs_response_body$
+
+$program_productTypes_availableDevices$=get	file_operate			dict_list_dict_value							#first_key#=productTypes,#second_key#=availableDevices,#response_body#=$programs_response_body$
+
+$program_organization_name$=get				file_operate			dict_dict_value									#first_key#=organization,#second_key#=name,#response_body#=$programs_response_body$
+
+$program_organization_displayId$=get		file_operate			dict_dict_value									#first_key#=organization,#second_key#=displayId,#response_body#=$programs_response_body$
+
+$program_client_name$=get					file_operate			dict_dict_value									#first_key#=client,#second_key#=name,#response_body#=$programs_response_body$
+
+$program_client_displayId$=get				file_operate			dict_dict_value									#first_key#=client,#second_key#=displayId,#response_body#=$programs_response_body$
+
+$program_appLabel$=get						file_operate			dict_value										#key#=appLabel,#response_body#=$programs_response_body$
+
+
+
+verify										api_verification		uuid											#actual_result#=$program_id$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_title$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_type$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_status$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_displayId$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_countingDate$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_manager_name$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_manager_email$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_programPeriods_startDate$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_programPeriods_endDate$,#response_body#=$programs_response_body$
+
+verify										api_verification		int												#actual_result#=$program_programPeriods_period$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_programPeriods_programPeriod$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_productTypes_type$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_productTypes_plan$,#response_body#=$programs_response_body$
+
+verify										api_verification		int												#actual_result#=$program_productTypes_gatewayCount$,#response_body#=$programs_response_body$
+
+verify										api_verification		int												#actual_result#=$program_productTypes_accountCount$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_productTypes_fwFeature$,#response_body#=$programs_response_body$
+
+verify										api_verification		empty											#actual_result#=$program_productTypes_availableDevices$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_organization_name$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_organization_displayId$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_client_name$,#response_body#=$programs_response_body$
+
+verify										api_verification		string											#actual_result#=$program_client_displayId$,#response_body#=$programs_response_body$
+
+verify										api_verification		null											#actual_result#=$program_appLabel$,#response_body#=$programs_response_body$

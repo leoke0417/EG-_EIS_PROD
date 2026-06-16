@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "83f9e2b8-a168-4453-81d6-efe16a66d94e",
+		"name": "ServiceStore_operator_v1_programs_{programId}_launchedServices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "GET_operator_v1_programs_{programId}_launchedServices",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{end_point}}/operator/v1/programs/{{IoE_Program_test_program_eg3_uuid}}/launchedServices",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"operator",
+						"v1",
+						"programs",
+						"{{IoE_Program_test_program_eg3_uuid}}",
+						"launchedServices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,6 @@
+start
+init		browser			app
+test		browser.iphone	errorkey	#key#=aaa
+close		browser
+sleep		5
+end

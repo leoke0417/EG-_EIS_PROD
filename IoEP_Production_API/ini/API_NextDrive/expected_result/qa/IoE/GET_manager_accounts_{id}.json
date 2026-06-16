@@ -1,0 +1,16 @@
+{
+    "name": "benny.hsu+99 ",
+    "email": "benny.hsu+99@nextdrive.io",
+    "role": "Admin",
+    "avatar": "https://ioe-suite-dev.nextdrive.io/images/49e40cb7-2839-4635-96d5-533377514497.",
+    "lastActivatedOn": "2021-06-07T06:01:21.928+00:00",
+    "accessModules": [
+        {
+            "type": "HEMS",
+            "label": "Ecogenie+",
+            "activated": true,
+            "lastActivatedOn": "2021-04-26T07:48:43.739+00:00"
+        }
+    ],
+    "ioeSuiteActivated": true
+}

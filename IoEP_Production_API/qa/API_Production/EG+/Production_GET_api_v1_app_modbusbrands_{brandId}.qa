@@ -1,0 +1,6 @@
+## 關聯 device
+$app_modbusbrands_brandId_url$=get				egplus_api				v1_app_modbusbrands_brandId_url						#environment#=url,#modbus_brandId#=modbus_brandId
+$app_modbusbrands_brandId_header$=get			egplus_api				v1_app_modbusbrands_brandId_header					#token#=accesstoken
+$app_modbusbrands_brandId_response$=get			egplus_api				get													#url#=$app_modbusbrands_brandId_url$,#header#=$app_modbusbrands_brandId_header$
+$app_modbusbrands_brandId_status_code$=get		egplus_api				status_code											#response#=$app_modbusbrands_brandId_response$
+verify											api_verification		status_code											#api_response#=$app_modbusbrands_brandId_status_code$,#expected_status_code#=200

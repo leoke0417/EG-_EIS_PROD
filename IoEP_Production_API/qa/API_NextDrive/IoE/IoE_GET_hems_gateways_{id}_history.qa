@@ -1,0 +1,38 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_IoE_GET_hems_gateways_{id}_history.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=GET_hems_gateways_{id}_history
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\GET_hems_gateways_{id}_history.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$gatewayHistory$=get								file_operate			dict_value					#key#=gatewayHistory,#response_body#=$response_body$
+
+$account$=get				file_operate			dict_list_dict_value		#first_key#=gatewayHistory,#second_key#=account,#response_body#=$response_body$
+
+$time$=get				file_operate			dict_list_dict_value		#first_key#=gatewayHistory,#second_key#=time,#response_body#=$response_body$
+
+$activity$=get				file_operate			dict_list_dict_value		#first_key#=gatewayHistory,#second_key#=activity,#response_body#=$response_body$
+
+verify									api_verification		string						#actual_result#=$account$
+
+verify									api_verification		time							#actual_result#=$time$
+
+verify									api_verification		string						#actual_result#=$activity$
+
+# end

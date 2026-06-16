@@ -1,0 +1,364 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get																				postman							command												#collection#=c_QA_IoE_GET_hems_dashobard.json,#environment#=e_IoE.json,#iterations#=1
+																					
+exec																					postman							command												#command#=$cmd$
+																					
+$result_file$=get																		postman							result								
+																					
+$list_data$=get																			postman							read_csv											#filename#=$result_file$
+																					
+$target_data$=get																		postman							find_result											#file#=$list_data$,#testcase#=GET_hems_dashboard
+																					
+$result$=get																			postman							api_result											#api_result#=$target_data$
+																					
+verify																					postman							status_code											#api_result#=$result$,#expected_result#=200
+																					
+$response_body$=get																		api_verification				api_response										#api_result#=$result$
+																					
+$expected_body$=get																		api_verification				expected_result										#environment#=$test_environment$,#expected_result#=IoE\GET_hems_dashboard.json
+																					
+verify																					api_verification				dict_keys											#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+
+## Get app > ios > versions > name
+$dashbaord_data_ios_vers_name$=get														file_operate					dict_dict_dict_list_dict_value						#first_key#=app,#second_key#=ios,#third_key#=versions,#fourth_key#=name,#response_body#=$response_body$			
+## Get app > ios > versions > count
+$dashbaord_data_ios_vers_count$=get														file_operate					dict_dict_dict_list_dict_value						#first_key#=app,#second_key#=ios,#third_key#=versions,#fourth_key#=count,#response_body#=$response_body$			
+## Get app > ios > total
+$dashboard_data_ios_total$=get															file_operate					dict_dict_dict_value								#first_key#=app,#second_key#=ios,#third_key#=total,#response_body#=$response_body$
+## Get app > android > versions > name
+$dashbaord_data_android_vers_name$=get													file_operate					dict_dict_dict_list_dict_value						#first_key#=app,#second_key#=android,#third_key#=versions,#fourth_key#=name,#response_body#=$response_body$			
+## Get app > android > versions > count
+$dashbaord_data_android_vers_count$=get													file_operate					dict_dict_dict_list_dict_value						#first_key#=app,#second_key#=android,#third_key#=versions,#fourth_key#=count,#response_body#=$response_body$			
+## Get app > android > total
+$dashboard_data_android_total$=get														file_operate					dict_dict_dict_value								#first_key#=app,#second_key#=android,#third_key#=total,#response_body#=$response_body$
+## Get account > periods > days
+$dashboard_data_accounts_periods_days$=get												file_operate					dict_dict_list_dict_value							#first_key#=account,#second_key#=periods,#third_key#=days,#response_body#=$response_body$
+## Get account > periods > count
+$dashboard_data_accounts_periods_count$=get												file_operate					dict_dict_list_dict_value							#first_key#=account,#second_key#=periods,#third_key#=count,#response_body#=$response_body$
+## Get account > total
+$dashboard_data_account_total$=get														file_operate					dict_dict_value										#first_key#=account,#second_key#=total,#response_body#=$response_body$
+## Get cube > versions > version
+$dashbaord_data_cube_vers_ver$=get														file_operate					dict_dict_list_dict_value							#first_key#=cube,#second_key#=versions,#third_key#=version,#response_body#=$response_body$
+## Get cube > versions > count
+$dashbaord_data_cube_vers_count$=get													file_operate					dict_dict_list_dict_value							#first_key#=cube,#second_key#=versions,#third_key#=count,#response_body#=$response_body$
+## Get cube > current > online
+$dashboard_data_cube_current_online$=get												file_operate					dict_dict_dict_value								#first_key#=cube,#second_key#=current,#third_key#=online,#response_body#=$response_body$
+## Get cube > current > offline
+$dashboard_data_cube_current_offline$=get												file_operate					dict_dict_dict_value								#first_key#=cube,#second_key#=current,#third_key#=offline,#response_body#=$response_body$
+## Get cube > current > total
+$dashboard_data_cube_current_total$=get													file_operate					dict_dict_dict_value								#first_key#=cube,#second_key#=current,#third_key#=total,#response_body#=$response_body$
+## Get cube > current > disconnect
+$dashboard_data_cube_current_disconnect$=get											file_operate					dict_dict_dict_value								#first_key#=cube,#second_key#=current,#third_key#=disconnect,#response_body#=$response_body$
+## Get cube > current > unfinished
+$dashboard_data_cube_current_unfinished$=get											file_operate					dict_dict_dict_value								#first_key#=cube,#second_key#=current,#third_key#=unfinished,#response_body#=$response_body$
+## Get cube > current > noOwner
+$dashboard_data_cube_current_no_owner$=get												file_operate					dict_dict_dict_value								#first_key#=cube,#second_key#=current,#third_key#=noOwner,#response_body#=$response_body$
+## Get atto > versions > version
+$dashbaord_data_atto_vers_ver$=get														file_operate					dict_dict_list_dict_value							#first_key#=atto,#second_key#=versions,#third_key#=version,#response_body#=$response_body$
+## Get atto > versions > count
+$dashbaord_data_atto_vers_count$=get													file_operate					dict_dict_list_dict_value							#first_key#=atto,#second_key#=versions,#third_key#=count,#response_body#=$response_body$
+## Get atto > current > online
+$dashboard_data_atto_current_online$=get												file_operate					dict_dict_dict_value								#first_key#=atto,#second_key#=current,#third_key#=online,#response_body#=$response_body$
+## Get atto > current > offline
+$dashboard_data_atto_current_offline$=get												file_operate					dict_dict_dict_value								#first_key#=atto,#second_key#=current,#third_key#=offline,#response_body#=$response_body$
+## Get atto > current > total
+$dashboard_data_atto_current_total$=get													file_operate					dict_dict_dict_value								#first_key#=atto,#second_key#=current,#third_key#=total,#response_body#=$response_body$
+## Get atto > current > disconnect
+$dashboard_data_atto_current_disconnect$=get											file_operate					dict_dict_dict_value								#first_key#=atto,#second_key#=current,#third_key#=disconnect,#response_body#=$response_body$
+## Get atto > current > unfinished
+$dashboard_data_atto_current_unfinished$=get											file_operate					dict_dict_dict_value								#first_key#=atto,#second_key#=current,#third_key#=unfinished,#response_body#=$response_body$
+## Get atto > current > noOwner
+$dashboard_data_atto_current_no_owner$=get												file_operate					dict_dict_dict_value								#first_key#=atto,#second_key#=current,#third_key#=noOwner,#response_body#=$response_body$
+## Get device > devices > model
+$dashboard_data_device_devices_model$=get												file_operate					dict_dict_list_dict_value							#first_key#=device,#second_key#=devices,#third_key#=model,#response_body#=$response_body$
+## Get device > devices > count
+$dashboard_data_device_devices_count$=get												file_operate					dict_dict_list_dict_value							#first_key#=device,#second_key#=devices,#third_key#=count,#response_body#=$response_body$
+## Get device > total
+$dashboard_data_device_total$=get														file_operate					dict_dict_value										#first_key#=device,#second_key#=total,#response_body#=$response_body$
+## Get deviceStatus > Pixi-G > current > online
+$dashboard_data_device_status_pixi_g_current_online$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-G,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > Pixi-G > current > offline
+$dashboard_data_device_status_pixi_g_current_offline$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-G,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > Pixi-G > current > total
+$dashboard_data_device_status_pixi_g_current_total$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-G,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > Pixi-G > current > disconnect
+$dashboard_data_device_status_pixi_g_current_disconnect$=get							file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-G,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > Pixi-G > current > unfinished
+$dashboard_data_device_status_pixi_g_current_unfinished$=get							file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-G,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > Pixi-HT > current > online
+$dashboard_data_device_status_pixi_ht_current_online$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-HT,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > Pixi-HT > current > offline
+$dashboard_data_device_status_pixi_ht_current_offline$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-HT,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > Pixi-HT > current > total
+$dashboard_data_device_status_pixi_ht_current_total$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-HT,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > Pixi-HT > current > disconnect
+$dashboard_data_device_status_pixi_ht_current_disconnect$=get							file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-HT,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > Pixi-HT > current > unfinished
+$dashboard_data_device_status_pixi_ht_current_unfinished$=get							file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Pixi-HT,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > SmartMeter > current > online
+$dashboard_data_device_status_sm_current_online$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SmartMeter,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > SmartMeter > current > offline
+$dashboard_data_device_status_sm_current_offline$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SmartMeter,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > SmartMeter > current > total
+$dashboard_data_device_status_sm_current_total$=get										file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SmartMeter,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > SmartMeter > current > disconnect
+$dashboard_data_device_status_sm_current_disconnect$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SmartMeter,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > SmartMeter > current > unfinished
+$dashboard_data_device_status_sm_current_unfinished$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SmartMeter,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > SolarPW > current > online
+$dashboard_data_device_status_pv_current_online$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SolarPW,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > SolarPW > current > offline
+$dashboard_data_device_status_pv_current_offline$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SolarPW,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > SolarPW > current > total
+$dashboard_data_device_status_pv_current_total$=get										file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SolarPW,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > SolarPW > current > disconnect
+$dashboard_data_device_status_pv_current_disconnect$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SolarPW,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > SolarPW > current > unfinished
+$dashboard_data_device_status_pv_current_unfinished$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=SolarPW,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > StgBattery > current > online
+$dashboard_data_device_status_battery_current_online$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=StgBattery,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > StgBattery > current > offline
+$dashboard_data_device_status_battery_current_offline$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=StgBattery,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > StgBattery > current > total
+$dashboard_data_device_status_battery_current_total$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=StgBattery,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > StgBattery > current > disconnect
+$dashboard_data_device_status_battery_current_disconnect$=get							file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=StgBattery,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > StgBattery > current > unfinished
+$dashboard_data_device_status_battery_current_unfinished$=get							file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=StgBattery,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > AirCon > current > online
+$dashboard_data_device_status_ac_current_online$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=AirCon,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > AirCon > current > offline
+$dashboard_data_device_status_ac_current_offline$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=AirCon,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > AirCon > current > total
+$dashboard_data_device_status_ac_current_total$=get										file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=AirCon,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > AirCon > current > disconnect
+$dashboard_data_device_status_ac_current_disconnect$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=AirCon,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > AirCon > current > unfinished
+$dashboard_data_device_status_ac_current_unfinished$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=AirCon,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > ElecWaterHeater > current > online
+$dashboard_data_device_status_ecocute_current_online$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=ElecWaterHeater,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > ElecWaterHeater > current > offline
+$dashboard_data_device_status_ecocute_current_offline$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=ElecWaterHeater,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > ElecWaterHeater > current > total
+$dashboard_data_device_status_ecocute_current_total$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=ElecWaterHeater,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > ElecWaterHeater > current > disconnect
+$dashboard_data_device_status_ecocute_current_disconnect$=get							file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=ElecWaterHeater,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > ElecWaterHeater > current > unfinished
+$dashboard_data_device_status_ecocute_current_unfinished$=get							file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=ElecWaterHeater,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > EVCharger > current > online
+$dashboard_data_device_status_ev_current_online$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=EVCharger,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > EVCharger > current > offline
+$dashboard_data_device_status_ev_current_offline$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=EVCharger,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > EVCharger > current > total
+$dashboard_data_device_status_ev_current_total$=get										file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=EVCharger,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > EVCharger > current > disconnect
+$dashboard_data_device_status_ev_current_disconnect$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=EVCharger,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > EVCharger > current > unfinished
+$dashboard_data_device_status_ev_current_unfinished$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=EVCharger,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > FuelCell > current > online
+$dashboard_data_device_status_fc_current_online$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=FuelCell,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > FuelCell > current > offline
+$dashboard_data_device_status_fc_current_offline$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=FuelCell,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > FuelCell > current > total
+$dashboard_data_device_status_fc_current_total$=get										file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=FuelCell,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > FuelCell > current > disconnect
+$dashboard_data_device_status_fc_current_disconnect$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=FuelCell,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > FuelCell > current > unfinished
+$dashboard_data_device_status_fc_current_unfinished$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=FuelCell,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > PWDBoard > current > online
+$dashboard_data_device_status_pdb_current_online$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=PWDBoard,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > PWDBoard > current > offline
+$dashboard_data_device_status_pdb_current_offline$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=PWDBoard,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > PWDBoard > current > total
+$dashboard_data_device_status_pdb_current_total$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=PWDBoard,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > PWDBoard > current > disconnect
+$dashboard_data_device_status_pdb_current_disconnect$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=PWDBoard,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > PWDBoard > current > unfinished
+$dashboard_data_device_status_pdb_current_unfinished$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=PWDBoard,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+## Get deviceStatus > Beep > current > online
+$dashboard_data_device_status_beep_current_online$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Beep,#third_key#=current,#fourth_key#=online,#response_body#=$response_body$
+## Get deviceStatus > Beep > current > offline
+$dashboard_data_device_status_beep_current_offline$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Beep,#third_key#=current,#fourth_key#=offline,#response_body#=$response_body$
+## Get deviceStatus > Beep > current > total
+$dashboard_data_device_status_beep_current_total$=get									file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Beep,#third_key#=current,#fourth_key#=total,#response_body#=$response_body$
+## Get deviceStatus > Beep > current > disconnect
+$dashboard_data_device_status_beep_current_disconnect$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Beep,#third_key#=current,#fourth_key#=disconnect,#response_body#=$response_body$
+## Get deviceStatus > Beep > current > unfinished
+$dashboard_data_device_status_beep_current_unfinished$=get								file_operate					dict_dict_dict_dict_value							#first_key#=deviceStatus,#second_key#=Beep,#third_key#=current,#fourth_key#=unfinished,#response_body#=$response_body$
+
+
+
+
+## Verify app > ios > versions > name
+verify																					api_verification				string												#actual_result#=$dashbaord_data_ios_vers_name$
+## Verify app > ios > versions > count				
+verify																					api_verification				int													#actual_result#=$dashbaord_data_ios_vers_count$
+## Verify app > ios > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_ios_total$
+## Verify app > android > versions > name				
+verify																					api_verification				string												#actual_result#=$dashbaord_data_android_vers_name$
+## Verify app > android > versions > count				
+verify																					api_verification				int													#actual_result#=$dashbaord_data_android_vers_count$
+## Verify app > android > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_android_total$
+## Verify account > periods > days				
+verify																					api_verification				int													#actual_result#=$dashboard_data_accounts_periods_days$
+## Verify account > periods > count				
+verify																					api_verification				int													#actual_result#=$dashboard_data_accounts_periods_count$
+## Verify account > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_account_total$
+## Verify cube > versions > version				
+verify																					api_verification				string												#actual_result#=$dashbaord_data_cube_vers_ver$
+## Verify cube > versions > count				
+verify																					api_verification				int													#actual_result#=$dashbaord_data_cube_vers_count$
+## Verify  cube > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_cube_current_online$
+## Verify cube > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_cube_current_offline$
+## Verify cube > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_cube_current_total$
+## Verify cube > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_cube_current_disconnect$
+## Verify cube > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_cube_current_unfinished$
+## Verify cube > current > noOwner				
+verify																					api_verification				int													#actual_result#=$dashboard_data_cube_current_no_owner$
+## Verify atto > versions > version				
+verify																					api_verification				string												#actual_result#=$dashbaord_data_atto_vers_ver$
+## Verify atto > versions > count				
+verify																					api_verification				int													#actual_result#=$dashbaord_data_atto_vers_count$
+## Verify atto > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_atto_current_online$
+## Verify atto > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_atto_current_offline$
+## Verify atto > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_atto_current_total$
+## Verify atto > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_atto_current_disconnect$
+## Verify atto > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_atto_current_unfinished$
+## Verify atto > current > noOwner				
+verify																					api_verification				int													#actual_result#=$dashboard_data_atto_current_no_owner$
+## Verify device > devices > model				
+verify																					api_verification				string												#actual_result#=$dashboard_data_device_devices_model$
+## Verify device > devices > count				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_devices_count$
+## Verify device > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_total$
+## Verify deviceStatus > Pixi-G > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_g_current_online$
+## Verify deviceStatus > Pixi-G > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_g_current_offline$
+## Verify deviceStatus > Pixi-G > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_g_current_total$
+## Verify deviceStatus > Pixi-G > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_g_current_disconnect$
+## Verify deviceStatus > Pixi-G > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_g_current_unfinished$
+## Verify deviceStatus > Pixi-HT > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_ht_current_online$
+## Verify deviceStatus > Pixi-HT > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_ht_current_offline$
+## Verify deviceStatus > Pixi-HT > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_ht_current_total$
+## Verify deviceStatus > Pixi-HT > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_ht_current_disconnect$
+## Verify deviceStatus > Pixi-HT > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pixi_ht_current_unfinished$
+## Verify deviceStatus > SmartMeter > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_sm_current_online$
+## Verify deviceStatus > SmartMeter > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_sm_current_offline$
+## Verify deviceStatus > SmartMeter > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_sm_current_total$
+## Verify deviceStatus > SmartMeter > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_sm_current_disconnect$
+## Verify deviceStatus > SmartMeter > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_sm_current_unfinished$
+## Verify deviceStatus > SolarPW > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pv_current_online$
+## Verify deviceStatus > SolarPW > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pv_current_offline$
+## Verify deviceStatus > SolarPW > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pv_current_total$
+## Verify deviceStatus > SolarPW > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pv_current_disconnect$
+## Verify deviceStatus > SolarPW > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pv_current_unfinished$
+## Verify deviceStatus > StgBattery > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_battery_current_online$
+## Verify deviceStatus > StgBattery > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_battery_current_offline$
+## Verify deviceStatus > StgBattery > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_battery_current_total$
+## Verify deviceStatus > StgBattery > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_battery_current_disconnect$
+## Verify deviceStatus > StgBattery > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_battery_current_unfinished$
+## Verify deviceStatus > AirCon > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ac_current_online$
+## Verify deviceStatus > AirCon > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ac_current_offline$
+## Verify deviceStatus > AirCon > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ac_current_total$
+## Verify deviceStatus > AirCon > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ac_current_disconnect$
+## Verify deviceStatus > AirCon > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ac_current_unfinished$
+## Verify deviceStatus > ElecWaterHeater > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ecocute_current_online$
+## Verify deviceStatus > ElecWaterHeater > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ecocute_current_offline$
+## Verify deviceStatus > ElecWaterHeater > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ecocute_current_total$
+## Verify deviceStatus > ElecWaterHeater > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ecocute_current_disconnect$
+## Verify deviceStatus > ElecWaterHeater > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ecocute_current_unfinished$
+## Verify deviceStatus > EVCharger > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ev_current_online$
+## Verify deviceStatus > EVCharger > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ev_current_offline$
+## Verify deviceStatus > EVCharger > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ev_current_total$
+## Verify deviceStatus > EVCharger > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ev_current_disconnect$
+## Verify deviceStatus > EVCharger > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_ev_current_unfinished$
+## Verify deviceStatus > FuelCell > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_fc_current_online$
+## Verify deviceStatus > FuelCell > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_fc_current_offline$
+## Verify deviceStatus > FuelCell > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_fc_current_total$
+## Verify deviceStatus > FuelCell > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_fc_current_disconnect$
+## Verify deviceStatus > FuelCell > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_fc_current_unfinished$
+## Verify deviceStatus > PWDBoard > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pdb_current_online$
+## Verify deviceStatus > PWDBoard > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pdb_current_offline$
+## Verify deviceStatus > PWDBoard > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pdb_current_total$
+## Verify deviceStatus > PWDBoard > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pdb_current_disconnect$
+## Verify deviceStatus > PWDBoard > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_pdb_current_unfinished$
+## Verify deviceStatus > Beep > current > online				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_beep_current_online$
+## Verify deviceStatus > Beep > current > offline				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_beep_current_offline$
+## Verify deviceStatus > Beep > current > total				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_beep_current_total$
+## Verify deviceStatus > Beep > current > disconnect				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_beep_current_disconnect$
+## Verify deviceStatus > Beep > current > unfinished				
+verify																					api_verification				int													#actual_result#=$dashboard_data_device_status_beep_current_unfinished$
+
+##===== END =====	
+

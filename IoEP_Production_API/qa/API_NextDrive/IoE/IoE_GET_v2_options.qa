@@ -1,0 +1,66 @@
+ini				api_ioe.ini
+start
+$cmd$=get														postman					command											#collection#=c_QA_IoE_GET_v2_options.json,#environment#=e_IoE.json,#iterations#=1
+											
+exec															postman					command											#command#=$cmd$
+											
+$result_file$=get												postman					result							
+											
+$list_data$=get													postman					read_csv										#filename#=$result_file$
+											
+$target_data$=get												postman					find_result										#file#=$list_data$,#testcase#=GET_v2_options
+											
+$result$=get													postman					api_result										#api_result#=$target_data$
+											
+verify															postman					status_code										#api_result#=$result$,#expected_result#=200
+											
+$response_body$=get												api_verification		api_response									#api_result#=$result$
+											
+$expected_body$=get												api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_v2_options.json
+											
+verify															api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+
+## Get version > ios
+$option_version_ios$=get										file_operate			dict_dict_list_value							#first_key#=versions,#second_key#=ios,#response_body#=$response_body$
+
+## Get version > android
+$option_version_android$=get									file_operate			dict_dict_list_value							#first_key#=versions,#second_key#=android,#response_body#=$response_body$
+
+## Get version > atto
+$option_version_atto$=get										file_operate			dict_dict_list_value							#first_key#=versions,#second_key#=atto,#response_body#=$response_body$
+
+## Get version > cube
+$option_version_cube$=get										file_operate			dict_dict_list_value							#first_key#=versions,#second_key#=cube,#response_body#=$response_body$
+
+## Get locations > [i] > value
+$option_locations_value$=get									file_operate			dict_list_dict_value							#first_key#=locations,#second_key#=value,#response_body#=$response_body$
+
+## Get locations > [i] > items > value
+$option_locations_items_value$=get								file_operate			dict_list_dict_list_dict_value					#first_key#=locations,#second_key#=items,#third_key#=value,#response_body#=$response_body$
+
+## Get locations > [i] > items > items
+$option_locations_items_items$=get								file_operate			dict_list_dict_list_dict_value					#first_key#=locations,#second_key#=items,#third_key#=value,#response_body#=$response_body$
+
+## Verify version > ios
+verify															api_verification		string											#actual_result#=$option_version_ios$
+
+## Verify version > android
+verify															api_verification		string											#actual_result#=$option_version_android$
+
+## Verify version > atto
+verify															api_verification		string											#actual_result#=$option_version_atto$
+
+## Verify version > cube
+verify															api_verification		string											#actual_result#=$option_version_cube$
+
+## Verify locations > [i] > value
+verify															api_verification		string											#actual_result#=$option_locations_value$
+
+## Verify locations > [i] > items > value
+verify															api_verification		string											#actual_result#=$option_locations_items_value$
+
+## Verify locations > [i] > items > items
+verify															api_verification		string											#actual_result#=$option_locations_items_items$
+##===== END =====	
+# end

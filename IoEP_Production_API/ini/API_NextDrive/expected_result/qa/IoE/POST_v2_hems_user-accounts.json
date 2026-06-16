@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 75109,
+      "email": "automan+99@nextdrive.io",
+      "devices": [
+        {
+          "model": "PWDBoard",
+          "onlineStatus": 2
+        },
+        {
+          "model": "EVCharger",
+          "onlineStatus": 2
+        },
+        {
+          "model": "ElecWaterHeater",
+          "onlineStatus": 2
+        },
+        {
+          "model": "SolarPW",
+          "onlineStatus": 2
+        },
+        {
+          "model": "AirCon",
+          "onlineStatus": 2
+        },
+        {
+          "model": "FuelCell",
+          "onlineStatus": 2
+        },
+        {
+          "model": "StgBattery",
+          "onlineStatus": 2
+        },
+        {
+          "model": "Pixi-HT",
+          "onlineStatus": 1
+        },
+        {
+          "model": "Pixi-G",
+          "onlineStatus": 1
+        },
+        {
+          "model": "Camera",
+          "onlineStatus": 2
+        },
+        {
+          "model": "Camera",
+          "onlineStatus": 2
+        }
+      ]
+    }
+  ]
+}

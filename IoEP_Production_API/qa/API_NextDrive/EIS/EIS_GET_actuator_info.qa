@@ -1,0 +1,38 @@
+ini			api_eis.ini
+start
+
+$cmd$=get									postman					command								#collection#=c_QA_EIS_GET_actuator_info.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman					command								#command#=$cmd$
+
+$result_file$=get							postman					result
+
+$list_data$=get								postman					read_csv							#filename#=$result_file$
+
+$target_data$=get							postman					find_result							#file#=$list_data$,#testcase#=GET_actuator_info
+
+$result$=get								postman					api_result							#api_result#=$target_data$
+
+verify										postman					status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get							api_verification		api_response						#api_result#=$result$
+
+$expected_result$=get						api_verification		expected_result						#environment#=$test_environment$,#expected_result#=EIS\GET_actuator_info.json
+
+verify										api_verification		dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+$git_branch$=get							file_operate			dict_dict_value						#first_key#=git,#second_key#=branch,#response_body#=$response_body$
+
+$git_commit_id$=get							file_operate			dict_dict_dict_value				#first_key#=git,#second_key#=commit,#third_key#=id,#response_body#=$response_body$
+
+$git_commit_time$=get						file_operate			dict_dict_dict_value				#first_key#=git,#second_key#=commit,#third_key#=time,#response_body#=$response_body$
+
+$version$=get								file_operate			dict_value							#key#=version,#response_body#=$response_body$
+
+verify										api_verification		string								#actual_result#=$git_branch$
+
+verify										api_verification		string								#actual_result#=$git_commit_id$
+
+verify										api_verification		time								#actual_result#=$git_commit_time$
+
+verify										api_verification		string								#actual_result#=$version$

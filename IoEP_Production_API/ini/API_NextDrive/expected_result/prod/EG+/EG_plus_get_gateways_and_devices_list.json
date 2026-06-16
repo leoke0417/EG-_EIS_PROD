@@ -1,0 +1,88 @@
+{
+    "gateways": [
+        {
+            "uuid": "2500dd51-d07f-4dda-bba7-5275db686ec9",
+            "name": "CubeJ-ce1022",
+            "model": "Cube",
+            "onlineStatus": 2,
+            "profileId": "ccb8a8ce-1022-011a-2950-620460b9b122",
+            "devices": [
+                {
+                    "uuid": "ede5be3c-95d6-4d0b-95be-c68cc057c934",
+                    "name": "Storage Battery7",
+                    "model": "StgBattery",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "Kanagawa Institute of Technology",
+                        "instanceCode": "01"
+                    }
+                },
+                {
+                    "uuid": "71695f78-e543-4d85-8e9e-83b7e2255b05",
+                    "name": "Camera",
+                    "model": "Camera",
+                    "onlineStatus": 1
+                },
+                {
+                    "uuid": "f705036b-cee7-4f60-a42a-68b188274be4",
+                    "name": "Power Distribution Board7",
+                    "model": "PWDBoard",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "Kanagawa Institute of Technology",
+                        "instanceCode": "01"
+                    }
+                },
+                {
+                    "uuid": "882922ad-bb9f-440a-97c6-62bdcc783ef6",
+                    "name": "Motion",
+                    "model": "Pixi-G",
+                    "onlineStatus": 1,
+                    "attributes": {
+                        "macAddress": "98:07:2D:AE:28:C6"
+                    }
+                },
+                {
+                    "uuid": "e5390fe4-686f-45d0-b756-87b84306ce6a",
+                    "name": "Smart Meter",
+                    "model": "SmartMeter",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "errorCode": "404",
+                        "skin": "2"
+                    }
+                },
+                {
+                    "uuid": "1ef0bb72-3d6f-4602-9aa1-3f391596551d",
+                    "name": "Air Conditioner",
+                    "model": "AirCon",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "Kanagawa Institute of Technology",
+                        "instanceCode": "01"
+                    }
+                },
+                {
+                    "uuid": "0fa873a3-6994-4c1a-8258-9363de9a72ee",
+                    "name": "PV System7",
+                    "model": "SolarPW",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "manufacturerName": "Kanagawa Institute of Technology",
+                        "instanceCode": "01"
+                    }
+                },
+                {
+                    "uuid": "383566ea-e72b-44a0-941d-eb5112c85328",
+                    "name": "Thermo Pixi",
+                    "model": "Pixi-HT",
+                    "onlineStatus": 2,
+                    "attributes": {
+                        "macAddress": "98:07:2D:99:AE:C3"
+                    }
+                }
+            ],
+            "wifiSsid": "HOME"
+        }
+    ]
+}

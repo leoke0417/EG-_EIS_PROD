@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "f8cab289-bbcc-40c5-9340-00d9f440bde4",
+		"name": "Service_Store_POST_manager_user-subscribe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "POST_manager_user-subscribe",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-ND-TOKEN",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": 666844,\r\n  \"userUuid\": \"ac5f72c9-df2c-4b5d-beea-1762d27dc425\",\r\n  \"serviceUuid\": \"9241fc74-c97f-40e7-aadc-07de3e8a651f\",\r\n  \"associationItems\": [\r\n    \r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{end_point}}/manager/user-subscribe",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"manager",
+						"user-subscribe"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

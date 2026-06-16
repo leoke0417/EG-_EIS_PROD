@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "e1fee303-b908-4212-bc68-e1d843351f5f",
+		"name": "POST /account/v1/users/delete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /account/v1/users/delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_code}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"{{email_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{qa_ioe_account_url}}/account/v1/users/delete",
+					"host": [
+						"{{qa_ioe_account_url}}"
+					],
+					"path": [
+						"account",
+						"v1",
+						"users",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

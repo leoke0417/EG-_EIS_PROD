@@ -1,0 +1,72 @@
+ini								api_ioep_ums.ini
+
+start
+### set Role=Business::Admin
+set								postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=roleName-path,#value#=Business::Admin
+
+### Execute Detach-Roles ------------------
+$cmd$=get						postman2				command						#collection#=IOEP_UMS_usermanagement.json,#folder#=Detach-Roles,#iterations#=1
+exec							postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get				postman					result		
+
+$list_data$=get					postman					read_csv					#filename#=$result_file$
+
+$target_data$=get				postman					find_result					#file#=$list_data$,#testcase#=Detach-Roles
+
+$result$=get					postman					api_result					#api_result#=$target_data$
+
+verify							postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get				api_verification		api_response				#api_result#=$result$
+
+$expected_result$=get			api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE_UMS\11_Del_Detach_Roles.json
+
+
+### set Role=Business::Viewer
+set								postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=roleName-path,#value#=Business::Viewer
+
+### Execute Detach-Roles ------------------
+$cmd$=get						postman2				command						#collection#=IOEP_UMS_usermanagement.json,#folder#=Detach-Roles,#iterations#=1
+exec							postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get				postman					result		
+
+$list_data$=get					postman					read_csv					#filename#=$result_file$
+
+$target_data$=get				postman					find_result					#file#=$list_data$,#testcase#=Detach-Roles
+
+$result$=get					postman					api_result					#api_result#=$target_data$
+
+verify							postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get				api_verification		api_response				#api_result#=$result$
+
+$expected_result$=get			api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE_UMS\11_Del_Detach_Roles.json
+
+
+### set Role=Platform::Viewer
+set								postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=roleName-path,#value#=Platform::Viewer
+
+### Execute Detach-Roles ------------------
+$cmd$=get						postman2				command						#collection#=IOEP_UMS_usermanagement.json,#folder#=Detach-Roles,#iterations#=1
+exec							postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get				postman					result		
+
+$list_data$=get					postman					read_csv					#filename#=$result_file$
+
+$target_data$=get				postman					find_result					#file#=$list_data$,#testcase#=Detach-Roles
+
+$result$=get					postman					api_result					#api_result#=$target_data$
+
+verify							postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get				api_verification		api_response				#api_result#=$result$
+
+$expected_result$=get			api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE_UMS\11_Del_Detach_Roles.json
+
+

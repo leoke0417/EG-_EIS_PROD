@@ -1,0 +1,44 @@
+{
+    "options": [
+        {
+            "label": "Cube-J1",
+            "value": "Cube-J1"
+        },
+        {
+            "label": "Cube-X",
+            "value": "Cube-X"
+        },
+        {
+            "label": "Cube-PLUS",
+            "value": "Cube-PLUS"
+        },
+        {
+            "label": "Cube-J",
+            "value": "Cube-J"
+        },
+        {
+            "label": "Atto-PLUS",
+            "value": "Atto-PLUS"
+        },
+        {
+            "label": "Igw-PLUS",
+            "value": "Igw-PLUS"
+        },
+        {
+            "label": "Cube-ITANGO",
+            "value": "Cube-ITANGO"
+        },
+        {
+            "label": "Atto-PostF",
+            "value": "Atto-PostF"
+        },
+        {
+            "label": "Cube-JIIS",
+            "value": "Cube-JIIS"
+        },
+        {
+            "label": "Cube-JUME",
+            "value": "Cube-JUME"
+        }
+    ]
+}

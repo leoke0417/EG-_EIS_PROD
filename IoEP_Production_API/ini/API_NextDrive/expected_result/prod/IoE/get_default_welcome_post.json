@@ -1,0 +1,18 @@
+{
+    "id": "1",
+    "posts": [
+        {
+            "title": "「知る」から始めよう",
+            "description": "「エネルギーを賢く使う」と聞いて何を思い浮かべますか？\n\nスマートに節電する、ゼロエネルギー、環境負荷の小さいエネルギーを使う、サステイナブルで安心な暮らし。みなさんが思い浮かべたことを、実現させるお手伝いをさせてください。\n\nより多く「知る」ことで、生活や環境の為のより良い選択ができるようになると信じています。\nさあ、私たちと一緒に「エネルギーを賢く使う」生活を始めましょう！",
+            "delayMin": 0,
+            "urls": [],
+            "images": [
+                {
+                    "previewImageUrl": "https://nxd-dev-egplus.s3.ap-northeast-1.amazonaws.com/postImages/f5356e41-2377-4646-bba6-90e86ef996d8-1610012266685-thumbnail.png",
+                    "originalContentUrl": "https://nxd-dev-egplus.s3.ap-northeast-1.amazonaws.com/postImages/f5356e41-2377-4646-bba6-90e86ef996d8-1610012266685.jpeg"
+                }
+            ]
+        }
+    ],
+    "type": "welcome"
+}

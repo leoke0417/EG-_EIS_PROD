@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "28e8eb8b-9a6a-4e94-bc8c-beef1cd00de5",
+		"name": "IoE QA_POST_developer_webhook_user-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "POST_developer_webhook_user_test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"url\": \"https://developers.google.com/speed/public-dns\",\r\n  \"serviceUuid\": \"150388dd-e701-4c91-b4a2-f05d0d4666a1\"\r\n}"
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/developer/webhook/device-data/test",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"developer",
+						"webhook",
+						"device-data",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,57 @@
+{
+    "id": "2",
+    "posts": [
+        {
+            "title": "Ecoちゃんの紹介について",
+            "description": "EcoちゃんはCubeの中に住んでいる妖精であり、活発で、かわいくて、毎日のんきに見えますが、実際はEcoちゃんの心の中で、自然に戻って生活したいという願いを持っています。\nでは、なぜEcoちゃんはCubeに住んでいますか？Ecoちゃんのバックグラウンドについて一緒に見てみましょう！",
+            "delayMin": 0,
+            "urls": [
+                {
+                    "label": "Ecoちゃんの手紙を読みます",
+                    "url": "http://url.nextdrive.io/welcome3"
+                }
+            ],
+            "images": [
+                {
+                    "previewImageUrl": "https://nxd-prod-egplus.s3.ap-northeast-1.amazonaws.com/postImages/1009359c-4422-453c-80a7-4a9efb78f0e4-1611804408226-thumbnail.png",
+                    "originalContentUrl": "https://nxd-prod-egplus.s3.ap-northeast-1.amazonaws.com/postImages/1009359c-4422-453c-80a7-4a9efb78f0e4-1611804408226.png"
+                }
+            ]
+        },
+        {
+            "title": "Cubeをインストールすることが想像より簡単ですよ！",
+            "description": "一辺の長さがわずか5センチメートルのCubeは、世界一小さいゲートウェイです。NextDriveは全ての家庭がゲートウェイのスペースを気にせずに、エネルギーを気軽に生活に溶け込ませることを望んでいます。\nリンクをクリックし、指示に従ってCubeをインストールしましょう。",
+            "delayMin": 0,
+            "urls": [
+                {
+                    "label": "Cubeのインストール方法へ",
+                    "url": "http://url.nextdrive.io/welcome2"
+                }
+            ],
+            "images": [
+                {
+                    "previewImageUrl": "https://nxd-prod-egplus.s3.ap-northeast-1.amazonaws.com/postImages/2f4e3f56-9ba9-49c2-9e74-b322e4a0342c-1611804522830-thumbnail.png",
+                    "originalContentUrl": "https://nxd-prod-egplus.s3.ap-northeast-1.amazonaws.com/postImages/2f4e3f56-9ba9-49c2-9e74-b322e4a0342c-1611804522830.png"
+                }
+            ]
+        },
+        {
+            "title": "新たな省エネライフを過ごしましょう",
+            "description": "皆さんご存知ですか？\nリアルタイムの電気使用通知をもらうだけで、毎月5％～10％の家庭電力消費量を減らせますよ！Ecogenie+はこのような信念をもって作り出したものです。将来ほかの周辺デバイスを連携し、同じアプリでお家のヒト・モノと繋がることもできます。\nEcogenie+のコンセプトを一緒に見ましょう！",
+            "delayMin": 0,
+            "urls": [
+                {
+                    "label": "Ecogenie+のコンセプト動画へ",
+                    "url": "https://youtu.be/OwvQ5QZoIu4"
+                }
+            ],
+            "images": [
+                {
+                    "previewImageUrl": "https://nxd-prod-egplus.s3.ap-northeast-1.amazonaws.com/postImages/4770847b-6aeb-4885-ab0d-5b302d09207c-1611804590671-thumbnail.png",
+                    "originalContentUrl": "https://nxd-prod-egplus.s3.ap-northeast-1.amazonaws.com/postImages/4770847b-6aeb-4885-ab0d-5b302d09207c-1611804590671.png"
+                }
+            ]
+        }
+    ],
+    "type": "welcome"
+}

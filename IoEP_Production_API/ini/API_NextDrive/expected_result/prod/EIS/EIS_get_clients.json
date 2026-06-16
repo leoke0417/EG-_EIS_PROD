@@ -1,0 +1,16 @@
+{
+    "clients": [
+        {
+            "id": "47",
+            "displayId": "C-201027001",
+            "name": "NextDrive KK",
+            "organizationName": "NextDrive",
+            "organizationDisplayId": "O-201027001",
+            "location": "Tokyo",
+            "type": "Buyer",
+            "modifiedDt": "2020-10-27T00:19:01.000Z",
+            "manager": "Andy Liu"
+        }
+    ],
+    "total": 1
+}

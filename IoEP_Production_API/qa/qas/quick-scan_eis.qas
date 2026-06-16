@@ -1,0 +1,8 @@
+quick_scan_eis_pre-setup.qa
+quick_scan_eis_account_management.qa
+quick_scan_eis_gateway_information.qa
+quick_scan_eis_organization.qa
+quick_scan_eis_client.qa
+quick_scan_eis_program.qa
+quick_scan_eis_restore.qa
+quick_scan_eis_upload_result.qa

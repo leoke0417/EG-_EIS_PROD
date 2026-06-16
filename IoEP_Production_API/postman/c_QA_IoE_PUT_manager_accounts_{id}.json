@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "b368dc09-b3be-48d9-af20-0352a5471907",
+		"name": "IoE QA_put_manager_accounts_{id}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "PUT_manager_accounts_{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n  \"role\": \"Admin\",\r\n  \"accessModules\": [\r\n    {\r\n      \"type\": \"Developer\",\r\n      \"activated\": true\r\n    },\r\n    {\r\n      \"type\": \"HEMS\",\r\n      \"activated\": true\r\n    },\r\n {\n      \"type\": \"DER Control\",\n      \"activated\": true\n    }  ],\r\n  \"ioeSuiteActivated\": true\r\n}"
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/manager/accounts/121",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"manager",
+						"accounts",
+						"121"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

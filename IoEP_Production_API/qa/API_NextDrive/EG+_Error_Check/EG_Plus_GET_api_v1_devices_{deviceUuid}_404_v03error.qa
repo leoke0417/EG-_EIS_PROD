@@ -1,0 +1,34 @@
+ini		api_egplus_error.ini
+start
+
+### Read access token from file ------------------------------------------------------
+$get_code$=get							read_access_code		access_token_from_file
+
+### Write access code into e_IoE_Account.json --------------------------------
+$environment$=get						postman					postman_json				#json_name#=e_IoE_Account_error_test.json
+set										postman					postman_access_token		#json_name#=e_IoE_Account_error_test.json,#environment#=$environment$,#access_token#=$get_code$,#target_key#=access_code
+
+### Execute c_ioe_account_PUT_account_v1_users_reset_password.json file ------------------
+$cmd$=get								postman					command						#collection#=c_egplus_GET_api_v1_devices_{deviceUuid}_error40403.json,#environment#=e_IoE_Account_error_test.json,#iterations#=1
+exec									postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=GET_api_v1_devices_{deviceUuid}_error40403
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=404
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$check_target$=get						file_operate			dict_value					#response_body#=$response_body$,#key#=code
+
+verifysame								api_verification		string						#api_response#=$check_target$,#expected_str#=40403
+
+$check_target$=get						file_operate			dict_value					#response_body#=$response_body$,#key#=message
+
+verifysame								api_verification		string						#api_response#=$check_target$,#expected_str#=Device not found.

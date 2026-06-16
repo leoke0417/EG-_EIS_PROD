@@ -1,0 +1,12 @@
+{
+    "options": [
+        {
+            "label": "Buyer",
+            "value": "Buyer"
+        },
+        {
+            "label": "Trial",
+            "value": "Trial"
+        }
+    ]
+}

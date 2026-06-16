@@ -1,0 +1,6 @@
+start
+
+$result$=get						postmancli					command						#collection#=18617983-3f414046-dc67-4d57-986f-d8bbd00d88e4,#environment#=18617983-fa1923db-89b1-4512-8001-6e0bf8a12fec
+
+verify						        postmancli					status_code					#api_result#=$result$
+

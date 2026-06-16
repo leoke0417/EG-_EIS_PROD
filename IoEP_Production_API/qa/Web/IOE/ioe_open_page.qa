@@ -1,0 +1,11 @@
+ini		ioe_data.ini
+
+start
+init	browser					chrome
+
+set		browser.web_main		url						#url#=$ioe_url$
+#click	browser.web_main		button_lang				#xpath#=language_xpath,#lang#=language_text
+verify	browser.web_main		element					#xpath#=username_xpath_value
+sleep	10
+
+end

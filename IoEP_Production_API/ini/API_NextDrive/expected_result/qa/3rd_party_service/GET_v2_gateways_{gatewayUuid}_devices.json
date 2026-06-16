@@ -1,0 +1,70 @@
+{
+    "devices": [
+        {
+            "deviceUuid": "308f897a-3e4d-49b0-9c95-eeb0f771d55a",
+            "model": "PWDBoard",
+            "name": "Power Distribution Board",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "b1eabd70-4f83-4233-9aba-c4fb8aa2ec60",
+            "model": "EVCharger",
+            "name": "EV Charger/Discharger",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "dc4c8b80-3ce4-48fb-b223-8f173407bd53",
+            "model": "StgBattery",
+            "name": "Storage Battery",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "c7785430-05d7-480f-9b94-31d5bc9f0f46",
+            "model": "FuelCell",
+            "name": "Fuel Cell",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "2f3ca7fc-2c26-4858-9ed4-a51dac64cf18",
+            "model": "SolarPW",
+            "name": "PV System",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "b8369d42-0b09-48c8-878a-5d1c1d715aed",
+            "model": "ElecWaterHeater",
+            "name": "Electric Water Heater",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "7468d80a-2f9a-40be-ab26-d7d5b5824f80",
+            "model": "AirCon",
+            "name": "Air Conditioner",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "31b92857-ed59-47b0-b64e-4a6d9616f22b",
+            "model": "Camera",
+            "name": "Camera",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "81b656e8-42bb-430f-a430-6504289901bb",
+            "model": "Pixi-G",
+            "name": "Motion Pixi",
+            "onlineStatus": "online"
+        },
+        {
+            "deviceUuid": "45721425-1941-480a-8a36-c02832b2ad64",
+            "model": "SmartMeter",
+            "name": "Smart Meter",
+            "onlineStatus": "offline"
+        },
+        {
+            "deviceUuid": "bf4eb1f2-a31d-46dc-8cba-d3b608b6aed8",
+            "model": "Pixi-HT",
+            "name": "Thermo Pixi",
+            "onlineStatus": "online"
+        }
+    ]
+}

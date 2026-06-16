@@ -1,0 +1,47 @@
+ini			api_eis.ini
+start
+
+$cmd$=get									postman					command								#collection#=c_QA_EIS_GET_accounts_{id}.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman					command								#command#=$cmd$
+
+$result_file$=get							postman					result
+
+$list_data$=get								postman					read_csv							#filename#=$result_file$
+
+$target_data$=get							postman					find_result							#file#=$list_data$,#testcase#=GET_accounts_{id}
+
+$result$=get								postman					api_result							#api_result#=$target_data$
+
+verify										postman					status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get							api_verification		api_response						#api_result#=$result$
+
+$expected_result$=get						api_verification		expected_result						#environment#=$test_environment$,#expected_result#=EIS\GET_accounts_{id}.json
+
+verify										api_verification		dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+$id$=get									file_operate			dict_value							#key#=id,#response_body#=$response_body$
+
+$name$=get									file_operate			dict_value							#key#=name,#response_body#=$response_body$
+
+$email$=get									file_operate			dict_value							#key#=email,#response_body#=$response_body$
+
+$modifiedDt$=get							file_operate			dict_value							#key#=modifiedDt,#response_body#=$response_body$
+
+$status$=get								file_operate			dict_value							#key#=status,#response_body#=$response_body$
+
+$roles$=get									file_operate			dict_value							#key#=roles,#response_body#=$response_body$
+
+verify										api_verification		int									#actual_result#=$id$
+
+verify										api_verification		string								#actual_result#=$name$
+
+verify										api_verification		string								#actual_result#=$email$
+
+verify										api_verification		string								#actual_result#=$modifiedDt$
+
+verify										api_verification		string								#actual_result#=$status$
+
+verify										api_verification		string								#actual_result#=$roles$
+##===== END =====

@@ -1,0 +1,62 @@
+{
+    "models": [
+        {
+            "id": "142",
+            "name": "HI-20F5"
+        },
+        {
+            "id": "143",
+            "name": "Hi-25F6"
+        }
+    ],
+    "remotes": [
+        {
+            "id": "13",
+            "name": "RC-AR688"
+        },
+        {
+            "id": "37",
+            "name": "RMTS0035A"
+        },
+        {
+            "id": "165",
+            "name": "RMTS0050E",
+            "capability": {
+                "auto": {
+                    "support": false,
+                    "temperatureSetting": false,
+                    "airFlow": false,
+                    "autoAirFlow": false
+                },
+                "cool": {
+                    "support": true,
+                    "temperatureSetting": true,
+                    "airFlow": true,
+                    "autoAirFlow": true
+                },
+                "dry": {
+                    "support": true,
+                    "temperatureSetting": true,
+                    "airFlow": false,
+                    "autoAirFlow": true
+                },
+                "fan": {
+                    "support": false,
+                    "temperatureSetting": false,
+                    "airFlow": false,
+                    "autoAirFlow": false
+                },
+                "heat": {
+                    "support": false,
+                    "temperatureSetting": false,
+                    "airFlow": false,
+                    "autoAirFlow": false
+                }
+            }
+        },
+        {
+            "id": "38",
+            "name": "RMTS0051"
+        }
+    ]
+}

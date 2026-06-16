@@ -1,0 +1,37 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get					postman					command						#collection#=c_QA_IoE_GET_hems_post_{id}_audiences_download.json,#environment#=e_IoE.json,#iterations#=1
+
+exec						postman					command						#command#=$cmd$
+
+$result_file$=get			postman					result		
+
+$list_data$=get				postman					read_csv					#filename#=$result_file$
+
+$target_data$=get			postman					find_result					#file#=$list_data$,#testcase#=GET_hems_post_{id}_audiences_download
+
+$result$=get				postman					api_result					#api_result#=$target_data$
+
+verify						postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get			api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get			api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\GET_hems_post_{id}_audiences_download.csv
+
+$column$=get				file_operate			ioe_audiences_column		#response_body#=$response_body$
+
+$account$=get				file_operate			ioe_audiences_mail			#response_body#=$response_body$
+
+$expected_column$=get		file_operate			ioe_audiences_column		#response_body#=$expected_body$
+
+$expected_account$=get		file_operate			ioe_audiences_mail			#response_body#=$expected_body$
+
+verify						api_verification		string						#actual_result#=$column$
+
+verify						api_verification		email						#actual_result#=$account$
+
+
+
+
+# end

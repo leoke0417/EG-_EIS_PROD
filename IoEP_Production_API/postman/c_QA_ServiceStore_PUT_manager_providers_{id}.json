@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "09fb4790-5c67-4482-9d1d-3aaedb1eeb4b",
+		"name": "c_QA_ServiceStore_PUT_manager_providers_{id}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PUT_manager_providers_{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_manager_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{API_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"NDQA\",\r\n  \"description\": \"This is a test message.\"\r\n}"
+				},
+				"url": {
+					"raw": "{{qa_end_point}}/manager/providers/1",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"manager",
+						"providers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

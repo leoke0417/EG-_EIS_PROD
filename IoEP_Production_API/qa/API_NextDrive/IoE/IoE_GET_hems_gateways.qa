@@ -1,0 +1,51 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_IoE_GET_hems_gateways.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=GET_hems_gateways
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\GET_hems_gateways.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$total$=get								file_operate			dict_value					#key#=total,#response_body#=$response_body$
+
+$id$=get				file_operate			dict_list_dict_value		#first_key#=gateways,#second_key#=id,#response_body#=$response_body$
+
+$pid$=get				file_operate			dict_list_dict_value		#first_key#=gateways,#second_key#=pid,#response_body#=$response_body$
+
+$model$=get				file_operate			dict_list_dict_value		#first_key#=gateways,#second_key#=model,#response_body#=$response_body$
+
+$onlineStatus$=get				file_operate			dict_list_dict_value		#first_key#=gateways,#second_key#=onlineStatus,#response_body#=$response_body$
+
+$stockStatus$=get				file_operate			dict_list_dict_value		#first_key#=gateways,#second_key#=stockStatus,#response_body#=$response_body$
+
+$tags$=get				file_operate			dict_list_dict_list_value		#first_key#=gateways,#second_key#=tags,#response_body#=$response_body$
+
+verify									api_verification		int								#actual_result#=$total$
+
+verify									api_verification		int								#actual_result#=$id$
+
+verify									api_verification		string							#actual_result#=$pid$
+
+verify									api_verification		string							#actual_result#=$model$
+
+verify									api_verification		int							#actual_result#=$onlineStatus$
+
+verify									api_verification		string							#actual_result#=$stockStatus$
+
+verify									api_verification		string							#actual_result#=$tags$
+# end

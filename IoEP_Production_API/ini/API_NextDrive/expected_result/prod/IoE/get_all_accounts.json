@@ -1,0 +1,102 @@
+{
+    "accounts": [
+        {
+            "id": 24,
+            "name": "andy.liu@nextdrive.io",
+            "email": "andy.liu@nextdrive.io",
+            "lastActivityOn": "2021-06-07T02:52:24.672+00:00",
+            "role": "Admin"
+        },
+        {
+            "id": 25,
+            "name": "m.oishi@jp.nextdrive.io",
+            "email": "m.oishi@jp.nextdrive.io",
+            "lastActivityOn": "2021-06-05T01:26:44.798+00:00",
+            "role": "Admin"
+        },
+        {
+            "id": 285,
+            "name": "automan@nextdrive.io",
+            "email": "automan@nextdrive.io",
+            "lastActivityOn": "2021-06-07T07:31:31.780+00:00",
+            "role": "Admin"
+        },
+        {
+            "id": 32,
+            "name": "dustin.lin@nextdrive.io",
+            "email": "dustin.lin@nextdrive.io",
+            "lastActivityOn": "2021-05-24T06:02:31.219+00:00",
+            "role": "User"
+        },
+        {
+            "id": 33,
+            "name": "tim.huang@nextdrive.io",
+            "email": "tim.huang@nextdrive.io",
+            "lastActivityOn": "2020-12-23T11:07:38.315+00:00",
+            "role": "User"
+        },
+        {
+            "id": 26,
+            "name": "shawn.shih@jp.nextdrive.io",
+            "email": "shawn.shih@jp.nextdrive.io",
+            "lastActivityOn": "2021-03-11T08:49:31.381+00:00",
+            "role": "User"
+        },
+        {
+            "id": 27,
+            "name": "k.kato@jp.nextdrive.io",
+            "email": "k.kato@jp.nextdrive.io",
+            "lastActivityOn": "2021-03-29T23:14:11.339+00:00",
+            "role": "User"
+        },
+        {
+            "id": 284,
+            "name": "rebecca.chen@jp.nextdrive.io",
+            "email": "rebecca.chen@jp.nextdrive.io",
+            "lastActivityOn": "2021-05-25T09:19:13.383+00:00",
+            "role": "User"
+        },
+        {
+            "id": 28,
+            "name": "m.konagai@nextdrive.io",
+            "email": "m.konagai@nextdrive.io",
+            "lastActivityOn": "2021-05-28T07:28:16.305+00:00",
+            "role": "User"
+        },
+        {
+            "id": 29,
+            "name": "Rachel Po",
+            "email": "rachel.po@nextdrive.io",
+            "lastActivityOn": "2021-06-04T08:12:42.899+00:00",
+            "role": "User"
+        },
+        {
+            "id": 286,
+            "name": "neo.kang@nextdrive.io",
+            "email": "neo.kang@nextdrive.io",
+            "role": "User"
+        },
+        {
+            "id": 30,
+            "name": "amber.lee@jp.nextdrive.io",
+            "email": "amber.lee@jp.nextdrive.io",
+            "lastActivityOn": "2021-06-07T01:29:18.627+00:00",
+            "role": "User"
+        },
+        {
+            "id": 287,
+            "name": "josie.yang@nextdrive.io",
+            "email": "josie.yang@nextdrive.io",
+            "lastActivityOn": "2021-05-28T04:06:49.776+00:00",
+            "role": "User"
+        },
+        {
+            "id": 31,
+            "name": "ann.fu@nextdrive.io",
+            "email": "ann.fu@nextdrive.io",
+            "lastActivityOn": "2021-05-05T03:26:00.287+00:00",
+            "role": "User"
+        }
+    ],
+    "total": 14
+}

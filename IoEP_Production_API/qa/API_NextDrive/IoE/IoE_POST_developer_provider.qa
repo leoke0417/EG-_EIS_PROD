@@ -1,0 +1,39 @@
+ini				api_ioe.ini
+start
+
+$cmd$=get								postman					command						#collection#=c_QA_IoE_POST_developer_provider.json,#environment#=e_IoE.json,#iterations#=1
+
+exec									postman					command						#command#=$cmd$
+
+$result_file$=get						postman					result		
+
+$list_data$=get							postman					read_csv					#filename#=$result_file$
+
+$target_data$=get						postman					find_result					#file#=$list_data$,#testcase#=POST_developer_provider
+
+$result$=get							postman					api_result					#api_result#=$target_data$
+
+verify									postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification		api_response				#api_result#=$result$
+
+$expected_body$=get						api_verification		expected_result				#environment#=$test_environment$,#expected_result#=IoE\POST_developer_provider.json
+
+verify									api_verification		dict_keys					#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+$id$=get								file_operate			dict_value					#key#=id,#response_body#=$response_body$
+
+$name$=get								file_operate			dict_value					#key#=name,#response_body#=$response_body$
+
+$secret$=get							file_operate			dict_value					#key#=secret,#response_body#=$response_body$
+
+$description$=get						file_operate			dict_value					#key#=description,#response_body#=$response_body$
+
+verify									api_verification		string						#actual_result#=$id$
+
+verify									api_verification		string						#actual_result#=$name$
+
+verify									api_verification		string						#actual_result#=$secret$
+
+verify									api_verification		string						#actual_result#=$description$
+# end

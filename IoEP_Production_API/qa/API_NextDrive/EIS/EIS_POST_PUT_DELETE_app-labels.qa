@@ -1,0 +1,128 @@
+ini								api_eis.ini
+start
+
+$post_cmd$=get					postman				command								#collection#=c_QA_EIS_POST_app-labels.json,#environment#=e_EIS.json,#iterations#=1
+
+exec							postman				command								#command#=$post_cmd$
+
+$post_result_file$=get			postman				result
+
+$post_list_data$=get			postman				read_csv							#filename#=$post_result_file$
+
+$post_target_data$=get			postman				find_result							#file#=$post_list_data$,#testcase#=POST_app-labels
+
+$post_result$=get				postman				api_result							#api_result#=$post_target_data$
+
+verify							postman				status_code							#api_result#=$post_result$,#expected_result#=201
+
+$post_response_body$=get		api_verification	api_response						#api_result#=$post_result$
+
+$post_expected_result$=get		api_verification	expected_result						#environment#=$test_environment$,#expected_result#=EIS/POST_app-labels.json
+
+verify							api_verification	dict_keys							#expected_result#=$post_expected_result$,#actual_result#=$post_response_body$
+
+$post_id$=get					file_operate		dict_value							#key#=id,#response_body#=$post_response_body$
+
+$post_appName$=get				file_operate		dict_value							#key#=appName,#response_body#=$post_response_body$
+
+$post_pkgName$=get				file_operate		dict_value							#key#=pkgName,#response_body#=$post_response_body$
+
+$post_program$=get				file_operate		dict_value							#key#=program,#response_body#=$post_response_body$
+
+$post_createdDt$=get			file_operate		dict_value							#key#=createdDt,#response_body#=$post_response_body$
+
+verify							api_verification	uuid								#actual_result#=$post_id$
+
+verify							api_verification	string								#actual_result#=$post_appName$
+
+verify							api_verification	string								#actual_result#=$post_pkgName$
+
+verify							api_verification	string								#actual_result#=$post_program$
+
+verify							api_verification	time								#actual_result#=$post_createdDt$
+
+
+
+$put_param$=get					api_eis				update_app_labels_url				#app_label_uuid#=$post_id$
+
+$put_content$=get				postman				postman_json						#json_name#=c_QA_EIS_PUT_app-labels.json
+
+$put_final_collection$=get		api_eis				update_app_labels_new_url			#new_param#=$put_param$,#collection_content#=$put_content$
+
+set								postman				postman_json						#json_content#=$put_final_collection$,#json_name#=c_QA_EIS_PUT_app-labels.json
+
+$put_cmd$=get					postman				command								#collection#=c_QA_EIS_PUT_app-labels.json,#environment#=e_EIS.json,#iterations#=1
+
+exec							postman				command								#command#=$put_cmd$
+
+$put_result_file$=get			postman				result
+
+$put_list_data$=get				postman				read_csv							#filename#=$put_result_file$
+
+$put_target_data$=get			postman				find_result							#file#=$put_list_data$,#testcase#=PUT_app-labels
+
+$put_result$=get				postman				api_result							#api_result#=$put_target_data$
+
+verify							postman				status_code							#api_result#=$put_result$,#expected_result#=200
+
+$put_response_body$=get			api_verification	api_response						#api_result#=$put_result$
+
+$put_expected_result$=get		api_verification	expected_result						#environment#=$test_environment$,#expected_result#=EIS/PUT_app-labels.json
+
+verify							api_verification	dict_keys							#expected_result#=$put_expected_result$,#actual_result#=$put_response_body$
+
+$put_id$=get					file_operate		dict_value							#key#=id,#response_body#=$put_response_body$
+
+$put_appName$=get				file_operate		dict_value							#key#=appName,#response_body#=$put_response_body$
+
+$put_pkgName$=get				file_operate		dict_value							#key#=pkgName,#response_body#=$put_response_body$
+
+$put_program$=get				file_operate		dict_value							#key#=program,#response_body#=$put_response_body$
+
+$put_createdDt$=get				file_operate		dict_value							#key#=createdDt,#response_body#=$put_response_body$
+
+verify							api_verification	uuid								#actual_result#=$put_id$
+
+verify							api_verification	string								#actual_result#=$put_appName$
+
+verify							api_verification	string								#actual_result#=$put_pkgName$
+
+verify							api_verification	string								#actual_result#=$put_program$
+
+verify							api_verification	time								#actual_result#=$put_createdDt$
+
+
+
+
+
+$delete_param$=get				api_eis				update_app_labels_url				#app_label_uuid#=$post_id$
+
+$delete_content$=get			postman				postman_json						#json_name#=c_QA_EIS_DELETE_app-labels.json
+
+$delete_final_collection$=get	api_eis				update_app_labels_new_url			#new_param#=$delete_param$,#collection_content#=$delete_content$
+
+set								postman				postman_json						#json_content#=$delete_final_collection$,#json_name#=c_QA_EIS_DELETE_app-labels.json
+
+$delete_cmd$=get				postman				command								#collection#=c_QA_EIS_DELETE_app-labels.json,#environment#=e_EIS.json,#iterations#=1
+
+exec							postman				command								#command#=$delete_cmd$
+
+$delete_result_file$=get		postman				result
+
+$delete_list_data$=get			postman				read_csv							#filename#=$delete_result_file$
+
+$delete_target_data$=get		postman				find_result							#file#=$delete_list_data$,#testcase#=DELETE_app-labels
+
+$delete_result$=get				postman				api_result							#api_result#=$delete_target_data$
+
+verify							postman				status_code							#api_result#=$delete_result$,#expected_result#=200
+
+$delete_response_body$=get		api_verification	api_response						#api_result#=$delete_result$
+
+$delete_expected_result$=get	api_verification	expected_result						#environment#=$test_environment$,#expected_result#=EIS/DELETE_app-labels.json
+
+verify							api_verification	dict_keys							#expected_result#=$delete_expected_result$,#actual_result#=$delete_response_body$
+
+$delete_affected$=get			file_operate		dict_value							#key#=affected,#response_body#=$delete_response_body$
+
+verify							api_verification	int									#actual_result#=$delete_affected$

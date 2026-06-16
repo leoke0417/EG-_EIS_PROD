@@ -1,0 +1,15 @@
+start
+
+init		browser	Chrome
+
+#~set			browser.google	search_new_1				#xpath_id#=google_search,#value#=123
+#set			browser.google	search_new_2				#xpath_id#=google_search,#value#=456
+
+#~click		browser.google	button_submit_1					#xpath_id#=google_click
+#click		browser.google	button_submit_2					#xpath_id#=google_click
+
+#send		browser.google	button_search
+send		browser.google		button_error
+close		browser
+
+end

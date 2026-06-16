@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?>  <testsuite error="0" failures="0" name="rat_cv_as_sap_app_pool_create" tests="1" time="49.0 sec">  <testcase name="rat_cv_as_sap_app_pool_create" result="fail" time="49.0 sec">  <failure message="This case is FAIL!!"/>  </testcase>  </testsuite>

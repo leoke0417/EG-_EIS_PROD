@@ -1,0 +1,29 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+
+$count_wHeater_daytimeHeatingShiftTime1$=get	fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_waterheater_uuid$,#data_scope#=$qa_ElecWaterHeater_daytimeHeatingShiftTime1$,#time_period#=86400
+$count_wHeater_timeToStartHeating$=get			fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_waterheater_uuid$,#data_scope#=$qa_ElecWaterHeater_timeToStartHeating$,#time_period#=86400
+$count_wHeater_waterHeaterStatus$=get			fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_waterheater_uuid$,#data_scope#=$qa_ElecWaterHeater_waterHeaterStatus$,#time_period#=86400
+$count_wHeater_operationStatus$=get				fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_waterheater_uuid$,#data_scope#=$qa_ElecWaterHeater_operationStatus$,#time_period#=86400
+$count_wHeater_waterTemperature$=get			fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_waterheater_uuid$,#data_scope#=$qa_ElecWaterHeater_waterTemperature$,#time_period#=86400
+$count_wHeater_autoWaterHeatingMode$=get		fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_waterheater_uuid$,#data_scope#=$qa_ElecWaterHeater_autoWaterHeatingMode$,#time_period#=86400
+$count_wHeater_participateInEnergyShift$=get	fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_waterheater_uuid$,#data_scope#=$qa_ElecWaterHeater_participateInEnergyShift$,#time_period#=86400
+$count_wHeater_numberOfEnergyShift$=get			fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_waterheater_uuid$,#data_scope#=$qa_ElecWaterHeater_numberOfEnergyShift$,#time_period#=86400
+
+
+
+$fw_version$=get						File					shellcmd				#command#=adb -s $atto_name$ shell getprop ro.build.version.release 
+
+$result$=get							fwapi_data_sanity		wHeater_result		#fw_version#=$fw_version$,#env#=qa,#count_wHeater_daytimeHeatingShiftTime1#=$count_wHeater_daytimeHeatingShiftTime1$,#count_wHeater_timeToStartHeating#=$count_wHeater_timeToStartHeating$,#count_wHeater_waterHeaterStatus#=$count_wHeater_waterHeaterStatus$,#count_wHeater_operationStatus#=$count_wHeater_operationStatus$,#count_wHeater_waterTemperature#=$count_wHeater_waterTemperature$,#count_wHeater_autoWaterHeatingMode#=$count_wHeater_autoWaterHeatingMode$,#count_wHeater_participateInEnergyShift#=$count_wHeater_participateInEnergyShift$,#count_wHeater_numberOfEnergyShift#=$count_wHeater_numberOfEnergyShift$
+
+send									Fb						automan_production		#message#=$result$
+
+
+end
+
+
+end

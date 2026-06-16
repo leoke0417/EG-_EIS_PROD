@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?>  <testsuite error="0" failures="0" name="rat_cv_as_cfi_admin_associate_floating_ip_to_instance" tests="1" time="39.0 sec">  <testcase name="rat_cv_as_cfi_admin_associate_floating_ip_to_instance" result="fail" time="39.0 sec">  <failure message="This case is FAIL!!"/>  </testcase>  </testsuite>

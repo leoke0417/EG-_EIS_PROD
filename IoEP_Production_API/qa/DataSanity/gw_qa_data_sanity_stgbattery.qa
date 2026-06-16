@@ -1,0 +1,13 @@
+##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+
+
+$count_battery$=get		fwapi_data_sanity		ioeapi_device_data		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_stgbattery_uuid$,#data_scope#=$qa_stgbattery_scope$
+verify		fwapi_data_sanity	dev_data_count		#value#=0,#key#=$count_battery$,#criteria#=!
+
+
+end

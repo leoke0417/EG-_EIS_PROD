@@ -1,0 +1,9 @@
+#include		sub.qa
+ini			test.ini
+#init		ie		
+start
+list		Tool		dir
+#verify		Tool		dir		#value#=11,#criteria#=exist
+$test100$=get	Tool		test
+verify		Tool		dir		$test100$1
+end

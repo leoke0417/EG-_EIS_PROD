@@ -1,0 +1,8 @@
+#include		sub.qa
+#init			browser				Chrome
+ini				testfull.ini
+start
+#close			browser
+#verify			Tool				file
+verify			Tool				full		#key#=$full$
+end

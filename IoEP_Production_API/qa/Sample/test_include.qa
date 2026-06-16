@@ -1,0 +1,44 @@
+include		test.sub
+init		browser				Chrome	
+
+start
+
+click			ie.Gmail		login_button
+set				ie.Gmail		login_account		#key#=$my_mail$
+set 			ie.Gmail		login_password		#key#=$password$
+click			ie.Gmail		login     
+
+end
+###############################################################################
+include		test.sub
+init		ie					firefox	
+
+start
+
+click			ie.Gmail		login_button
+set				ie.Gmail		login_account		#key#=$my_mail$
+set 			ie.Gmail		login_password		#key#=$password$
+click			ie.Gmail		login     
+
+end
+###############################################################################
+include		test.sub
+init		ie					ie
+
+start
+
+click			ie.Gmail		login_button
+set				ie.Gmail		login_account		#key#=$my_mail$
+set 			ie.Gmail		login_password		#key#=$password$
+click			ie.Gmail		login     
+
+end
+###############################################################################
+
+
+#click			ie.Gmail		gmail
+#sleep			5
+#click			ie.Gmail		logout_email	
+
+#$logout$=get	ie.Gmail		logout_check
+#verify			Tool			dir					#name#=logout,#value#=True,#key#=$logout$,#criteria#==

@@ -1,0 +1,5 @@
+{
+    "code": 40001,
+    "message": "Invalid parameter: \"appUuid\" must be a valid GUID",
+    "requestId": "e4e10ee4-87f5-4461-bfe8-edcc3fa622b9"
+}

@@ -1,0 +1,30 @@
+ini								api_ioep_ums.ini
+
+start
+
+### Execute c_ioe_account_POST-v1-users-login.json file ------------------
+$cmd$=get						postman2				command						#collection#=IOEP_UMS_usermanagement.json,#folder#=Login,#iterations#=1
+exec							postman					command						#command#=$cmd$
+
+### Get result and check status ----------------------------------------------
+$result_file$=get				postman					result		
+
+$list_data$=get					postman					read_csv					#filename#=$result_file$
+
+$target_data$=get				postman					find_result					#file#=$list_data$,#testcase#=Login
+
+$result$=get					postman					api_result					#api_result#=$target_data$
+
+verify							postman					status_code					#api_result#=$result$,#expected_result#=200
+
+$response_body$=get				api_verification		api_response				#api_result#=$result$
+
+#$expected_result$=get			api_verification		expected_result				#environment#=IOEP_UMS_usermanagement.json,#expected_result#=IoE_UMS\3_Post_Login.json
+
+$accesstoken$=get				postman2				accesstoken					#response_result#=$result$,#token#=accessToken
+$refreshtoken$=get				postman2				accesstoken					#response_result#=$result$,#token#=refreshToken
+
+### Write access token into file ----------------------------------------------
+set								postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=Auth-JWT,#value#=$accesstoken$
+set								postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=Auth-JWT-REFRESH-TOKEN,#value#=$refreshtoken$
+

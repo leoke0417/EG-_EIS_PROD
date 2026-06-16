@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "6b1989d5-fc66-457a-a46c-e38fc6d4b8e7",
+		"name": "QA_IoE_GET_hems_dashboard_gateways_no-owner_atto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "GET_hems_dashboard_gateways_no-owner_atto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/hems/dashboard/gateways/no-owner/atto",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"hems",
+						"dashboard",
+						"gateways",
+						"no-owner",
+						"atto"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

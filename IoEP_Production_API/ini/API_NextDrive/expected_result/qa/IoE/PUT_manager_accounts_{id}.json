@@ -1,0 +1,19 @@
+{
+    "role": "Admin",
+    "accessModules": [
+        {
+            "type": "Developer",
+            "label": "Developer",
+            "activated": true,
+            "lastActivatedOn": "2021-09-24T06:04:20.044+00:00"
+        },
+        {
+            "type": "HEMS",
+            "label": "Ecogenie+",
+            "activated": true,
+            "lastActivatedOn": "2021-09-24T06:04:20.044+00:00"
+        }
+    ],
+    "ioeSuiteActivated": true,
+    "id": 121
+}

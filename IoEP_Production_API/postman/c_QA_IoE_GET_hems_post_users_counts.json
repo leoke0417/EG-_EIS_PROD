@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "5e25478d-ff6c-4e1c-b86b-da84e9e45f11",
+		"name": "QA_IoE_GET_hems_post_users_counts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "GET_hems_post_users_counts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/hems/posts/users/counts?cubeStatus=disconnect%2Cunfinished&attoStatus=disconnect%2Cunfinished",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"hems",
+						"posts",
+						"users",
+						"counts"
+					],
+					"query": [
+						{
+							"key": "cubeStatus",
+							"value": "disconnect%2Cunfinished"
+						},
+						{
+							"key": "attoStatus",
+							"value": "disconnect%2Cunfinished"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

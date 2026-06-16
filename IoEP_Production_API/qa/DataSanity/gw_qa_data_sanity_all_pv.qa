@@ -1,0 +1,14 @@
+ ##check process of system 
+##including file path and process id
+
+ini			fwapi_data_sanity_devices.ini
+
+start
+$count_pv_generatedElectricity$=get		fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_pv_uuid$,#data_scope#=$qa_SolarPW_generatedElectricity$,#time_period#=86400
+$count_pv_instanceElectricity$=get		fwapi_data_sanity		ioeapi_device_data2		#env#=qa,#strDeviceDataPath#=$api_data_query$,#dev_uuid#=$qa_pv_uuid$,#data_scope#=$qa_SolarPW_instanceElectricity$,#time_period#=86400
+$fw_version$=get						File					shellcmd				#command#=adb -s $atto_name$ shell getprop ro.build.version.release 
+
+$result$=get							fwapi_data_sanity		pv_result				#fw_version#=$fw_version$,#env#=qa,#count_pv_generatedElectricity#=$count_pv_generatedElectricity$,#count_pv_instanceElectricity#=$count_pv_instanceElectricity$
+send									Fb						automan_production		#message#=$result$
+
+end

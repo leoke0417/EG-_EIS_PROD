@@ -1,0 +1,7 @@
+#include		sub.qa
+ini			test.ini
+#init		ie		
+start
+verify		Register		value		#key#=HKEY_LOCAL_MACHINE\\SOFTWARE\\Python\\PythonCore\\2.7\\InstallPath,#value#=C:\\Python27\\,#criteria#=exit	
+verify		Register		value		#key#=HKEY_LOCAL_MACHINE\\SOFTWARE\\Python\\PythonCore\\2.7\\test,#value#=0,#criteria#=exit
+end

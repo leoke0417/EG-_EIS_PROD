@@ -1,0 +1,6 @@
+{
+  "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:7777",
+  "scope": "USER_STATUS",
+  "isSuccess": true,
+  "statusCode": 200
+}

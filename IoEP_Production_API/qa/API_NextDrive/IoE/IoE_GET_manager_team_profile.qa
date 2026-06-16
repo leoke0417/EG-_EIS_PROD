@@ -1,0 +1,66 @@
+ini				api_ioe.ini
+start
+
+
+$cmd$=get												postman					command											#collection#=c_QA_IoE_GET_manager_team_profile.json,#environment#=e_IoE.json,#iterations#=1
+										
+exec													postman					command											#command#=$cmd$
+										
+$result_file$=get										postman					result								
+										
+$list_data$=get											postman					read_csv										#filename#=$result_file$
+										
+$target_data$=get										postman					find_result										#file#=$list_data$,#testcase#=GET_manager_team_profile
+										
+$result$=get											postman					api_result										#api_result#=$target_data$
+										
+verify													postman					status_code										#api_result#=$result$,#expected_result#=200
+										
+$response_body$=get										api_verification		api_response									#api_result#=$result$
+										
+$expected_body$=get										api_verification		expected_result									#environment#=$test_environment$,#expected_result#=IoE\GET_manager_team_profile.json
+										
+verify													api_verification		dict_keys										#expected_result#=$expected_body$,#actual_result#=$response_body$
+
+## Get id
+$team_profile_id$=get									file_operate			dict_value										#key#=id,#response_body#=$response_body$
+
+## Get code
+$team_profile_code$=get									file_operate			dict_value										#key#=code,#response_body#=$response_body$
+
+## Get name
+$team_profile_name$=get									file_operate			dict_value										#key#=name,#response_body#=$response_body$
+
+## Get avatar
+$team_profile_avatar$=get								file_operate			dict_value										#key#=avatar,#response_body#=$response_body$
+
+## Get logo
+$team_profile_logo$=get									file_operate			dict_value										#key#=logo,#response_body#=$response_body$
+
+## Get contactUrl > type
+$team_profile_contact_type$=get							file_operate			dict_dict_value									#first_key#=contactUrl,#second_key#=type,#response_body#=$response_body$
+
+## Get contactUrl > link
+$team_profile_contact_link$=get							file_operate			dict_dict_value									#first_key#=contactUrl,#second_key#=link,#response_body#=$response_body$ 
+
+## Verify id
+verify													api_verification		string											#actual_result#=$team_profile_id$
+
+## Verify code
+verify													api_verification		string											#actual_result#=$team_profile_code$
+
+## Verify name
+verify													api_verification		string											#actual_result#=$team_profile_name$
+
+## Verify avatar
+verify													api_verification		url												#actual_result#=$team_profile_avatar$
+
+## Verify logo
+verify													api_verification		url												#actual_result#=$team_profile_logo$
+
+## Verify contactUrl > type
+verify													api_verification		string											#actual_result#=$team_profile_contact_type$
+
+## Verify contactUrl > link
+verify													api_verification		string											#actual_result#=$team_profile_contact_link$
+##===== END =====

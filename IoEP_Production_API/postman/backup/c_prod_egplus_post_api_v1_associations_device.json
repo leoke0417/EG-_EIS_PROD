@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "26bb31a7-8a2b-4be0-9fc5-d8bcda975686",
+		"name": "Device_associations Prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var token = \r",
+							"pm.sendRequest({\r",
+							"    url: 'https://api-eg3.nextdrive.io/api/v1/oauth2/tokens/exchange',\r",
+							"    method:'POST',\r",
+							"    header:{\r",
+							"        'accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(\r",
+							"                            {type: \"cognito\",\r",
+							"                token: \"eyJraWQiOiIrR0Q3TGdLam5cL21ENGZNMFAzYVpyWmNUa2dEXC9HTGxkNnkyOGJ3RjduNnM9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwNDdkYTRiOS03OTBkLTQ5OTctOGVjZS0zYWMyNTI3ODcyNTAiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJvZmlsZSI6Im5leHRkcml2ZSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1ub3J0aGVhc3QtMS5hbWF6b25hd3MuY29tXC9hcC1ub3J0aGVhc3QtMV9kaFRHQ0wxYngiLCJjb2duaXRvOnVzZXJuYW1lIjoiYzZiMDFmMDYtMGM5Zi00YTUxLTkzOTUtZWZhZjI1YzllYmFiIiwibG9jYWxlIjoiemgiLCJhdWQiOiJiNWlyZGduNDJoNTB0MWpnM3RoY2RtMGNpIiwiZXZlbnRfaWQiOiJiM2MzOTM3NC0wOTkxLTQ2ZGItODgxZS05YzM5NzZlMzIyZWEiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTYzMjI4MDYyNSwiZXhwIjoxNjMyMjg0MjI1LCJpYXQiOjE2MzIyODA2MjUsImVtYWlsIjoibGluMDYzMGR1c3RpbkBnbWFpbC5jb20ifQ.HdxKSRwvsLvRKlCwGlibMDD_Hjb-rNKGXdpLZPMCiB7DKZ7Ugp9pGM7yQQ_lk_Culidbq9bxUSInBhd0BVRu0PdPBW1OhDPeCWLB_DLIYc7dwcmIsAdJH9KqLcZaPVGDoT7-HdqDtRU6HpecJnLG0ENq0C4IpXyBSHH-PFA34J8v__lC5XhYyr44_luaBv7qSc0PWOSeDjOueBHOJxVrPfh1KSwjmsUsxzuw0wpSI22RV6iuyyWrHNzRii9Hcbdyn_MsZnzlmcp5yLhh2uTOeqhhOYbY4BoqKsf2bhRExtLVxy023j39GETlcrgidX20EjASAD8oK680UONjw1EEeQ\",\r",
+							"                            appUuid: \"9876543212345678ABCDEFGGFEDCBA\"}\r",
+							"                            )\r",
+							"    }\r",
+							"}, function(err, response){\r",
+							"    const jsonParse = response.json();\r",
+							"    pm.environment.set(\"nd_token\", jsonParse.accessToken)\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                    \"type\": \"cognito\",\r\n                    \"token\": \"{{cognito_token}}\",\r\n                    \"appUuid\": \"9876543212345678ABCDEFGGFEDCBA\"\r\n                }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/oauth2/tokens/exchange",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"oauth2",
+						"tokens",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_api_v1_associations_devices",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Name of device\",\r\n  \"model\": \"Pixi-TH\",\r\n  \"gatewayUuid\": \"bf063eaa-3685-4181-b83d-c9a6b7847a22\",\r\n  \"service\": \"ble\",\r\n  \"attributes\": {\r\n    \"macAddress\": \"24:71:89:01:B3:0D\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "{{prod_end_point}}/api/v1/associations/devices",
+					"host": [
+						"{{prod_end_point}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"associations",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

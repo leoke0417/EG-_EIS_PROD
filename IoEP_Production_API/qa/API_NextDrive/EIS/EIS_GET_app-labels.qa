@@ -1,0 +1,56 @@
+ini			api_eis.ini
+start
+
+$cmd$=get													postman					command												#collection#=c_QA_EIS_GET_app-labels.json,#environment#=e_EIS.json,#iterations#=1
+
+exec														postman					command												#command#=$cmd$
+
+$result_file$=get											postman					result
+
+$list_data$=get												postman					read_csv											#filename#=$result_file$
+
+$target_data$=get											postman					find_result											#file#=$list_data$,#testcase#=GET_app-labels
+
+$result$=get												postman					api_result											#api_result#=$target_data$
+
+verify														postman					status_code											#api_result#=$result$,#expected_result#=200
+
+$response_body$=get											api_verification		api_response										#api_result#=$result$
+
+$expected_result$=get										api_verification		expected_result										#environment#=$test_environment$,#expected_result#=EIS\GET_app-labels.json
+
+verify														api_verification		dict_keys											#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+## Get appLabels > id
+$app_labels_id$=get											file_operate			dict_list_dict_value								#first_key#=appLabels,#second_key#=id,#response_body#=$response_body$
+
+## Get appLabels > appName
+$app_labels_app_name$=get									file_operate			dict_list_dict_value								#first_key#=appLabels,#second_key#=appName,#response_body#=$response_body$
+
+## Get appLabels > pkgName
+$app_labels_pkg_name$=get									file_operate			dict_list_dict_value								#first_key#=appLabels,#second_key#=pkgName,#response_body#=$response_body$
+
+## Get appLabels > program
+$app_labels_program$=get									file_operate			dict_list_dict_value								#first_key#=appLabels,#second_key#=program,#response_body#=$response_body$
+
+## Get appLabels > createdDt
+$app_labels_created_time$=get								file_operate			dict_list_dict_value								#first_key#=appLabels,#second_key#=createdDt,#response_body#=$response_body$
+
+## Get total
+$app_labels_total$=get										file_operate			dict_value											#key#=total,#response_body#=$response_body$
+
+## Verify appLabels > id
+verify														api_verification		uuid												#actual_result#=$app_labels_id$
+
+## Verify appLabels > appName
+verify														api_verification		string												#actual_result#=$app_labels_app_name$
+
+## Verify appLabels > pkgName
+verify														api_verification		string												#actual_result#=$app_labels_pkg_name$
+
+## Verify appLabels > program
+verify														api_verification		string												#actual_result#=$app_labels_program$
+
+## Verify appLabels > createdDt		
+verify														api_verification		time												#actual_result#=$app_labels_created_time$
+##===== END =====

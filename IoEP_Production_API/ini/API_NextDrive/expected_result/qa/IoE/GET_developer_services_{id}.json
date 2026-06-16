@@ -1,0 +1,59 @@
+{
+    "id": "e51a6f4b-ab72-4c7d-a8fd-29b573c7f91e",
+    "name": "TestService_0816_001",
+    "icon": "https://ioe-suite-qa.nextdrive.io/images/3dcee0d8-3912-4ec0-86b5-5556f8165961.jpg",
+    "status": "TEST",
+    "totalUserCount": 0,
+    "activeUserCount": 0,
+    "summary": "This is summary",
+    "description": "This is descriptoion",
+    "publicPolicy": "PUBLIC",
+    "testUsersEmail": [
+        "dustin.lin@nextdrive.io"
+    ],
+    "images": [],
+    "lang": "Japanese",
+    "country": "Japan",
+    "contact": "dustin.lin@nextdrive.io",
+    "faqUrl": "https://www.google.com/",
+    "formUrl": "https://www.google.com/",
+    "isDefaultEnabled": false,
+    "isDefaultSubscribed": false,
+    "apiKeys": [
+        "csXDHVod8NB+PW2NeuDXp1982N4g45zKiVY2jxl"
+    ],
+    "scopes": [
+        {
+            "scope": "DATA",
+            "dataUUID": "69221294-3232-43e8-8f60-e184047d0848",
+            "config": "{\"pollingInterval\":60}"
+        },
+        {
+            "scope": "CONTROL",
+            "dataUUID": "989853f1-91bb-479f-8589-68dbf8874e0f",
+            "config": ""
+        }
+    ],
+    "webhooks": [
+        {
+            "scope": "USER_STATUS",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:7777"
+        },
+        {
+            "scope": "DEVICE_STATUS",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:7777"
+        },
+        {
+            "scope": "DATA_CALLBACK",
+            "url": "http://ec2-13-112-228-148.ap-northeast-1.compute.amazonaws.com:7777"
+        }
+    ],
+    "privacyAndTermsUrl": "https://www.google.com/",
+    "serviceCategory": [
+        "Health"
+    ],
+    "functionCategory": [
+        "Smart Control"
+    ],
+    "updateTime": "2021-08-19T08:06:35.234622Z"
+}

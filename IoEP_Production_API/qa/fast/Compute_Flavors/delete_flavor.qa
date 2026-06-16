@@ -1,0 +1,41 @@
+ini				rat_sv_us_admin.ini
+ini				compute_flavors.ini
+init			ie							Chrome
+
+start
+set				ie.rat_sv_us				textbox_username						#key#=$signin_username$
+set				ie.rat_sv_us				textbox_passwd							#key#=$signin_passwd$
+click			ie.rat_sv_us				button_submit
+sleep			1
+click			ie.cluster_view_control		link_clusterview
+sleep			1
+click			ie.cluster_view_control		link_user_cluster						#key#=$cluster_name$
+sleep			1
+click			ie.cluster_view_control		link_component_flavors
+
+#=========Create Flavor===========
+sleep			1
+click			ie.cluster_flavors			icon_create_flavor
+sleep			1
+set				ie.cluster_flavors			textbox_create_flavor_name				#key#=$new_name$
+set				ie.cluster_flavors			textbox_create_flavor_vcpus				#key#=$vCPUs$
+set				ie.cluster_flavors			textbox_create_flavor_ram				#key#=$RAM$
+set				ie.cluster_flavors			textbox_create_flavor_boot_disk			#key#=$Root Disk$
+set				ie.cluster_flavors			textbox_create_flavor_ephemeral_disk	#key#=$Ephemeral Disk$
+set				ie.cluster_flavors			textbox_create_flavor_swap_disk			#key#=$Swap Disk$
+click			ie.cluster_flavors			button_create_flavor_submit
+sleep			5
+$status$=get	ie.cluster_flavors			status_create_flavor_submit				#key#=$new_name$,#key1#=$vCPUs$,#key2#=$RAM$,#key3#=$Root Disk$
+verify			Tool						dir										#value#=True,#key#=$status$,#criteria#==
+
+#=========Delete Flavor===========
+sleep			1
+click			ie.cluster_view_control		table_flavor_name						#key#=$new_name$
+sleep			1
+click			ie.cluster_flavors			icon_delete_flavor		
+sleep			1
+click			ie.cluster_flavors			button_delete_flavor_submit
+sleep			5
+$status$=get	ie.cluster_flavors			status_delete_flavor_submit				#key#=$new_name$
+verify			Tool						dir										#value#=True,#key#=$status$,#criteria#==
+end

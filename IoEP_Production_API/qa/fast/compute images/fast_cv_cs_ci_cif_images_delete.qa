@@ -1,0 +1,49 @@
+ini		fast_cv_cs_ci.ini
+init	ie		chrome
+start		
+
+#===admin signin===
+set		ie.fast_sv_us		textbox_username	#key#=$signin_username$
+set		ie.fast_sv_us		textbox_passwd		#key#=$signin_passwd$
+click	ie.fast_sv_us		button_submit
+
+#===select cluster===
+click	ie.fast_ap_cp_ia			dropdown_viewtype
+sleep	1
+select	ie.fast_ap_cp_ia			button_clusterview
+sleep	2
+select	ie.fast_ap_cp_ia			cluster				#key#=$cluster_name$
+sleep	2
+
+#===create image===
+select	ie.fast_ap_cp_ia	image_button
+sleep	1
+click	ie.fast_cv_cs_ci	button_creare_images
+sleep	1
+set		ie.fast_cv_cs_ci	textbox_create_image_name		#key#=$create_image_name$
+set		ie.fast_cv_cs_ci	textbox_create_image_description	#key#=$create_image_description$
+select	ie.fast_cv_cs_ci	radiobtn_create_image_source	#key#=$create_image_source_location$
+select	ie.fast_cv_cs_ci	radiobtn_create_image_source	#key#=$create_image_source_file$
+select	ie.fast_cv_cs_ci	button_create_image_file		#key#=$create_image_source_file_path$
+sleep	1
+select	ie.fast_cv_cs_ci	dropdown_image_disk_format		#key#=$create_image_disk_format_qcow2$
+set		ie.fast_cv_cs_ci	textbox_image_min_disk			#key#=$create_image_min_disk$
+set		ie.fast_cv_cs_ci	textbox_image_min_ram			#key#=$create_image_min_ram$
+select	ie.fast_cv_cs_ci	radiobtn_create_image_public	#key#=$create_image_public_false$
+select	ie.fast_cv_cs_ci	radiobtn_create_image_public	#key#=$create_image_public_true$
+click	ie.fast_cv_cs_ci	checkbox_creare_images_protected	#key#=$create_image_protected_true$
+click	ie.fast_cv_cs_ci	button_edit_images_submit
+$image_status$=get		ie.fast_cv_cs_ci	image_status	#key#=$create_image_name$
+verify	ie.fast_cv_cs_ci	image_exist		#name#=image_status,#value#=True,#key#=$image_status$,#criteria#==
+$image_public$=get		ie.fast_cv_cs_ci	image_public	#key#=$create_image_name$
+verify	ie.fast_cv_cs_ci	image_exist		#name#=image_public,#value#=True,#key#=$image_public$,#criteria#==
+
+===delete image===
+click	ie.fast_cv_cs_ci	button_delete_images			#key#=$create_image_name$
+sleep	2
+click	ie.fast_cv_cs_ci	button_delete_images_submit
+sleep	2
+$image_exist$=get		ie.fast_cv_cs_ci	deleted_image	#key#=$create_image_name$
+verify	ie.fast_cv_cs_ci	image_exist		#name#=image_exist,#value#=True,#key#=$image_exist$,#criteria#==
+
+end

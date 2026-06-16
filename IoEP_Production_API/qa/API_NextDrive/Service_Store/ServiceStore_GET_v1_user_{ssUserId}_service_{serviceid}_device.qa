@@ -1,0 +1,71 @@
+ini										service_store.ini
+start
+
+$cmd$=get								postman				command								#collection#=c_Service_Store_GET_v1_user_{ssUserId}_service_{serviceid}_device.json,#environment#=e_Service_Store.json,#iterations#=1
+
+exec									postman				command								#command#=$cmd$
+
+$result_file$=get						postman				result
+
+$list_data$=get							postman				read_csv							#filename#=$result_file$
+
+$target_data$=get						postman				find_result							#file#=$list_data$,#testcase#=GET_v1_user_{ssUserId}_service_{serviceid}_device
+
+$result$=get							postman				api_result							#api_result#=$target_data$
+
+verify									postman				status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get						api_verification	api_response						#api_result#=$result$
+
+$expected_result$=get					api_verification	expected_result						#environment#=$test_environment$,#expected_result#=Service_Store/GET_v1_user_{ssUserId}_service_{serviceid}_device.json
+
+verify									api_verification	dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+
+
+
+$userId$=get							file_operate		dict_value							#key#=userId,#response_body#=$response_body$
+
+$gw_uuid$=get							file_operate		dict_list_dict_dict_value			#first_key#=associations,#second_key#=gateway,#third_key#=uuid,#response_body#=$response_body$
+
+$gw_status$=get							file_operate		dict_list_dict_dict_value			#first_key#=associations,#second_key#=gateway,#third_key#=status,#response_body#=$response_body$
+
+
+
+$devices_uuid$=get							file_operate		dict_list_dict_dict_list_dict_value			#first_key#=associations,#second_key#=gateway,#third_key#=devices,#fourth_key#=uuid,#response_body#=$response_body$
+
+$devices_name$=get							file_operate		dict_list_dict_dict_list_dict_value			#first_key#=associations,#second_key#=gateway,#third_key#=devices,#fourth_key#=name,#response_body#=$response_body$
+
+$devices_model$=get							file_operate		dict_list_dict_dict_list_dict_value			#first_key#=associations,#second_key#=gateway,#third_key#=devices,#fourth_key#=model,#response_body#=$response_body$
+
+$devices_status$=get						file_operate		dict_list_dict_dict_list_dict_value			#first_key#=associations,#second_key#=gateway,#third_key#=devices,#fourth_key#=status,#response_body#=$response_body$
+
+$devices_channelInfo_channelNumber$=get							file_operate		dict_list_dict_dict_list_dict_value_pdb			#first_key#=associations,#second_key#=gateway,#third_key#=devices,#fourth_key#=channelInfo,#fifth_key#=channelNumber,#response_body#=$response_body$
+
+$devices_channelInfo_channelCategory$=get						file_operate		dict_list_dict_dict_list_dict_value_pdb			#first_key#=associations,#second_key#=gateway,#third_key#=devices,#fourth_key#=channelInfo,#fifth_key#=channelCategory,#response_body#=$response_body$
+
+
+
+
+
+
+verify									api_verification	uuid								#actual_result#=$userId$,#response_body#=$response_body$
+
+verify									api_verification	uuid								#actual_result#=$gw_uuid$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$gw_status$,#response_body#=$response_body$
+
+
+verify									api_verification	uuid								#actual_result#=$devices_uuid$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$devices_name$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$devices_model$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$devices_status$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$devices_channelInfo_channelNumber$,#response_body#=$response_body$
+
+verify									api_verification	string								#actual_result#=$devices_channelInfo_channelCategory$,#response_body#=$response_body$
+
+# end

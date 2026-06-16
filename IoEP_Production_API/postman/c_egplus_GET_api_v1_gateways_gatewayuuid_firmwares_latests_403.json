@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "1ca1729c-e074-4394-b21e-039de631a68a",
+		"name": "GET /api/v1/gateways/gatewayuuid/firmwares/latests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /api/v1/gateways/gatewayuuid/firmwares/latests_403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{nd_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ioep_qa_eg+_api_url}}/api/v1/gateways/{{profile_Id}}/firmwares/latests",
+					"host": [
+						"{{ioep_qa_eg+_api_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"gateways",
+						"{{profile_Id}}",
+						"firmwares",
+						"latests"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

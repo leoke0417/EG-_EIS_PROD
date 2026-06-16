@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "4807cb81-f47f-4895-97c3-2e5c990bfd15",
+		"name": "ioe_event_dispatch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18617983"
+	},
+	"item": [
+		{
+			"name": "New Request2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_code}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"event\": \"dailytest\",\r\n  \"type\": \"Kinesis\",\r\n  \"endpoint\": \"arn:aws:kinesis:us-east-1:788313892101:stream/ioe-event-dispatch-consumer-qa\",\r\n  \"credential\": {\r\n    \"accessKeyId\": \"AKIA3PCZLMUC32Y3SCOT\",\r\n    \"secretAccessKey\": \"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\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ioe-api-qa.nextdrive.io/event-dispatch/v1/subscriptions",
+					"protocol": "https",
+					"host": [
+						"ioe-api-qa",
+						"nextdrive",
+						"io"
+					],
+					"path": [
+						"event-dispatch",
+						"v1",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		}
+		
+	]
+}

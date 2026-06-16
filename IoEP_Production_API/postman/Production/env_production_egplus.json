@@ -1,0 +1,21 @@
+{
+	"id": "2f1e631a-4d5b-41f0-8c60-fa873e4ae3ad",
+	"name": "Production",
+	"values": [
+		{
+			"key": "end_point",
+			"value": "https://eg-api-node.nextdrive.io",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "cognito_token",
+			"value": "eyJraWQiOiIrR0Q3TGdLam5cL21ENGZNMFAzYVpyWmNUa2dEXC9HTGxkNnkyOGJ3RjduNnM9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIyNWNiMTI2OS0zMjk0LTQ0ODctYjhmYS1hNTJiZmM4MzM4NjciLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLW5vcnRoZWFzdC0xX2RoVEdDTDFieCIsImNvZ25pdG86dXNlcm5hbWUiOiJjYTcxMzAyNi05YWZiLTQzOWYtOGMyMi0yNGZkYTk0OWJkOWYiLCJsb2NhbGUiOiJlbl9VUyIsImF1ZCI6ImI1aXJkZ240Mmg1MHQxamczdGhjZG0wY2kiLCJldmVudF9pZCI6Ijc2ODYyMjcyLTRmMDMtNGJkMy05NTE1LWYwOTk3YWI2NGU1NSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjg2MjAxNTM3LCJleHAiOjE2ODYyMDUxMzcsImlhdCI6MTY4NjIwMTUzNywiZW1haWwiOiJhdXRvbWFuK2FwaUBuZXh0ZHJpdmUuaW8ifQ.NlAH8xj2-iZNz-PZs34m3HG19wV8ut8ThHaQhzYqEC_6teL07WWtRP1oeJoh4odZ_sGHsufO7LvxwvU-ixCpmPp_eEn7CELhLMBNrNEnWultRCUuP9CVtg7gv0EAaE0QVnryh8utsfbOkIVX_eyxkvf7SbTMsmGA_uJ7x8W96uhDN20cAvMk1CnQQWuwECoPmaTT63BRIza0iGARs4wSCDv5kNQU6mXqAdnuStVVoYwtL7MZh-8w6DKGiBHsW7IF1skTKWyFrwfdPnVo5ah2RIB3HSThfw_caQjuhIhnWjgS2XEWUD_HZnEkp1PqQbtaUuXr4D6TC5vJvgq2fKrSIA",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2023-06-08T05:49:24.959Z",
+	"_postman_exported_using": "Postman/10.14.9"
+}

@@ -1,0 +1,16 @@
+start
+
+#init		browser	app
+init		browser	chrome
+#click		browser.iphone	button_submit
+
+#set		browser.iphone	search_new				#xpath_id#=test_id,#value#=123
+#~click		browser.iphone	button_search			#xpath_id#=test_id
+#take		browser.iphone	screen					#path#=./temp/app.png
+
+#verify		Tool			picture					#path#=./temp/app.png,#source_path#=./pic/test/app1.png,#lessthan#=1
+verify		Tool			picture					#path#=./pic/test/app1.png,#source_path#=./pic/test/app2.png,#lessthan#=11
+
+close		browser
+
+end

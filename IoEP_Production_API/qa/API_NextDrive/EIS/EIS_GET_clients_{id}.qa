@@ -1,0 +1,99 @@
+ini			api_eis.ini
+start
+
+
+$cmd$=get									postman					command								#collection#=c_QA_EIS_GET_clients_{id}.json,#environment#=e_EIS.json,#iterations#=1
+
+exec										postman					command								#command#=$cmd$
+
+$result_file$=get							postman					result
+
+$list_data$=get								postman					read_csv							#filename#=$result_file$
+
+$target_data$=get							postman					find_result							#file#=$list_data$,#testcase#=GET_clients_{id}
+
+$result$=get								postman					api_result							#api_result#=$target_data$
+
+verify										postman					status_code							#api_result#=$result$,#expected_result#=200
+
+$response_body$=get							api_verification		api_response						#api_result#=$result$
+
+$expected_result$=get						api_verification		expected_result						#environment#=$test_environment$,#expected_result#=EIS\GET_clients_{id}.json
+
+verify										api_verification		dict_keys							#expected_result#=$expected_result$,#actual_result#=$response_body$
+
+## Get id
+$client_id_info_id$=get						file_operate			dict_value							#key#=id,#response_body#=$response_body$
+## Get displayId			
+$client_id_info_display_id$=get				file_operate			dict_value							#key#=displayId,#response_body#=$response_body$
+## Get name			
+$client_id_info_name$=get					file_operate			dict_value							#key#=name,#response_body#=$response_body$
+## Get locatio			
+$client_id_info_location$=get				file_operate			dict_value							#key#=location,#response_body#=$response_body$
+## Get type			
+$client_id_info_type$=get					file_operate			dict_value							#key#=type,#response_body#=$response_body$
+## Get modifiedDt			
+$client_id_info_modified_dt$=get			file_operate			dict_value							#key#=modifiedDt,#response_body#=$response_body$
+## Get accountManager > name
+$client_id_info_account_manager_name$=get	file_operate			dict_dict_value						#first_key#=accountManager,#second_key#=name,#response_body#=$response_body$
+## Get accountManager > email				
+$client_id_info_account_manager_email$=get	file_operate			dict_dict_value						#first_key#=accountManager,#second_key#=email,#response_body#=$response_body$
+## Get organization > id				
+$client_id_info_orgs_id$=get				file_operate			dict_dict_value						#first_key#=organization,#second_key#=id,#response_body#=$response_body$
+## Get organization > displayId				
+$client_id_info_orgs_display_id$=get		file_operate			dict_dict_value						#first_key#=organization,#second_key#=displayId,#response_body#=$response_body$
+## Get organization > name				
+$client_id_info_orgs_name$=get				file_operate			dict_dict_value						#first_key#=organization,#second_key#=name,#response_body#=$response_body$
+## Get organization > country				
+$client_id_info_orgs_country$=get			file_operate			dict_dict_value						#first_key#=organization,#second_key#=country,#response_body#=$response_body$
+## Get organization > industry				
+$client_id_info_orgs_industry$=get			file_operate			dict_dict_value						#first_key#=organization,#second_key#=industry,#response_body#=$response_body$
+## Get organization > manager > name
+$client_id_info_orgs_manager_name$=get		file_operate			dict_dict_dict_value				#first_key#=organization,#second_key#=manager,#third_key#=name,#response_body#=$response_body$
+## Get organization > manager > email			
+$client_id_info_orgs_manager_email$=get		file_operate			dict_dict_dict_value				#first_key#=organization,#second_key#=manager,#third_key#=email,#response_body#=$response_body$
+## Get programs > [i] id			
+$client_id_info_progs_id$=get				file_operate			dict_list_dict_value				#first_key#=programs,#second_key#=id,#response_body#=$response_body$
+## Get programs > [i] displayId			
+$client_id_info_progs_display_id$=get		file_operate			dict_list_dict_value				#first_key#=programs,#second_key#=displayId,#response_body#=$response_body$
+## Get programs > [i] title			
+$client_id_info_progs_title$=get			file_operate			dict_list_dict_value				#first_key#=programs,#second_key#=title,#response_body#=$response_body$
+
+## Verify id
+verify										api_verification		int									#actual_result#=$client_id_info_id$
+## Verify displayId				
+verify										api_verification		string								#actual_result#=$client_id_info_display_id$
+## Verify name				
+verify										api_verification		string								#actual_result#=$client_id_info_name$
+## Verify location				
+verify										api_verification		string								#actual_result#=$client_id_info_location$
+## Verify type				
+verify										api_verification		string								#actual_result#=$client_id_info_type$
+## Verify modifiedDt				
+verify										api_verification		time								#actual_result#=$client_id_info_modified_dt$
+## Verify accountManager > name				
+verify										api_verification		string								#actual_result#=$client_id_info_account_manager_name$
+## Verify accountManager > email				
+verify										api_verification		email								#actual_result#=$client_id_info_account_manager_email$
+## Verify organization > id				
+verify										api_verification		uuid								#actual_result#=$client_id_info_orgs_id$
+## Verify organization > displayId				
+verify										api_verification		string								#actual_result#=$client_id_info_orgs_display_id$
+## Verify organization > name				
+verify										api_verification		string								#actual_result#=$client_id_info_orgs_name$
+## Verify organization > country				
+verify										api_verification		string								#actual_result#=$client_id_info_orgs_country$
+## Verify organization > industry				
+verify										api_verification		string								#actual_result#=$client_id_info_orgs_industry$
+## Verify organization > manager > name				
+verify										api_verification		string								#actual_result#=$client_id_info_orgs_manager_name$
+## Verify organization > manager > email				
+verify										api_verification		string								#actual_result#=$client_id_info_orgs_manager_email$
+## Verify programs > [i] id				
+verify										api_verification		uuid								#actual_result#=$client_id_info_progs_id$
+## Verify programs > [i] displayId				
+verify										api_verification		string								#actual_result#=$client_id_info_progs_display_id$
+## Verify programs > [i] title				
+verify										api_verification		string								#actual_result#=$client_id_info_progs_title$
+
+##===== END =====

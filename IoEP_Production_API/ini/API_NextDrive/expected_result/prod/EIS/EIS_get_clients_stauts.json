@@ -1,0 +1,12 @@
+{
+    "options": [
+        {
+            "label": "on",
+            "value": "ENABLED"
+        },
+        {
+            "label": "off",
+            "value": "DISABLED"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+ini								api_ioep_ums.ini
+start
+$newEmail$=get					postman2				email
+### Write variable into file ----------------------------------------------
+set					postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=email,#value#=$newEmail$
+set					postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=password,#value#=Link@4581
+set					postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=proposedPassword,#value#=Link@4581
+set					postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=appUuid,#value#=d8c98d2d-c450-42df-92ff-2086f49d44c8
+set					postman2				collection_variable			#json_name#=IOEP_UMS_usermanagement.json,#target_key#=clientId,#value#=b5irdgn42h50t1jg3thcdm0ci

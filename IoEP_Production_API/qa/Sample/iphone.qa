@@ -1,0 +1,12 @@
+start
+
+init		browser	app
+#include		keypair.sub
+#click		browser.appium	button_submit
+
+#set		browser.appium	search_new				#xpath_id#=test_id,#value#=123
+~click		browser.appium	button_search			#xpath_id#=test_id
+take		browser.appium	screen
+close		browser
+
+end

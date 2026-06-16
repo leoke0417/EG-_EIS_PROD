@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "a91e569a-b901-42be-851f-2184196fc1b3",
+		"name": "QA_IoE_GET_developer_services_{id}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		{
+			"name": "GET_developer_services_{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = JSON.parse(responseBody); \r",
+							"var content = responseBody;\r",
+							"tests[\"Response Body\"+content]= body.length != 0"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{qa_end_point}}/developer/services/{{qa_test_service_uuid}}",
+					"host": [
+						"{{qa_end_point}}"
+					],
+					"path": [
+						"developer",
+						"services",
+						"{{qa_test_service_uuid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

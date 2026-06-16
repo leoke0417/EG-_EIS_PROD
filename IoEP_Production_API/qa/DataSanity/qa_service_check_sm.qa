@@ -1,0 +1,6 @@
+ini								service_check.ini
+start
+
+$post_title_SM$=get				fwapi_data_sanity		db_post					#audience_conditions#=$user_id$,#name#=$service_name_sm$
+verify							fwapi_data_sanity		post_yesterday_title	#value#=$post_title_SM$
+end

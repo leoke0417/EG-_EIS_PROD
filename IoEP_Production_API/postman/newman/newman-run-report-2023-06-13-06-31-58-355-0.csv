@@ -1,0 +1,2 @@
+iteration,collectionName,requestName,method,url,status,code,responseTime,responseSize,executed,failed,skipped,totalAssertions,executedCount,failedCount,skippedCount
+"1","IOEP_UMS_usermanagement","Confirm-signup","POST","https://ioe-api.nextdrive.io/user-management/v1/accounts/confirm-signup","Forbidden","403","1106","159","Response Body{""code"":40306,""message"":""Forbidden: incorrect confirmation code or current user is confirmed, code: 314629"",""requestId"":""2992c3b7-1ed1-4b54-9f93-a38e32ad8b41""}",,,"1","1","0","0"

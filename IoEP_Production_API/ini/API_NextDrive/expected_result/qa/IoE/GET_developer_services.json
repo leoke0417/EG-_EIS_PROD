@@ -1,0 +1,551 @@
+[
+    {
+        "id": "e37c9f72-c6c0-463e-b17b-99afc7fc12d8",
+        "name": "スマートメーターレポート",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 694,
+        "activeUserCount": 17,
+        "updatedTime": "2021-08-31T14:30:46.050374Z",
+        "serviceCategory": [],
+        "functionCategory": []
+    },
+    {
+        "id": "d98aad63-cbfa-46ca-8bac-fb5645c0c3a0",
+        "name": "Neo_Test_Again",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 0,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "",
+        "updatedTime": "2021-08-26T09:25:48.166156Z",
+        "serviceCategory": [],
+        "functionCategory": []
+    },
+    {
+        "id": "f9588787-8277-49be-b56e-3e6caf2981b9",
+        "name": "TestServiceR9B",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 0,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://www.google.com/",
+        "updatedTime": "2021-09-15T08:37:12.751662Z",
+        "serviceCategory": [
+            "Information"
+        ],
+        "functionCategory": [
+            "Others"
+        ]
+    },
+    {
+        "id": "0ec0eb44-80ee-49ba-8126-ca83322c56de",
+        "name": "わたしの電気代",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 1042,
+        "activeUserCount": 197,
+        "updatedTime": "2021-08-31T14:33:04.688942Z",
+        "serviceCategory": [],
+        "functionCategory": []
+    },
+    {
+        "id": "50f22acd-97d2-49bb-9779-22203c494241",
+        "name": "R10A-modbus",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 5,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://swapi.dev",
+        "updatedTime": "2021-12-10T08:34:10.451548Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "127ae7aa-154e-4622-ad01-ab3f0954d05f",
+        "name": "R9BRegTest",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 6,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://www.nextdrive.io/jp/",
+        "updatedTime": "2021-09-30T05:25:19.289968Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "572c60c4-e9fb-4ebb-8659-6ac30c6b9013",
+        "name": "蓄電池AIコントロール-STG",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 6,
+        "activeUserCount": 2,
+        "privacyAndTermsUrl": "https://www.nextdrive.io/storage_battery_ai/",
+        "updatedTime": "2021-12-16T05:46:13.736455Z",
+        "serviceCategory": [
+            "Environment"
+        ],
+        "functionCategory": [
+            "Suggestion"
+        ]
+    },
+    {
+        "id": "24b599e7-4f4e-4e2c-b0e6-be7d5542c823",
+        "name": "r11a-modbus",
+        "status": "TEST",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 0,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://swapi.dev",
+        "updatedTime": "2021-12-10T02:59:24.976368Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "20e8490e-35e0-46c5-bc09-5ab3c04464f1",
+        "name": "蓄電池レポート",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 694,
+        "activeUserCount": 6,
+        "updatedTime": "2021-08-31T14:32:08.657257Z",
+        "serviceCategory": [],
+        "functionCategory": []
+    },
+    {
+        "id": "8cf53291-a26b-4c79-8c98-eb0e59e2ee4c",
+        "name": "Dustin_test_R9B_002",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 3,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://store-api-qa.nextdrive.io/webjars/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/Manager%20api/createContract",
+        "updatedTime": "2021-09-17T10:14:14.485840Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "3562bca6-0d59-4029-aa5f-21b30b2468f2",
+        "name": "Dustin_TSFM_test",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 4,
+        "activeUserCount": 1,
+        "privacyAndTermsUrl": "https://ithelp.ithome.com.tw/articles/10214773",
+        "updatedTime": "2021-11-01T09:44:38.828089Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "0a275ccc-0b36-4d4c-aca8-a1649b12729e",
+        "name": "TestService_R9A",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 3,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://store-api-qa.nextdrive.io/webjars/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/",
+        "updatedTime": "2021-09-16T09:05:26.545029Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "a2f2544d-c38b-416c-b34a-159476467d94",
+        "name": "太陽光発電レポート",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 696,
+        "activeUserCount": 12,
+        "updatedTime": "2021-08-31T14:32:12.605025Z",
+        "serviceCategory": [],
+        "functionCategory": []
+    },
+    {
+        "id": "d62fee99-63d5-4ac4-a003-79eb2336c82d",
+        "name": "Dustin_test_007_r9c",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 6,
+        "activeUserCount": 1,
+        "privacyAndTermsUrl": "https://oakiwitcms.nextdrive.io/runs/479/#",
+        "updatedTime": "2021-09-30T07:09:44.015056Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "2d3419fa-c5c4-41c5-8309-c4ce052499b9",
+        "name": "Modbus-SPM-3",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 1,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://swapi.dev",
+        "updatedTime": "2021-10-19T09:37:03.914008Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "8a1dbff9-d321-4f7d-bf09-89b8a3952c4b",
+        "name": "Neo_Test3",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 7,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://www.google.com",
+        "updatedTime": "2021-09-16T06:02:49.326592Z",
+        "serviceCategory": [],
+        "functionCategory": []
+    },
+    {
+        "id": "a5c44657-0990-4841-b6fe-b817a6268494",
+        "name": "CEMS_TEST",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 0,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://nextdrive.atlassian.net/browse/CEMS-320",
+        "updatedTime": "2021-12-16T03:29:50.695953Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "648329de-8767-4090-b87d-a88567e4f1ac",
+        "name": "Dustin_test_006_r9b2nd",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 3,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://store-api-qa.nextdrive.io/webjars/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/Provider%20api/updateUserService",
+        "updatedTime": "2021-09-27T05:52:39.759176Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "51a035f3-8585-43a5-bbed-997906cffbb7",
+        "name": "Ann_Test_R9B",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 2,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://store-api-qa.nextdrive.io/webjars/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/",
+        "updatedTime": "2021-09-16T10:05:48.650897Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "81d72775-0664-424f-b61c-478ec6111528",
+        "name": "TestService_API",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 7,
+        "activeUserCount": 2,
+        "privacyAndTermsUrl": "https://translate.google.com.tw/?hl=zh-TW",
+        "updatedTime": "2021-09-24T06:49:12.949873Z",
+        "serviceCategory": [
+            "Life",
+            "Environment",
+            "Health"
+        ],
+        "functionCategory": [
+            "Visualization",
+            "Smart Control",
+            "Notification"
+        ]
+    },
+    {
+        "id": "d9dedf6a-6fee-4d4f-abef-fd2ff96d311b",
+        "name": "Dustin_test_003",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 5,
+        "activeUserCount": 2,
+        "privacyAndTermsUrl": "https://store-api-qa.nextdrive.io/webjars/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/",
+        "updatedTime": "2021-09-22T09:09:06.454958Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "adb8282e-11fc-46a8-aeae-9845c8527590",
+        "name": "R9CReg->R10AReg",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 3,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://nextdrive.io",
+        "updatedTime": "2021-10-20T09:47:07.141822Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "f4d0d139-3f10-431b-b910-c57e0cd87038",
+        "name": "家電手帳",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 104,
+        "activeUserCount": 14,
+        "updatedTime": "2021-07-07T03:36:00.461499Z",
+        "serviceCategory": [],
+        "functionCategory": []
+    },
+    {
+        "id": "6f821037-ec71-47ec-b734-61abef0d9c97",
+        "name": "TSFM",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 10,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://ioe-post-qa.nextdrive.io/elec-plan/service-description",
+        "updatedTime": "2021-12-20T09:57:14.416539Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization",
+            "Notification"
+        ]
+    },
+    {
+        "id": "c56a2905-1e3e-4752-bcf8-bb7b692c4dc2",
+        "name": "TesttServicee_R9B",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 3,
+        "activeUserCount": 1,
+        "privacyAndTermsUrl": "https://www.youtube.com/",
+        "updatedTime": "2021-09-16T08:23:26.175861Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "865bd194-bc8a-4d5a-a615-cd6abf8b2a1a",
+        "name": "TestService_001",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 0,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://www.youtube.com/",
+        "updatedTime": "2021-09-07T08:40:52.306223Z",
+        "serviceCategory": [
+            "Life",
+            "Environment",
+            "Health",
+            "Safety"
+        ],
+        "functionCategory": [
+            "Smart Control",
+            "Notification",
+            "Suggestion"
+        ]
+    },
+    {
+        "id": "d928e876-af34-473e-a4e5-bcfa48d29deb",
+        "name": "そらマネ",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 746,
+        "activeUserCount": 5,
+        "updatedTime": "2021-08-31T14:32:47.100450Z",
+        "serviceCategory": [],
+        "functionCategory": []
+    },
+    {
+        "id": "fde85453-0a32-4ebb-b1a2-62984a2bc191",
+        "name": "Dustin_test_005",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 2,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://google.com",
+        "updatedTime": "2021-09-23T09:34:02.313539Z",
+        "serviceCategory": [
+            "Life",
+            "Environment"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "7a0e07fd-69ee-4682-9e19-52d321657c02",
+        "name": "AP-530",
+        "status": "TEST",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 1,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://nextdrive.atlassian.net/browse/AP-530",
+        "updatedTime": "2021-11-09T03:23:39.020083Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "c6bf029f-e9e5-454f-ba3e-045437b754e4",
+        "name": "R10B_chi_Life+在地化",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 2,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://nextdrive.io",
+        "updatedTime": "2021-10-29T06:45:35.319405Z",
+        "serviceCategory": [
+            "Life",
+            "Environment",
+            "Health",
+            "Safety",
+            "Entertainment",
+            "Information"
+        ],
+        "functionCategory": [
+            "Visualization",
+            "Smart Control",
+            "Notification",
+            "Suggestion"
+        ]
+    },
+    {
+        "id": "2774072e-87b6-4cb5-919a-25aa058d8819",
+        "name": "Neo_Test_04",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 0,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "",
+        "updatedTime": "2021-08-27T08:48:31.478515Z",
+        "serviceCategory": [
+            "Environment"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "47010f29-0ecb-43c2-b220-b859de258400",
+        "name": "Dustin_test_004",
+        "status": "LAUNCH",
+        "publicPolicy": "SPECIFIC",
+        "totalUserCount": 1,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://jenkins.nextdrive.io/login?from=%2F",
+        "updatedTime": "2021-11-11T07:30:46.864401Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "e1470489-da79-473a-8c5c-b5320a52d10f",
+        "name": "Neo_Test_2",
+        "status": "LAUNCH",
+        "publicPolicy": "PRIVATE",
+        "totalUserCount": 1,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "http://www.google.com",
+        "updatedTime": "2021-09-03T07:07:25.716765Z",
+        "serviceCategory": [
+            "Life",
+            "Environment",
+            "Health",
+            "Safety",
+            "Entertainment",
+            "Information"
+        ],
+        "functionCategory": [
+            "Visualization",
+            "Smart Control",
+            "Notification",
+            "Suggestion"
+        ]
+    },
+    {
+        "id": "2ece5be9-25c7-4d48-a353-3002e9dd7f5a",
+        "name": "Dustin_testService_R9B",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 2,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://nextdrive.atlassian.net/browse/AP-263",
+        "updatedTime": "2021-09-17T06:05:01.386677Z",
+        "serviceCategory": [
+            "Life"
+        ],
+        "functionCategory": [
+            "Visualization"
+        ]
+    },
+    {
+        "id": "07f31d4c-3f5d-4f11-84e5-05f45149cf14",
+        "name": "R10B_chi_Life+_Others",
+        "status": "LAUNCH",
+        "publicPolicy": "PUBLIC",
+        "totalUserCount": 4,
+        "activeUserCount": 0,
+        "privacyAndTermsUrl": "https://nextdrive.io",
+        "updatedTime": "2021-10-29T08:33:12.422331Z",
+        "serviceCategory": [
+            "Others"
+        ],
+        "functionCategory": [
+            "Others"
+        ]
+    }
+]

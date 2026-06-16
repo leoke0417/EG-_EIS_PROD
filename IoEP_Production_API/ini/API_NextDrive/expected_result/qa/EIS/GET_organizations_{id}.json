@@ -1,0 +1,18 @@
+{
+    "id": "01d7170c-11d8-4592-a114-a8f00bdbadcc",
+    "displayId": "O-200917001",
+    "name": "Olaolaolaola",
+    "country": "JP",
+    "industry": "Electric Company",
+    "manager": {
+        "name": "ann.fu",
+        "email": "ann.fu@nextdrive.io"
+    },
+    "clients": [
+        {
+            "id": "409",
+            "displayId": "C-200917001",
+            "name": "ola_Client"
+        }
+    ]
+}

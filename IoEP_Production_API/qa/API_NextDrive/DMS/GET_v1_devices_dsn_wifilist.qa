@@ -1,0 +1,5 @@
+$devices_dsn_wifi_list_url$=get					dms_api				v1_devices_dsn_wifi_list_url				#environment#=url,#gw_dsn#=online_gw_dsn
+$devices_dsn_wifi_list_header$=get				dms_api				v1_devices_dsn_wifi_list_header				#token#=accesstoken
+$devices_dsn_wifi_list_response$=get			dms_api				get											#url#=$devices_dsn_wifi_list_url$,#header#=$devices_dsn_wifi_list_header$
+$devices_dsn_wifi_list_status_code$=get			dms_api				status_code									#response#=$devices_dsn_wifi_list_response$
+verify											api_verification	status_code									#api_response#=$devices_dsn_wifi_list_status_code$,#expected_status_code#=200

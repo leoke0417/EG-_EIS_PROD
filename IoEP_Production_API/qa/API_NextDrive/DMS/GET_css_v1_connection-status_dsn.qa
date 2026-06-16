@@ -1,0 +1,5 @@
+$connection_status_dsn_url$=get					dms_api				css_v1_connection_status_dsn_url			#environment#=url,#gw_dsn#=online_gw_dsn
+$connection_status_dsn_header$=get				dms_api				css_v1_connection_status_dsn_header			#token#=accesstoken
+$connection_status_dsn_response$=get			dms_api				get											#url#=$connection_status_dsn_url$,#header#=$connection_status_dsn_header$
+$connection_status_dsn_status_code$=get			dms_api				status_code									#response#=$connection_status_dsn_response$
+verify											api_verification	status_code									#api_response#=$connection_status_dsn_status_code$,#expected_status_code#=200
